@@ -15,7 +15,7 @@ select a.* from ldcode a where codetype like '%kindcode%'
 select kindcode,a.* from lmriskapp a where riskcode='1051018'
 --险种支持的保全项
 select a.* from lmriskedoritem a where riskcode='1306001'
-select a.* from lmriskedoritem a where edorcode='NS'
+select a.* from lmriskedoritem a where edorcode='NP'
 --算法表
 select a.* from lmcalmode a where riskcode='1051018'
 --险种支持的销售渠道
@@ -132,7 +132,7 @@ update lobonuspol b set BONUSMAKEDATE=SGETDATE,MAKEDATE=SGETDATE,MODIFYDATE=SGET
 */
 
 select a.* from lcinsureacc a where contno='2019010100002296'
-select a.* from lcinsureacctrace a where contno='2025010100002026' order by paydate,makedate,MAKETIME;
+select a.* from lcinsureacctrace a where contno='2025012000000306' order by paydate,makedate,MAKETIME;
 /*
 update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2025011700000626' and moneytype != 'CXJJ'
 update lcinsureacctrace set makedate=paydate+1,modifydate=paydate+1 where contno='2025011700000626' and moneytype = 'CXJJ'

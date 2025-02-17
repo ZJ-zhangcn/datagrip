@@ -121,7 +121,7 @@ select flag/*0-关闭 1-开通*/,a.* from lpbalancedef a where grpcontno='2024020100
 select bqappno,edoracceptno 受理号,a.* from lpedorapp a where otherno='2024070200001316'
 select a.* from lpedorapp a where edoracceptno='3229315100006307'
 --团险保全表
-select edoracceptno 受理号,edorno 批单号,a.* from lpgrpedoritem a where grpcontno='2024070200001316' order by APPROVEDATE,APPROVETIME
+select a.MAKEDATE,edoracceptno 受理号,edorno 批单号,a.* from lpgrpedoritem a where grpcontno='2025012100000186' order by a.MAKEDATE,a.maketime
 select a.* from lpgrpedoritem a where edoracceptno='3229315100002511'
 select a.* from ldcode a where codetype like '%edorstate%'
 
@@ -136,7 +136,8 @@ select contno,a.* from lpedoritem a where edoracceptno='3229315100002511' order 
 select sum(getmoney) from lpedoritem a where edoracceptno='3229315100002511'
 select a.* from lpedoritem a where insuredno='1060090852'
 select a.* from lpedoritem a where edortype='NI' and edorstate='0' order by makedate;
-select a.* from LISDATA.LJAGETENDORSE a where grpcontno='2025010600000186'
+select a.* from LISDATA.LJAGETENDORSE a where grpcontno='2025010600000186' order by MAKEDATE,MAKETIME
+select a.* from LISDATA.LJAGETENDORSE a where otherno='3229315100006312'
 
 --保单未打印修改printcount为1
 select PrintCount,a.* from LCGrpCont a where grpcontNo = '2025012000000586'

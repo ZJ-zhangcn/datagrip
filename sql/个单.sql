@@ -427,11 +427,11 @@ select a.* from es_doc_main a where DOCCODE='3631815101010427'
 select a.* from LLClaimPolicy a where contno='2016081700000288'
 select a.* from LLClaimPolicy a where caseno='3621415289012259'
 
-select accdate 理赔出险日期,a.* from llcase a where caseno in (select caseno from LLClaimPolicy where contno='2024121100002906')
+select accdate 理赔出险日期,a.* from llcase a where caseno in (select caseno from LLClaimPolicy where contno='2025012000000306')
 
 select a.* from llregister a where rgtno='3621415289012259'
 select endcasedate 理赔结案日期,clmstate,(select CodeName from ldcode where codetype = 'llclaimstate' and code=a.CLMSTATE) 赔案状态,a.* from llregister a
-where rgtno='3631815101000207'
+where rgtno='3631815101010452'
 
 select a.* from ljagetdraw a where otherno='3631815101008667'
 
