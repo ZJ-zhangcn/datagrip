@@ -392,7 +392,7 @@ select a.CONFDATE 保全确认日期,edoracceptno 受理号,a.* from lpedorapp a where ot
 select a.* from ldcode a where codetype = 'edorstate' 
 --个险保全表
 select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
-where contno='2025010100002026' order by modifydate,modifytime,makedate,maketime
+where contno='2025010300000116' order by modifydate,modifytime,makedate,maketime
 select a.* from lpedoritem a where contno='2024101500000506'
 select contno,a.* from lpedoritem a where edoracceptno='7402121100318172'
 select * from lpedoritem a where EDORTYPE='PU' and EdorValiDate between date'2027-07-27' and date'2027-07-28'

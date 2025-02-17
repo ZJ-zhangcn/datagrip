@@ -72,10 +72,10 @@ select f.je_category_name                                                       
         where aserialno = f.attribute1)                                                                     Ëã·¨´úÂë
 from of_interface f
 where --je_category_name = 'XQ_ZT'
-      --lis_contno = '2025010100002026'
-      lis_prtno = '3206915141230013'
+      lis_contno = '2025010300000116'
+--lis_prtno = '3206915141230013'
 --and f.source_batch_id = '00000000000000003895'
 --and accounting_date=date'2025-11-16'
 --f.segment3 = '22210101'
-order by f.je_category_name asc, f.ACCOUNTING_DATE asc, SOURCE_BATCH_ID asc, f.LIS_CONTNO asc, f.SEGMENT1 asc,
+order by f.ACCOUNTING_DATE asc, f.je_category_name asc, SOURCE_BATCH_ID asc, f.LIS_CONTNO asc, f.SEGMENT1 asc,
          f.SEGMENT3 asc, f.SEGMENT4 asc, f.SEGMENT5 asc, f.SEGMENT6 asc, f.ATTRIBUTE15 asc
