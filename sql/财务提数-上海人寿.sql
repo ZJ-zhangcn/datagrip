@@ -72,7 +72,7 @@ select f.je_category_name                                                       
         where aserialno = f.attribute1)                                                                     Ëã·¨´úÂë
 from of_interface f
 where --je_category_name = 'XQ_ZT'
-      lis_contno = '2025010300000116'
+      lis_contno = '2025010100001976'
 --lis_prtno = '3206915141230013'
 --and f.source_batch_id = '00000000000000003895'
 --and accounting_date=date'2025-11-16'
