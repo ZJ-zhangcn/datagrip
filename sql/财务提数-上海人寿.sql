@@ -72,8 +72,8 @@ select f.je_category_name                                                       
         where aserialno = f.attribute1)                                                                     Ëã·¨´úÂë
 from of_interface f
 where --je_category_name = 'XQ_ZT'
-      lis_contno = '2025012000000306'
---lis_prtno = '3206915141230013'
+      lis_contno = '2024082700000186'
+--lis_prtno = '3206915141230037'
 --and f.source_batch_id = '00000000000000003895'
 --and accounting_date=date'2025-11-16'
 --f.segment3 = '22210101'

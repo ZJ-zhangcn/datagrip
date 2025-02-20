@@ -22,7 +22,7 @@ select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and t
 select a.* from TranLog a where TranDate='20231225'
 
 --银保险种
-select a.* from codemapping a where codealias like '%享赢添添安盈版B款%' and COMCODE='SHBC'
+select a.* from codemapping a where codealias like '%盛世鑫利%两全保险' and COMCODE='ICBC'
 select a.* from codemapping a where comcode='BOCM' and codetype='jobcode' and BANK_CODE='1036001'
 select a.* from codemapping a where INSU_CODE='1133004'
 select a.* from codemapping a where BANK_CODE='52000039'

@@ -2,7 +2,7 @@
 --险种表
 select contno,grpcontno,riskcode,cvalidate,paytodate,payenddate,a.* from lcpol a where prtno='3206915141230044'
 select (select codename from ldcode a where codetype='appflag' and code=a.appflag) appflag,grpcontno,contno,prtno,riskcode,signdate,cvalidate,paytodate,enddate,payenddate,payintv,prem,payendyear,insuyear,a.* from lcpol a
-where grpcontno in ('2025010600000186','') and contno='130010002144918'
+where grpcontno in ('2025012000000586','') and contno='130010002144918'
 select appflag,insuredname,polstate,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where grpcontno='2023100100000626'
 --团单总保费
 select sum(prem) from lcpol a where prtno='3206915141230044'
