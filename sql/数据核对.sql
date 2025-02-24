@@ -18,7 +18,7 @@ select a.* from lmriskpay a where riskcode='1016010'
 select a.* from lmriskedoritem a where riskcode='1306001'
 select a.* from lmriskedoritem a where edorcode='NP'
 --算法表
-select a.* from lmcalmode a where riskcode='1311003'
+select a.* from lmcalmode a where riskcode='1311004'
 --险种支持的销售渠道
 select salechnl,a.* from ldriskrule a where riskcode in ('1013004')
 --lcpol
@@ -44,7 +44,7 @@ select contno,
        getstartdate,
        getenddate,LiveGetType,polno,summoney
   from lcget a
- where contno = '2025021300000396';
+ where contno = '2025022400000416';
 
 select a.* from LMDutyGetClm a where getdutycode='IG0526'
 
@@ -62,7 +62,7 @@ select a.* from lcinsured a where name like '%稳赢恒盈被保%'
 select a.* from lcaddress a where customerno='1060095239'
 --短信
 select mobile,a.* from lcaddress a where customerno in (select appntno from lcappnt where contno='2024111800000286')
-select a.* from sms_dispatch_list a where otherno='5000118341230248' and SENDTARGET='17511189991'
+select a.* from sms_dispatch_list a where otherno='5000118341230439' and SENDTARGET='17511189991'
 select a.* from sms_dispatch_list a where SENDTARGET='18255669989' order by makedate desc,maketime desc;
 --打印批处理  电子：000310  纸质：000468
 select a.* from ldtask a where taskdescribe like '%单证一体化%' 
@@ -110,7 +110,7 @@ select a.* from ljapay a where incomeno='2024102200000186'
 select a.* from ljapayperson a where contno='2025021900000356' order by paycount
 --
 select a.* from ljsget a where otherno='2024120500000456' order by getdate desc;
-select a.* from ljsgetdraw a where contno='2025011500000516' order by getdate desc;
+select a.* from ljsgetdraw a where contno='2025022100000576' order by getdate desc;
 select (select 3*amnt from lcpol where contno=a.contno) 满期金,(select 0.085*amnt from lcpol where contno=a.contno) 月领养老金,a.* from ljsgetdraw a where contno='2024060400001486' order by getdate desc;
 
 select sendflag,a.* from ljaget a where otherno='2025021900000356' order by shoulddate desc;
@@ -132,18 +132,24 @@ where otherno='2024081600000116';
 update lobonuspol b set BONUSMAKEDATE=SGETDATE,MAKEDATE=SGETDATE,MODIFYDATE=SGETDATE where contno='2024081600000116';
 */
 
-select a.* from lcinsureacc a where contno='2019010100002296'
-select a.* from lcinsureacctrace a where contno='2025022100000576' order by paydate,makedate,MAKETIME;
+select a.* from lcinsureacc a where contno='2025021300000396'
+select a.* from lcinsureacctrace a where contno='2025021300000396' order by paydate,makedate,MAKETIME;
+select a.* from LCINSUREACCCLASS a where contno='2025021300000396';
 
 select a.* from lpinsureacctrace a where contno='2025010100002026' order by paydate,makedate,MAKETIME;
 /*
-update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2025022100000576' and moneytype != 'CXJJ'
-update lcinsureacctrace set makedate=paydate+1,modifydate=paydate+1 where contno='2025022100000576' and moneytype = 'CXJJ'
+update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2025021300000396' and moneytype != 'CXJJ';
+update lcinsureacctrace set makedate=paydate+1,modifydate=paydate+1 where contno='2025021300000396' and moneytype = 'CXJJ'
 */
-select a.* from lcinsureaccfeetrace a where contno='2024061400002286' order by paydate,makedate,MAKETIME;
+select a.* from LCINSUREACCFEE a where contno='2025021300000396'
+select a.* from lcinsureaccfeetrace a where contno='2025021300000396' order by paydate,makedate,MAKETIME;
+select a.* from LCINSUREACCCLASSFEE a where contno='2025021300000396'
 /*
 update lcinsureaccfeetrace set makedate=paydate,modifydate=paydate where contno='2025011700000626'
 */
+
+--
+select a.* from LOPRTMANAGER a where OTHERNO='2025021300000396'
 
 --万能月结利息计算方式
 select round((power(1+0.03,1/12)-1)*12/365,8)/*将年利率转化为月利率*/*(date'2025-09-25'-date'2025-09-01')*(19315.06-9500-50+0.03) from dual;

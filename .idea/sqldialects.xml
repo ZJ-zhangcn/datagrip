@@ -16,6 +16,7 @@
     <file url="file://$PROJECT_DIR$/sql/保单登记-自理.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/周报.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/团单.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/循环插入月结费率.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/数据核对.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/财务提数-上海人寿.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/银保通.sql" dialect="Oracle" />
