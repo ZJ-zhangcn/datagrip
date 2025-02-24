@@ -1,0 +1,9 @@
+--利息
+Select round((power(1+0.03,1/12)-1)*12/365,8)/*将年利率0.025转化为日利率*/*(date'2025-04-01'-date'2025-03-01')*193139.56/*账户价值*/ from dual;
+
+--风险保费
+SELECT ROUND((201000*1-(SUM(MONEY)+495.28))/1000*0.9/365*(DATE'2025-09-01'-DATE'2025-08-01'), 2) FROM LCINSUREACCTRACE WHERE CONTNO='2025021900000176' AND paydate<=DATE'2025-07-01'
+
+select (201000*1-(SUM(MONEY)+492.84)) from LCINSUREACCTRACE WHERE CONTNO='2025021900000176' AND paydate<=DATE'2025-05-01'
+
+(select sum(sumprem) from lcpol where polno = '210010000407204')

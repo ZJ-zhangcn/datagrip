@@ -8,8 +8,8 @@ select a.* from lccontstate a where contno='2024051100000126'
 --
 select a.* from lcconthangupstate a where contno='2024032500000126'
 --险种配置表
-select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1013004'
-select STARTDATE,a.* from lmriskapp a where riskname like '%浦江财富二号终%'
+select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1311003'
+select STARTDATE,a.* from lmriskapp a where riskname like '%增利宝%'
 --H：健康险  S：重疾险  R：年金险  U：万能险
 select a.* from ldcode a where codetype like '%kindcode%' 
 select kindcode,a.* from lmriskapp a where riskcode='1016010'
@@ -18,7 +18,7 @@ select a.* from lmriskpay a where riskcode='1016010'
 select a.* from lmriskedoritem a where riskcode='1306001'
 select a.* from lmriskedoritem a where edorcode='NP'
 --算法表
-select a.* from lmcalmode a where riskcode='1051018'
+select a.* from lmcalmode a where riskcode='1311003'
 --险种支持的销售渠道
 select salechnl,a.* from ldriskrule a where riskcode in ('1013004')
 --lcpol
@@ -44,7 +44,7 @@ select contno,
        getstartdate,
        getenddate,LiveGetType,polno,summoney
   from lcget a
- where contno = '2025021900000806';
+ where contno = '2025021300000396';
 
 select a.* from LMDutyGetClm a where getdutycode='IG0526'
 
@@ -62,7 +62,7 @@ select a.* from lcinsured a where name like '%稳赢恒盈被保%'
 select a.* from lcaddress a where customerno='1060095239'
 --短信
 select mobile,a.* from lcaddress a where customerno in (select appntno from lcappnt where contno='2024111800000286')
-select a.* from sms_dispatch_list a where otherno='5000118350212024' and SENDTARGET='17511189991'
+select a.* from sms_dispatch_list a where otherno='5000118341230248' and SENDTARGET='17511189991'
 select a.* from sms_dispatch_list a where SENDTARGET='18255669989' order by makedate desc,maketime desc;
 --打印批处理  电子：000310  纸质：000468
 select a.* from ldtask a where taskdescribe like '%单证一体化%' 
@@ -99,7 +99,7 @@ update lcissuepol set REPLYMAN='001',REPLYRESULT='1',state='2',replydate=date'20
 --
 select a.* from ljspay a where otherno='2025050100000486';
 /*
-update ljspay set payform='Y' where otherno='2025050100000486';
+update ljspay set payform='Y' where otherno='2025021300000206';
 */
 select a.* from ljspayperson a where contno='2025021900000586'
 
@@ -133,12 +133,12 @@ update lobonuspol b set BONUSMAKEDATE=SGETDATE,MAKEDATE=SGETDATE,MODIFYDATE=SGET
 */
 
 select a.* from lcinsureacc a where contno='2019010100002296'
-select a.* from lcinsureacctrace a where contno='2025010100002026' order by paydate,makedate,MAKETIME;
+select a.* from lcinsureacctrace a where contno='2025022100000576' order by paydate,makedate,MAKETIME;
 
 select a.* from lpinsureacctrace a where contno='2025010100002026' order by paydate,makedate,MAKETIME;
 /*
-update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2025011700000626' and moneytype != 'CXJJ'
-update lcinsureacctrace set makedate=paydate+1,modifydate=paydate+1 where contno='2025011700000626' and moneytype = 'CXJJ'
+update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2025022100000576' and moneytype != 'CXJJ'
+update lcinsureacctrace set makedate=paydate+1,modifydate=paydate+1 where contno='2025022100000576' and moneytype = 'CXJJ'
 */
 select a.* from lcinsureaccfeetrace a where contno='2024061400002286' order by paydate,makedate,MAKETIME;
 /*
