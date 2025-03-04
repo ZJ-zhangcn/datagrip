@@ -3,7 +3,7 @@ select * from ldcode1 a where a.codetype = 'SaleChnl'
 
 --数据回滚日期
 select makedate,a.* from fiaboriginaldata a order by batchno desc
-select makedate,a.* from fiaboriginaldata a where batchno='00000000000000004110'
+select makedate,a.* from fiaboriginaldata a where batchno='00000000000000004185'
 select stringinfo11,stringinfo14,stringinfo05,a.* from fiaboriginaldata a where batchno='00000000000000004104' and businessno='86310020260320000090' and acquisitionid in ('00001415','');
 
 

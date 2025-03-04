@@ -8,8 +8,11 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-4212-满期终止保单理赔操作优化需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4242-存储续期邮件发送记录需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4466.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4467+REQ-4525守沪菁盛.sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4546-上海人寿福多多年金保险——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4581-银保信医联平台字段删除.sql" dialect="Oracle" />
-    <file url="file://$PROJECT_DIR$/sql/REQ-4641-福多多+增利宝2025——核心系统需求.sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4628-EAST2.0核心系统改造需求-与总账系统对接部分.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4641-福多多+增利宝2025——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" dialect="AZURE" />
     <file url="file://$PROJECT_DIR$/sql/个单.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-清空prip表.sql" dialect="Oracle" />
@@ -17,6 +20,7 @@
     <file url="file://$PROJECT_DIR$/sql/周报.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/团单.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/循环插入月结费率.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/打印.sql" dialect="Sybase" />
     <file url="file://$PROJECT_DIR$/sql/数据核对.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/财务提数-上海人寿.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/银保通.sql" dialect="Oracle" />

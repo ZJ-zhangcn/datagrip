@@ -24,7 +24,7 @@ select a.* from TranLog a where TranDate='20231225'
 --银保险种
 select a.* from codemapping a where codealias like '%盛世鑫利%两全保险' and COMCODE='ICBC'
 select a.* from codemapping a where comcode='BOCM' and codetype='jobcode' and BANK_CODE='1036001'
-select a.* from codemapping a where INSU_CODE='1133004'
+select a.* from codemapping a where INSU_CODE='1013017'
 select a.* from codemapping a where BANK_CODE='52000039'
 
 --银保险种默认领取方式  0-自动转账  1-累积生息  3-转入万能账户

@@ -51,12 +51,12 @@ select a.prem / 1000 * b.endcv - 2040
    and b.dt = 9
 
 --t>PPP£¬Î´Ç·½É±£·Ñ
-select a.prem / 1000 * b.endcv * (date '2034-12-16' - date '2034-12-06') / 365 +
+select a.prem / 1000 * b.endcv * (date '2031-03-10' - date '2031-02-25') / 365 +
        a.prem / 1000 * b.begcv *
-       (1 - (date '2034-12-16' - date '2034-12-06') / 365)
+       (1 - (date '2031-03-10' - date '2031-02-25') / 365)
   from lcpol a, cv_1031012 b
  where a.insuredsex = b.gender
    and a.insuredappage = b.age
    and a.payendyear = b.pt
-   and a.contno = '2024120500000456'
-   and b.dt = 11
+   and a.contno = '2025022400000416' and a.riskcode='1031012'
+   and b.dt = 7
