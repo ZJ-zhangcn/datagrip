@@ -4,7 +4,7 @@ select * from ldcode1 a where a.codetype = 'SaleChnl'
 --数据回滚日期
 select makedate,a.* from fiaboriginaldata a order by batchno desc
 select makedate,a.* from fiaboriginaldata a where batchno='00000000000000004185'
-select stringinfo11,stringinfo14,stringinfo05,a.* from fiaboriginaldata a where batchno='00000000000000004104' and businessno='86310020260320000090' and acquisitionid in ('00001415','');
+select stringinfo11,stringinfo14,stringinfo05,a.* from fiaboriginaldata a where batchno='00000000000000004193' and acquisitionid in ('REQ71811','');
 
 
 --update fiaboriginaldata set stringinfo11='R0300' where batchno='00000000000000004007' and acquisitionid in ('req4116067','');
@@ -43,6 +43,7 @@ select inbankcode,inbankaccno from splitcont a where contno='2024040300000286' f
 
 --科目明细
 select f.je_category_name                                                                                   凭证类型,
+       attribute2,
        f.lis_contno                                                                                         保单号,
        f.lis_prtno                                                                                          投保单号,
        f.accounting_date                                                                                    账务日期,
@@ -72,7 +73,7 @@ select f.je_category_name                                                       
         where aserialno = f.attribute1)                                                                     算法代码
 from of_interface f
 where --je_category_name = 'XQ_ZT'
-      lis_contno = '2024082700000186'
+      lis_contno = '2025030500001066'
 --lis_prtno = '3206915141230037'
 --and f.source_batch_id = '00000000000000003895'
 --and accounting_date=date'2025-11-16'
