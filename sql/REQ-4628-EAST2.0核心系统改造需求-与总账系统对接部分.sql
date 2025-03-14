@@ -5,14 +5,20 @@
 保全付费：7402121100326485
 续期：2026030300000366
 个单理赔：3631815101010435
-团险理赔：3631815101010479
+团险理赔：3631815101010479  2024110400000556
 团险保全定期结算付费:2025022700001186
+团单保全定期结算结算收费:2025022700000356
+团单保全非定期结算付费:3229315100006326
+满期金自动转账：2025030300000586
 */
-
-select SOURCENOTECODE 应,paycode 实,GLVOUCHERNO 凭证号,a.* from LyAtsTranRela a where polno='3631815101010479' order by tranno
-select doc_seq_num,status,a.* from cux_gl_interface a where source_batch_id='00000000000000004207';--doc_seq_num
+select a.* from ljapay a where INCOMENO='2025030500001066' order by payno
+select a.* from ljaget a where otherno='2025030300000586'
+select a.* from ljagetdraw a where contno='2025022400000416' order by getdate
+select a.* from LCINSUREACCTRACE a where contno='2025022400000416' order by paydate,makedate,maketime
+select SOURCENOTECODE 应,paycode 实,GLVOUCHERNO 凭证号,a.* from LyAtsTranRela a where polno='7402121100326772' order by tranno
+select doc_seq_num,status,a.* from cux_gl_interface a where source_batch_id='00000000000000004194';--doc_seq_num
 /*
-update cux_gl_interface set status = 'P',doc_seq_num=source_batch_id where source_batch_id='00000000000000004207'
+update cux_gl_interface set status = 'P',doc_seq_num=source_batch_id where source_batch_id='00000000000000004194'
 */
 
 
@@ -47,7 +53,9 @@ select attribute2,
         from fiaboriginaldata
         where aserialno = f.attribute1)                                                                     算法代码
 from of_interface f
-where lis_contno = '2025030500003586'
+where
+    lis_contno = '2025030500003586'
+    --LIS_PRTNO = '3206915162880172'
 order by f.ACCOUNTING_DATE asc, attribute2, f.je_category_name asc, SOURCE_BATCH_ID asc, f.LIS_CONTNO asc,
          f.SEGMENT1 asc,
          f.SEGMENT3 asc, f.SEGMENT4 asc, f.SEGMENT5 asc, f.SEGMENT6 asc, f.ATTRIBUTE15 asc

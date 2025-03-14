@@ -1,6 +1,6 @@
 DECLARE
     v_start_date DATE := DATE '2015-10-01'; -- 起始日期
-    v_end_date DATE := DATE '2076-02-01'; -- 结束日期
+    v_end_date DATE := DATE '2050-12-01'; -- 结束日期
     v_current_date DATE;
 BEGIN
     v_current_date := v_start_date;
@@ -11,7 +11,7 @@ BEGIN
         INSERT INTO LMINSUACCRATE
         (RISKCODE, INSUACCNO, BALADATE, SRATEDATE, ARATEDATE, RATEINTV, RATE, OPERATOR, MAKEDATE, MAKETIME, RATESTATE, ENDDATE, FISCALYEAR, FLAG, BONUSTYPE, STARTDATE, CVALIDATEFROM, CVALIDATETO)
         VALUES
-        ('1311004', '13110041',
+        ('1303015', '13030151',
          -- BALADATE 和 SRATEDATE 为每月第一天
          TRUNC(v_current_date, 'MM'),
          TRUNC(v_current_date, 'MM'),
@@ -27,5 +27,3 @@ BEGIN
         v_current_date := ADD_MONTHS(v_current_date, 1);
     END LOOP;
 END;
-
-select a.* from LMINSUACCRATE a where RISKCODE='1311004' and INSUACCNO='13110041'

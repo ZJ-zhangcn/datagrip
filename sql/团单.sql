@@ -2,7 +2,7 @@
 --险种表
 select contno,grpcontno,riskcode,cvalidate,paytodate,payenddate,a.* from lcpol a where prtno='3206915141230044'
 select (select codename from ldcode a where codetype='appflag' and code=a.appflag) appflag,grpcontno,contno,prtno,riskcode,signdate,cvalidate,paytodate,enddate,payenddate,payintv,prem,payendyear,insuyear,a.* from lcpol a
-where grpcontno in ('2025012000000586','') and contno='130010002144918'
+where grpcontno in ('2026030300000366','') and contno='130010002144918'
 select appflag,insuredname,polstate,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where grpcontno='2023100100000626'
 --团单总保费
 select sum(prem) from lcpol a where prtno='3206915141230044'
@@ -121,7 +121,7 @@ select flag/*0-关闭 1-开通*/,a.* from lpbalancedef a where grpcontno='2024020100
 select bqappno,edoracceptno 受理号,a.* from lpedorapp a where otherno='2024070200001316'
 select a.* from lpedorapp a where edoracceptno='3229315100006307'
 --团险保全表
-select a.MAKEDATE,edoracceptno 受理号,edorno 批单号,a.* from lpgrpedoritem a where grpcontno='2025012100000186' order by a.MAKEDATE,a.maketime
+select a.MAKEDATE,edoracceptno 受理号,edorno 批单号,a.* from lpgrpedoritem a where grpcontno='2025022700000356' order by a.MAKEDATE,a.maketime
 select a.* from lpgrpedoritem a where edoracceptno='3229315100002511'
 select a.* from ldcode a where codetype like '%edorstate%'
 
@@ -129,7 +129,7 @@ select a.* from lpgrpedoritem a where EDORTYPE='CT' and EDORSTATE='0' and makeda
 
 select a.* from lpgrpedoritem a where EDORTYPE='RP' and EDORSTATE='0'
 --个险保全表
-select a.CONFDATE 保全确认日期,a.* from LPEdorApp a where otherno='2025010600000186'
+select a.CONFDATE 保全确认日期,a.* from LPEdorApp a where otherno='2025022700001186'
 select a.CONFDATE 保全确认日期,a.* from LPEdorApp a where edoracceptno='3229315100000615'
 select edorno 批单号,edoracceptno 受理号,edortype,edorstate,getmoney,getinterest,a.* from lpedoritem a where grpcontno='2025010600000186'
 select contno,a.* from lpedoritem a where edoracceptno='3229315100002511' order by a.contno
@@ -174,3 +174,5 @@ select * from lcgrpcont where '1737365668000'='1737365668000' and  grpcontno = '
 /*
 update lcgrpcont set CUSTOMGETPOLDATE=signdate where grpcontno = '2025012100000186'
 */
+
+select a.* from LLCLAIMPOLICY a where clmno='3631815101010479'

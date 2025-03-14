@@ -13,7 +13,7 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-4581-银保信医联平台字段删除.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4628-EAST2.0核心系统改造需求-与总账系统对接部分.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4641-福多多+增利宝2025——核心系统需求.sql" dialect="Oracle" />
-    <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" dialect="AZURE" />
+    <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/个单.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-清空prip表.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-自理.sql" dialect="Oracle" />
