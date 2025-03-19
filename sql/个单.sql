@@ -1,8 +1,8 @@
 ------------------------------------------------------------------承保相关------------------------------------------------------------------
 --个单险种表
-select appflag,contno,grpcontno,riskcode,signdate,cvalidate,paytodate,payenddate,enddate,a.* from lcpol a where prtno='5000118241230490'
+select appflag,contno,grpcontno,riskcode,signdate,cvalidate,paytodate,payenddate,enddate,a.* from lcpol a where prtno='5000111000018870'
 select appflag,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,(select riskname from lmriskapp where riskcode=a.riskcode) riskname,contno,prtno,polno,riskcode,signdate,cvalidate,payintv,paytodate,payenddate,enddate,amnt,prem,payendyear,insuyear,a.* from lcpol a
-where contno in ('2025030500001066','','','') order by a.contno--2025010700000796
+where contno in ('2025031800000416','','','') order by a.contno--2025010700000796
 select appflag,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where grpcontno='2016120500001488'
 select a.* from lcpol a where (appntname like '%个险投保%' or appntname like '%银保投保%' or appntname like '%海保宝投保%' or appntname like '%经代通投保%') and appflag='1'
 select a.* from lcpol a where riskcode='1053002'
@@ -83,9 +83,9 @@ select a.* from lwmission a where MISSIONID='00000000000000584470'
 /*
 --碎片化
 insert into lwmission (MISSIONID, SUBMISSIONID, PROCESSID, ACTIVITYID, ACTIVITYSTATUS, MISSIONPROP1, MISSIONPROP2, MISSIONPROP3, MISSIONPROP4, MISSIONPROP5, MISSIONPROP6, MISSIONPROP7, MISSIONPROP8, MISSIONPROP9, MISSIONPROP10, MISSIONPROP11, MISSIONPROP12, MISSIONPROP13, MISSIONPROP14, MISSIONPROP15, MISSIONPROP16, MISSIONPROP17, MISSIONPROP18, MISSIONPROP19, MISSIONPROP20, DEFAULTOPERATOR, LASTOPERATOR, CREATEOPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, INDATE, INTIME, OUTDATE, OUTTIME, MISSIONPROP21, MISSIONPROP22, MISSIONPROP23, MISSIONPROP24, MISSIONPROP25, TIMEID, STANDENDDATE, STANDENDTIME, OPERATECOM, MAINMISSIONID)
-values ((select max(missionid)+1 from lwmission where REGEXP_LIKE(missionid, '^\d+$')), '1', '0000000003', '0000001095', '1', '5000118241230483', '2025-02-20', '11:12:58', '2025-02-20', '0', '860101', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '001', '001', '001', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', null, '', '', '', '', '', '', '', null, '', '860101', '00000000000000584470');
+values ((select max(missionid)+1 from lwmission where REGEXP_LIKE(missionid, '^\d+$')), '1', '0000000003', '0000001095', '1', '5000118250314077', '2025-02-20', '11:12:58', '2025-02-20', '0', '860101', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '001', '001', '001', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', null, '', '', '', '', '', '', '', null, '', '860101', '00000000000000584470');
 
-update lwmission set MISSIONID=(select max(missionid)+1 from lwmission where REGEXP_LIKE(missionid, '^\d+$')) where MISSIONPROP1='5000118241230476'
+update lwmission set MISSIONID=(select max(missionid)+1 from lwmission where REGEXP_LIKE(missionid, '^\d+$')) where MISSIONPROP1='5000118250314060'
 */
 
 
@@ -95,7 +95,7 @@ select * from es_doc_def where subtype in ('50013500', '', '')
 select * from es_doc_def where subtypename like '%须知%' 
 
 --单证主表
-select a.* from es_doc_main a where doccode='5000112600018848' ;
+select a.* from es_doc_main a where doccode='5000111000018863' ;
 select a.* from es_doc_main a where subtype='50013500' and managecom like '%8631%'
 select subtype,busstype,makedate,a.* from es_doc_main a where doccode='5000118340230025' and subtype='50001133'
 select subtype,(select codealias from ldcode where code=subtype) 单证名称,busstype,a.* from es_doc_main a where rownum<200 and subtype='50014000'
@@ -112,17 +112,17 @@ values ((select max(DOCID)+1 from es_doc_main), '5000118340626020', 'TB', '50001
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
 values ((select max(DOCID)+1 from es_doc_main), '5000118341230439', 'TB', '50001133', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
 
---风险告知书（进合同）
-insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5000118241230650', 'TB', '50013800', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
-
 ---声明与授权
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5000118241230650', 'TB', '50013400', 1, '1', null, '002', '86010101', null, null, null, null, null, null, null, '14:26:12', to_date('24-01-2024', 'dd-mm-yyyy'), '14:26:12', '1', 'TB2024860100001X', '5000118340230193', 512, 'GXTB', 'WBLR');
+values ((select max(DOCID)+1 from es_doc_main), '5000118350314016', 'TB', '50013400', 1, '1', null, '002', '86010101', null, null, null, null, null, null, null, '14:26:12', to_date('24-01-2024', 'dd-mm-yyyy'), '14:26:12', '1', 'TB2024860100001X', '5000118340230193', 512, 'GXTB', 'WBLR');
+
+--风险告知书（进合同）
+insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
+values ((select max(DOCID)+1 from es_doc_main), '3000117150314016', 'TB', '50013800', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
 
 --投保人身份证明
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5000118241230650', 'TB', '36522151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 101, 'GXTB', 'HXLR');
+values ((select max(DOCID)+1 from es_doc_main), '5000118350314016', 'TB', '36522151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 101, 'GXTB', 'HXLR');
 
 --被保险人身份证明
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
@@ -218,7 +218,7 @@ select a.* from lcaddress a where email='zhangjin05@sinosoft.com.cn'
 select a.* from lcaddress a where customerno='1001734246'
 select a.* from lcaddress a where mobile='17503010001'
 /*
-update lcaddress set email=null where email='zhangjin05@sinosoft.com.cn' and customerno != '1001735552';
+update lcaddress set email=null where email='zhangjin05@sinosoft.com.cn';
 update lcaddress set postaladdress='林校路街道义和庄北路10086号' where postaladdress like '%林校路街道义和庄北路%' and  postaladdress!='林校路街道义和庄北路10086号';
 */
 
@@ -414,11 +414,11 @@ select a.* from ldtask a where taskdescribe like '%贷款%'
 /*
 --
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '3631815101010491', 'LP', '36318151', 20, '1', null, 'chengang', '860101', null, null, null, null, null, null, to_date('04-01-2024', 'dd-mm-yyyy'), '00:00:00', to_date('04-01-2024', 'dd-mm-yyyy'), '00:00:00', '1', 'LP2016860100001X', '3631815101095549', 14, 'LP', null);
+values ((select max(DOCID)+1 from es_doc_main), '3631815101010512', 'LP', '36318151', 20, '1', null, 'chengang', '860101', null, null, null, null, null, null, to_date('04-01-2024', 'dd-mm-yyyy'), '00:00:00', to_date('04-01-2024', 'dd-mm-yyyy'), '00:00:00', '1', 'LP2016860100001X', '3631815101095549', 14, 'LP', null);
 
 --不予立案通知书
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '3631815101010490', 'LP', '36341151', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('19-03-2024', 'dd-mm-yyyy'), '10:50:15', to_date('19-03-2024', 'dd-mm-yyyy'), '10:50:15', '1', 'LP2024860100001X', '3631815101009909', 150, 'LP', null);
+values ((select max(DOCID)+1 from es_doc_main), '3631815101010513', 'LP', '36341151', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('19-03-2024', 'dd-mm-yyyy'), '10:50:15', to_date('19-03-2024', 'dd-mm-yyyy'), '10:50:15', '1', 'LP2024860100001X', '3631815101009909', 150, 'LP', null);
 
 
 */
