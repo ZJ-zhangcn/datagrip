@@ -9,7 +9,7 @@ select a.* from lcpol a where riskcode='1053002'
 
 --个单保单表
 select appflag,conttype,printcount,contno,salechnl,selltype,salecom /*业绩归属渠道*/,salechannels,appntno,payintv,signdate,cvalidate,getpoldate,customgetpoldate,paytodate,a.* from lccont a
-where contno='2025030500003086'
+where contno='2025031800000416'
 /*
 update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno='5000118240902042'
 update lccont set getpoldate=signdate,customgetpoldate=signdate where contno='2025010300000116'

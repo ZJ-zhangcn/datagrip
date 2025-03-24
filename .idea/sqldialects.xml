@@ -25,5 +25,9 @@
     <file url="file://$PROJECT_DIR$/sql/财务提数-上海人寿.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/银保通.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/锁表解锁.sql" dialect="Oracle" />
+    <file url="file://$USER_HOME$/Desktop/上海人寿/zhangjin/sql/个单.sql" dialect="Oracle" />
+    <file url="file://$USER_HOME$/Desktop/上海人寿/zhangjin/sql/数据核对.sql" dialect="Oracle" />
+    <file url="file://$USER_HOME$/Desktop/上海人寿/zhangjin/sql/红利.txt" dialect="Oracle" />
+    <file url="file://$USER_HOME$/Desktop/上海人寿/zhangjin/sql/财务提数-上海人寿.sql" dialect="Oracle" />
   </component>
 </project>
