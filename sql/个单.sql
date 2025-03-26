@@ -1,15 +1,15 @@
 ------------------------------------------------------------------承保相关------------------------------------------------------------------
 --个单险种表
 select appflag,contno,grpcontno,riskcode,signdate,cvalidate,paytodate,payenddate,enddate,a.* from lcpol a where prtno='5000111000018870'
-select appflag,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,(select riskname from lmriskapp where riskcode=a.riskcode) riskname,contno,prtno,polno,riskcode,signdate,cvalidate,payintv,paytodate,payenddate,enddate,amnt,prem,payendyear,insuyear,a.* from lcpol a
-where contno in ('2025031800000416','','','') order by a.contno--2025010700000796
+select LEAVINGMONEY,appflag,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,(select riskname from lmriskapp where riskcode=a.riskcode) riskname,contno,prtno,polno,riskcode,signdate,cvalidate,payintv,paytodate,payenddate,enddate,amnt,prem,payendyear,insuyear,a.* from lcpol a
+where contno in ('2024092500000106','','','') order by a.contno--2025010700000796
 select appflag,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where grpcontno='2016120500001488'
 select a.* from lcpol a where (appntname like '%个险投保%' or appntname like '%银保投保%' or appntname like '%海保宝投保%' or appntname like '%经代通投保%') and appflag='1'
 select a.* from lcpol a where riskcode='1053002'
 
 --个单保单表
 select appflag,conttype,printcount,contno,salechnl,selltype,salecom /*业绩归属渠道*/,salechannels,appntno,payintv,signdate,cvalidate,getpoldate,customgetpoldate,paytodate,a.* from lccont a
-where contno='2025031800000416'
+where contno='5000118250314121'
 /*
 update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno='5000118240902042'
 update lccont set getpoldate=signdate,customgetpoldate=signdate where contno='2025010300000116'
@@ -122,7 +122,7 @@ values ((select max(DOCID)+1 from es_doc_main), '3000117150314016', 'TB', '50013
 
 --投保人身份证明
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5000118350314016', 'TB', '36522151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 101, 'GXTB', 'HXLR');
+values ((select max(DOCID)+1 from es_doc_main), '5000118250314121', 'TB', '36522151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 101, 'GXTB', 'HXLR');
 
 --被保险人身份证明
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
@@ -391,15 +391,15 @@ select a.CONFDATE 保全确认日期,edoracceptno 受理号,a.* from lpedorapp a where ot
 --个险保全状态
 select a.* from ldcode a where codetype = 'edorstate' 
 --个险保全表
-select a.* from lpedoritem a where contno='2025030500003586'
+select a.* from lpedoritem a where contno='2025032600000786'
 select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
-where contno='2025031000001586' order by makedate,maketime,modifydate,modifytime
+where contno='2025032600000786' order by makedate,maketime,modifydate,modifytime
 select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
-where edoracceptno='7402121100326728'
+where edoracceptno='7402121100327117'
 select * from lpedoritem a where EDORTYPE='PU' and EdorValiDate between date'2027-07-27' and date'2027-07-28'
 select a.* from LJAGetEndorse a where endorsementno in (select edorno from lpedoritem a where EDORTYPE='RA' and EdorValiDate between date'2027-07-28' and date'2027-07-28')
 select enteraccdate,a.* from LJAGetEndorse a where contno='2024110400000786' order by modifydate,modifytime,makedate,maketime
-select enteraccdate,a.* from LJAGetEndorse a where otherno/*批单号*/='3623915100345322' order by modifydate,modifytime,makedate,maketime
+select enteraccdate,a.* from LJAGetEndorse a where otherno/*批单号*/='3623915100345753' order by modifydate,modifytime,makedate,maketime
 
 select a.* from lpedoritem a where EDORTYPE='CT' and EDORSTATE='0' and makedate between date'2024-01-01' and date'2024-12-31'
 --不可续贷险种配置
