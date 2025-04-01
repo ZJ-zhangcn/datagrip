@@ -1,11 +1,11 @@
 ------------------------------------------------------------------承保相关------------------------------------------------------------------
 --险种表
-select contno,grpcontno,riskcode,cvalidate,paytodate,payenddate,a.* from lcpol a where prtno='3206915141230044'
+select contno,grpcontno,riskcode,cvalidate,paytodate,payenddate,a.* from lcpol a where prtno='3206915150314027'
 select (select codename from ldcode a where codetype='appflag' and code=a.appflag) appflag,grpcontno,contno,prtno,riskcode,signdate,cvalidate,paytodate,enddate,payenddate,payintv,prem,payendyear,insuyear,a.* from lcpol a
 where grpcontno in ('2026030300000366','') and contno='130010002144918'
 select appflag,insuredname,polstate,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where grpcontno='2023100100000626'
 --团单总保费
-select sum(prem) from lcpol a where prtno='3206915141230044'
+select sum(prem) from lcpol a where prtno='3206915150314027'
 select sum(sumprem),sum(amnt) from lcpol a where grpcontno='2023110900001556' and appflag='1'
 --团单总保额
 select sum(amnt) from lcpol a where prtno='3206915140620035'
@@ -48,7 +48,7 @@ values ('1001735571', '上海市黄浦区林校路街道义和庄北路1号', '经营范围', '12345'
 select prem,standprem,a.* from lcpol a where prtno='3206915131128010'
 /*
 --趸交
-update lcpol set standprem=prem where prtno='3206915141016017'
+update lcpol set standprem=prem where prtno='3206915150314027'
 --月交
 update lcpol set standprem=(prem*12) where prtno='3206915141230013'
 */
@@ -121,7 +121,7 @@ select flag/*0-关闭 1-开通*/,a.* from lpbalancedef a where grpcontno='2024020100
 select bqappno,edoracceptno 受理号,a.* from lpedorapp a where otherno='2024070200001316'
 select a.* from lpedorapp a where edoracceptno='3229315100006307'
 --团险保全表
-select a.MAKEDATE,edoracceptno 受理号,edorno 批单号,a.* from lpgrpedoritem a where grpcontno='2025022700000356' order by a.MAKEDATE,a.maketime
+select a.MAKEDATE,edoracceptno 受理号,edorno 批单号,a.* from lpgrpedoritem a where grpcontno='2025032600004096' order by a.MAKEDATE,a.maketime
 select a.* from lpgrpedoritem a where edoracceptno='3229315100002511'
 select a.* from ldcode a where codetype like '%edorstate%'
 
@@ -140,7 +140,7 @@ select a.* from LISDATA.LJAGETENDORSE a where grpcontno='2025010600000186' order
 select a.* from LISDATA.LJAGETENDORSE a where otherno='3229315100006312'
 
 --保单未打印修改printcount为1
-select PrintCount,a.* from LCGrpCont a where grpcontNo = '2025012000000586'
+select PrintCount,a.* from LCGrpCont a where grpcontNo = '2025032600004096'
 /*
 update LCGrpCont set PrintCount='1' where grpcontNo = '2025012100000186'
 */
@@ -153,7 +153,7 @@ insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, d
 values ((select max(DOCID)+1 from es_doc_main), '3229315100002511', 'BQ', '32293151', 1, '1', null, '001', '86', null, null, null, null, null, null, to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', '1', 'TB201586330014', '3229315100005698', 1, null, null);
 
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5005190141230119', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
+values ((select max(DOCID)+1 from es_doc_main), '5005190150314031', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
 
 */
 

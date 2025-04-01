@@ -1,6 +1,6 @@
 /*
-update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno='5000111000018866'
-update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('2025032600000786','','')
+update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno='5000118250314176'
+update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('2025032800012176','','')
 update lccont set getpoldate=null,customgetpoldate=null where contno in ('2024060600000226','','','')
 */
 --
@@ -8,8 +8,8 @@ select a.* from lccontstate a where contno='2024051100000126'
 --
 select a.* from lcconthangupstate a where contno='2024032500000126'
 --险种配置表
-select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1103005'
-select STARTDATE,a.* from lmriskapp a where riskname like '%臻鑫传家C%'
+select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1033029'
+select STARTDATE,a.* from lmriskapp a where riskname like '%享赢添添%'
 select * from LMRiskParamsDef  where riskcode='1036004' order by length(ParamsCode),ParamsCode ASC
 --H：健康险  S：重疾险  R：年金险  U：万能险
 select a.* from ldcode a where codetype like '%kindcode%' 
@@ -21,10 +21,10 @@ select a.* from lmriskedoritem a where edorcode='NP'
 --算法表
 select a.* from lmcalmode a where riskcode='1033033'
 --险种支持的销售渠道
-select salechnl,a.* from ldriskrule a where riskcode in ('1013017')
+select salechnl,a.* from ldriskrule a where riskcode in ('1033029')
 --lcpol
-select contno from lcpol where prtno='5000111000018866'
-select appflag,contno,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,riskcode,kindcode,insuredsex,insuredappage,paytodate,cvalidate,enddate,payintv,payendyear,payendyearflag,insuyear,insuyearflag,prem,amnt from lcpol a 
+select contno from lcpol where prtno='5000118250314176'
+select appflag,contno,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,riskcode,kindcode,insuredsex,insuredappage,paytodate,cvalidate,enddate,payintv,payendyear,payendyearflag,insuyear,insuyearflag,prem,amnt from lcpol a
 where contno='2025031800000286';
 --lccont
 select appflag,contno,salechnl,selltype,salecom,salechannels,appntsex,appntbirthday,signdate,firstpaydate,cvalidate,customgetpoldate,payintv,paymode,printcount,prem,amnt,sumprem from lccont a 
@@ -45,7 +45,7 @@ select contno,
        getstartdate,
        getenddate,LiveGetType,polno,summoney
   from lcget a
- where contno = '2025031800001386';
+ where contno = '2025032800011576';
 
 select a.* from LMDutyGetClm a where getdutycode='IG0526'
 
@@ -111,7 +111,7 @@ select a.* from ljapay a where incomeno='2024102200000186'
 select a.* from ljapayperson a where contno='2025032100000786' order by paycount
 --
 select a.* from ljsget a where otherno='2025031800001476' order by getdate desc;
-select a.* from ljsgetdraw a where contno='2025031800001476' order by getdate ;
+select a.* from ljsgetdraw a where contno='2025032800011576' order by getdate ;
 select (select 3*amnt from lcpol where contno=a.contno) 满期金,(select 0.085*amnt from lcpol where contno=a.contno) 月领养老金,a.* from ljsgetdraw a where contno='2024060400001486' order by getdate desc;
 
 select sendflag,a.* from ljaget a where otherno='2025021900000356' order by shoulddate desc;
@@ -134,7 +134,7 @@ update lobonuspol b set BONUSMAKEDATE=SGETDATE,MAKEDATE=SGETDATE,MODIFYDATE=SGET
 */
 
 select a.* from lcinsureacc a where contno='2025032600000786'
-select a.* from lcinsureacctrace a where contno='2025032600000786' order by paydate,makedate,MAKETIME;
+select a.* from lcinsureacctrace a where contno='2025032700000286' order by paydate,makedate,MAKETIME;
 select a.* from LCINSUREACCCLASS a where contno='2025031000001496';
 
 select a.* from lpinsureacctrace a where contno='2025010100002026' order by paydate,makedate,MAKETIME;
