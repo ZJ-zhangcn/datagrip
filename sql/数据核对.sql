@@ -1,6 +1,6 @@
 /*
 update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno='5000118250314176'
-update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('2025032800012176','','')
+update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('2025040100000186','','')
 update lccont set getpoldate=null,customgetpoldate=null where contno in ('2024060600000226','','','')
 */
 --
@@ -8,7 +8,7 @@ select a.* from lccontstate a where contno='2024051100000126'
 --
 select a.* from lcconthangupstate a where contno='2024032500000126'
 --险种配置表
-select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1033029'
+select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1103005'
 select STARTDATE,a.* from lmriskapp a where riskname like '%享赢添添%'
 select * from LMRiskParamsDef  where riskcode='1036004' order by length(ParamsCode),ParamsCode ASC
 --H：健康险  S：重疾险  R：年金险  U：万能险
@@ -19,9 +19,9 @@ select a.* from lmriskpay a where riskcode='1016010'
 select a.* from lmriskedoritem a where riskcode='1306001'
 select a.* from lmriskedoritem a where edorcode='NP'
 --算法表
-select a.* from lmcalmode a where riskcode='1033033'
+select a.* from lmcalmode a where riskcode='1051019'
 --险种支持的销售渠道
-select salechnl,a.* from ldriskrule a where riskcode in ('1033029')
+select salechnl,a.* from ldriskrule a where riskcode in ('1051018')
 --lcpol
 select contno from lcpol where prtno='5000118250314176'
 select appflag,contno,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,riskcode,kindcode,insuredsex,insuredappage,paytodate,cvalidate,enddate,payintv,payendyear,payendyearflag,insuyear,insuyearflag,prem,amnt from lcpol a
@@ -45,7 +45,7 @@ select contno,
        getstartdate,
        getenddate,LiveGetType,polno,summoney
   from lcget a
- where contno = '2025032800011576';
+ where contno = '2025040100000186';
 
 select a.* from LMDutyGetClm a where getdutycode='IG0526'
 
@@ -63,7 +63,7 @@ select a.* from lcinsured a where name like '%稳赢恒盈被保%'
 select a.* from lcaddress a where customerno='1060095239'
 --短信
 select mobile,a.* from lcaddress a where customerno in (select appntno from lcappnt where contno='2024111800000286')
-select a.* from sms_dispatch_list a where otherno='5000118241230520' and SENDTARGET='17511189991'
+select a.* from sms_dispatch_list a where otherno='5000111000024257' and SENDTARGET='17511189991'
 select a.* from sms_dispatch_list a where SENDTARGET='18255669989' order by makedate desc,maketime desc;
 --打印批处理  电子：000310  纸质：000468
 select a.* from ldtask a where taskdescribe like '%单证一体化%' 
@@ -84,12 +84,13 @@ select a.* from ldtask a where taskdescribe like '%满期%'
 --账户轨迹
 select moneytype,money,paydate,dutycode,getdutycode from lcinsureacctrace a where contno='2024052700000296' order by paydate desc
 --核心险种规则（新单录入、问题件修改、新单复核）
-select a.* from lmriskcheckrule a where riskcode='1303015' and checklocal='FHWB' order by checksort
-select a.* from lmriskcheckrule a where remark like '%交费方式和交费期间不一致%' 
+select a.* from lmriskcheckrule a where riskcode='1056027' and checklocal='FHWB' order by checksort
+select a.* from lmriskcheckrule a where remark like '%交费方式和交费期间不一致%'
+select a.* from lmriskcheckrule a where CALCODE in ('FC3366','FC3367','FC3368','FC3369','FC3370','FC3371')
 --碎片化险种规则
 select a.* from ldcalcheck a where fcheckriskcode='1033033'
 select a.* from ldcalcheck a where FCHECKCODE like 'FDSD%' 
-select a.* from ldcalcheck a where FCHECKCODE in ('FDSD2608','FDSD2609','','')
+select a.* from ldcalcheck a where FCHECKCODE in ('FDSD2767','FRSR0809','FDSD2768','FRSR0810')
 --update ldcalcheck set fcheckriskcode='000000' where fcheckriskcode='000001'
 --问题件一键回复完毕
 select ISSUECONT,a.* from lcissuepol a where ContNo = '5000111000018606'
@@ -98,11 +99,11 @@ update lcissuepol set REPLYMAN='001',REPLYRESULT='1',state='2',replydate=date'20
 */
 
 --
-select a.* from ljspay a where otherno='2025032600000786';
+select a.* from ljspay a where otherno='2025040100000186';
 /*
-update ljspay set payform='Y' where otherno='2025032600000786';
+update ljspay set payform='Y' where otherno='2025040100000186';
 */
-select a.* from ljspayperson a where contno='2025022800000366'
+select a.* from ljspayperson a where contno='2025040100000186'
 
 --
 select a.* from loprtmanager a where otherno='2024120500000456' order by makedate,maketime
@@ -111,11 +112,11 @@ select a.* from ljapay a where incomeno='2024102200000186'
 select a.* from ljapayperson a where contno='2025032100000786' order by paycount
 --
 select a.* from ljsget a where otherno='2025031800001476' order by getdate desc;
-select a.* from ljsgetdraw a where contno='2025032800011576' order by getdate ;
+select a.* from ljsgetdraw a where contno='2025032800011486' order by getdate ;
 select (select 3*amnt from lcpol where contno=a.contno) 满期金,(select 0.085*amnt from lcpol where contno=a.contno) 月领养老金,a.* from ljsgetdraw a where contno='2024060400001486' order by getdate desc;
 
-select sendflag,a.* from ljaget a where otherno='2025021900000356' order by shoulddate desc;
-select a.* from ljagetdraw a where contno in ('2025031800001476','','','') order by getdate;
+select sendflag,a.* from ljaget a where otherno='2025040100000186' order by shoulddate desc;
+select a.* from ljagetdraw a where contno in ('2025032800011486','','','') order by getdate;
 select count(*)/12 from ljagetdraw a where contno='2024112500001016' and getdate between date'2025-08-10' and date'2035-07-10'
 select a.* from LJAGetEndorse a where/* contno='2024061300004486' and*/ FEEOPERATIONTYPE='LG'
 
@@ -125,25 +126,25 @@ where otherno='2024101600001396';
 update ljagetdraw set makedate=getdate,modifydate=getdate where contno='2024101600001396'
 */
 
-select a.* from lobonuspol a where contno='2025032600000786' order by FISCALYEAR desc;
-select a.* from LJABonusGet a where otherno='2025032600000786' order by BONUSYEAR desc;
+select a.* from lobonuspol a where contno='2025040100000186' order by FISCALYEAR;
+select FEEFINATYPE,GETMONEY,a.* from LJABonusGet a where otherno='2025040100000186' order by makedate,maketime;
 /*
 update LJABonusGet a set GETDATE=(select SGETDATE from lobonuspol where contno=a.otherno and FISCALYEAR=a.BONUSYEAR),ENTERACCDATE=(select SGETDATE from lobonuspol where contno=a.otherno and FISCALYEAR=a.BONUSYEAR),CONFDATE=(select SGETDATE from lobonuspol where contno=a.otherno and FISCALYEAR=a.BONUSYEAR),MAKEDATE=(select SGETDATE from lobonuspol where contno=a.otherno and FISCALYEAR=a.BONUSYEAR),MODIFYDATE=(select SGETDATE from lobonuspol where contno=a.otherno and FISCALYEAR=a.BONUSYEAR)
 where otherno='2024081600000116';
 update lobonuspol b set BONUSMAKEDATE=SGETDATE,MAKEDATE=SGETDATE,MODIFYDATE=SGETDATE where contno='2024081600000116';
 */
 
-select a.* from lcinsureacc a where contno='2025032600000786'
-select a.* from lcinsureacctrace a where contno='2025032700000286' order by paydate,makedate,MAKETIME;
-select a.* from LCINSUREACCCLASS a where contno='2025031000001496';
+select a.* from lcinsureacc a where contno='2025040100000186'
+select a.* from lcinsureacctrace a where contno='2025032800011576' order by paydate,makedate,MAKETIME;
+select a.* from LCINSUREACCCLASS a where contno='2025040100000186';
 
 select a.* from lpinsureacctrace a where contno='2025010100002026' order by paydate,makedate,MAKETIME;
 /*
 update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2025031800001476' and moneytype != 'CXJJ';
 update lcinsureacctrace set makedate=paydate+1,modifydate=paydate+1 where contno='2025031000001856' and moneytype = 'CXJJ'
 */
-select a.* from LCINSUREACCFEE a where contno='2025021300000396'
-select a.* from lcinsureaccfeetrace a where contno='2025021300000396' order by paydate,makedate,MAKETIME;
+select a.* from LCINSUREACCFEE a where contno='2025040100000186'
+select a.* from lcinsureaccfeetrace a where contno='2025040100000186' order by paydate,makedate,MAKETIME;
 select a.* from LCINSUREACCCLASSFEE a where contno='2025021300000396'
 /*
 update lcinsureaccfeetrace set makedate=paydate,modifydate=paydate where contno='2025031800001476'
