@@ -4,18 +4,18 @@ INSERT INTO LISDATA.LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERS
 
 select * from ldcode where CODETYPE='DutyGetMode' and code='1133005';--年金配置为月领
 
-INSERT INTO LISDATA.LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN) VALUES ('DutyGetMode', '1133005', '年金领取方式', null, '2', null);
+INSERT INTO LISDATA.LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN) VALUES ('DutyGetMode', '1133005', '年金领取方式', null, '3', null);
 
 select * from ldcode where CODETYPE='BonusGet' and code='1133005';--红利配置为自动转账
 
-INSERT INTO LISDATA.LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN) VALUES ('BonusGet', '1133005', '红利领取方式', null, '0', null);
+INSERT INTO LISDATA.LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN) VALUES ('BonusGet', '1133005', '红利领取方式', null, '1', null);
 
 select * from ldcode where codetype='getlocation'
 select * from ldcode where codetype = 'annuitygetmode'
 select * from ldcode where codetype='bonusgetmode'
 
 select getform,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,bonusgetmode,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,riskcode,contno,prtno from lcpol a
-where contno in ('2025041886200418','','','') order by a.contno;
+where contno in ('2025042186401718','','','') order by a.contno;
 
 select contno,
        dutycode,
@@ -26,7 +26,7 @@ select contno,
        getstartdate,
        getenddate,LiveGetType,polno,summoney
   from lcget a
- where contno = '2025041886200418';
+ where contno = '2025042186401718';
 
 
 SELECT * FROM  ldcode1 where codetype='annuitygetmodedf'
@@ -46,3 +46,7 @@ where salechnl = '03'
                                     lmriskduty c
                                where c.riskcode = lm.riskcode
                                  and a.getdutycode=b.getdutycode and b.dutycode=c.dutycode) and riskcode=a.riskcode)
+
+
+--银保通配置（银保数据库）
+select bak1 /*是否为生存金产品*/,bak2 /*生存金是否配置*/,bak3 /*是否为红利领取产品*/,bak4 /*红利是否配置*/,STANDBYFLAG /*是否为年金产品*/,a.* from lmduty a where riskcode='1133005'
