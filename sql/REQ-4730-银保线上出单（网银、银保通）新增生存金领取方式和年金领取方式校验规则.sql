@@ -15,7 +15,7 @@ select * from ldcode where codetype = 'annuitygetmode'
 select * from ldcode where codetype='bonusgetmode'
 
 select getform,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,bonusgetmode,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,riskcode,contno,prtno from lcpol a
-where contno in ('2025041700002596','','','') order by a.contno;
+where contno in ('2025041886200418','','','') order by a.contno;
 
 select contno,
        dutycode,
@@ -26,7 +26,7 @@ select contno,
        getstartdate,
        getenddate,LiveGetType,polno,summoney
   from lcget a
- where contno = '2025041700002776';
+ where contno = '2025041886200418';
 
 
 SELECT * FROM  ldcode1 where codetype='annuitygetmodedf'
