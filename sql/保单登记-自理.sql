@@ -26,12 +26,12 @@ select salecom,agentcom,signdate,a.* from lccont a where salechannels='010206' a
 select a.* from ldcode a where codetype = 'gsalechannels'
 
 --承保交易执行脚本
-select * from LMCALMODE_PRIPSX where CALCODE = 'PRIP05';--第一步
-select * from LMCALMODE_PRIPSX where CALCODE in ( 'HH0001-05','','','',''); --第二步
+select * from LMCALMODE_PRIPSX where CALCODE = 'PRIP17';--第一步
+select * from LMCALMODE_PRIPSX where CALCODE in ( 'HH0026','','','',''); --第二步
 --LCGrpCont脚本
 select * from LMCALMODE_PRIPSX where CALCODE = 'HH0004-01';
 --交易涉及表
-select * from LDCODEBDDJ where CODE = '15';--报送类型
+select * from LDCODEBDDJ where CODE = '17';--报送类型
 select * from LMCALMODE_PRIPSX a where calcode like 'PRIP15%'
 
 --TEMP_LCPolTransaction
@@ -90,3 +90,7 @@ select a.*, rowid from prip_LCGrpCont_D a
 where --grppolicyno='2023122600002056'
 grppolicyno in ('2023122600002056','2023122600001816','2023122600002506','2023122600002696','2023122600002786','2023122600002876')
 --or policyno in ('2023122600002326', '2023122600002416', '', '')
+
+
+--红利分配表
+select a.* from temp_LJDivDistrib a where POLICYNO='2025042500000206'

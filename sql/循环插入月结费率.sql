@@ -11,7 +11,7 @@ BEGIN
         INSERT INTO LMINSUACCRATE
         (RISKCODE, INSUACCNO, BALADATE, SRATEDATE, ARATEDATE, RATEINTV, RATE, OPERATOR, MAKEDATE, MAKETIME, RATESTATE, ENDDATE, FISCALYEAR, FLAG, BONUSTYPE, STARTDATE, CVALIDATEFROM, CVALIDATETO)
         VALUES
-        ('1303015', '13030151',
+        ('1303017', '13030171',
          -- BALADATE 和 SRATEDATE 为每月第一天
          TRUNC(v_current_date, 'MM'),
          TRUNC(v_current_date, 'MM'),
@@ -27,3 +27,7 @@ BEGIN
         v_current_date := ADD_MONTHS(v_current_date, 1);
     END LOOP;
 END;
+
+/*
+select a.* from LMINSUACCRATE a where RISKCODE='1303017'
+*/

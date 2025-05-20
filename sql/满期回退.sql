@@ -1,22 +1,22 @@
-select appflag,a.*,rowid from lcpol a where contno='2024061400002426';
-select appflag,a.*,rowid from lccont a where contno='2024061400002426';
+select appflag,a.* from lcpol a where contno='2025043000000586';
+select appflag,a.* from lccont a where contno='2025043000000586';
 
-select sumpay,insuaccbala,baladate,a.*,rowid from lcinsureacc a where contno='2024061400002426';
-select sumpay,insuaccbala,baladate,a.*,rowid from lcinsureaccclass a where contno='2024061400002426';
-select a.*,rowid from lcinsureacctrace a where contno='2024061400002426' order by paydate desc;
+select sumpay,insuaccbala,baladate,a.* from lcinsureacc a where contno='2025043000000586';
+select sumpay,insuaccbala,baladate,a.* from lcinsureaccclass a where contno='2025043000000586';
+select a.* from lcinsureacctrace a where contno='2025043000000586' order by paydate desc;
 
-select fee/*fee=feetrace表删除续期数据后的总和*/,baladate,a.*,rowid from lcinsureaccfee a where contno='2024061400002426';
-select fee,baladate,a.*,rowid from lcinsureaccclassfee a where contno='2024061400002426';
-select a.*,rowid from lcinsureaccfeetrace a where contno='2024061400002426' order by paydate desc;
+select fee/*fee=feetrace表删除续期数据后的总和*/,baladate,a.* from lcinsureaccfee a where contno='2025043000000586';
+select fee,baladate,a.* from lcinsureaccclassfee a where contno='2025043000000586';
+select a.* from lcinsureaccfeetrace a where contno='2025043000000586' order by paydate desc;
 
-select a.*,rowid from ljsget a where otherno='2024061400002426';
-select a.*,rowid from ljsgetdraw a where contno='2024061400002426';
-select a.*,rowid from ljaget a where otherno='2024061400002426';
-select a.*,rowid from ljagetdraw a where contno='2024061400002426' order by getdate desc;
+select a.* from ljsget a where otherno='2025043000000586';
+select a.* from ljsgetdraw a where contno='2025043000000586';
+select a.* from ljaget a where otherno='2025043000000586';
+select a.* from ljagetdraw a where contno='2025043000000586' order by getdate desc;
 
-select a.*,rowid from lccontstate a where contno='2024061400002426';
+select a.* from lccontstate a where contno='2025043000000586';
 
-select a.*,rowid from loprtmanager a where otherno='2024061400002426' order by standbyflag2 desc;
+select a.* from loprtmanager a where otherno='2025043000000586' order by standbyflag2 desc;
 
 --lcget
 select contno,
@@ -28,6 +28,7 @@ select contno,
        getstartdate,
        getenddate
   from lcget a
- where contno = '2024061400002426'
- for update;
+ where contno = '2025043000000586'
+
+select a.* from lcget a where contno = '2025043000000586'
 

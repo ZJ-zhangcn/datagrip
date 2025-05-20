@@ -1,0 +1,10 @@
+select * from ljaget where otherno='2025042500000206';--delete
+/*
+update lcpol a set leavingmoney=1540.80 where contno='2025042500000206';
+*/
+select * from ljabonusget where contno='2025042500000206';--delete
+select * from lcinsureacctrace where contno='2025042500000206' ;--delete
+/*
+update lcinsureacc a set a.insuaccbala=25223.15,a.baladate=date'2031-04-26' where contno='2025042500000206' and acctype='004';
+update lcinsureaccclass a set a.insuaccbala=25223.15,a.baladate=date'2031-04-26' where contno='2025042500000206' and acctype='004';
+*/

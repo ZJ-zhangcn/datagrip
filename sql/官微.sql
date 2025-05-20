@@ -1,5 +1,6 @@
 --g
-select a.appntname,a.appntbirthday,a.idtype,a.idno,b.mobile,idstdate,idexpdate,b.* from lcappnt a,lcaddress b where a.appntno=b.customerno and a.addressno=b.addressno and a.contno='2022071300000906'
+select a.appntname,a.appntbirthday,a.idtype,a.idno,b.mobile,idstdate,idexpdate,b.* from lcappnt a,lcaddress b
+where a.appntno=b.customerno and a.addressno=b.addressno and a.contno='2025042500000206'
 
 select idstdate,idexpdate,a.*,rowid from lcappnt a where contno='2022032900000416'
 

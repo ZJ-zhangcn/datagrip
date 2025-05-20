@@ -9,7 +9,7 @@ select UnitProvince           单位注册地址省,
        a.*,
        rowid
   from lcask a
- where askno like 'XJ2024%%'
+ where askno like 'XJ2025%%'
  order by askno desc;
 
 

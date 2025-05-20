@@ -79,15 +79,15 @@ delete ldcode where CODETYPE='QCC_URL_appkey' and CODE ='01';
 insert into ldcode (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN)
 values ('QCC_URL_appkey', '01', '03df2ff748654ef3b75a8eeb414383d2', null, null, null);
 
-delete ldcode where CODETYPE='QCCapi_2001'  and CODE ='01';
+delete ldcode where CODETYPE='QCCapi_2001' and CODE ='01';
 insert into ldcode (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN)
 values ('QCCapi_2001', '01', 'https://api.qichacha.com/EnterpriseInfo/Verify', null, null, null);
 
-delete ldcode where CODETYPE='QCCapi_1003'  and CODE ='01';
+delete ldcode where CODETYPE='QCCapi_1003' and CODE ='01';
 insert into ldcode (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN)
 values ('QCCapi_1003', '01', 'https://api.qichacha.com/BeneficialOwner/GetInfo', null, null, null);
 
-delete  ldcode where CODETYPE ='QCCOPENCHECK' and code ='Y'; 
+delete  ldcode where CODETYPE ='QCCOPENCHECK';
 insert into ldcode (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN)
 values ('QCCOPENCHECK', 'Y', '', null, null, null);
 */
