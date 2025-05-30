@@ -20,6 +20,7 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-4710-分红险在满期时自动支付未领取红利的需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4728-经代渠道创信新增协议退保数据对接开发需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4730-银保线上出单（网银、银保通）新增生存金领取方式和年金领取方式校验规则.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4777-上海人寿守沪立方（乐享版）重大疾病保险——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/个单.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-清空prip表.sql" dialect="Oracle" />

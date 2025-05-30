@@ -26,7 +26,8 @@ select distinct FINTYPE,edorcode,riskcode from lmriskedoritem where FINTYPE is n
 --核心险种规则（新单录入、问题件修改、新单复核）
 select a.* from lmriskcheckrule a where riskcode='1303014' and checklocal='FHWB'
 --
-select a.* from ldtask a where TASKDESCRIBE like '%新增%'
+select a.* from ldtask a where TASKDESCRIBE like '%价税分离%'--000558
+select a.* from LDTASKPLAN a where taskcode='000558'
 
 select a.* from lcpol a where riskcode='1016004'
 select contno from lcpol a where prtno='5000118341230033'
@@ -64,8 +65,8 @@ select a.* from ljatax a where grpCONTNO='2025010600000186'
 select a.* from lcinsureacctrace a where contno='2025010300000116'
 select a.* from lcinsureaccfeetrace a where contno='2025010300000116'
 
-select a.* from LISDATA.LPINSUREACCTRACE a where contno='2024123000000376'
-select a.* from LISDATA.LPINSUREACCFEETRACE a where contno='2024123000000376'
+select a.* from LPINSUREACCTRACE a where contno='2024123000000376'
+select a.* from LPINSUREACCFEETRACE a where contno='2024123000000376'
 
 --健康委托产品判断
 is_helarisk(a.riskcode) = 'Y'

@@ -3,11 +3,11 @@
 --lcpol
 select appflag,getform,a.* from lcpol a where prtno in ('','5000118240250138');
 select uwflag,appflag,contno,riskcode,kindcode,insuredsex,insuredappage,signdate,cvalidate,enddate,payintv,payendyear,payendyearflag,insuyear,insuyearflag,prem,amnt,livegetmode from lcpol a 
-where contno in ('2024121700001366','','') for update;
+where contno in ('2025052200000896','','') for update;
 
 --lccont
 select uwflag,appflag,contno,salechnl,selltype,salecom,salechannels,appntsex,appntbirthday,signdate,firstpaydate,cvalidate,customgetpoldate,payintv,paymode,printcount,prem,amnt,sumprem,getpolmode from lccont a 
-where contno='2024121700001366' for update;
+where contno='2025052200000896' for update;
 
 --
 select a.* from ContBlcDtl a where ProposalPrtNo='2023122500001176'

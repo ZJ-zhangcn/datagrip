@@ -1,15 +1,15 @@
 select * from lcSubmittedsleep where (MODULE='BQMQ' or MODULE='MQYF' or MODULE='MQHL');
-select a.*,rowid from lcSubmittedsleep a where contno='2024092500001486';
+select a.*,rowid from lcSubmittedsleep a where contno='2025052800000216';
 select a.*,rowid from LCedorSleep a where module = 'GXBQ'
-select a.*,rowid from LCedorSleep a where contno='2024092500001486';
+select a.* from LCedorSleep a where contno='2025052800000216';
 /*
-delete from lcSubmittedsleep where contno='2024073100000856';
-delete from LCedorSleep where contno='2024073100000856';
+delete from lcSubmittedsleep where contno='2025052800000216';
+delete from LCedorSleep where contno='2025052800000216';
 */
 
 select sysvarvalue from ldsysvar where sysvar='BatIPHost' for update;
 
-select a.*,rowid from ldtask a where taskdescribe like '%Ë¯Ãß%' --000194
+select a.*,rowid from ldtask a where taskdescribe like '%Ë¯Ãß%' --000608
 select a.*,rowid from ldtask a where taskdescribe like '%Ê§Ð§%' --000194
 select a.*,rowid from ldtask a where taskdescribe like '%ºìÀû%' --000124  000126
 select a.*,rowid from ldtask a where taskdescribe like '%Éú´æ%' --000029  000030  000102
