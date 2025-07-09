@@ -1,7 +1,8 @@
 select * from lcSubmittedsleep where (MODULE='BQMQ' or MODULE='MQYF' or MODULE='MQHL');
 select a.*,rowid from lcSubmittedsleep a where contno='2025052800000216';
 select a.*,rowid from LCedorSleep a where module = 'GXBQ'
-select a.* from LCedorSleep a where contno='2025052800000216';
+select a.* from LCedorSleep a where contno='2025060400000126';
+select a.* from LCedorSleep a where makedate=date'2030-04-01'
 /*
 delete from lcSubmittedsleep where contno='2025052800000216';
 delete from LCedorSleep where contno='2025052800000216';

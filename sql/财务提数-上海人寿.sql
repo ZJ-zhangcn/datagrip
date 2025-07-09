@@ -3,7 +3,7 @@ select * from ldcode1 a where a.codetype = 'SaleChnl'
 
 --数据回滚日期
 select makedate,a.* from fiaboriginaldata a order by batchno desc
-select makedate,a.* from fiaboriginaldata a where batchno='00000000000000004253'
+select makedate,a.* from fiaboriginaldata a where batchno='00000000000000004054'
 select stringinfo11,stringinfo14,stringinfo05,a.* from fiaboriginaldata a where batchno='00000000000000004193' and acquisitionid in ('REQ71811','');
 
 
@@ -26,7 +26,7 @@ select a.*
           from fiaboriginaldata
          where aserialno in (select distinct attribute1
                                from of_interface
-                              where je_category_name = 'BQ_YFG'))
+                              where je_category_name = 'MQ_YT'))
 
 --统信校验
 select * from lfcheckfield where isneedchk='1' order by serialno
@@ -72,10 +72,10 @@ select f.je_category_name                                                       
         from fiaboriginaldata
         where aserialno = f.attribute1)                                                                     算法代码
 from of_interface f
-where je_category_name = 'SF_FF' and
-      lis_contno = '2025042500000206'
+where /*je_category_name = 'MQ_YT'
+  and*/ lis_contno = '2025041500001606'
 --lis_prtno = '3206915141230037'
---and f.source_batch_id = '00000000000000003895'
+--and f.source_batch_id = '00000000000000009590'
 --and accounting_date=date'2025-11-16'
 --f.segment3 = '22210101'
 order by f.ACCOUNTING_DATE asc, f.je_category_name asc, SOURCE_BATCH_ID asc, f.LIS_CONTNO asc, f.SEGMENT1 asc,

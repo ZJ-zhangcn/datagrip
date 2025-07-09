@@ -52,13 +52,16 @@ delete from ldtaxrate where taxtype='0101'
 --算法
 select a.* from LMCALMODETAX a order by to_number(CALCODE)
 
+select a.* from ljatax a where STANDBYFLAG1='10';
+select a.* from ljatax a where (BUINESSNO like '74%' or BUINESSNO like '36%');
+select a.* from ljatax a where contno='2025070200002106' order by BUINESSDATE,BUINESSNO,TAXTYPE;
 select BUINESSTYPE,BUINESSDATE,GRPCONTNO,CONTNO,TAXTYPE,MONEY,PRICE 价额,TAX 税额,STANDBYFLAG1,a.* from LJATAX a
-where CONTNO='2025021000000186' and BUINESSDATE=date'2027-01-05'
+where CONTNO='2024123000000466' and BUINESSDATE=date'2025-12-15'
 select BUINESSTYPE,BUINESSDATE,GRPCONTNO,CONTNO,TAXTYPE,MONEY,PRICE 价额,TAX 税额,STANDBYFLAG1,a.* from LJATAX a
-where GRPCONTNO='2025012000000586' and BUINESSTYPE='LC'
+where GRPCONTNO='2025061100000206' and BUINESSTYPE='LC'
 select round(100000/(1+0.1)*0.1,2) from dual
 /*
-delete from LJATAX a where CONTNO='2024123000000376'
+delete from LJATAX a where STANDBYFLAG1='10'
 */
 select a.* from ljatax a where CONTNO='2024123000000376'
 select a.* from ljatax a where grpCONTNO='2025010600000186'

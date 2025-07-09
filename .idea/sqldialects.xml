@@ -8,19 +8,24 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-4070.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4212-满期终止保单理赔操作优化需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4242-存储续期邮件发送记录需求.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4271-个险渠道新单投保手机号实名校验需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4429-银保手续费账务规则调整.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4466.sql" dialect="Oracle" />
-    <file url="file://$PROJECT_DIR$/sql/REQ-4467+REQ-4525守沪菁盛.sql" dialect="OracleSqlPlus" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4467+REQ-4525守沪菁盛.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4546-上海人寿福多多年金保险——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4581-银保信医联平台字段删除.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4604.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4628-EAST2.0核心系统改造需求-与总账系统对接部分.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4641-福多多+增利宝2025——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4667-EAST2.0账务历史数据处理需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4702-邮储邮保通系统联机交易接口更新.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4705.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4710-分红险在满期时自动支付未领取红利的需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4728-经代渠道创信新增协议退保数据对接开发需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4730-银保线上出单（网银、银保通）新增生存金领取方式和年金领取方式校验规则.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4777-上海人寿守沪立方（乐享版）重大疾病保险——核心系统需求.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4832-沪申福（长乐版）——核心系统需求.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4839.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/个单.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-清空prip表.sql" dialect="Oracle" />
@@ -32,6 +37,7 @@
     <file url="file://$PROJECT_DIR$/sql/打印.sql" dialect="Sybase" />
     <file url="file://$PROJECT_DIR$/sql/数据核对.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/满期回退.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/红利.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/红利回退.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/财务提数-上海人寿.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/银保通.sql" dialect="Oracle" />
@@ -40,5 +46,6 @@
     <file url="file://$USER_HOME$/Desktop/上海人寿/zhangjin/sql/数据核对.sql" dialect="Oracle" />
     <file url="file://$USER_HOME$/Desktop/上海人寿/zhangjin/sql/红利.txt" dialect="Oracle" />
     <file url="file://$USER_HOME$/Desktop/上海人寿/zhangjin/sql/财务提数-上海人寿.sql" dialect="Oracle" />
+    <file url="file://$USER_HOME$/Documents/xwechat_files/wxid_zytzkhy4jxpm22_1a98/msg/file/2025-06/影像相关脚本.sql" dialect="Oracle" />
   </component>
 </project>

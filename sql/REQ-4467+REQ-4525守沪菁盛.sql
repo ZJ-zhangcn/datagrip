@@ -45,15 +45,15 @@ select amnt / 1000 * endcv
    and dt = 2
 
 --t>PPP，未欠缴保费
-select amnt / 1000 * endcv * (date '2027-12-01' - date '2027-11-15') / 366 +
+select amnt / 1000 * endcv * (date '2030-06-30' - date '2030-06-25') / 365 +
        amnt / 1000 * begcv *
-       (1 - (date '2027-12-01' - date '2027-11-15') / 366)
+       (1 - (date '2030-06-30' - date '2030-06-25') / 365)
   from cv_1016007 a, lcpol b
  where pt = payendyear
    and age = insuredappage
    and gender = insuredsex
-   and contno = '2024111400002316'
-   and dt = 4
+   and contno = '2025062400001306'
+   and dt = 6
 
 --减保限额
 select least(amnt * 0.2 / amnt * 1876223.87 - 0,
