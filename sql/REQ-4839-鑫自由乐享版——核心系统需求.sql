@@ -83,33 +83,33 @@ where pt = payendyear
   and dt = 6 - 1;
 
 --other
-select 41291.14 * 1000 / (a.END_AFACTOR * (date '2030-10-01' - date '2030-07-08') / 365 +
-                          a.BEG_AFACTOR * (1 - (date '2030-10-01' - date '2030-07-08') / 365))
+select 4174.50 * 1000 / (a.END_AFACTOR * (date '2026-08-01' - date '2026-07-10') / 365 +
+                          a.BEG_AFACTOR * (1 - (date '2026-08-01' - date '2026-07-10') / 365))
 from cv_1011004 a,
      lcpol b
 where pt = payendyear
   and age = insuredappage
   and gender = insuredsex
-  and contno = '2025070700000316'
-  and dt = 6;
+  and contno = '2025070900000286'
+  and dt = 2;
 
 --减额交清后保费计算
-select 35151.14 * 1000 / a.rate
+select 4079.55 * 1000 / a.rate
 from rt_1011004 a,
      lcpol b
 where pt = payendyear
   and age = insuredappage
   and gender = insuredsex
-  and contno = '2025070700000316'
+  and contno = '2025070900000286'
 
 --减额交清后现价计算
-select (cast((35151.1424157477 / 1000 * cv_rpuAfactorEnd) as decimal(18, 2)) * ((date '2030-10-01' - date '2030-07-08') / 365)) +
-       (cast((35151.1424157477 / 1000 * cv_rpuAfactorBeg) as decimal(18, 2)) *
-        (1 - ((date '2030-10-01' - date '2030-07-08') / 365))) cash
+select (cast((4079.55400692 / 1000 * cv_rpuAfactorEnd) as decimal(18, 2)) * ((date '2026-08-01' - date '2026-07-10') / 365)) +
+       (cast((4079.55400692 / 1000 * cv_rpuAfactorBeg) as decimal(18, 2)) *
+        (1 - ((date '2026-08-01' - date '2026-07-10') / 365))) cash
 from cv_1011004 a,
      lcpol b
 where pt = payendyear
   and age = insuredappage
   and gender = insuredsex
-  and contno = '2025070700000316'
-  and dt = 6
+  and contno = '2025070900000286'
+  and dt = 2

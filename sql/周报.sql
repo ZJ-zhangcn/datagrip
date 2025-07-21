@@ -1,3 +1,6 @@
+--每周五状态核对
+select * from req where onlinedate between date'2025-07-14' and date'2025-07-18'
+
 --本周测试需求
 select (select codename
           from ldcode

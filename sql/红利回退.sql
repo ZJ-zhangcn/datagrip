@@ -1,36 +1,14 @@
-select * from ljaget where otherno='2025031800000966';--delete
-select leavingmoney,a.* from lcpol a where contno='2025031800000966';
+select * from ljaget where otherno='2025071100000466';--delete
+select leavingmoney,a.* from lcpol a where contno='2025071100000466';
 /*
 update lcpol a set leavingmoney=1540.80 where contno='2025042500000206';
 */
-select a.* from LOBONUSPOL a where contno='2025031800000966';
-select * from ljabonusget where contno='2025031800000966';--delete
-select * from lcinsureacctrace where contno='2025031800000966' ;--delete
-select a.* from LISDATA.LCINSUREACC a where contno='2025031800000966';
-select a.* from LISDATA.LCINSUREACCCLASS a where contno='2025031800000966';
+select a.* from LOBONUSPOL a where contno='2025071100000466';
+select * from ljabonusget where contno='2025071100000466';--delete
+select * from lcinsureacctrace where contno='2025071100000466' ;--delete
+select a.* from LISDATA.LCINSUREACC a where contno='2025071100000466';
+select a.* from LISDATA.LCINSUREACCCLASS a where contno='2025071100000466';
 /*
-update lcinsureacc a set a.insuaccbala=25223.15,a.baladate=date'2031-04-26' where contno='2025042500000206' and acctype='004';
-update lcinsureaccclass a set a.insuaccbala=25223.15,a.baladate=date'2031-04-26' where contno='2025042500000206' and acctype='004';
+update lcinsureacc a set a.insuaccbala=25223.15,a.baladate=date'2031-04-26' where contno='2025071100000466' and acctype='004';
+update lcinsureaccclass a set a.insuaccbala=25223.15,a.baladate=date'2031-04-26' where contno='2025071100000466' and acctype='004';
 */
-
-INSERT INTO LISDATA.LCINSUREACC (POLNO, INSUACCNO, CONTNO, GRPCONTNO, GRPPOLNO, PRTNO, RISKCODE, ACCTYPE, INVESTTYPE,
-                                 FUNDCOMPANYCODE, INSUREDNO, APPNTNO, OWNER, ACCCOMPUTEFLAG, ACCFOUNDDATE, ACCFOUNDTIME,
-                                 BALADATE, BALATIME, SUMPAY, SUMPAYM, LASTACCBALA, LASTUNITCOUNT, LASTUNITPRICE,
-                                 INSUACCBALA, UNITCOUNT, UNITPRICE, INSUACCGETMONEY, FROZENMONEY, STATE, MANAGECOM,
-                                 OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, CURRENCY, ADDFLAG)
-VALUES ('210310000007823', '000001', '2025031800000966', '00000000000000000000', '00000000000000000000',
-        '5000111000018875', '1131001', '004', null, null, '1060096162', '1060096162', null, '4', DATE '2026-03-19',
-        null, DATE '2026-03-19', null, 0.00, 0.00, 0.00, 0.000000, 0.00000000, 0.00, 0.000000, 0.00000000, 0.000000,
-        0.00, '0', '86310000', '001', DATE '2026-07-01', '00:34:00', DATE '2026-07-01', '00:34:00', '01', null);
-
-INSERT INTO LISDATA.LCINSUREACCCLASS (GRPCONTNO, GRPPOLNO, CONTNO, MANAGECOM, POLNO, INSUACCNO, PAYPLANCODE, OTHERNO,
-                                      OTHERTYPE, ACCASCRIPTION, RISKCODE, INSUREDNO, APPNTNO, ACCTYPE, ACCCOMPUTEFLAG,
-                                      ACCFOUNDDATE, ACCFOUNDTIME, BALADATE, BALATIME, SUMPAY, SUMPAYM, LASTACCBALA,
-                                      LASTUNITCOUNT, LASTUNITPRICE, INSUACCBALA, UNITCOUNT, INSUACCGETMONEY,
-                                      FROZENMONEY, STATE, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME,
-                                      UNITPRICE, ASCRIPTRATE, ASCRIPTTYPE, CURRENCY, GETDUTYCODE, GETDUTYKIND)
-VALUES ('00000000000000000000', '00000000000000000000', '2025031800000966', '86310000', '210310000007823', '000001',
-        'IP0395', '86310020260360000566', '2', '1', '1131001', '1060096162', '1060096162', '004', '4',
-        DATE '2026-03-19', '00:34:00', DATE '2026-03-19', null, 882.00, 0.00, 882.00, 0.000000, 0.00000000, 882.00,
-        0.000000, 882.000000, 0.00, '0', '001', DATE '2026-07-01', '00:34:00', DATE '2026-07-01', '00:34:00',
-        0.00000000, 0.0000, null, '01', null, null);
