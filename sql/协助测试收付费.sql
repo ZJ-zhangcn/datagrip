@@ -143,7 +143,7 @@ update ats_transactions a
        a.transstate      = '6',--退票处理
        a.payinfocode     = 'E8001',
        a.payinfo         = '其它错误'
- where a.reqseqid = '20241108_28998';
+ where a.reqseqid = '20260101_30902';
 
 
 --代扣代付 抽档成功 未返盘

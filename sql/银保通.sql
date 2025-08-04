@@ -14,7 +14,7 @@ select a.* from ContBlcDtl a where ProposalPrtNo='2023122500001176'
 
 --农商行当日重复对账
 --承保对账
-select * from tranlog where rcode='0' and trancom='12' and funcflag='7005' and trandate='20240515' for update;
+select * from tranlog where rcode='0' and trancom='12' and funcflag='7005' and trandate='20250724' ;
 --保全对账
 select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and trandate='20250308' for update;
 
@@ -22,9 +22,9 @@ select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and t
 select a.* from TranLog a where TranDate='20231225'
 
 --银保险种
-select a.* from codemapping a where codealias like '%盛世鑫图%' and COMCODE='SPDB'
+select a.* from codemapping a where codealias like '%上海人寿臻鑫传家如意版B款终身寿险%' and COMCODE='SPDB'
 select a.* from codemapping a where comcode='PSBC' and codetype='riskcode'
-select a.* from codemapping a where INSU_CODE='1033021'
+select a.* from codemapping a where INSU_CODE='1303012'
 select a.* from codemapping a where BANK_CODE='52000039'
 
 --银保险种默认领取方式  0-自动转账  1-累积生息  3-转入万能账户

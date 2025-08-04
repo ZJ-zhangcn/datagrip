@@ -31,6 +31,7 @@
     <file url="file://$PROJECT_DIR$/sql/个单.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-清空prip表.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-自理.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/协助测试收付费.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/周报.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/团单.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/官微.sql" dialect="Oracle" />
@@ -48,5 +49,6 @@
     <file url="file://$USER_HOME$/Desktop/上海人寿/zhangjin/sql/红利.txt" dialect="Oracle" />
     <file url="file://$USER_HOME$/Desktop/上海人寿/zhangjin/sql/财务提数-上海人寿.sql" dialect="Oracle" />
     <file url="file://$USER_HOME$/Documents/xwechat_files/wxid_zytzkhy4jxpm22_1a98/msg/file/2025-06/影像相关脚本.sql" dialect="Oracle" />
+    <file url="file://$USER_HOME$/Documents/xwechat_files/wxid_zytzkhy4jxpm22_1a98/msg/file/2025-07/协助测试收付费.sql" dialect="Oracle" />
   </component>
 </project>

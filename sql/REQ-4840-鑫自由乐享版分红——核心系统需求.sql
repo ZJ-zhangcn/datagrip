@@ -9,7 +9,7 @@ select a.* from LISDATA.LCINSUREACCTRACE a where contno='2025071100000826' order
 
 select (68.22+142.02+2.05+218.96+7.31) 本金,(68.22+142.02+2.05+218.96+7.31)*round(0.03/365/*恒365*/,8)*(date '2029-07-20' - date '2029-07-12') 利息 from dual;
 
-select bonussamenewacc,a.* from lccont a where prtno='5000118350711016'
+select bonussamenewacc,a.* from lccont a where prtno='5000118400039408';
 
 SELECT *
 FROM BonusRate
@@ -43,13 +43,13 @@ select 68.22*round(0.03/365,8)*(date'2026-07-20'-date'2026-07-12') from dual;
 --t≤PPP，年领未欠缴保费
 select a.prem / 1000 * b.endcv *
        power(1 + 0.0375,
-             (((date '2030-06-01' - date '2029-07-12') - 365) / 365))
+             (((date '2026-08-01' - date '2026-07-21') - 365) / 365))
   from lcpol a, cv_1111002 b
  where a.insuredsex = b.gender
    and a.insuredappage = b.age
    and a.payendyear = b.pt
-   and a.contno='2025071100001286'
-   and b.dt = 5;
+   and a.contno='2025072000000566'
+   and b.dt = 2;
 
 --t≤PPP，年领欠缴保费
 select a.prem / 1000 * b.endcv

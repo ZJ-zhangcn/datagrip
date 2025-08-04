@@ -3,7 +3,7 @@ select * from ldcode1 a where a.codetype = 'SaleChnl'
 
 --数据回滚日期
 select makedate,a.* from fiaboriginaldata a order by batchno desc
-select makedate,a.* from fiaboriginaldata a where batchno='00000000000000004054'
+select makedate,a.* from fiaboriginaldata a where batchno='00000000000000004266'
 select stringinfo11,stringinfo14,stringinfo05,a.* from fiaboriginaldata a where batchno='00000000000000004193' and acquisitionid in ('REQ71811','');
 
 
@@ -32,7 +32,7 @@ select a.*
 select * from lfcheckfield where isneedchk='1' order by serialno
 
 --SF_FF\SF_SF提取先修改inbankcode
-select inbankcode,inbankaccno,a.*from ljaget a where otherno='2025042500000206'
+select inbankcode,inbankaccno,a.*from ljaget a where otherno='7402121100329027'
 
 --正常收费模拟第三方收费修改bankcode='UnionPay' and bankcode=null
 select bankcode,bankaccno,inbankcode,inbankaccno,paymode,managecom 交费机构,policycom 管理机构,managecom,policycom from ljtempfeeclass a where otherno='7402121100347441' for update;
@@ -70,10 +70,11 @@ select f.je_category_name                                                       
        f.source_batch_id                                                                                    提账批次号,
        (select acquisitionid
         from fiaboriginaldata
-        where aserialno = f.attribute1)                                                                     算法代码
+        where aserialno = f.attribute1)                                                                     算法代码,
+       attribute11
 from of_interface f
 where /*je_category_name = 'MQ_YT'
-  and*/ lis_contno = '2025041500001606'
+  and*/ lis_contno = '2025072300000406'
 --lis_prtno = '3206915141230037'
 --and f.source_batch_id = '00000000000000009590'
 --and accounting_date=date'2025-11-16'

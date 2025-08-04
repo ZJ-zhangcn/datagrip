@@ -61,12 +61,12 @@ select a.* from lccuwmaster a where a.contno in (select contno from lcpol where 
 
 --团单打印单证插表
 select a.* from es_doc_main a order by docid desc
-select a.* from es_doc_main a where subtype='36083151'and managecom='86010101'
+select a.* from es_doc_main a where subtype='32076151' and managecom='86010101'
 for update
 /*
 
 insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, docremark, scanoperator, managecom, inputstate, operator, inputstartdate, inputstarttime, inputenddate, inputendtime, makedate, maketime, modifydate, modifytime, version, scanno, printcode, pkgcode, subtypesuncan, scanflag)
-values ((select max(DOCID)+1 from es_doc_main), '2025010600000186', 'TB', '36083151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', '1', 'TB2023860100001X', '3206915131026011', 1350, 'TXTB', null);
+values ((select max(DOCID)+1 from es_doc_main), '5000116400000882', 'TB', '36083151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', '1', 'TB2023860100001X', '3206915131026011', 1350, 'TXTB', null);
 
 */
 
