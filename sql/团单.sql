@@ -1,16 +1,16 @@
 ------------------------------------------------------------------承保相关------------------------------------------------------------------
 --险种表
-select contno,grpcontno,riskcode,cvalidate,paytodate,payenddate,a.* from lcpol a where prtno='3206915150314027'
+select contno,grpcontno,riskcode,cvalidate,paytodate,payenddate,a.* from lcpol a where prtno='3206915150314058'
 select (select codename from ldcode a where codetype='appflag' and code=a.appflag) appflag,grpcontno,contno,prtno,riskcode,signdate,cvalidate,paytodate,enddate,payenddate,payintv,prem,payendyear,insuyear,a.* from lcpol a
-where grpcontno in ('2026030300000366','') and contno='130010002144918'
+where grpcontno in ('2025080500000466','') and contno='130010002144918'
 select appflag,insuredname,polstate,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where grpcontno='2023100100000626'
 --团单总保费
-select sum(prem) from lcpol a where prtno='3206915150314041'
+select sum(prem) from lcpol a where prtno='3206915150314058'
 select sum(sumprem),sum(amnt) from lcpol a where grpcontno='2023110900001556' and appflag='1'
 --团单总保额
 select sum(amnt) from lcpol a where prtno='3206915140620035'
 --
-select a.* from lcgrpcont a where grpcontno='2024013100000326'
+select a.* from lcgrpcont a where grpcontno='2025080500000466'
 select a.* from ldtask a where TASKDESCRIBE like '%撤件%'
 
 --个单保单表
@@ -45,10 +45,10 @@ values ('1001735571', '上海市黄浦区林校路街道义和庄北路1号', '经营范围', '12345'
 */
 
 --团险人核校验费率修改:0.2<standprem/prem<1.3
-select prem,standprem,a.* from lcpol a where prtno='3206915131128010'
+select prem,standprem,a.* from lcpol a where prtno='3206915150314058'
 /*
 --趸交
-update lcpol set standprem=prem where prtno='3206915150314041'
+update lcpol set standprem=prem where prtno='3206915150314058'
 --月交
 update lcpol set standprem=(prem*12) where prtno='3206915141230013'
 */

@@ -41,14 +41,14 @@ where a.riskcode = b.riskcode
 select 68.22*round(0.03/365,8)*(date'2026-07-20'-date'2026-07-12') from dual;
 
 --t≤PPP，年领未欠缴保费
-select a.prem / 1000 * b.endcv *
+select a.prem*2 / 1000 * b.endcv *
        power(1 + 0.0375,
-             (((date '2026-08-01' - date '2026-07-21') - 365) / 365))
+             (((date '2026-08-05' - date '2026-07-21') - 365) / 365))
   from lcpol a, cv_1111002 b
  where a.insuredsex = b.gender
    and a.insuredappage = b.age
    and a.payendyear = b.pt
-   and a.contno='2025072000000566'
+   and a.contno='2025072000000386'
    and b.dt = 2;
 
 --t≤PPP，年领欠缴保费

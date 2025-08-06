@@ -12,6 +12,7 @@ select UnitProvince           单位注册地址省,
  where askno like 'XJ2025%%'
  order by askno desc;
 
+select exppeoples,a.* from lcask a where askno = 'XJ2025032603'
 
 select UnitProvince           单位注册地址省,
        UnitCity               单位注册地址市,
@@ -29,8 +30,8 @@ select UnitProvince           单位注册地址省,
 select signdate,a.* from lcgrpcont a where grpcontno='2024013100000186'
 select a.*,rowid from lcgrpaddress a where customerno='1060092025'
 
-select * from ldpostcode where PROVINCE='北京市' and area='东城区' for update
-select * from ldplace where '1704437871000'='1704437871000' and  province = '110000' and city = '110000' and country = '110101'
+select * from ldpostcode where PROVINCE='上海市' and area='松江区';
+select * from ldplace where '1704437871000'='1704437871000' and  province = '310000' and city = '310000' and country = '310117'
 
 select a.*,rowid from ldtask a where taskdescribe like '%询价%' 
 select a.*,rowid from ldtaskplan a where taskcode='000315'

@@ -25,14 +25,14 @@ select salecom,agentcom,signdate,a.* from lccont a where salechannels='010206' a
 --销售渠道配置
 select a.* from ldcode a where codetype = 'gsalechannels'
 
---承保交易执行脚本
-select * from LMCALMODE_PRIPSX where CALCODE = 'PRIP17';--第一步
-select * from LMCALMODE_PRIPSX where CALCODE in ( 'HH0026','','','',''); --第二步
+--交易执行脚本
+select * from LMCALMODE_PRIPSX where CALCODE = 'PRIP16';--第一步
+select * from LMCALMODE_PRIPSX where CALCODE in ( 'HH0027-01','HH0027-03','HH0027-08','',''); --第二步
 --LCGrpCont脚本
 select * from LMCALMODE_PRIPSX where CALCODE = 'HH0004-01';
 --交易涉及表
-select * from LDCODEBDDJ where CODE = '17';--报送类型
-select * from LMCALMODE_PRIPSX a where calcode like 'PRIP15%'
+select * from LDCODEBDDJ where CODE = '05';--报送类型
+select * from LMCALMODE_PRIPSX a where calcode like 'PRIP05%'
 
 --TEMP_LCPolTransaction
 select TRANSDATE,PUSHDATE,a.* from TEMP_LCPolTransaction a

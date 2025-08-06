@@ -29,8 +29,10 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-4840-鑫自由乐享版分红——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/个单.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/保单登记-核心-清空temp表.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-清空prip表.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-自理.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/保单登记.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/协助测试收付费.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/周报.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/团单.sql" dialect="Oracle" />

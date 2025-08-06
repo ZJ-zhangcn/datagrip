@@ -2,7 +2,7 @@
 --个单险种表
 select appflag,contno,grpcontno,riskcode,signdate,cvalidate,paytodate,payenddate,enddate,a.* from lcpol a where prtno='5000118350701253'
 select LEAVINGMONEY,appflag,a.bonusgetmode,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,a.getform,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,riskcode,(select riskname from lmriskapp where riskcode=a.riskcode) riskname,contno,prtno,polno,signdate,cvalidate,payintv,paytodate,payenddate,enddate,amnt,prem,payendyear,insuyear,INSUYEARFLAG,a.* from lcpol a
-where contno in ('','2025080100000976','','') order by a.contno--2025010700000796
+where contno in ('','2025080500001426','2025080500001516','') order by a.contno--2025010700000796
 select LEAVINGMONEY,appflag,bonusgetmode,getform,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where contno in ('','2025073000000216','','')
 select a.* from lcpol a where (appntname like '%个险投保%' or appntname like '%银保投保%' or appntname like '%海保宝投保%' or appntname like '%经代通投保%') and appflag='1'
 select a.* from lcpol a where riskcode='1103005' and APPFLAG='4'
@@ -97,11 +97,11 @@ update lwmission set MISSIONID=(select max(missionid)+1 from lwmission where REG
 
 --单证类型表
 select * from es_doc_def where subtype in (select subtype from es_doc_main a where doccode='5000112600004346')
-select * from es_doc_def where subtype in ('32076151', '', '')
+select * from es_doc_def where subtype in ('36214152', '36238151', '')
 select * from es_doc_def where subtypename like '%工行%'
 
 --单证主表
-select a.* from es_doc_main a where doccode='3623815100001073' ;
+select a.* from es_doc_main a where doccode='5000111000019127' ;
 select a.* from es_doc_main a where subtype='50013500' and managecom like '%8631%'
 select subtype,busstype,makedate,a.* from es_doc_main a where doccode='5000118340230025' and subtype='50001133'
 select subtype,(select codealias from ldcode where code=subtype) 单证名称,busstype,a.* from es_doc_main a where rownum<200 and subtype='50001171'
@@ -399,7 +399,7 @@ select a.* from ldcode a where codetype = 'edorstate'
 --个险保全表
 select a.* from lpedoritem a where contno='2025071100000466' order by EDORACCEPTNO,makedate,maketime,modifydate,modifytime
 select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
-where contno='2025071100000466' order by makedate,maketime,modifydate,modifytime
+where contno='2025080400000726' order by makedate,maketime,modifydate,modifytime
 select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
 where edoracceptno='7402121100329120'
 select * from lpedoritem a where EDORTYPE='PU' and EdorValiDate between date'2027-07-27' and date'2027-07-28'
