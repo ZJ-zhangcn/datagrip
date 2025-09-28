@@ -1,6 +1,6 @@
 select a.* from TEMP_LCPolTransaction a where POLICYNO in ('2025080500001426','2025080500001516');
 
-select ENTERACCDATE,a.* from temp_LJAGetLivBene a where POLICYNO in ('2025080500001426','2025080500001516');
+select ENTERACCDATE,a.* from temp_LJAGetLivBene a where POLICYNO in ('2025091000001386','');
 
 select a.* from ljaget a where otherno in ('2025080400000686','7402121100329128');
 

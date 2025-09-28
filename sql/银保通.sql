@@ -3,7 +3,7 @@
 --lcpol
 select appflag,getform,a.* from lcpol a where prtno in ('','5000118240250138');
 select uwflag,appflag,contno,riskcode,kindcode,insuredsex,insuredappage,signdate,cvalidate,enddate,payintv,payendyear,payendyearflag,insuyear,insuyearflag,prem,amnt,livegetmode from lcpol a 
-where contno in ('2025052200000896','','') for update;
+where contno in ('2025081400000926','','') for update;
 
 --lccont
 select uwflag,appflag,contno,salechnl,selltype,salecom,salechannels,appntsex,appntbirthday,signdate,firstpaydate,cvalidate,customgetpoldate,payintv,paymode,printcount,prem,amnt,sumprem,getpolmode from lccont a 
@@ -16,16 +16,16 @@ select a.* from ContBlcDtl a where ProposalPrtNo='2023122500001176'
 --承保对账
 select * from tranlog where rcode='0' and trancom='12' and funcflag='7005' and trandate='20250724' ;
 --保全对账
-select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and trandate='20250308' for update;
+select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and trandate='20251010';
 
 --
 select a.* from TranLog a where TranDate='20231225'
 
 --银保险种
-select a.* from codemapping a where codealias like '%上海人寿臻鑫传家如意版B款终身寿险%' and COMCODE='SPDB'
+select a.* from codemapping a where codealias like '%享赢添添E款%'
 select a.* from codemapping a where comcode='PSBC' and codetype='riskcode'
 select a.* from codemapping a where INSU_CODE='1133004'
-select a.* from codemapping a where BANK_CODE='52000039'
+select a.* from codemapping a where BANK_CODE='045'
 
 --银保险种默认领取方式  0-自动转账  1-累积生息  3-转入万能账户
 select a.* from ldcode a where codetype = 'ybtgetliveRisk' and code='1103007' order by comcode

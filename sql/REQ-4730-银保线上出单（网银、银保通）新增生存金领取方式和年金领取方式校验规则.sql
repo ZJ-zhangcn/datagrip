@@ -1,17 +1,17 @@
 select * from ldcode where codetype='getlocation';--0-自动转账授权  1-累积生息  3-转入万能账户
 select * from ldcode where codetype = 'ybtgetliveRisk' and code='1303013';--生存金配置为累积生息
 
-INSERT INTO LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN) VALUES ('ybtgetliveRisk', '1303012', '上海人寿稳赢添添鸿运版养老年金保险（分红型）', null, '1', '生存金领取方式为转入万能账户的产品');
+INSERT INTO LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN) VALUES ('ybtgetliveRisk', '1133006', '上海人寿稳赢逸生年金保险（分红型）', null, '1', '生存金领取方式为转入万能账户的产品');
 
 select * from ldcode where codetype = 'annuitygetmode';--0-为空  1-一次性领取  2-月领  3-年领  99-其他
 select * from ldcode where CODETYPE='DutyGetMode' and code='1303013';--年金配置为月领
 
-INSERT INTO LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN) VALUES ('DutyGetMode', '1133004', '年金领取方式', null, '3', null);
+INSERT INTO LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN) VALUES ('DutyGetMode', '1033039', '年金领取方式', null, '3', null);
 
 select * from ldcode where codetype='bonusgetmode';--0-自动转账  1-累积生息  2-抵交保险费
 select * from ldcode where CODETYPE='BonusGet' and code='1303013';--红利配置为自动转账
 
-INSERT INTO LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN) VALUES ('BonusGet', '1133004', '红利领取方式', null, '1', null);
+INSERT INTO LDCODE (CODETYPE, CODE, CODENAME, CODEALIAS, COMCODE, OTHERSIGN) VALUES ('BonusGet', '1133006', '红利领取方式', null, '1', null);
 
 
 select getform,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,bonusgetmode,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,riskcode,contno,prtno from lcpol a

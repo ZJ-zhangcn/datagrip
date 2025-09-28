@@ -33,9 +33,9 @@ select a.* from LYSENDBILLORDER a where GETNOTICENO='86010120250320003847' order
 select a.* from lysendbillorder a where ORDERNO in ('S20250702000000655651','');
 select a.* from lysendbill a where orderno in ('S20250710000000656222','');
 select a.* from lysendbill a where orderno in (select ORDERNO from lysendbillorder where contno='2025070200002106');
-select a.* from LYBILLLOG a where ORDERNO in ('S20250710000000656222','');
+select a.* from LYBILLLOG a where ORDERNO in ('S20250918000000633198','');
 --官微
-select a.* from LCInvoiceApplicationApp a where GETANDPAYNO='86010120250320003847'
+select a.* from LCInvoiceApplicationApp a where contno='2025061100000206'
 
 select a.* from LISDATA.LDPERSON a where name='银保投保六二';
 --update LDPERSON set MODIFYDATE=date'2025-06-19' where (name like '银保投保%' or name like '个险投保%')
@@ -47,10 +47,10 @@ select a.GRPNAME,count(a.grpname) from ldgrp a group by GRPNAME having count(a.g
 
 --回传核对
 --返回开票主表（lyReturnBillOrder）
-SELECT /*orderReturnNo      流水号,
+SELECT orderReturnNo      流水号,
        orderNo            订单号,
        returnDate         返回日期,
-       billStatus         开票状态*//*1:开票成功、2:开票失败、3:作废成功、5:无需开票*//*,
+       billStatus         开票状态/*1:开票成功、2:开票失败、3:作废成功、5:无需开票*/,
        errorMessage       开票异常,
        billLine           开票种类,
        billType           发票类型,
@@ -64,10 +64,10 @@ SELECT /*orderReturnNo      流水号,
        oldBillNumberElec  原数电号码,
        remark             发票备注,
        redFlag            蓝红票标识,
-       StandByFlag1       开票ID,*/
+       StandByFlag1       开票ID,
        b.*
 FROM LYReturnBillOrder b
-WHERE orderNo in ('S20250710000000656222', '', '', '');
+WHERE orderNo in ('S20250918000000633198', '', '', '');
 
 --返回开票明细（lyReturnBill）
 SELECT ORDERRETURRNBILLNO 流水号,
@@ -84,8 +84,8 @@ SELECT ORDERRETURRNBILLNO 流水号,
        StandByFlag1       开票ID,
        a.*
 FROM lyReturnBill a
-WHERE orderNo in ('S20250801000000656219', '', '', '');
+WHERE orderNo in ('S20250918000000633198', '', '', '');
 
 --删除核对
-select Status,Reason,a.* from LYSendBillOrder a where ORDERNO in ('S20250702000000655654','S20250702000000655686');
-select a.* from LYBillLog a where ORDERNO in ('S20250702000000655654','S20250702000000655686') order by SERIALNO;
+select Status,Reason,a.* from LYSendBillOrder a where ORDERNO in ('S20250918000000633198','');
+select a.* from LYBillLog a where ORDERNO in ('S20250917000000633159','') order by SERIALNO;

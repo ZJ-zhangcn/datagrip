@@ -86,18 +86,25 @@
       <jdbc-url>jdbc:oracle:thin:@10.52.200.179:1521:ybtuat</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="aiven" uuid="3105d73b-9215-4803-b67f-8aa621ab4715">
+    <data-source source="LOCAL" name="local" uuid="99fe7918-79c7-4fb5-bf0a-aa6130a38cc3">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://mysql-zj-mysql-zj.l.aivencloud.com:21712</jdbc-url>
+      <jdbc-url>jdbc:mysql://47.79.85.111:3306</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="local" uuid="a65b4332-3e94-488a-ac98-7f58fede08c2">
+    <data-source source="LOCAL" name="aiven-agmail" uuid="5781cc6e-6878-43c0-80a2-b8d0bc23a0fc">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://47.79.85.111:3306/</jdbc-url>
+      <jdbc-url>jdbc:mysql://mysql-zj-mysql-zj.h.aivencloud.com:21712/</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="aiven-qqmail" uuid="572531cb-2ed9-408f-8fc6-82108453bb91">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mysql-zj2-mysql-zj2.j.aivencloud.com:18362/</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

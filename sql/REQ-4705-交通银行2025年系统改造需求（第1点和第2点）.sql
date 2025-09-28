@@ -13,3 +13,7 @@ select a.* from ldtask a where TASKCLASS='YbtUploadImageTask';--000233
 select signdate,a.* from lcpol a where contno='2025080100000516';
 select a.* from es_doc_main a where doccode='2025080100000386';
 select a.* from es_doc_relation a where doccode='2025080100000386';
+
+select a.* from ldtask a where TASKCLASS in ('YbtGetStockDataTask','YbtGetStockDataMonthTask')
+
+select a.* from YbtGetStockData a where contno='2025080600000566'

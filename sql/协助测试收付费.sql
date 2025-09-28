@@ -133,7 +133,7 @@ UPDATE ats_transactions a
        a.transstate      = '3',--处理失败
        a.payinfocode     = 'E1004',
        a.payinfo         = '余额不足'
- WHERE a.reqseqid = '20200724_18545';
+ WHERE a.reqseqid = '20250929_22679';
 
  
 --代扣代付 抽档成功 已返盘 退票
@@ -143,7 +143,7 @@ update ats_transactions a
        a.transstate      = '6',--退票处理
        a.payinfocode     = 'E8001',
        a.payinfo         = '其它错误'
- where a.reqseqid = '20260101_30902';
+ where a.reqseqid = '20301010_44133';
 
 
 --代扣代付 抽档成功 未返盘

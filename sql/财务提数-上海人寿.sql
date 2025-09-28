@@ -3,7 +3,7 @@ select * from ldcode1 a where a.codetype = 'SaleChnl'
 
 --数据回滚日期
 select makedate,a.* from fiaboriginaldata a order by batchno desc
-select makedate,a.* from fiaboriginaldata a where batchno='00000000000000004266'
+select makedate,a.* from fiaboriginaldata a where batchno='00000000000000003647'
 select stringinfo11,stringinfo14,stringinfo05,a.* from fiaboriginaldata a where batchno='00000000000000004193' and acquisitionid in ('REQ71811','');
 
 
@@ -32,10 +32,10 @@ select a.*
 select * from lfcheckfield where isneedchk='1' order by serialno
 
 --SF_FF\SF_SF提取先修改inbankcode
-select inbankcode,inbankaccno,a.*from ljaget a where otherno='7402121100329027'
+select inbankcode,inbankaccno,a.*from ljaget a where otherno='7402121100347973'
 
 --正常收费模拟第三方收费修改bankcode='UnionPay' and bankcode=null
-select bankcode,bankaccno,inbankcode,inbankaccno,paymode,managecom 交费机构,policycom 管理机构,managecom,policycom from ljtempfeeclass a where otherno='7402121100347441' for update;
+select bankcode,bankaccno,inbankcode,inbankaccno,paymode,managecom 交费机构,policycom 管理机构,managecom,policycom from ljtempfeeclass a where otherno='7402121100347973' for update;
 --拆单收费模拟第三方收费修改inbankcode='UnionPay' and inbankaccno=null
 select inbankcode,inbankaccno from splitcont a where contno='2024050700000386' for update;
 --拆单收费模拟正常收费修改inbankcode='0116' and inbankaccno='216200100101807734'
@@ -74,7 +74,7 @@ select f.je_category_name                                                       
        attribute11
 from of_interface f
 where /*je_category_name = 'MQ_YT'
-  and*/ lis_contno = '2025072300000406'
+  and*/ lis_contno = '2025091000001386'
 --lis_prtno = '3206915141230037'
 --and f.source_batch_id = '00000000000000009590'
 --and accounting_date=date'2025-11-16'

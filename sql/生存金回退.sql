@@ -1,0 +1,10 @@
+select a.* from ljaget a where otherno='2025091900001376';
+select a.* from ljagetdraw a where contno='2025091900001376' order by MAKEDATE,MAKETIME;
+select a.* from LISDATA.LCINSUREACC a where contno='2025091900001376';
+select a.* from LISDATA.LCINSUREACCCLASS a where contno='2025091900001376' order by MAKEDATE,MAKETIME;
+select a.* from LISDATA.LCINSUREACCTRACE a where contno='2025091900001376' order by OTHERNO,MAKEDATE,MAKETIME;
+select a.* from LISDATA.LCINSUREACCFEE a where contno='2025091900001376';
+select a.* from LISDATA.LCINSUREACCCLASSFEE a where contno='2025091900001376' order by MAKEDATE,MAKETIME;
+select a.* from LISDATA.LCINSUREACCFEETRACE a where contno='2025091900001376' order by OTHERNO,MAKEDATE,MAKETIME;
+select a.* from LISDATA.LOPRTMANAGER a where otherno='2025091900001376' order by MAKEDATE,MAKETIME;
+select a.* from lcget a where contno='2025091900001376';
