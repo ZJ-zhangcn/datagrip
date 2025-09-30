@@ -40,14 +40,15 @@ where appflag = '1'
                   where statetype = 'DefedPay'
                     and contno = a.contno)
   and grpcontno = '00000000000000000000'
-  and BONUSGETMODE = '0'
-  and exists (select 1 from lcinsured where contno = a.contno and relationtoappnt <> '00')
+  --and BONUSGETMODE = '0'
+  --and exists (select 1 from lcinsured where contno = a.contno and relationtoappnt <> '00')
   and cvalidate between date '2024-01-01' and date
-    '2025-10-01'
+    '2025-01-01'
   and payintv <> '0'
 --and riskcode in (select riskcode from lmriskedoritem where edorcode = 'PU')
 --and riskcode in (select riskcode from lmriskedoritem where edorcode = 'PT')
 --and riskcode in ('1303012', '1303012')
+  and riskcode in (select CODE1 from ldcode1 a where codetype = 'wechatctlimit')
 order by cvalidate desc
 
 
@@ -75,13 +76,13 @@ update lccont set getpoldate=signdate,customgetpoldate=signdate where contno='20
 select a.* from ldtask a where taskdescribe like '%失效%' 
 
 --保单状态
-select a.* from lccontstate a where contno='2025091900000316' order by startdate;
+select a.* from lccontstate a where contno='2025092200001696' order by startdate;
 --状态代码
 select a.* from ldcode a where codetype = 'contstatetype';
 --终止原因
 select a.* from ldcode a where codetype = 'contterminatereason';
 --hanuptype:1-新契约 2-保全 3-续期 4-理赔 5-渠道  flag:0-未挂起  1-已挂起
-select a.* from lcconthangupstate a where contno='2025091800000856'
+select a.* from lcconthangupstate a where contno='2025092200001696'
 
 --
 select a.* from lwmission a where MISSIONPROP1='5000118350621551'
@@ -398,7 +399,7 @@ select a.* from ldcode a where codetype = 'edorstate'
 --个险保全表
 select a.* from lpedoritem a where contno='2025092500000116' order by EDORACCEPTNO,makedate,maketime,modifydate,modifytime
 select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
-where contno='2025092500000116' order by makedate,maketime,modifydate,modifytime
+where contno='2025092200001696' order by makedate,maketime,modifydate,modifytime
 select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
 where edoracceptno='7402121100329113'
 select * from lpedoritem a where EDORTYPE='PU' and EdorValiDate between date'2027-07-27' and date'2027-07-28'

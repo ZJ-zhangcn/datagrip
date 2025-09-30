@@ -1,7 +1,7 @@
 /*
 update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno='5000118350721046'
-update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('2025092800000286','','','')
-update lccont set getpoldate=null,customgetpoldate=null where contno in ('2024060600000226','','','')
+update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('2024122500000216','','','')
+update lccont set getpoldate=null,customgetpoldate=null where contno in ('2024122500000216','','','')
 */
 --
 select a.* from lccontstate a where contno='2024051100000126'
