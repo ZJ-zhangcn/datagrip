@@ -354,8 +354,7 @@ select a.* from LpLettersBXPrintSend a where contno='';
 --银保代理机构
 select AgentCom, Name, UpAgentCom, AreaType, ChannelType
   from LACom c
- where 1 = 1
-   and branchtype = '3'
+ where branchtype = '3'
    and sellflag = 'Y'
    and state = 'N'
    and managecom like '86%'
@@ -365,7 +364,6 @@ select AgentCom, Name, UpAgentCom, AreaType, ChannelType
          where b.AgentCode = a.AgentCode
            and a.RelaType = '1'
            and b.devno1 IS NOT NULL
-           AND 1 = 1
            and b.branchtype = '3'
            and a.agentcom = c.agentcom)
  order by c.AgentCom;
