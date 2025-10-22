@@ -1,19 +1,19 @@
 /*
-ÍËÆ±£º
+é€€ç¥¨ï¼š
 5000118240416019  2024041600000556
 5000118240418011  2024041800000116
 5000118240418028  2024041800000206
 
-Í¶±£ÈË±ä¸ü£º
+æŠ•ä¿äººå˜æ›´ï¼š
 2019122500000766
 5000118240419017  2024041900000306
 */
-select a.*,rowid from lcpol a where prtno='5000118240419017'
-select /*(select codename from ldcode a where codetype='appflag' and code=a.appflag) */appflag,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) ºìÀûÁìÈ¡·½Ê½,(select codename from ldcode where codetype='getlocation' and code=a.getform) Éú´æ½ğÁìÈ¡·½Ê½,contno,prtno,riskcode,signdate,cvalidate,enddate,paytodate,payenddate,payintv,amnt,prem,payendyear,insuyear,a.*,rowid from lcpol a
+select a.* from lcpol a where prtno='5000118240419017'
+select /*(select codename from ldcode a where codetype='appflag' and code=a.appflag) */appflag,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) çº¢åˆ©é¢†å–æ–¹å¼,(select codename from ldcode where codetype='getlocation' and code=a.getform) ç”Ÿå­˜é‡‘é¢†å–æ–¹å¼,contno,prtno,riskcode,signdate,cvalidate,enddate,paytodate,payenddate,payintv,amnt,prem,payendyear,insuyear,a.* from lcpol a
 where contno='2024050900000186'
 
---TrustCompanyFlag='Y'Ê±ÎªĞÅÍĞµ¥
-select appflag,TrustCompanyFlag,a.*,rowid from lccont a where contno='2024050900000186'
+--TrustCompanyFlag='Y'æ—¶ä¸ºä¿¡æ‰˜å•
+select appflag,TrustCompanyFlag,a.* from lccont a where contno='2024050900000186'
 /*
 update lccont set getpoldate=cvalidate-1,customgetpoldate=cvalidate-1 where prtno='5000118340418029'
 update lccont set getpoldate=cvalidate-1,customgetpoldate=cvalidate-1 where contno='2024041900000306'
@@ -24,50 +24,46 @@ select contno,
        dutycode,
        getdutycode,
        (select getdutyname from lmdutygetalive where getdutycode = a.getdutycode and getdutykind = a.getdutykind union select distinct getdutyname from lmdutygetclm where getdutycode = a.getdutycode) getdutyname,
-       (select codename from ldcode where codetype = 'bqannuitygetmode' and code = (select annuitygetmode from lcduty where contno=a.contno)) Éú´æ½ğÁìÈ¡·½Ê½,
+       (select codename from ldcode where codetype = 'bqannuitygetmode' and code = (select annuitygetmode from lcduty where contno=a.contno)) ç”Ÿå­˜é‡‘é¢†å–æ–¹å¼,
        gettodate,
        getstartdate,
        getenddate
   from lcget a
- where contno = '2024050900000586'
- for update;
-
+ where contno = '2024050900000586';
 --
-select IDStDate,IDEXPDATE,a.*,rowid from lcappnt a where contno='2024041800000116';
-select IDStDate,IDEXPDATE,a.*,rowid from lcinsured a where contno='2024041800000116'
+select IDStDate,IDEXPDATE,a.* from lcappnt a where contno='2024041800000116';
+select IDStDate,IDEXPDATE,a.* from lcinsured a where contno='2024041800000116'
 /*
 update lcappnt set IDEXPDATE='2054-04-16' where contno='2024041800000116';
 update lcinsured set IDEXPDATE='2054-04-16' where contno='2024041800000116'
 */
 
 --
-select bankonthewayflag,banksuccflag,prtnotestate,bankprovince,bankcity,bankcode,bankaccno,ENTERACCDATE,CONFDATE,ACCTYPE,a.*,rowid from ljaget a where otherno='2024050900000586' order by shoulddate desc;
-
---¸öÏÕ±£È«±í
-select edorno Åúµ¥ºÅ,edortype,edorstate,EdorValiDate ±£È«ÉúĞ§ÈÕÆÚ,getmoney,getinterest,a.*,rowid from lpedoritem a where contno='2024041800000116' order by EdorValiDate desc;
-
+select bankonthewayflag,banksuccflag,prtnotestate,bankprovince,bankcity,bankcode,bankaccno,ENTERACCDATE,CONFDATE,ACCTYPE,a.* from ljaget a where otherno='2024050900000586' order by shoulddate desc;
+--ä¸ªé™©ä¿å…¨è¡¨
+select edorno æ‰¹å•å·,edortype,edorstate,EdorValiDate ä¿å…¨ç”Ÿæ•ˆæ—¥æœŸ,getmoney,getinterest,a.* from lpedoritem a where contno='2024041800000116' order by EdorValiDate desc;
 --
-select a.*,rowid from lyreturnfrombankb a where paycode='86000020250370001571'
+select a.* from lyreturnfrombankb a where paycode='86000020250370001571'
 
 /*
 update ats_transactions
-   set dtcode          = '1',--³éµµ³É¹¦
-       ats_returnstate = '2',--ÒÑ·´ÅÌ
-       transstate      = '6',--ÍËÆ±´¦Àí
+   set dtcode          = '1',--æŠ½æ¡£æˆåŠŸ
+       ats_returnstate = '2',--å·²åç›˜
+       transstate      = '6',--é€€ç¥¨å¤„ç†
        payinfocode     = 'E8001',
-       payinfo         = 'ÆäËû´íÎó'
+       payinfo         = 'å…¶ä»–é”™è¯¯'
  where reqseqid = '20250510_43468'
 */
 
 --
-select a.*,rowid from ldtask a where taskdescribe like '%Éú´æ½ğ%' 
+select a.* from ldtask a where taskdescribe like '%ç”Ÿå­˜é‡‘%' 
 
---ÍËÆ±Åú´¦Àí
-select a.*,rowid from ldtask a where taskdescribe like '%ÍËÆ±%' 
+--é€€ç¥¨æ‰¹å¤„ç†
+select a.* from ldtask a where taskdescribe like '%é€€ç¥¨%' 
 
---ÏµÍ³Ô­Òòor¿Í»§Ô­Òò
+--ç³»ç»ŸåŸå› orå®¢æˆ·åŸå› 
 Select * FROM ldcode1 a Where a.codetype = 'cuxbankerror' /*And a.code = 'ncux' And a.comcode != 'S' */and comcode='Y'
-select a.*,rowid from lyreturnfrombankb a where paycode='86000020250370014963'
+select a.* from lyreturnfrombankb a where paycode='86000020250370014963'
 
---ºì³å¹ì¼£
-select a.*,rowid from lyrefundlog a where ACTUGETNO='86000020440370000009' order by SERIALNOT desc;
+--çº¢å†²è½¨è¿¹
+select a.* from lyrefundlog a where ACTUGETNO='86000020440370000009' order by SERIALNOT desc;

@@ -1,12 +1,11 @@
-select a.*,rowid from lccontstate a where contno='2023120700000826'
-select a.*,rowid from lcconthangupstate a where contno='2023120700000826'
-select a.*,rowid from ldcode a where codetype='conthanguptype'
---±£µ¥Ê§Ğ§×´Ì¬
-select a.*,rowid from ldcode a where codetype='contavailablereason';
-select a.*,rowid from ldcode a where codetype='contterminatereason';
-
---ÂúÆÚÖÕÖ¹
-select a.*, rowid
+select a.* from lccontstate a where contno='2023120700000826';
+select a.* from lcconthangupstate a where contno='2023120700000826';
+select a.* from ldcode a where codetype='conthanguptype';
+--ä¿å•å¤±æ•ˆçŠ¶æ€
+select a.* from ldcode a where codetype='contavailablereason';
+select a.* from ldcode a where codetype='contterminatereason';
+--æ»¡æœŸç»ˆæ­¢
+select a.*
   from lccont a
  where contno <> prtno
    and grpcontno like '000000%'
@@ -15,10 +14,10 @@ select a.*, rowid
                    where statetype = 'Terminate'
                      and state = '1'
                      and STATEREASON = '01')
- order by contno desc
+ order by contno desc;
 
---ÍË±£ÖÕÖ¹
-select a.*, rowid
+--é€€ä¿ç»ˆæ­¢
+select a.*
   from lccont a
  where contno <> prtno
    and grpcontno like '000000%'
@@ -27,10 +26,10 @@ select a.*, rowid
                    where statetype = 'Terminate'
                      and state = '1'
                      and STATEREASON = '02')
- order by contno desc
+ order by contno desc;
 
---½âÔ¼ÖÕÖ¹
-select a.*, rowid
+--è§£çº¦ç»ˆæ­¢
+select a.*
   from lccont a
  where contno <> prtno
    and grpcontno like '000000%'
@@ -39,10 +38,10 @@ select a.*, rowid
                    where statetype = 'Terminate'
                      and state = '1'
                      and STATEREASON = '03')
- order by contno desc
+ order by contno desc;
 
---ÀíÅâÖÕÖ¹
-select a.*, rowid
+--ç†èµ”ç»ˆæ­¢
+select a.*
   from lccont a
  where contno <> prtno
    and grpcontno like '000000%'
@@ -51,10 +50,10 @@ select a.*, rowid
                    where statetype = 'Terminate'
                      and state = '1'
                      and STATEREASON = '04')
- order by contno desc
+ order by contno desc;
 
---Ğ­ÍËÖÕÖ¹
-select a.*, rowid
+--åé€€ç»ˆæ­¢
+select a.*
   from lccont a
  where contno <> prtno
    and grpcontno like '000000%'
@@ -63,10 +62,10 @@ select a.*, rowid
                    where statetype = 'Terminate'
                      and state = '1'
                      and STATEREASON = '05')
- order by contno desc
+ order by contno desc;
 
---ÓÌÍËÖÕÖ¹
-select a.*, rowid
+--çŠ¹é€€ç»ˆæ­¢
+select a.*
   from lccont a
  where contno <> prtno
    and grpcontno like '000000%'
@@ -75,17 +74,17 @@ select a.*, rowid
                    where statetype = 'Terminate'
                      and state = '1'
                      and STATEREASON = '06')
- order by contno desc
+ order by contno desc;
 
---ºË±£×´Ì¬
-select a.*,rowid from ldcode a where codetype = 'uwflag'
---¾Ü±£
-select a.*,rowid from lccont a where uwflag='1' and appflag='0' and contno=prtno and grpcontno like '000000%' and prtno in (select CONTPRTNO from ybtnonrealtimepol/*·ÇÊµÊ±±£µ¥¸Ã±íÓĞÊı¾İ*/)
---ÑÓÆÚ 
-select a.*,rowid from lccont a where uwflag='2' and appflag='0' and contno=prtno and grpcontno like '000000%' and contno in (select contno from ybtnonrealtimepol)
+--æ ¸ä¿çŠ¶æ€
+select a.* from ldcode a where codetype = 'uwflag';
+--æ‹’ä¿
+select a.* from lccont a where uwflag='1' and appflag='0' and contno=prtno and grpcontno like '000000%' and prtno in (select CONTPRTNO from ybtnonrealtimepol/*éå®æ—¶ä¿å•è¯¥è¡¨æœ‰æ•°æ®*/);
+--å»¶æœŸ
+select a.* from lccont a where uwflag='2' and appflag='0' and contno=prtno and grpcontno like '000000%' and contno in (select contno from ybtnonrealtimepol);
 
---ĞøÆÚÖÕÖ¹
-select a.*, rowid
+--ç»­æœŸç»ˆæ­¢
+select a.*
   from lccont a
  where contno <> prtno
    and grpcontno like '000000%'
@@ -95,10 +94,10 @@ select a.*, rowid
                    where statetype = 'Available'
                      and state = '1'
                      and STATEREASON = '01')
- order by contno desc
+ order by contno desc;
 
---´û¿îÖÕÖ¹
-select a.*, rowid
+--è´·æ¬¾ç»ˆæ­¢
+select a.*
   from lccont a
  where contno <> prtno
    and grpcontno like '000000%'
@@ -107,4 +106,4 @@ select a.*, rowid
                    where statetype = 'Available'
                      and state = '1'
                      and STATEREASON = '04')
- order by contno desc
+ order by contno desc;

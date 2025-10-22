@@ -1,15 +1,14 @@
-select appflag,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) ºìÀûÁìÈ¡·½Ê½,(select codename from ldcode where codetype='getlocation' and code=a.getform) Éú´æ½ğÁìÈ¡·½Ê½,(select riskname from lmriskapp where riskcode=a.riskcode) riskname,contno,prtno,riskcode,signdate,cvalidate,enddate,paytodate,payenddate,payintv,amnt,prem,payendyear,insuyear,a.*,rowid from lcpol a
+select appflag,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) çº¢åˆ©é¢†å–æ–¹å¼,(select codename from ldcode where codetype='getlocation' and code=a.getform) ç”Ÿå­˜é‡‘é¢†å–æ–¹å¼,(select riskname from lmriskapp where riskcode=a.riskcode) riskname,contno,prtno,riskcode,signdate,cvalidate,enddate,paytodate,payenddate,payintv,amnt,prem,payendyear,insuyear,a.* from lcpol a
 where contno in ('2024102100000126','2024102200000186','2024102200000316','2024102100000496') order by a.contno
 
-select a.*,rowid from loloanmain a where contno in ('2024102100000126','2024102200000186','2024102200000316','') order by a.contno
+select a.* from loloanmain a where contno in ('2024102100000126','2024102200000186','2024102200000316','') order by a.contno
 
-select a.*,rowid from ldtask a where taskdescribe like '%´û¿î%' 
+select a.* from ldtask a where taskdescribe like '%è´·æ¬¾%' 
 
-select a.*,rowid from LJABonusGet a where otherno='2024102200000316' order by BONUSYEAR desc;
-select a.*,rowid from lobonuspol a where contno='2024102200000186' order by FISCALYEAR desc;
+select a.* from LJABonusGet a where otherno='2024102200000316' order by BONUSYEAR desc;
+select a.* from lobonuspol a where contno='2024102200000186' order by FISCALYEAR desc;
+select a.* from ljaget a where otherno='2024102200000316'
 
-select a.*,rowid from ljaget a where otherno='2024102200000316'
+select a.* from ljspay a where otherno='2024102200000316'
 
-select a.*,rowid from ljspay a where otherno='2024102200000316'
-
-select * from ldcode where codetype='bonusgetmode'
+select * from ldcode where codetype='bonusgetmode';

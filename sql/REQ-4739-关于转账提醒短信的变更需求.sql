@@ -1,20 +1,16 @@
 UPDATE ats_transactions a
-SET a.dtcode          = '1',--³éµµ³É¹¦
-    a.ats_returnstate = '2',--ÒÑ·µÅÌ
-    a.transstate      = '3',--´¦ÀíÊ§°Ü
+SET a.dtcode          = '1',--æŠ½æ¡£æˆåŠŸ
+    a.ats_returnstate = '2',--å·²è¿”ç›˜
+    a.transstate      = '3',--å¤„ç†å¤±è´¥
     a.payinfocode     = 'E1001',
-    a.payinfo         = 'ÕË»§²»´æÔÚ'
+    a.payinfo         = 'è´¦æˆ·ä¸å­˜åœ¨'
 WHERE a.reqseqid = '20250511_30197';
-
-
---Ne2001£º
+--Ne2001ï¼š
 select codename from ldcode1 where codetype = 'failedtransfer' and code='03' and code1 = '1';
---Ne2002£º
+--Ne2002ï¼š
 select codename from ldcode1 where codetype = 'failedtransfer' and code='03' and code1 = '2';
---Ne2003£º
+--Ne2003ï¼š
 select codename from ldcode1 where codetype = 'succcharge' and code='03' and code1 = '1';
+select a.* from ldtask a where TASKDESCRIBE like '%çŸ­ä¿¡%'
 
-select a.* from ldtask a where TASKDESCRIBE like '%¶ÌĞÅ%'
-
-select a.* from SMS_DISPATCH_LIST a where otherno='5000118350314283'
-
+select a.* from SMS_DISPATCH_LIST a where otherno='5000118350314283';

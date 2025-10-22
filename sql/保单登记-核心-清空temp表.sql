@@ -1,4 +1,6 @@
-truncate table temp_LCPOLTRANSACTION;/*delete from TEMP_LCPOLTRANSACTION where BUSSTYPE <> '73';*/
+truncate table temp_LCPOLTRANSACTION;
+/*delete from TEMP_LCPOLTRANSACTION where BUSSTYPE <> '73';
+*/
 truncate table temp_LCCONT;
 truncate table temp_LCPRODINSURELA;
 truncate table temp_LCPRODUCT;

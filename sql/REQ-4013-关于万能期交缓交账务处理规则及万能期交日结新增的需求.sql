@@ -1,62 +1,58 @@
 /*
 5000118240423010  2024022800004026
 5000118240423027  2024042300000186
-5000118240424016  2024042400000286  Å®
-5000118240424023  2024042400000376  ·ÇÍ¬Ò»ÈË
+5000118240424016  2024042400000286  å¥³
+5000118240424023  2024042400000376  éåŒä¸€äºº
 5000118240510010  2024051000000206
-5000118240511016  2024080100000286  ½Ú¼ÙÈÕ²ğµ¥
+5000118240511016  2024080100000286  èŠ‚å‡æ—¥æ‹†å•
 */
 
-('2024080100000286','2024051000001176')
+--('2024080100000286','2024051000001176')
 
 --
-select cvalidate,a.*,rowid from lcpol a where contno='5000118340528063'
-select appflag,signdate,cvalidate,managecom,salechannels,a.*,rowid from lccont a where contno in ('20240424000001963','')
+select cvalidate,a.* from lcpol a where contno='5000118340528063';
+select appflag,signdate,cvalidate,managecom,salechannels,a.* from lccont a where contno in ('20240424000001963','');
 
 --
-select a.*/*,rowid*/ from lccontstate a where contno='2024042400000286' for update;
-
+select a.*/**/ from lccontstate a where contno='2024042400000286';
 insert into lccontstate (CONTNO, INSUREDNO, POLNO, STATETYPE, STATE, STATEREASON, STARTDATE, ENDDATE, REMARK, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME)
 values ('2024042300000186', '1060093044', '210310000006481', 'DefedPay', '1', null, to_date('24-06-2025', 'dd-mm-yyyy'), null, null, 'sys', to_date('01-07-2025', 'dd-mm-yyyy'), '00:00:14', to_date('01-07-2025', 'dd-mm-yyyy'), '00:00:14');
-
-
---hanuptype:1-ĞÂÆõÔ¼ 2-±£È« 3-ĞøÆÚ 4-ÀíÅâ 5-ÇşµÀ  flag:0-Î´¹ÒÆğ  1-ÒÑ¹ÒÆğ
-select a.*,rowid from lcconthangupstate a where contno='2024080100000286'
+--hanuptype:1-æ–°å¥‘çº¦ 2-ä¿å…¨ 3-ç»­æœŸ 4-ç†èµ” 5-æ¸ é“  flag:0-æœªæŒ‚èµ·  1-å·²æŒ‚èµ·
+select a.* from lcconthangupstate a where contno='2024080100000286';
 
 --
-select a.*,rowid from ljspay a where otherno='2024042400000286';
-select a.*,rowid from ljspayperson a where contno='2024042400000286'
-select a.*,rowid from ljapay a where otherno in ('2024042400000286','')
-select a.*,rowid from ljapayperson a where contno in ('2024042400000286','')
-select a.*,rowid from ljtempfee a where otherno='2024042400000286'
-select a.*,rowid from ljtempfeeclass a where TEMPFEENO='86000020270320000094'
-select a.*,rowid from lcinsureacctrace a where contno in ('2024042400000286','') and MONEYTYPE='CS' and riskcode='1303012' and makedate between date'2027-07-28' and date'2027-07-28' order by contno,paydate desc;
-select a.*,rowid from lcinsureacctrace a where contno in ('2024042400000286','') order by paydate desc,makedate desc,maketime desc;
-select a.*,rowid from lcinsureaccfeetrace a where contno='2024042400000286' order by paydate desc;
+select a.* from ljspay a where otherno='2024042400000286';
+select a.* from ljspayperson a where contno='2024042400000286';
+select a.* from ljapay a where otherno in ('2024042400000286','');
+select a.* from ljapayperson a where contno in ('2024042400000286','');
+select a.* from ljtempfee a where otherno='2024042400000286';
+select a.* from ljtempfeeclass a where TEMPFEENO='86000020270320000094';
+select a.* from lcinsureacctrace a where contno in ('2024042400000286','') and MONEYTYPE='CS' and riskcode='1303012' and makedate between date'2027-07-28' and date'2027-07-28' order by contno,paydate desc;
+select a.* from lcinsureacctrace a where contno in ('2024042400000286','') order by paydate desc,makedate desc,maketime desc;
+select a.* from lcinsureaccfeetrace a where contno='2024042400000286' order by paydate desc;
+select a.* from ldtask a where taskdescribe like '%ç¼“äº¤%';
 
-select a.*,rowid from ldtask a where taskdescribe like '%»º½»%' 
-
---¿ÆÄ¿Ã÷Ï¸
-select f.source_batch_id ÌáÕËÅú´ÎºÅ,
-       f.je_category_name Æ¾Ö¤ÀàĞÍ,
-       f.lis_contno ±£µ¥ºÅ,
-       f.lis_prtno Í¶±£µ¥ºÅ,
-       f.accounting_date ÕËÎñÈÕÆÚ,
-       f.source_desc ÒµÎñÀà±ğ,
-       f.line_desc ÃèÊö,
-       f.attribute15 ĞÂ¾É,
-       f.entered_dr ½è·½½ğ¶î,
-       f.entered_cr ´û·½½ğ¶î,
-       f.segment1 ¹«Ë¾,
-       f.segment2 ³É±¾ÖĞĞÄ,
-       f.segment3 ºËËã¿ÆÄ¿,
-       f.segment4 Ã÷Ï¸,
-       f.segment5 ÇşµÀ,
-       f.segment6 ²úÆ·/*,
-       (select acquisitionid from fiaboriginaldata where aserialno = f.attribute1) Ëã·¨´úÂë,
-       (select DISTILLSQL from ficostdataacquisitiondef where acquisitionid in (select acquisitionid from fiaboriginaldata where aserialno = f.attribute1)) Ëã·¨*/
+--ç§‘ç›®æ˜ç»†
+select f.source_batch_id æè´¦æ‰¹æ¬¡å·,
+       f.je_category_name å‡­è¯ç±»å‹,
+       f.lis_contno ä¿å•å·,
+       f.lis_prtno æŠ•ä¿å•å·,
+       f.accounting_date è´¦åŠ¡æ—¥æœŸ,
+       f.source_desc ä¸šåŠ¡ç±»åˆ«,
+       f.line_desc æè¿°,
+       f.attribute15 æ–°æ—§,
+       f.entered_dr å€Ÿæ–¹é‡‘é¢,
+       f.entered_cr è´·æ–¹é‡‘é¢,
+       f.segment1 å…¬å¸,
+       f.segment2 æˆæœ¬ä¸­å¿ƒ,
+       f.segment3 æ ¸ç®—ç§‘ç›®,
+       f.segment4 æ˜ç»†,
+       f.segment5 æ¸ é“,
+       f.segment6 äº§å“/*,
+       (select acquisitionid from fiaboriginaldata where aserialno = f.attribute1) ç®—æ³•ä»£ç ,
+       (select DISTILLSQL from ficostdataacquisitiondef where acquisitionid in (select acquisitionid from fiaboriginaldata where aserialno = f.attribute1)) ç®—æ³•*/
   from of_interface f
  where lis_contno in ('2024061400000186', '') --2024052600000196\2024052700000106
    and f.source_batch_id = '00000000000000009280'
    --and (f.entered_dr='1500' or f.entered_cr='1500')
- order by attribute15, segment3
+ order by attribute15, segment3;

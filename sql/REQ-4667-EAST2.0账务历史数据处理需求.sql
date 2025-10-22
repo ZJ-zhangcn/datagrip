@@ -13,7 +13,6 @@ select distinct a.source_batch_id ,
  where ledger_flag='N'
  --  and source_batch_id = '00000000000000007597'
    and segment3 in ('10020101');
-
 select a.* from cux_in_interface_temp a
 
 --drop table of_interface_temp;
@@ -45,11 +44,10 @@ where f.source_batch_id = p.source_batch_id
   and f.attribute15 = 'N'
 --and f.accounting_date between date'2022-01-01' and date'2025-01-31';
 alter table of_interface_temp modify paycode VARCHAR2(100);
-
 select DOC_SEQ_NUM,paycode,a.* from of_interface_temp a where paycode in ('86000020260370000918','86010120270320000294','86010120250320003929','86000020260370000918','86010120250320003936','86010120250320003918','86010120250320003919','86310020250320000285','86010120250320003927','86010120250320003928','86010120280320000227','86010120250320003938','86010120250320003939','86010120250320003913','86010120250320003920','86000020260370000920','86010120250320003916','86010120250320003917','86000020250370015332','86000020260370000922','86000020270370000729','86010120250320003935','86310020250320000284','86000020260370000924','86010120250320003933')
 
 
---ÆõÔ¼Ê×ÆÚ
+--å¥‘çº¦é¦–æœŸ
  update of_interface_temp p
     set p.paycode =
         (select a.payno
@@ -62,8 +60,7 @@ select DOC_SEQ_NUM,paycode,a.* from of_interface_temp a where paycode in ('86000
           where a.incomeno = t.contno
             and t.prtno = p.header_id
             and a.incometype = '2');
-
---ÍÅÏÕÆõÔ¼Ê×ÆÚ
+--å›¢é™©å¥‘çº¦é¦–æœŸ
  update of_interface_temp p
     set p.paycode =
         (select a.payno
@@ -76,8 +73,7 @@ select DOC_SEQ_NUM,paycode,a.* from of_interface_temp a where paycode in ('86000
           where a.incomeno = t.grpcontno
             and t.prtno = p.header_id
             and a.incometype = '1');
-
---¸¶·ÑÊý¾Ý ÐÞ¸ÄÊµ¸¶ºÅ
+--ä»˜è´¹æ•°æ® ä¿®æ”¹å®žä»˜å·
 update of_interface_temp p set p.paycode = (
  select a.actugetno
  from ljaget a,lccont t
@@ -94,8 +90,7 @@ update of_interface_temp p set p.paycode = (
  --and t.contno='2016010400052388'
  and a.confdate > add_months(p.accounting_date,-1)
  and a.confdate <= p.accounting_date);
-
---¸¶·ÑÊý¾Ý ÐÞ¸ÄÊµ¸¶ºÅ
+--ä»˜è´¹æ•°æ® ä¿®æ”¹å®žä»˜å·
 update of_interface_temp p set p.paycode = (
  select a.actugetno
  from ljaget a,lccont t
@@ -110,9 +105,7 @@ update of_interface_temp p set p.paycode = (
  and t.contno=p.header_id
  and a.confdate > add_months(p.accounting_date,-1)
  and a.confdate <= p.accounting_date);
-
-
---¸öÏÕ±£È«Êý¾Ý¸üÐÂ
+--ä¸ªé™©ä¿å…¨æ•°æ®æ›´æ–°
  update of_interface_temp p
     set p.paycode =
         (select a.payno
@@ -123,8 +116,7 @@ update of_interface_temp p set p.paycode = (
            from ljapay a
           where a.incomeno = p.header_id
             and a.incometype = '10' );
-
---¸öÏÕ±£È«Êý¾Ý¸üÐÂ
+--ä¸ªé™©ä¿å…¨æ•°æ®æ›´æ–°
  update of_interface_temp p
     set p.paycode =
         (select a.actugetno
@@ -135,8 +127,7 @@ update of_interface_temp p set p.paycode = (
            from ljaget a
           where a.otherno = p.header_id
             and a.othernotype in( '10','3','5') );
-
---ÍÅÏÕ¶¨ÆÚ½áËãÊý¾Ý
+--å›¢é™©å®šæœŸç»“ç®—æ•°æ®
 update of_interface_temp p
     set p.paycode =
         (select a.payno
@@ -149,8 +140,6 @@ update of_interface_temp p
           where a.payno=t.actugetno
            and t.balancerelano = p.header_id
            and a.incometype = 'B' );
-
-
 PayType=certifrela
 select GLVOUCHERNO,RDSEQ,reqseqid,ACTTYPE,a.* from LYATSTRANRELA a where ACTTYPE='S3' and exists (select VOUCHERCODE from S3_RTRECMENTS where urid=a.REQSEQID)
 update LYATSTRANRELA set GLVOUCHERNO=null where
@@ -168,4 +157,4 @@ select a.* from of_interface a where
 
 
 update S3_RTRECMENTS a set a.VOUCHERCODE=(select p.glvoucherno from lyatstranrela p where p.reqseqid=a.urid and p.acttype='S3' and rownum=1 )
- where exists (select p.glvoucherno from lyatstranrela p where p.reqseqid=a.urid and p.acttype='S3')
+ where exists (select p.glvoucherno from lyatstranrela p where p.reqseqid=a.urid and p.acttype='S3');

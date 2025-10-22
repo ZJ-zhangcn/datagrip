@@ -1,7 +1,7 @@
-select codename from ldcode where codetype = 'LINK_STAUTS' and code='01' for update;--1£∫ø™
-select * from ldcode1 where CODETYPE ='IsJoggle' for update;
-
---∏ˆ»À Ÿœ’Ω”ø⁄£∫
+select codename from ldcode where codetype = 'LINK_STAUTS' and code='01';
+--1ÔºöÂºÄ
+select * from ldcode1 where CODETYPE ='IsJoggle';
+--‰∏™‰∫∫ÂØøÈô©Êé•Âè£Ôºö
 select riskcode,makedate,insuredname,insuredidno,a.*
   from lcRiskManagementInfo a
  where business = 'HB_Life'
@@ -14,10 +14,10 @@ select riskcode,makedate,insuredname,insuredidno,a.*
        multiCompany = 'Y' or searchComCnt = 'Y' or
        majorDiseasePayment = 'Y' or accAccumulativeMoney = 'Y' or
        denseRGA = 'Y' or multiCompanyRGA = 'Y')
- order by a.makedate desc
- for update;--ÕıŒÂ Ÿœ’∫À±£17
+ order by a.makedate desc;
+--Áéã‰∫îÂØøÈô©Ê†∏‰øù17
 
---∏ˆ»ÀΩÚÃ˘Ω”ø⁄£∫
+--‰∏™‰∫∫Ê¥•Ë¥¥Êé•Âè£Ôºö
 select riskcode,makedate,insuredname,insuredidno,a.*
   from lcRiskManagementInfo a
  where business = 'HB_allowanceCheck'
@@ -30,9 +30,9 @@ select riskcode,makedate,insuredname,insuredidno,a.*
        majorDiseasePayment = 'Y' or chronicDiseasePayment = 'Y' or
        DAYMONEYSUM = 'Y' or paymentCountOneYear = 'Y' or
        PAYMENTDAYCOUNT = 'Y' or specDiseasePayment = 'Y')
- order by a.makedate desc for update
+ order by a.makedate desc;
 
---÷ÿ¥Ûº≤≤°Ω”ø⁄£∫
+--ÈáçÂ§ßÁñæÁóÖÊé•Âè£Ôºö
 select riskcode,makedate,insuredname,insuredidno,a.*
   from lcRiskManagementInfo a
  where business = 'HB_majorDiseaseCheck'
@@ -46,14 +46,10 @@ select riskcode,makedate,insuredname,insuredidno,a.*
        majorDiseaseMoney = 'Y' or
        multiCompany = 'Y' and dense = 'Y' and specDiseasePayment = 'Y' or
        searchComCnt = 'Y')
- order by a.makedate desc for update;
-
+ order by a.makedate desc;
 insert into lcRiskManagementInfo (SERIALNO, ACCNO, CONTNO, PRTNO, CASENO, RISKCODE, INSUREDNAME, INSUREDIDTYPE, INSUREDIDNO, COMPANYCODE, BUSINESS, RISKTYPE, CUSTOMERALLOWED, MULTICOMPANY, MAJORDISEASEPAYMENT, DISABILITY, DENSE, ACCUMULATIVEMONEY, PAGEQUERYCODE, TAGDATE, DISPLAYPAGE, ABNORMALCHECK, ABNORMALPAYMENT, CHRONICDISEASEPAYMENT, PAYMONEY, DAYMONEY, COUNTONEYEAR, PAYMENTCOUNTONEYEAR, PAYMENTED, PAYMENTCOUNT, DAYMONEYSUM, MAJORDISEASEMONEY, PAYCOUNT, PAYMENTDAYCOUNT, PAYMENTED2, RECEIPTCODE, HOSPITALCODE, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, INSURERUUID, DRIVEACCACCUMULATIVEMONEY, DRIVEDUTYMULTICOMPANY, SPECDISEASEPAYMENT, RECEIPTREPETITIONS, IFSPLITLIST, MULTICOMPANY2, INSUREDIFDEAD, SEARCHCOMCNT, SUMINSURED, ACCACCUMULATIVEMONEY, MULTICOMPANYRGA, DENSERGA, MULTICOMPANY3, ABNORMALCHECK2, ABNORMALPAYMENT2, SHORTCLM, ACCCOMMEDICLMCNT, MAJORDISEASEPAYMENT2, DENSE2)
-values ('00000000000000010104', '190_gaomin', '2020080100102496', '2020080100102496', null, '1053002', 'Ω°∫ÀΩÚÃ˘ Æ“ª', '0', '110101198401140551', '000190', 'HB_majorDiseaseCheck', 'A', 'Y', 'N.A.', 'N.A.', null, 'N.A.', null, '2020042300012460792753938', '2019-05-17', 'Y', 'Y', 'N.A.', 'N.A.', null, null, null, null, null, null, null, 'N.A.', null, null, null, null, null, 'E001', to_date('28-08-2019', 'dd-mm-yyyy'), '00:22:03', to_date('28-08-2019', 'dd-mm-yyyy'), '00:22:03', '0001900000000081', null, null, 'N.A.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-
-
-
---“Ω¡∆≤π≥•Ω”ø⁄£∫
+values ('00000000000000010104', '190_gaomin', '2020080100102496', '2020080100102496', null, '1053002', 'ÂÅ•Ê†∏Ê¥•Ë¥¥ÂçÅ‰∏Ä', '0', '110101198401140551', '000190', 'HB_majorDiseaseCheck', 'A', 'Y', 'N.A.', 'N.A.', null, 'N.A.', null, '2020042300012460792753938', '2019-05-17', 'Y', 'Y', 'N.A.', 'N.A.', null, null, null, null, null, null, null, 'N.A.', null, null, null, null, null, 'E001', to_date('28-08-2019', 'dd-mm-yyyy'), '00:22:03', to_date('28-08-2019', 'dd-mm-yyyy'), '00:22:03', '0001900000000081', null, null, 'N.A.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+--ÂåªÁñóË°•ÂÅøÊé•Âè£Ôºö
 select riskcode,makedate,insuredname,insuredidno,a.*
   from lcRiskManagementInfo a
  where business = 'HB_supplementaryMedicalCheck'
@@ -65,9 +61,8 @@ select riskcode,makedate,insuredname,insuredidno,a.*
    and (abnormalCheck = 'Y' or abnormalPayment = 'Y' or
        majorDiseasePayment = 'Y' or chronicDiseasePayment = 'Y' or
        payCount = 'Y' or paymoney = 'Y' and specDiseasePayment = 'Y')
- order by a.makedate desc for update;
-
---∏ˆ»À“‚Õ‚Ω”ø⁄£∫
+ order by a.makedate desc;
+--‰∏™‰∫∫ÊÑèÂ§ñÊé•Âè£Ôºö
 select riskcode,makedate,insuredname,insuredidno,a.*
   from lcRiskManagementInfo a
  where business = 'HB_accident'
@@ -81,9 +76,6 @@ select riskcode,makedate,insuredname,insuredidno,a.*
        DriveAccAccumulativeMoney = 'Y' or DriveDutyMultiCompany = 'Y' or
        SpecDiseasePayment = 'Y' or InsuredIfDead = 'Y' or
        SearchComCnt = 'Y')
- order by a.makedate desc for update;
-
-
+ order by a.makedate desc;
 insert into lcRiskManagementInfo (SERIALNO, ACCNO, CONTNO, PRTNO, CASENO, RISKCODE, INSUREDNAME, INSUREDIDTYPE, INSUREDIDNO, COMPANYCODE, BUSINESS, RISKTYPE, CUSTOMERALLOWED, MULTICOMPANY, MAJORDISEASEPAYMENT, DISABILITY, DENSE, ACCUMULATIVEMONEY, PAGEQUERYCODE, TAGDATE, DISPLAYPAGE, ABNORMALCHECK, ABNORMALPAYMENT, CHRONICDISEASEPAYMENT, PAYMONEY, DAYMONEY, COUNTONEYEAR, PAYMENTCOUNTONEYEAR, PAYMENTED, PAYMENTCOUNT, DAYMONEYSUM, MAJORDISEASEMONEY, PAYCOUNT, PAYMENTDAYCOUNT, PAYMENTED2, RECEIPTCODE, HOSPITALCODE, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, INSURERUUID, DRIVEACCACCUMULATIVEMONEY, DRIVEDUTYMULTICOMPANY, SPECDISEASEPAYMENT, RECEIPTREPETITIONS, IFSPLITLIST, MULTICOMPANY2, INSUREDIFDEAD, SEARCHCOMCNT, SUMINSURED, ACCACCUMULATIVEMONEY, MULTICOMPANYRGA, DENSERGA, MULTICOMPANY3, ABNORMALCHECK2, ABNORMALPAYMENT2, SHORTCLM, ACCCOMMEDICLMCNT, MAJORDISEASEPAYMENT2, DENSE2)
-values ('00000000000000010151', '190_gaomin', '2021010200000166', '2021010200000166', null, '1075001', 'Ω°∫ÀΩÚÃ˘ Æ“ª', '1', '110101198401140551', '000190', 'HB_accident', 'A', 'Y', 'N.A.', 'Y', 'N.A.', 'N.A.', 'N.A.', '2020050800019067036949189', '2019-05-17', 'Y', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 'E001', to_date('02-01-2021', 'dd-mm-yyyy'), '00:38:44', to_date('02-01-2021', 'dd-mm-yyyy'), '00:38:44', '0001900000000129', 'N.A.', 'N.A.', 'N.A.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-
+values ('00000000000000010151', '190_gaomin', '2021010200000166', '2021010200000166', null, '1075001', 'ÂÅ•Ê†∏Ê¥•Ë¥¥ÂçÅ‰∏Ä', '1', '110101198401140551', '000190', 'HB_accident', 'A', 'Y', 'N.A.', 'Y', 'N.A.', 'N.A.', 'N.A.', '2020050800019067036949189', '2019-05-17', 'Y', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 'E001', to_date('02-01-2021', 'dd-mm-yyyy'), '00:38:44', to_date('02-01-2021', 'dd-mm-yyyy'), '00:38:44', '0001900000000129', 'N.A.', 'N.A.', 'N.A.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);

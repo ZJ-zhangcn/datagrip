@@ -1,21 +1,19 @@
 /*
-businessType £º 1-³Ğ±£Á÷³Ì£¬2-ÀíÅâ
-¼ÈÍùÒ½ÁÆ·çÏÕÌáÊ¾½Ó¿Ú£º
-    alertType £º 1-·çÏÕµÈ¼¶  2-·çÏÕ±êÇ©
-    RiskMapFlag £º'1'
-¸¨ÖúÁ½ºËµ÷²é½Ó¿Ú£º
-    RiskMapFlag£º '2'
-ÀíÅâÕæÊµĞÔÑéÖ¤½Ó¿Ú£º
+businessType ï¼š 1-æ‰¿ä¿æµç¨‹ï¼Œ2-ç†èµ”
+æ—¢å¾€åŒ»ç–—é£é™©æç¤ºæ¥å£ï¼š
+    alertType ï¼š 1-é£é™©ç­‰çº§  2-é£é™©æ ‡ç­¾
+    RiskMapFlag ï¼š'1'
+è¾…åŠ©ä¸¤æ ¸è°ƒæŸ¥æ¥å£ï¼š
+    RiskMapFlagï¼š '2'
+ç†èµ”çœŸå®æ€§éªŒè¯æ¥å£ï¼š
     RiskMapFlag = '3' 
-tag Îª¿ÕÊÇÃ»ÓĞ·µ»ØÊı¾İ
+tag ä¸ºç©ºæ˜¯æ²¡æœ‰è¿”å›æ•°æ®
 */
 
 SELECT alertType, RiskMapFlag, a.*
   FROM lcRiskMapInfo a
- where PolicyNo = '5000111000018570'
-   for update;
-
-select riskcode,a.*,rowid from lcpol a where contno='5000118240725037'
+ where PolicyNo = '5000111000018570';
+select riskcode,a.* from lcpol a where contno='5000118240725037';
 
 select (select CODENAME
           from ldcode
@@ -43,29 +41,28 @@ select (select CODENAME
            and a.addressno = b.addressno) mobile,
        (select CODE from ldcode where CODETYPE = 'insureProvince') insureProvince
   from lccont lc
- where lc.prtno = '5000118240102022'
+ where lc.prtno = '5000118240102022';
 
-select a.*,rowid from lacomtoagent a where agentcom='JK00000053'
+select a.* from lacomtoagent a where agentcom='JK00000053';
 
-select a.*,rowid from ldcode a where codetype = 'prompt'
+select a.* from ldcode a where codetype = 'prompt';
 
-select CEndDate from lcgrpcont where grpcontno='5000101440108011'
+select CEndDate from lcgrpcont where grpcontno='5000101440108011';
 
-select a.*,rowid from ldcode a where codetype like '%kindcode%' and code in ('L','S','A','H')
+select a.* from ldcode a where codetype like '%kindcode%' and code in ('L','S','A','H');
 
-select a.*,rowid from lmriskapp a where kindcode='H' and riskname not like '%ÍÅÌå%' and riskname not like '%¸½¼Ó%'  
+select a.* from lmriskapp a where kindcode='H' and riskname not like '%å›¢ä½“%' and riskname not like '%é™„åŠ %';
 
-select kindcode,a.*,rowid from lmriskapp a where riskcode=(select riskcode from lcpol where prtno='5000118240102022')
+select kindcode,a.* from lmriskapp a where riskcode=(select riskcode from lcpol where prtno='5000118240102022');
 
-select a.*,rowid from es_doc_main a where doccode='5000118240102022' and (subtype='50002166' or subtype='36131151')
+select a.* from es_doc_main a where doccode='5000118240102022' and (subtype='50002166' or subtype='36131151');
 
-select a.* from es_doc_main a where subtype='50002166' order by docid desc
+select a.* from es_doc_main a where subtype='50002166' order by docid desc;
 
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
 values (19823240, '5000118240102022', 'TB', '50002166', 1, '1', null, '001', '860101', null, null, null, null, null, null, to_date('03-01-2024', 'dd-mm-yyyy'), '00:00:00', to_date('03-01-2024', 'dd-mm-yyyy'), '00:00:00', '2', 'TB2022860100001X', '5000118240102022', 573, 'GXTB', 'HXLR');
+SELECT 1 from es_doc_main a, es_doc_relation b where a.docid = b.docid and a.subtype in('50002166','36131151') and bussno='5000118240102022';
+SELECT 1 from es_doc_main a, es_doc_relation b where a.docid = b.docid and a.subtype in('50002166','36131151') and bussno='5000118240102022';
+select a.* from es_doc_relation a where subtype='50002166' order by docid desc;
 
-SELECT 1 from es_doc_main a, es_doc_relation b where a.docid = b.docid and a.subtype in('50002166','36131151') and bussno='5000118240102022'
-SELECT 1 from es_doc_main a, es_doc_relation b where '1704246778000'='1704246778000' and  a.docid = b.docid and a.subtype in('50002166','36131151') and bussno='5000118240102022'
-select a.*,rowid from es_doc_relation a where subtype='50002166' order by docid desc
-
-select a.*,rowid from es_doc_relation a where doccode='5000118240102022'
+select a.* from es_doc_relation a where doccode='5000118240102022';

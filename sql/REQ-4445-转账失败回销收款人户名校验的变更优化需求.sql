@@ -1,16 +1,14 @@
-select a.*,rowid from lcpol a where appntname like '%银保投保%' and a.insuredappage<18 
+select a.* from lcpol a where appntname like '%閾朵繚鎶曚繚%' and a.insuredappage<18 
 
-select a.*,rowid from lcpol a where contno='2023051100000986'
-select a.*,rowid from lcappnt a where contno='2023051100000986'
-select a.*,rowid from lcinsured a where contno='2024082000000176'
-select a.*,rowid from lcaddress a where customerno in (select appntno from lcappnt  where contno='2023051100000986')
-select a.*,rowid from lcaddress a where customerno in (select insuredno from lcinsured  where contno='2024082000000176')
+select a.* from lcpol a where contno='2023051100000986'
+select a.* from lcappnt a where contno='2023051100000986'
+select a.* from lcinsured a where contno='2024082000000176'
+select a.* from lcaddress a where customerno in (select appntno from lcappnt  where contno='2023051100000986')
+select a.* from lcaddress a where customerno in (select insuredno from lcinsured  where contno='2024082000000176')
 
-select a.*,rowid from lmriskapp a where riskcode='1051016'
-select * from ldcode where codetype = 'QuickRisk' and comcode = 'Y'--2024082000000176  1051016
-for update;
-
-select a.*, rowid
+select a.* from lmriskapp a where riskcode='1051016'
+select * from ldcode where codetype = 'QuickRisk' and comcode = 'Y'--2024082000000176  1051016;
+select a.*
   from lcpol a
  where appflag = '1'
       /*and riskcode in (select code
@@ -34,7 +32,7 @@ select a.*, rowid
 
 select a.appntname,a.idtype,a.idno,b.mobile,idstdate,idexpdate from lcappnt a,lcaddress b where a.appntno=b.customerno and a.addressno=b.addressno and a.contno='2024082000000176'
 
-select a.*,rowid from lcappnt a where contno='2020100900028278'
+select a.* from lcappnt a where contno='2020100900028278'
 
  SELECT *
    FROM ldcriticalillness a, ldcode1 b
@@ -43,4 +41,4 @@ select a.*,rowid from lcappnt a where contno='2020100900028278'
     and b.code like '1056006%'
   ORDER BY cicode
 
-select a.*,rowid from ldcode a where 
+select a.* from ldcode a where;

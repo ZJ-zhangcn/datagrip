@@ -1,16 +1,12 @@
 select a.bonusgetmode,
-       (select codename from ldcode where codetype = 'bonusgetmode' and code = a.bonusgetmode) ºìÀûÁìÈ¡·½Ê½,
+       (select codename from ldcode where codetype = 'bonusgetmode' and code = a.bonusgetmode) çº¢åˆ©é¢†å–æ–¹å¼,
        a.*
 from lcpol a
 where contno = '2025071100000466';
-
 select a.* from LOBONUSPOL a where contno='2025071400001276' order by SGETDATE;
 select a.* from LCINSUREACCTRACE a where contno='2025071100000826' order by paydate,makedate,maketime,otherno;
-
-select (68.22+142.02+2.05+218.96+7.31) ±¾½ğ,(68.22+142.02+2.05+218.96+7.31)*round(0.03/365/*ºã365*/,8)*(date '2029-07-20' - date '2029-07-12') ÀûÏ¢ from dual;
-
+select (68.22+142.02+2.05+218.96+7.31) æœ¬é‡‘,(68.22+142.02+2.05+218.96+7.31)*round(0.03/365/*æ’365*/,8)*(date '2029-07-20' - date '2029-07-12') åˆ©æ¯ from dual;
 select bonussamenewacc,a.* from lccont a where prtno='5000118400039408';
-
 SELECT *
 FROM BonusRate
 WHERE riskcode = '1111002'
@@ -21,7 +17,6 @@ INSERT INTO BONUSRATE (RISKCODE, CVALIDATE, ENDDATE, BONUSGRADE, BONUSRATE) VALU
 INSERT INTO BONUSRATE (RISKCODE, CVALIDATE, ENDDATE, BONUSGRADE, BONUSRATE) VALUES ('1111002', DATE '2027-07-01', DATE '2028-06-30', 'H', '1.2');
 INSERT INTO BONUSRATE (RISKCODE, CVALIDATE, ENDDATE, BONUSGRADE, BONUSRATE) VALUES ('1111002', DATE '2028-07-01', DATE '2029-06-30', 'H', '1.2');
 INSERT INTO BONUSRATE (RISKCODE, CVALIDATE, ENDDATE, BONUSGRADE, BONUSRATE) VALUES ('1111002', DATE '2029-07-01', DATE '2030-06-30', 'H', '1.2');
-
 */
 
 select amnt / 1000 * 1.2 * b.BONUSFACTOR
@@ -37,10 +32,8 @@ where a.riskcode = b.riskcode
   and b.POLYEAR = '1'
   and b.BONUSGRADE = 'H'
   and contno = '2025071100000786';
-
 select 68.22*round(0.03/365,8)*(date'2026-07-20'-date'2026-07-12') from dual;
-
---t¡ÜPPP£¬ÄêÁìÎ´Ç·½É±£·Ñ
+--tâ‰¤PPPï¼Œå¹´é¢†æœªæ¬ ç¼´ä¿è´¹
 select a.prem / 1000 * b.endcv *
        power(1 + 0.0375,
              (((date '2026-10-10' - date '2026-08-08') - 365) / 365))
@@ -50,8 +43,7 @@ select a.prem / 1000 * b.endcv *
    and a.payendyear = b.pt
    and a.contno='2025080700000116'
    and b.dt = 2;
-
---t¡ÜPPP£¬ÄêÁìÇ·½É±£·Ñ
+--tâ‰¤PPPï¼Œå¹´é¢†æ¬ ç¼´ä¿è´¹
 select a.prem / 1000 * b.endcv
   from lcpol a, cv_1111002 b
  where a.insuredsex = b.gender
@@ -59,8 +51,7 @@ select a.prem / 1000 * b.endcv
    and a.payendyear = b.pt
    and a.contno = '2025071100001286'
    and b.dt = 5;
-
---t>PPP£¬ÄêÁìÇ·½É±£·Ñ
+--t>PPPï¼Œå¹´é¢†æ¬ ç¼´ä¿è´¹
 select a.prem / 1000 * b.endcv
   from lcpol a, cv_1111002 b
  where a.insuredsex = b.gender
@@ -69,10 +60,9 @@ select a.prem / 1000 * b.endcv
    and a.contno = '2025071100000786'
    and b.dt = 2
 
---¸´Ğ§ÀûÏ¢
+--å¤æ•ˆåˆ©æ¯
 select 5000*round(0.03/365,8)*(date'2028-07-20'-date'2027-07-12') from dual;
-
---t>PPP£¬ÄêÁìÎ´Ç·½É±£·Ñ
+--t>PPPï¼Œå¹´é¢†æœªæ¬ ç¼´ä¿è´¹
 select prem / 1000 * endcv * (date '2029-07-20' - date '2029-07-12') / 365 +
        prem / 1000 * begcv *
        (1 - (date '2029-07-20' - date '2029-07-12') / 365)
@@ -82,12 +72,10 @@ select prem / 1000 * endcv * (date '2029-07-20' - date '2029-07-12') / 365 +
    and gender = insuredsex
    and contno = '2025071100000786'
    and dt = 5;
-
---¼õ¶î½»Çå¹«¹²±£¶îÏŞÖÆ
+--å‡é¢äº¤æ¸…å…¬å…±ä¿é¢é™åˆ¶
 select * from ldcode a where codetype = 'PublicPUlowestAmnt' and code='000000';
-
---¼õ¶î½»Çåºó±£¶î¼ÆËã
---u=0 & Î´½»ÄÉÄê³õÓ¦½»±£·Ñ & Î´·¢·ÅÄê³õÉú´æ±£ÏÕ½ğ
+--å‡é¢äº¤æ¸…åä¿é¢è®¡ç®—
+--u=0 & æœªäº¤çº³å¹´åˆåº”äº¤ä¿è´¹ & æœªå‘æ”¾å¹´åˆç”Ÿå­˜ä¿é™©é‡‘
 select 10000 / 1000 * a.RPU
 from cv_1111002 a,
      lcpol b
@@ -96,7 +84,6 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025071100001286'
   and dt = 3 - 1;
-
 --other
 select 30694.71 * 1000 / (a.END_AFACTOR * (date '2030-06-01' - date '2029-07-12') / 365 +
                           a.BEG_AFACTOR * (1 - (date '2030-06-01' - date '2029-07-12') / 365))
@@ -107,8 +94,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025071100001286'
   and dt = 5;
-
---¼õ¶î½»Çåºó±£·Ñ¼ÆËã
+--å‡é¢äº¤æ¸…åä¿è´¹è®¡ç®—
 select 25071.05932629 * 1000 / a.rate
 from rt_1111002 a,
      lcpol b
@@ -117,7 +103,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025071100001286'
 
---¼õ¶î½»ÇåºóÏÖ¼Û¼ÆËã
+--å‡é¢äº¤æ¸…åç°ä»·è®¡ç®—
 select (cast((25071.06 / 1000 * cv_rpuAfactorEnd) as decimal(18, 2)) * ((date '2030-06-01' - date '2029-07-12') / 365)) +
        (cast((25071.06 / 1000 * cv_rpuAfactorBeg) as decimal(18, 2)) *
         (1 - ((date '2030-06-01' - date '2029-07-12') / 365))) cash
@@ -129,19 +115,18 @@ where pt = payendyear
   and contno = '2025071100001286'
   and dt = 5
 
---¼õ±£ÏŞ¶î
---±¾Äê¶ÈµÚÒ»´Î
+--å‡ä¿é™é¢
+--æœ¬å¹´åº¦ç¬¬ä¸€æ¬¡
 select least(46093.5 * 0.2 / 46093.5 * 48665.61240621 - 0,
              48665.61240621)
 from lcpol
 where contno = '2025070800001786';
---±¾Äê¶ÈµÚ¶ş´Î
+--æœ¬å¹´åº¦ç¬¬äºŒæ¬¡
 select least(46093.5 * 0.2 / 45165.42 * 48665.61240621 - 1000,
              48665.61240621)
 from lcpol
 where contno = '2025070800001786';
-
---¼õ±£ºóµÄ±£¶î
+--å‡ä¿åçš„ä¿é¢
 select round((1 - 2000 / 48665.61240621) * 45165.42,8)
   from cv_1111002 a, lcpol b
  where pt = payendyear
@@ -149,8 +134,7 @@ select round((1 - 2000 / 48665.61240621) * 45165.42,8)
    and gender = insuredsex
    and contno = '2025070800001786'
    and dt = 6;
-
---¼õ±£ºóµÄ±£·Ñ
+--å‡ä¿åçš„ä¿è´¹
 select 43309.26663968 * 1000 / rate
 from rt_1111002 a,
      lcpol b

@@ -1,4 +1,4 @@
-select a.PAYSUCDATE lawage到账日期, b.PAYSUCDATE LACOMMISSION到账日期, a.*
+select a.PAYSUCDATE lawage鍒拌处鏃ユ湡, b.PAYSUCDATE LACOMMISSION鍒拌处鏃ユ湡, a.*
 from lawage a,
      lacommision b
 where a.INDEXCALNO = b.wageno
@@ -7,8 +7,6 @@ where a.INDEXCALNO = b.wageno
   and a.managecom like '8601%'
   and a.branchtype = '3'
   and a.paysucdate = date '2025-05-13';
-
-
 select EnterAccDate,
        BankCode,
        BankName,

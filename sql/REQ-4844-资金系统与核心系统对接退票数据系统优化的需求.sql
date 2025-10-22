@@ -4,31 +4,23 @@ update ATS_TRANSACTIONS set ABSTRACT='1234' where reqseqid='20301010_44133';
 update ATS_TRANSACTIONS set TPABSTRACT='5678' where reqseqid='20301010_44133';
 */
 
-select a.* from ldtask a where TASKDESCRIBE like '%ÍËÆ±%';
-select a.* from ldtask a where taskdescribe like '%»ñÈ¡ÕËÎñÆ¾Ö¤±àºÅÅú´¦Àí%';
+select a.* from ldtask a where TASKDESCRIBE like '%é€€ç¥¨%';
+select a.* from ldtask a where taskdescribe like '%è·å–è´¦åŠ¡å‡­è¯ç¼–å·æ‰¹å¤„ç†%';
 select a.* from ldtask a where TASKCLASS like 'AutoUpdateZJGlvoucherNOTask';
 select a.* from ldtaskplan a where TASKCODE='000571';
-
 select REMARK,TPREMARK,a.* from ljaget a where otherno='7402121100347973';
-
 select a.* from lyrefundlog a where otherno='7402121100347973' and SERIALNO <> '20301010_44133';
-
 select a.* from lyreturnfrombankb a where serialno='20301010_44133';
+select a.* from ldtask a where TASKCLASS='AutoExportFinitemTask';
+--è‡ªåŠ¨æè´¦æ‰¹å¤„ç†  StartDate  EndDate  CertificateIDï¼šSF_FF
 
-select a.* from ldtask a where TASKCLASS='AutoExportFinitemTask';--×Ô¶¯ÌáÕËÅú´¦Àí  StartDate  EndDate  CertificateID£ºSF_FF
-
-select a.* from ldtask a where TASKDESCRIBE like '%Éú´æ½ğ%';
-
+select a.* from ldtask a where TASKDESCRIBE like '%ç”Ÿå­˜é‡‘%';
 select a.* from ljspay a where otherno='2025080100000386';
-
 update ats_transactions a
 set a.TPVOUCHERNO=(select p.glvoucherno
                    from lyatstranrela p
                    where a.rdseq = p.rdseq and p.acttype = 'ZJ' and p.STANDBYFLAG5='TPJY' and rownum = 1)
 where exists (select 1 from lyatstranrela p where a.rdseq = p.rdseq and p.acttype = 'ZJ' )
-  and a.glvoucherno is null ;
-
-
+  and a.glvoucherno is null;
 select p.glvoucherno from lyatstranrela p where reqseqid='20301010_44133' and p.acttype='ZJ' and rownum=1 and STANDBYFLAG5='TPJY';
-
 select a.* from ATS_TRANSACTIONS a where reqseqid='20301010_44133';

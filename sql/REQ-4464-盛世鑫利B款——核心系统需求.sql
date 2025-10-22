@@ -20,4 +20,4 @@ select b.prem / 1000 * a.endcv * (date '2025-12-03' - date '2025-11-21') / 365 +
    and dt = 2
    and contno = '2024112000000196'
 
-select a.*,rowid from rt_1003007 a 
+select a.* from rt_1003007 a;

@@ -1,28 +1,26 @@
 /*
---101ÈÕÖ¾
+--101æ—¥å¿—
 tail -f /home/weblogic/Oracle/Middleware/user_projects/domains/rsxcsdomain/bin/nohup.out
 */
 
-select a.*,rowid from ldtask a where taskdescribe like '%±£µ¥µÇ¼Ç%' 
-select a.*,rowid from ldtask a where taskdescribe like '%ÂúÆÚ%' 
+select a.* from ldtask a where taskdescribe like '%ä¿å•ç™»è®°%';
+select a.* from ldtask a where taskdescribe like '%æ»¡æœŸ%';
 
-select a.*,rowid from ldtaskplan a where taskcode='000218' order by taskplancode desc;
+select a.* from ldtaskplan a where taskcode='000218' order by taskplancode desc;
+select distinct grpcontno from lccont a where grpcontno not like '0000000000000%' and appflag='1' and appntname like '%è¯¢ä»·å•%';
+select a.* from LDGRPUWUSER a where a.usercode = '001';
 
-select distinct grpcontno from lccont a where grpcontno not like '0000000000000%' and appflag='1' and appntname like '%Ñ¯¼Ûµ¥%' ;
+--ä¿å•ç™»è®°æŠ¥é€æ”¯æŒçš„é™©ç§
+SELECT * FROM  BDDJ_LMPRODUCT where productname like '%å›¢ä½“%';
 
-select a.*,rowid from LDGRPUWUSER a where '1718939238000'='1718939238000' and  a.usercode = '001'
+select a.* from lcget a where polno in (select polno from lcpol where riskcode='2022001' and rownum<2);
 
---±£µ¥µÇ¼Ç±¨ËÍÖ§³ÖµÄÏÕÖÖ
-SELECT * FROM  BDDJ_LMPRODUCT where productname like '%ÍÅÌå%' 
+select distinct GETDUTYCODE from lcget a where grpcontno='2024062100000126';
 
-select a.*,rowid from lcget a where polno in (select polno from lcpol where riskcode='2022001' and rownum<2)
+select a.* from ljaget a where ACTUGETNO='86000020240370009539';
+select a.* from ljagetendorse a where ACTUGETNO='86000020240370009539';
 
-select distinct GETDUTYCODE from lcget a where grpcontno='2024062100000126'
-
-select a.*,rowid from ljaget a where ACTUGETNO='86000020240370009539'
-select a.* from ljagetendorse a where ACTUGETNO='86000020240370009539'
-
---05-ÂúÆÚ
+--05-æ»¡æœŸ
 ----temp
 select a.* from temp_LCPolTransaction a where grppolicyno='2024071700000186';
 select PolStatus,PolicyEndDate,TerminationDate,TerminationReason,a.* from temp_LCGrpCont a where grppolicyno='2024071700000186';
@@ -41,24 +39,21 @@ select GrpPolicyNo,PolicyNo,GPFlag,InvalidDate,Status,TerminationDate,a.* from p
 select GrpPolicyNo,PolicyNo,GPFlag,a.* from prip_LCProdInsuRela a where grppolicyno='2024071700000186';
 select GrpPolicyNo,PolicyNo,GPFlag,InvalidDate,Status,a.* from prip_LCLiability a where grppolicyno='2024071700000186';
 select GrpPolicyNo,PolicyNo,GPFlag,a.* from prip_LCBnf a where grppolicyno='2024071700000186';
-
---76-±£È«²¹ÍË·Ñ
+--76-ä¿å…¨è¡¥é€€è´¹
 ----temp
-select a.*,rowid from temp_LCPolTransaction a where grppolicyno='2024071700000186';
-select a.*,rowid from temp_LJAGetEndorse a where grppolicyno='2024071700000186';
+select a.* from temp_LCPolTransaction a where grppolicyno='2024071700000186';
+select a.* from temp_LJAGetEndorse a where grppolicyno='2024071700000186';
 ----prip
-select a.*,rowid from prip_LCPolTransaction a where grppolicyno='2024071700000186';
-select a.*,rowid from prip_LJAGetEndorse a where grppolicyno='2024071700000186';
-
-
---85-ÆäËû±£È«ÀàĞÍ
+select a.* from prip_LCPolTransaction a where grppolicyno='2024071700000186';
+select a.* from prip_LJAGetEndorse a where grppolicyno='2024071700000186';
+--85-å…¶ä»–ä¿å…¨ç±»å‹
 ----temp
 select a.* from temp_LCPolTransaction a where grppolicyno='2024071700000186';
 select a.* from temp_LCGrpCont a where grppolicyno='2024071700000186';
 select a.* from temp_LCGrpProduct a where grppolicyno='2024071700000186';
 select GrpPolicyNo,PolicyNo,GPFlag,Premium,SumInsured,CashValue,AccumPremium,PolicyEndDate,a.* from temp_LCCont a where grppolicyno='2024071700000186';
 select GrpPolicyNo,GrpProductNo,PolicyNo,GPFlag,ProductNo,a.* from temp_LCProdInsuRela a where grppolicyno='2024071700000186';
-select GrpPolicyNo,PolicyNo,ProductNo,GPFlag,EffDate,InvalidDate,Premium,AccumPremium,BasicSumInsured,CashValue,SurrenderAmnt,Status,a.* from temp_LCProduct a 
+select GrpPolicyNo,PolicyNo,ProductNo,GPFlag,EffDate,InvalidDate,Premium,AccumPremium,BasicSumInsured,CashValue,SurrenderAmnt,Status,a.* from temp_LCProduct a
 where grppolicyno='2024071700000186';
 select GrpPolicyNo,PolicyNo,ProductNo,GPFlag,LiabilityCode,LiabilityName,EffDate,InvalidDate,Status,a.* from temp_LCLiability a where grppolicyno='2024071700000186';
 select a.* from temp_LCBnf a where grppolicyno='2024071700000186';
@@ -72,7 +67,7 @@ select a.* from prip_LCGrpCont a where grppolicyno='2024071700000186';
 select a.* from prip_LCGrpProduct a where grppolicyno='2024071700000186';
 select GrpPolicyNo,PolicyNo,GPFlag,Premium,SumInsured,CashValue,AccumPremium,PolicyEndDate,a.* from prip_LCCont a where grppolicyno='2024071700000186';
 select GrpPolicyNo,GrpProductNo,PolicyNo,GPFlag,ProductNo,a.* from prip_LCProdInsuRela a where grppolicyno='2024071700000186';
-select GrpPolicyNo,PolicyNo,ProductNo,GPFlag,EffDate,InvalidDate,Premium,AccumPremium,BasicSumInsured,CashValue,SurrenderAmnt,Status,a.* from prip_LCProduct a 
+select GrpPolicyNo,PolicyNo,ProductNo,GPFlag,EffDate,InvalidDate,Premium,AccumPremium,BasicSumInsured,CashValue,SurrenderAmnt,Status,a.* from prip_LCProduct a
 where grppolicyno='2024071700000186';
 select GrpPolicyNo,PolicyNo,ProductNo,GPFlag,LiabilityCode,LiabilityName,EffDate,InvalidDate,Status,a.* from prip_LCLiability a where grppolicyno='2024071700000186';
 select a.* from prip_LCBnf a where grppolicyno='2024071700000186';
@@ -80,10 +75,7 @@ select a.* from prip_LCInsureAcc a where grppolicyno='2024071700000186';
 select a.* from prip_LCInsureAccTrace a where grppolicyno='2024071700000186';
 select a.* from prip_LJAPayGrp a where grppolicyno='2024071700000186';
 select a.* from prip_LJAPay a where grppolicyno='2024071700000186';
-
-
-
---54-¶¨ÆÚ½áËã·½Ê½±ä¸ü
+--54-å®šæœŸç»“ç®—æ–¹å¼å˜æ›´
 ----temp
 select pushdate,a.* from temp_LCPolTransaction a where grppolicyno='2024071700000186';
 select RegularClearingFlag,RegularClearing,PremiumDueDate,a.* from temp_LCGrpCont a where grppolicyno='2024071700000186';
@@ -92,7 +84,5 @@ select a.* from temp_LCGrpProduct a where grppolicyno='2024062100000126';
 select a.* from prip_LCPolTransaction a where grppolicyno='2024071700000186';
 select RegularClearingFlag,RegularClearing,PremiumDueDate,a.* from prip_LCGrpCont a where grppolicyno='2024071700000186';
 select a.* from prip_LCGrpProduct a where grppolicyno='2024062100000126';
-
-
---31-ÍË±£
+--31-é€€ä¿
 select pushdate,a.* from temp_LCPolTransaction a where grppolicyno='2024071700000186';

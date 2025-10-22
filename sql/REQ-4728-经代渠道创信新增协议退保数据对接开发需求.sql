@@ -13,4 +13,4 @@ WHERE contno = '2023032700000406'
               WHERE c.code = b.agentcom
                 and b.contno = p.contno
                 and c.codetype = 'CXAgentCom'
-                and b.conttype = '1')
+                and b.conttype = '1');

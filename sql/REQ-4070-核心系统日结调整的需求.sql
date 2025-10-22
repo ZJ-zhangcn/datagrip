@@ -1,10 +1,10 @@
-select inbankcode,inbankaccno,a.*,rowid from lyrefundlog a where otherno='2024110100000486'
+select inbankcode,inbankaccno,a.* from lyrefundlog a where otherno='2024110100000486';
 
-select a.*,rowid from ljaget a where otherno='2024110100000486'
+select a.* from ljaget a where otherno='2024110100000486';
 
-select * from ldcode where codetype = 'bank'
+select * from ldcode where codetype = 'bank';
 
-select a.*,rowid from ldtask a where taskdescribe like '%ÍËÆ±%' 
+select a.* from ldtask a where taskdescribe like '%é€€ç¥¨%';
 
 select a.ActuGetNo,
        a.OtherNo,
@@ -31,4 +31,4 @@ select a.ActuGetNo,
    and not exists (select 1
           from lyrefundlog c
          where c.standbyflag2 = b.reqseqid
-           and c.ActuGetNo = a.ActuGetNo)
+           and c.ActuGetNo = a.ActuGetNo);

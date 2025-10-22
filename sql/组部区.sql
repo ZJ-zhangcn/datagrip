@@ -26,30 +26,28 @@ select a.managecom,
            and code = a.state),
        a.agentgroup
   from LABranchGroup a
- where 1 = 1
-   and ManageCom like '86%'
+ where ManageCom like '86%'
    and ManageCom like '86010101%'
    and BranchType = '2'
    and BranchLevel = '01'
    and branchattr='8601004001'
    --and upbranchattr='8601010100005002'
- order by managecom, branchtype2, BranchAttr, BranchManager
+ order by managecom, branchtype2, BranchAttr, BranchManager;
  
 /*
-组：0000100021        8601010100005002002
-部：1101200023        8601010100005002
-区：0101200288        8601010100005
+缁勶細0000100021        8601010100005002002
+閮細1101200023        8601010100005002
+鍖猴細0101200288        8601010100005
  
-select agentstate,a.*,rowid from laagent a where agentcode in ('0000100021','1101200023','0101200288')
-select endflag,a.*,rowid from LABranchGroup a where agentgroup='000000002053'
-select a.*,rowid from ldtask a where taskdescribe like '%人员分配%' 
-select a.*,rowid from ldtask a where taskdescribe like '%人员变更%' --处理前一天的数据
-select specifydate,a.*,rowid from LCSpecify a where contno = '2023120700001066'
+select agentstate,a.* from laagent a where agentcode in ('0000100021','1101200023','0101200288');
+select endflag,a.* from LABranchGroup a where agentgroup='000000002053';
+select a.* from ldtask a where taskdescribe like '%浜哄憳鍒嗛厤%';
+select a.* from ldtask a where taskdescribe like '%浜哄憳鍙樻洿%'; --澶勭悊鍓嶄竴澶╃殑鏁版嵁
+select specifydate,a.* from LCSpecify a where contno = '2023120700001066';
 
-select specifydate,specifystate,a.*,rowid from LCSpecify a where contno = '2023120700001066'
+select specifydate,specifystate,a.* from LCSpecify a where contno = '2023120700001066';
 
-select mobile from laagent where agentcode = '0101200288' for update
---短信
-select a.*,rowid from sms_dispatch_list a where sendtarget='17411290001' and otherno='2023120700001066' order by makedate desc,maketime desc
-*/
-
+select mobile from laagent where agentcode = '0101200288';
+--鐭俊
+select a.* from sms_dispatch_list a where sendtarget='17411290001' and otherno='2023120700001066' order by makedate desc,maketime desc
+*/;

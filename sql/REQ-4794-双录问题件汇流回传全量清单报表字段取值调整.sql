@@ -2,10 +2,7 @@ SELECT *
 FROM LEFragmentLogs
 WHERE Bak1 = 'DQ'
   and FMProposalPrtNo in ('5000118250813076');
-
-INSERT INTO LISDATA.LCCONTMOVIE (CONTNO, PRTNO, BATCHNO, MANAGECOM, APPNTNO, APPNTNAME, VIDEODATE, VIDEOTIME, UPLOADDATE, UPLOADTIME, UPLOADENDDATE, UPLOADENDTIME, QUALITYTESTDATE, QUALITYTESTTIME, QUALITYTESTOPERATOR, QUALITYTESTSTATE, QUALITYTESTDESC, IDTYPE, BANKCODE, AREACODE, BANKTELLER, FILEPATH, FILENAME, MAINRISKCODE, TRANDATE, POLAPPLYDATE, BANKACCNO, REPEATFLAG, BAK1, BAK2, BAK3, BAK4, BAK5, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, SUBQUALITYSTATE, SYSTEMAUDIT, RECHECKSTATUS, ISISSUE, QUALITYPHONE, QUALITYRESULT, QUALITYNUM, REJECTNUM, ISPERMANENT, PERMANENTTIME, UPERRORREASON, PUSHHUILIUTIME, HUILIURECEIVETIME, LASTOPERATOR, BUSINESSNO, NODENO, RECODATE, BUSITYPE, TASKPARAMS, POLICYPARAMS) VALUES ('3002004101304102', '3002004101304102', '20191019', '86010101', '1052283555', '—¯‘ˆ Æ“ª', null, null, DATE '2020-06-10', '13:16:53', null, null, DATE '2019-10-21', '14:10:51', 'Ωπ∑Ê', '3', 'Õ®π˝', null, '1', null, null, null, null, null, null, null, null, null, null, '1', '2', null, '102001R231564464655719034', 'jh', DATE '2021-10-13', '11:34:18', DATE '2025-07-11', '00:25:20', null, null, null, null, null, '2', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-
-
+INSERT INTO LISDATA.LCCONTMOVIE (CONTNO, PRTNO, BATCHNO, MANAGECOM, APPNTNO, APPNTNAME, VIDEODATE, VIDEOTIME, UPLOADDATE, UPLOADTIME, UPLOADENDDATE, UPLOADENDTIME, QUALITYTESTDATE, QUALITYTESTTIME, QUALITYTESTOPERATOR, QUALITYTESTSTATE, QUALITYTESTDESC, IDTYPE, BANKCODE, AREACODE, BANKTELLER, FILEPATH, FILENAME, MAINRISKCODE, TRANDATE, POLAPPLYDATE, BANKACCNO, REPEATFLAG, BAK1, BAK2, BAK3, BAK4, BAK5, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, SUBQUALITYSTATE, SYSTEMAUDIT, RECHECKSTATUS, ISISSUE, QUALITYPHONE, QUALITYRESULT, QUALITYNUM, REJECTNUM, ISPERMANENT, PERMANENTTIME, UPERRORREASON, PUSHHUILIUTIME, HUILIURECEIVETIME, LASTOPERATOR, BUSINESSNO, NODENO, RECODATE, BUSITYPE, TASKPARAMS, POLICYPARAMS) VALUES ('3002004101304102', '3002004101304102', '20191019', '86010101', '1052283555', 'ÂÖªÂ¢ûÂçÅ‰∏Ä', null, null, DATE '2020-06-10', '13:16:53', null, null, DATE '2019-10-21', '14:10:51', 'ÁÑ¶Èîã', '3', 'ÈÄöËøá', null, '1', null, null, null, null, null, null, null, null, null, null, '1', '2', null, '102001R231564464655719034', 'jh', DATE '2021-10-13', '11:34:18', DATE '2025-07-11', '00:25:20', null, null, null, null, null, '2', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 select a.* from lccontmovie a where QUALITYTESTSTATE='8'
 
 SELECT count(1)
@@ -27,21 +24,21 @@ WHERE d.Bak1 = 'DQ'
 
 SELECT d.FMProposalPrtNo,
        CASE
-           WHEN aa.appflag = 'B' THEN 'Œ¥∂‘’À'
-           WHEN aa.appflag = '1' THEN '≥–±£'
-           WHEN aa.appflag = '4' THEN '÷’÷π'
-           WHEN aa.appflag = '0' AND aa.uwflag IN ('a', '1', '2') THEN '≥∑µ•'
-           WHEN aa.appflag = '0' AND aa.uwflag NOT IN ('a', '1', '2') THEN 'Œ¥≥–±£'
+           WHEN aa.appflag = 'B' THEN 'Êú™ÂØπË¥¶'
+           WHEN aa.appflag = '1' THEN 'Êâø‰øù'
+           WHEN aa.appflag = '4' THEN 'ÁªàÊ≠¢'
+           WHEN aa.appflag = '0' AND aa.uwflag IN ('a', '1', '2') THEN 'Êí§Âçï'
+           WHEN aa.appflag = '0' AND aa.uwflag NOT IN ('a', '1', '2') THEN 'Êú™Êâø‰øù'
            ELSE '' END,
        aa.appntname,
        aa.appntno,
        CASE
-           WHEN a.BackObjType = '1' THEN 'ƒ⁄≤ø»∑»œ'
-           WHEN a.BackObjType = '2' THEN 'øÕªß'
-           WHEN a.BackObjType = '3' THEN '“µŒÒ‘±'
+           WHEN a.BackObjType = '1' THEN 'ÂÜÖÈÉ®Á°ÆËÆ§'
+           WHEN a.BackObjType = '2' THEN 'ÂÆ¢Êà∑'
+           WHEN a.BackObjType = '3' THEN '‰∏öÂä°Âëò'
            ELSE '' END,
-       CASE WHEN a.needprint = 'Y' THEN ' «' WHEN a.needprint = 'N' THEN '∑Ò' ELSE '' END,
-       CASE WHEN nvl(a.ErrTrial, d.bak3) = 'Y' THEN ' «' WHEN nvl(a.ErrTrial, d.bak3) = 'N' THEN '∑Ò' ELSE '' END,
+       CASE WHEN a.needprint = 'Y' THEN 'ÊòØ' WHEN a.needprint = 'N' THEN 'Âê¶' ELSE '' END,
+       CASE WHEN nvl(a.ErrTrial, d.bak3) = 'Y' THEN 'ÊòØ' WHEN nvl(a.ErrTrial, d.bak3) = 'N' THEN 'Âê¶' ELSE '' END,
        c.QualityTestDesc,
        a.IssueCont,
        a.operator,
@@ -65,4 +62,4 @@ WHERE d.Bak1 = 'DQ'
   AND 1 = 1
   AND d.FMProposalPrtNo = '3002004101304102'
   AND 1 = 1
-  AND 1 = 1
+  AND 1 = 1;

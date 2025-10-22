@@ -1,8 +1,7 @@
-select a.*,rowid from ljagetendorse a where contno='2024112000000286' order by makedate,maketime;
+select a.* from ljagetendorse a where contno='2024112000000286' order by makedate,maketime;
+select a.* from vms_resp_inoutflow a where contno='2024112000000286';
 
-select a.*,rowid from vms_resp_inoutflow a where contno='2024112000000286'
-
---OP±£È«ÊÖĞø·Ñ
+--OPä¿å…¨æ‰‹ç»­è´¹
 insert into vms_resp_inoutflow
   (SERIALNO,
    PK_INOUTFLOW,
@@ -59,11 +58,8 @@ values
    '00:05:00',
    to_date('22-11-2025', 'dd-mm-yyyy'),
    '00:05:00');
-
-
---³õÊ¼
-select a.*,rowid from lcinsureaccfeetrace a where contno='2024112000000286' order by makedate,maketime;
-
+--åˆå§‹
+select a.* from lcinsureaccfeetrace a where contno='2024112000000286' order by makedate,maketime;
 insert into vms_resp_inoutflow
   (SERIALNO,
    PK_INOUTFLOW,

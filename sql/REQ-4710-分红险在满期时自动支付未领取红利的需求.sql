@@ -1,17 +1,18 @@
-select a.* from ldtask a where TASKDESCRIBE like '%∫Ï¿˚%'
+select a.* from ldtask a where TASKDESCRIBE like '%Á∫¢Âà©%'
 select a.* from lccont a where contno='2025060400000216'
-select * from ljaget where otherno='2025060400000216';--delete
+select * from ljaget where otherno='2025060400000216';
+--delete
 select leavingmoney,a.* from lcpol a where contno='2025060400000216'
 select a.* from LISDATA.LOBONUSPOL a where contno='2025060400000216' order by FISCALYEAR
-select * from ljabonusget where contno='2025060400000216' order by ACTUGETNO;--delete
+select * from ljabonusget where contno='2025060400000216' order by ACTUGETNO;
+--delete
 select a.* from lcinsureacc a where contno='2025060400000216'
-select * from lcinsureacctrace where contno='2025060400000216' order by SERIALNO;--delete
+select * from lcinsureacctrace where contno='2025060400000216' order by SERIALNO;
+--delete
 select a.* from LISDATA.LOPRTMANAGER a where otherno='2025060400000216';
-
 select a.* from LISDATA.LYSENDTOBANK a where polno='2025060400000216';
 select a.* from lysendtobankb a where polno='2025060400000216';
 select a.* from LISDATA.LYSENDTOBANKB a where polno='2025060400000216';
-
 select IDSTDATE,IDEXPDATE,a.* from lcappnt a where contno='2025060400000216'--9999-01-01
 
 select a.* from LCBonusAutoAccTrace a where contno='2025060400000216'
@@ -26,12 +27,12 @@ update lcinsureaccclass a set a.insuaccbala=902.81,a.baladate=date'2030-06-05' w
 delete from LCBonusAutoAccTrace a where contno='2025060400000216'
 */
 
---±£µ•µ«º«
---∏ˆ»Àœ’÷÷±Ì
+--‰øùÂçïÁôªËÆ∞
+--‰∏™‰∫∫Èô©ÁßçË°®
 select AccumDiv,AccumDivInt,AccumDivSI,LstDistriDate,CurrentDivAmnt,a.* from temp_LCProduct a where POLICYNO='2025060400000216';
---∫Ï¿˚∑÷≈‰±Ì
+--Á∫¢Âà©ÂàÜÈÖçË°®
 select DivDistribMeth,DivAmnt,BankCode,BankName,BankAccNo,AccName,DivAmntDraw,DivDrawDate,a.* from temp_LJDivDistrib a where POLICYNO='2025060400000216' order by DIVYEAR;
---∏∂∑—√˜œ∏±Ì
+--‰ªòË¥πÊòéÁªÜË°®
 select GetType,a.* from temp_LJAGet a where POLICYNO='2025060400000216';
 /*
 delete from temp_LCCont where POLICYNO='2025060400000216';
@@ -43,4 +44,4 @@ delete from temp_LCProduct where POLICYNO='2025060400000216';
 delete from temp_LJLoanRepayment where POLICYNO='2025060400000216';
 delete from temp_LJDivDistrib where POLICYNO='2025060400000216';
 delete from temp_LCBnf where POLICYNO='2025060400000216';
-*/
+*/;

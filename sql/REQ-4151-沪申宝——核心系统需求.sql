@@ -1,4 +1,4 @@
-select a.*,rowid from lmriskapp a where riskname like '%»¦Éê±¦%' 
+select a.* from lmriskapp a where riskname like '%æ²ªç”³å®%' 
 
 select 330.66*prem/1000,amnt from lcpol a where contno='2024052800000116'
 
@@ -18,32 +18,30 @@ select 541.83*prem/1000-0 from lcpol where contno='2024060400001716'
 
 select 541.83*prem/1000-0 from lcpol where contno='2024060400001716'
 
-select contno,prtno,makedate from lccont where prtno='5000118340528049' for update;
+select contno,prtno,makedate from lccont where prtno='5000118340528049';
+select a.* from lcinsured a where contno='2024053000000426'
+select a.* from ldperson a where customerno='1060093458'
+select a.* from lcpol a where contno='2024061900000186'
 
-select a.*,rowid from lcinsured a where contno='2024053000000426'
-select a.*,rowid from ldperson a where customerno='1060093458'
-select a.*,rowid from lcpol a where contno='2024061900000186'
+select insuredappage,payendyear,insuredsex,a.* from lcpol a where contno='2024052800000116'
 
-select insuredappage,payendyear,insuredsex,a.*,rowid from lcpol a where contno='2024052800000116'
-
-select a.contno      ±£µ¥ºÅ,
-       a.riskcode    ÏÕÖÖ±àÂë,
-       a.insuredappage as ±»±£ÈËÄêÁä,
-       a.cvalidate   ÉúĞ§ÈÕÆÚ,
-       a.payintv     ½»·Ñ·½Ê½,
-       a.payendyear  ½»·ÑÆÚ¼ä,
-       b.annuitygetage||'-ÖÜËê' as Äê½ğÁìÈ¡ÆğÊ¼Ê±¼ä,
-       b.insugetmode as ±£ÖÁÄê½ğÁìÈ¡ºóXXÄê,
-       b.getyearmode as ºóÌ¨±£Ö¤ÁìÈ¡ÆÚ¼ä,
-       b.insuyear as ±£ÏÕÆÚ¼ä,
-       b.enddate as ÖÕÖ¹ÈÕÆÚ,
-       c.getdutycode ||'-'|| (select getdutyname from lmdutyget where getdutycode = c.getdutycode) ¸ø¸¶ÔğÈÎ,
-       c.getstartdate ¸ø¸¶ÆğÁìÈÕÆÚ,
-       c.getenddate ¸ø¸¶Ö¹ÁìÈÕÆÚ
+select a.contno      ä¿å•å·,
+       a.riskcode    é™©ç§ç¼–ç ,
+       a.insuredappage as è¢«ä¿äººå¹´é¾„,
+       a.cvalidate   ç”Ÿæ•ˆæ—¥æœŸ,
+       a.payintv     äº¤è´¹æ–¹å¼,
+       a.payendyear  äº¤è´¹æœŸé—´,
+       b.annuitygetage||'-å‘¨å²' as å¹´é‡‘é¢†å–èµ·å§‹æ—¶é—´,
+       b.insugetmode as ä¿è‡³å¹´é‡‘é¢†å–åXXå¹´,
+       b.getyearmode as åå°ä¿è¯é¢†å–æœŸé—´,
+       b.insuyear as ä¿é™©æœŸé—´,
+       b.enddate as ç»ˆæ­¢æ—¥æœŸ,
+       c.getdutycode ||'-'|| (select getdutyname from lmdutyget where getdutycode = c.getdutycode) ç»™ä»˜è´£ä»»,
+       c.getstartdate ç»™ä»˜èµ·é¢†æ—¥æœŸ,
+       c.getenddate ç»™ä»˜æ­¢é¢†æ—¥æœŸ
   from lcpol a, lcduty b, lcget c
  where a.contno = b.contno
    and b.contno = c.contno
    and a.contno = '2023101500000686';
-
-select insuyear,a.*,rowid from lcpol a where contno='2024100100000456'
-select insuyear,a.*,rowid from lcduty a where contno='2024100100000456'
+select insuyear,a.* from lcpol a where contno='2024100100000456'
+select insuyear,a.* from lcduty a where contno='2024100100000456';

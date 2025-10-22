@@ -1,46 +1,53 @@
 --lcpol
-select paytodate,a.*,rowid from lcpol a where contno='2024112000000286'
+select paytodate,a.* from lcpol a where contno='2024112000000286'
 --lccont
-select paytodate,a.*,rowid from lccont a where contno='2024112000000286'
+select paytodate,a.* from lccont a where contno='2024112000000286'
 --lccontstate
-select a.*,rowid from lccontstate a where contno='2024112000000286'
---Ó¦ÊÕ
-select a.*,rowid from ljspay a where otherno='2024112000000286'
+select a.* from lccontstate a where contno='2024112000000286'
+--åº”æ”¶
+select a.* from ljspay a where otherno='2024112000000286'
 /*
 update ljspay set payform='Y' where otherno='2024112000000286'
 */
-select a.*,rowid from lysendtobank a where polno='2024112000000286'
---ÊµÊÕ
-select getnoticeno,a.*,rowid from ljapay a where incomeno='2024112000000286'
-select a.*,rowid from ljapayperson a where contno='2024112000000286'
+select a.* from lysendtobank a where polno='2024112000000286'
+--å®žæ”¶
+select getnoticeno,a.* from ljapay a where incomeno='2024112000000286'
+select a.* from ljapayperson a where contno='2024112000000286'
 
 --
-select a.*,rowid from ljagetb a where actugetno='86000020250370015179'
+select a.* from ljagetb a where actugetno='86000020250370015179'
 
 --
-select a.*,rowid from ljagetperson a where contno='2024112000000286'
+select a.* from ljagetperson a where contno='2024112000000286'
 
---ÕË»§
-select a.*,rowid from lcinsureacc a where contno='2024112000000286';--baladate sumpay lastaccbala insuaccbala
-select a.*,rowid from lcinsureaccclass a where contno='2024112000000286';--baladate sumpay lastaccbala insuaccbala
-select a.*,rowid from lcinsureacctrace a where contno='2024112000000286' order by makedate ,maketime ;--É¾³ýÐøÆÚÊµÊÕ²úÉúµÄ¹ì¼£
-select a.*,rowid from LCInsureAccTraceHT a where contno='2024112000000286' order by makedate ,maketime ;
+--è´¦æˆ·
+select a.* from lcinsureacc a where contno='2024112000000286';
+--baladate sumpay lastaccbala insuaccbala
+select a.* from lcinsureaccclass a where contno='2024112000000286';
+--baladate sumpay lastaccbala insuaccbala
+select a.* from lcinsureacctrace a where contno='2024112000000286' order by makedate ,maketime;
+--åˆ é™¤ç»­æœŸå®žæ”¶äº§ç”Ÿçš„è½¨è¿¹
+select a.* from LCInsureAccTraceHT a where contno='2024112000000286' order by makedate ,maketime;
 /*
 update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2024112000000286' and paydate>=date'2025-05-01'
 */
 
-select a.*,rowid from lcinsureaccfee a where contno='2024112000000286';--fee baladate
-select a.*,rowid from lcinsureaccclassfee a where contno='2024112000000286';--baladate fee
-select a.*,rowid from lcinsureaccfeetrace a where contno='2024112000000286' order by paydate ;
+select a.* from lcinsureaccfee a where contno='2024112000000286';
+--fee baladate
+select a.* from lcinsureaccclassfee a where contno='2024112000000286';
+--baladate fee
+select a.* from lcinsureaccfeetrace a where contno='2024112000000286' order by paydate;
 /*
 update lcinsureaccfeetrace set makedate=paydate,modifydate=paydate where contno='2024112000000286' and paydate>=date'2025-05-01'
 */
 
---ÊµÊÕ»ØÍË±¸·Ý
-select a.*,rowid from lpinsureacc a where contno='2024112000000286' ;--edorno=ljapay.getnoticeno
-select a.*,rowid from lpinsureaccclass a where contno='2024112000000286';
-select a.*,rowid from lpinsureacctrace a where contno='2024112000000286' order by makedate ,paydate ;--2024102900000886
+--å®žæ”¶å›žé€€å¤‡ä»½
+select a.* from lpinsureacc a where contno='2024112000000286';
+--edorno=ljapay.getnoticeno
+select a.* from lpinsureaccclass a where contno='2024112000000286';
+select a.* from lpinsureacctrace a where contno='2024112000000286' order by makedate ,paydate;
+--2024102900000886
 
-select a.*,rowid from lpinsureaccfee a where contno='2024112000000286';
-select a.*,rowid from lpinsureaccclassfee a where contno='2024112000000286';
-select a.*,rowid from lpinsureaccfeetrace a where contno='2024112000000286' order by paydate desc;
+select a.* from lpinsureaccfee a where contno='2024112000000286';
+select a.* from lpinsureaccclassfee a where contno='2024112000000286';
+select a.* from lpinsureaccfeetrace a where contno='2024112000000286' order by paydate desc;

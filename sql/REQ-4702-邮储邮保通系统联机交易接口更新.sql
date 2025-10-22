@@ -1,9 +1,8 @@
---ĞÂÓÊ´¢Í¶±£Ê±µÄ´æ´¢
+--æ–°é‚®å‚¨æŠ•ä¿æ—¶çš„å­˜å‚¨
 select SALENAME,SALECERTNO from LISDATA.LCBANKAGENT a where prtno='5000118250314411';
 select bak6,bak7 from LISDATA.TRANLOG a where contno='5000118250314411';
 select TAXRESIDENTTYPE from lcappnt a where contno='5000118250314411';
 select TAXRESIDENTTYPE from lcinsured a where contno='5000118250314411';
-
---·ÇÊµÊ±Í¶±£µÄ×Ö¶Î±£´æ
+--éå®æ—¶æŠ•ä¿çš„å­—æ®µä¿å­˜
 select BANKSALORNAME,SALORCERTNO,apptaxresidenttype from LISDATA.YBTNONREALTIMEPOL a where CONTPRTNO='5000118250314473';
 select bak6,bak7 from LISDATA.TRANLOG a where contno='5000118250314473';

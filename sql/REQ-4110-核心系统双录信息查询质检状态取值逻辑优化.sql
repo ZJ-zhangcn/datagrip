@@ -1,7 +1,7 @@
-select qualityteststate,a.*,rowid from lccontmovie a where prtno='5000118323511362'
+select qualityteststate,a.* from lccontmovie a where prtno='5000118323511362'
 
---经代渠道双录质检结果查询清单
-select qualityteststate,(select salechannels from lccont where prtno=a.prtno) 渠道, a.*, rowid
+--缁忎唬娓犻亾鍙屽綍璐ㄦ缁撴灉鏌ヨ娓呭崟
+select qualityteststate,(select salechannels from lccont where prtno=a.prtno) 娓犻亾, a.*
   from lccontmovie a
  where /*qualityteststate in ('7', '8')
    and */(select count(*)
@@ -24,8 +24,8 @@ select qualityteststate,(select salechannels from lccont where prtno=a.prtno) 渠
                                 '021201'))
  order by a.qualityteststate
 
---银保渠道双录质检结果查询清单
-select qualityteststate, a.*, rowid
+--閾朵繚娓犻亾鍙屽綍璐ㄦ缁撴灉鏌ヨ娓呭崟
+select qualityteststate, a.*
   from lccontmovie a
  where qualityteststate in ('', '8')
    and (select count(*)
@@ -43,8 +43,8 @@ select qualityteststate, a.*, rowid
                                 '021403'))
  order by a.qualityteststate
 
---个险渠道双录质检结果查询清单
-select qualityteststate,(select salechannels from lccont where prtno=a.prtno) 渠道, a.*, rowid
+--涓櫓娓犻亾鍙屽綍璐ㄦ缁撴灉鏌ヨ娓呭崟
+select qualityteststate,(select salechannels from lccont where prtno=a.prtno) 娓犻亾, a.*
   from lccontmovie a
  where /*qualityteststate in ('7', '8')
    and */(select count(*)
@@ -54,4 +54,4 @@ select qualityteststate,(select salechannels from lccont where prtno=a.prtno) 渠
           from lccont
          where prtno = a.prtno
            and salechannels in ('020502'))
- order by a.qualityteststate
+ order by a.qualityteststate;
