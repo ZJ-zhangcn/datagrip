@@ -1,6 +1,6 @@
 /*
 update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno='5000118350721046'
-update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('2024122500000216','','','')
+update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('2025101600002906','','','')
 update lccont set getpoldate=null,customgetpoldate=null where contno in ('2024122500000216','','','')
 */
 --
@@ -8,7 +8,7 @@ select a.* from lccontstate a where contno='2024051100000126'
 --
 select a.* from lcconthangupstate a where contno='2024032500000126'
 --险种配置表
-select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1036011'
+select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1033032'
 select STARTDATE,a.* from lmriskapp a where riskname like '%盛世安欣%'
 select * from LMRiskParamsDef  where riskcode='1033029' order by PARAMSTYPE,ParamsCode ASC
 --H：健康险  S：重疾险  R：年金险  U：万能险
@@ -47,7 +47,7 @@ select contno,
        getstartdate,
        getenddate,LiveGetType,polno,summoney
   from lcget a
- where contno = '2025091800001096';
+ where contno = '2025060600000416';
 
 select a.* from lcget a where contno = '2025090900000986';
 
@@ -109,9 +109,9 @@ update lcissuepol set REPLYMAN='001',REPLYRESULT='1',state='2',replydate=date'20
 */
 
 --
-select a.* from ljspay a where otherno='2025092500000116';
+select a.* from ljspay a where otherno='2025101600000386';
 /*
-update ljspay set payform='Y' where otherno='2025092500000116'
+update ljspay set payform='Y' where otherno='2025101600000386'
 */
 select a.* from ljspayperson a where contno='2025070700000316'
 

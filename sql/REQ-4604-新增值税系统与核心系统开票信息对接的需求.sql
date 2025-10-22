@@ -28,7 +28,7 @@ select CUSTOMERNO,count(CUSTOMERNO) from lcaddress a where CUSTOMERNO in (select
 
 select a.* from lcaddress a where CUSTOMERNO='1000000198' and rownum=1 order by makedate desc,maketime desc;
 
-select a.* from lysendbillorder a where contno='2025070200002106'
+select a.* from lysendbillorder a where contno='2024123000000466'
 select a.* from LYSENDBILLORDER a where GETNOTICENO='86010120250320003847' order by MODIFYDATE,MODIFYTIME;
 select a.* from lysendbillorder a where ORDERNO in ('S20250702000000655651','');
 select a.* from lysendbill a where orderno in ('S20250710000000656222','');

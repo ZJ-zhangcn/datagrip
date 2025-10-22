@@ -1,0 +1,24 @@
+select a.*
+from YBTNoticeSave a
+where prtno = '2025102000001186';
+
+select a.*
+from LISDATA.ES_DOC_MAIN a
+where DOCCODE in ('2025102000001186', '2025102000001276');
+
+select a.*
+from ldtask a
+where TASKCLASS = 'YbtUploadImageTask';
+select a.*
+from ldtaskplan a
+where TASKCODE = '000233';
+
+--ssh
+select s.sysvarvalue
+from ldsysvar s
+where s.sysvar = 'SFTPServer-ShareImage';
+--10.52.200.101#22#weblogic#weblogic2020%
+--ºËÐÄÓ°ÏñÂ·¾¶
+select s.sysvarvalue
+from ldsysvar s
+where s.sysvar = 'SFTPServer-OriginalImage';--/data/Image/psbc/RECV
