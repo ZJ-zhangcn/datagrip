@@ -18,7 +18,7 @@ select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and t
 select a.* from TranLog a where TranDate='20231225';
 
 --银保险种
-select a.* from codemapping a where codealias like '%享赢添添E款%';
+select a.* from codemapping a where codealias like '%盛世欣利D%';
 select a.* from codemapping a where comcode='PSBC' and codetype='riskcode';
 select a.* from codemapping a where INSU_CODE='1133004';
 select a.* from codemapping a where BANK_CODE='045';
@@ -51,9 +51,9 @@ SELECT IDExpDate FROM ldperson where CustomerNo='1001733666';
 select contno,appntname,insuredname from ybtdat.cont where proposalprtno='2023110100000976' and state='2';
 --dat
 --投保单号查保单号
-select contno,a.* from ybtdat.tranlog a where proposalprtno='5000118231031015'
+select contno,a.* from ybtdat.tranlog a where proposalprtno='5000118231031015';
 --保单号查投保单号
-select proposalprtno,a.* from ybtdat.tranlog a where contno='2023112300000116'
+select proposalprtno,a.* from ybtdat.tranlog a where contno='2023112300000116';
 --校验agentcom在本系统中不存在，将状态改为n
 select bankcode,agentcom,a.* from lacom a where bankcode like '133599935Q%' and state = 'N';
 select state,a.* from lacom a where bankcode='15CN006';
@@ -99,3 +99,6 @@ select salechnl,selltype,a.* from lccont a where contno='2023040100000116';
 select a.* from lcappnt a where contno='2023040100000116';
 select a.* from LCCONTDZYTPRINT a where contno='2023112300000116';
 select a.* from lcepolicy a where contno='2023112300000116';
+
+
+select * from tranlog where rcode='0' and trancom='22' and funcflag='2012' and trandate='20301030'

@@ -32,6 +32,7 @@ where a.riskcode = b.RISKCODE
   and d.dt = '8'
   and a.contno = '2025072000000106'
 order by d.dt;
+
 select a.*
 from lobonusfactor a
 where riskcode = '1111002'
@@ -40,31 +41,38 @@ where riskcode = '1111002'
   and INSUREDAPPAGE = 50
   and BONUSGRADE = 'H'
 order by to_number(POLYEAR);
+
 select a.*
 from BonusRate a
 where riskcode = '1111002'
 order by CVALIDATE;
+
 select a.*
 from PUA_1111002 a
 where age = 50
   and gender = 1
 order by dt;
+
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
 where contno = '2025072000000106'
 order by makedate, maketime;
+
 select nvl(sum(JQAmnt), 0)
 from LJABonusGet
 where otherno = '2025072000000106'
   and othernotype = '12'
   and FeeFinaType = 'HLAMNT'
   and BonusYear = '2026';
+
 select a.*
 from lcduty a
 where contno = '2025072000000106';
+
 select STATEFLAG, a.*
 from LOPRTMANAGER a
 where otherno = '2025072000000106';
+
 select round(606.96 * round(0.03 / 365, 8) * (date'2029-09-18' - date'2028-09-18'), 2)
 from dual;
 --累积交清基本保险金额减保限额

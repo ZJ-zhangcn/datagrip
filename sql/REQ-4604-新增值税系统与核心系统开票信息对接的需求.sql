@@ -3,9 +3,9 @@ select * from ldcode where codetype='PushAllLjaTax';
 select * from LjaTax where TAXMAINNO ='T0000000000037886';
 select a.* from ljatax a where CUSTOMERNO='1060092781';
 select a.* from LYBillLog a where TRANTYPE='A001';
-delete from LYBillLog where TRANTYPE='A005'
+delete from LYBillLog where TRANTYPE='A005';
 
-INSERT INTO LISDATA.LJATAX (TAXMAINNO, BATCHNO, BUINESSNO, BUINESSTYPE, BUINESSDATE, SALECHNLNAME, MANAGECOM, GRPCONTNO,
+INSERT INTO LJATAX (TAXMAINNO, BATCHNO, BUINESSNO, BUINESSTYPE, BUINESSDATE, SALECHNLNAME, MANAGECOM, GRPCONTNO,
                             CONTNO, GETNOTICENO, CUSTOMERNO, CUSTOMERNONAME, BILLDATE, CZTAXMAINNO, CZOLDDATE, CZTYPE,
                             STATUS, TAXTYPE, POLNO, PAYINTV, RISKCODE, DUTYCODE, PAYPLANCODE, MONEY, PRICE, TAX,
                             FILEPATH, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, STANDBYFLAG1, STANDBYFLAG2,
@@ -14,27 +14,27 @@ VALUES ('T0000000000037886', '0000000000000675', '3623915100343109', 'RF', DATE 
         '00000000000000000000', '2024081900008306', '86000020250320000436', '1060092780', '银保投保八',
         DATE '2025-11-30', null, null, null, '0', '0102', '210010000406864', 12, '1303014', '000000', '000000', 260.27,
         236.61, 23.66, null, '001', DATE '2025-02-18', '14:07:23', DATE '2025-02-18', '14:07:23', '54', null, null);
-SELECT count(1) FROM (SELECT a.Mobile,a.EMail FROM lcaddress a order by makedate desc ,maketime desc)  WHERE ROWNUM = 1
+SELECT count(1) FROM (SELECT a.Mobile,a.EMail FROM lcaddress a order by makedate desc ,maketime desc)  WHERE ROWNUM = 1;
 
-select * from ldcode where codetype='LYRETURN_URL' and code='02'
+select * from ldcode where codetype='LYRETURN_URL' and code='02';
 
-select mobile,EMAIL,a.* from lcaddress a where mobile='13887954654'
-select a.* from LISDATA.LDPERSON a where CUSTOMERNO='1000038055'
-select a.* from LISDATA.LDPERSON a where name='银保投保六三';
-select CUSTOMERNO from LISDATA.LDPERSON a group by CUSTOMERNO having count(CUSTOMERNO)>1
-select CUSTOMERNO,count(CUSTOMERNO) from lcaddress a where CUSTOMERNO in (select CUSTOMERNO from LISDATA.LDPERSON a) group by CUSTOMERNO having count(CUSTOMERNO)>1
+select mobile,EMAIL,a.* from lcaddress a where mobile='13887954654';
+select a.* from LDPERSON a where CUSTOMERNO='1000038055';
+select a.* from LDPERSON a where name='银保投保六三';
+select CUSTOMERNO from LDPERSON a group by CUSTOMERNO having count(CUSTOMERNO)>1;
+select CUSTOMERNO,count(CUSTOMERNO) from lcaddress a where CUSTOMERNO in (select CUSTOMERNO from LDPERSON a) group by CUSTOMERNO having count(CUSTOMERNO)>1;
 
 select a.* from lcaddress a where CUSTOMERNO='1000000198' and rownum=1 order by makedate desc,maketime desc;
-select a.* from lysendbillorder a where contno='2024123000000466'
+select a.* from lysendbillorder a where contno='2024123000000466';
 select a.* from LYSENDBILLORDER a where GETNOTICENO='86010120250320003847' order by MODIFYDATE,MODIFYTIME;
 select a.* from lysendbillorder a where ORDERNO in ('S20250702000000655651','');
 select a.* from lysendbill a where orderno in ('S20250710000000656222','');
 select a.* from lysendbill a where orderno in (select ORDERNO from lysendbillorder where contno='2025070200002106');
 select a.* from LYBILLLOG a where ORDERNO in ('S20250918000000633198','');
 --官微
-select a.* from LCInvoiceApplicationApp a where contno='2025061100000206'
+select a.* from LCInvoiceApplicationApp a where contno='2025061100000206';
 
-select a.* from LISDATA.LDPERSON a where name='银保投保六二';
+select a.* from LDPERSON a where name='银保投保六二';
 --update LDPERSON set MODIFYDATE=date'2025-06-19' where (name like '银保投保%' or name like '个险投保%')
 select MODIFYDATE,MODIFYTIME,a.* from ldgrp a where grpname like '%比亚迪%';
 select MODIFYDATE,MODIFYTIME,a.* from ldgrp a where grpname like '%上海人寿股份有限公司%';
@@ -62,7 +62,7 @@ SELECT orderReturnNo      流水号,
        StandByFlag1       开票ID,
        b.*
 FROM LYReturnBillOrder b
-WHERE orderNo in ('S20250918000000633198', '', '', '');
+WHERE orderNo in ('S20251030000000633270', '', '', '');
 --返回开票明细（lyReturnBill）
 SELECT ORDERRETURRNBILLNO 流水号,
        orderNo            订单号,
