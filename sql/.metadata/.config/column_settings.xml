@@ -6,6 +6,20 @@
 		<column name="最后修改" visible="true" order="2" width="100"/>
 		<column name="大小" visible="true" order="3" width="100"/>
 	</item>
+	<item id="PrefPageNotifications">
+		<column name="通知名称" visible="true" order="0" width="367"/>
+		<column name="通知声音" visible="true" order="1" width="157"/>
+		<column name="显示弹出窗口" visible="true" order="2" width="155"/>
+	</item>
+	<item id="Suggestion/NodeList/OracleTableColumn">
+		<column name="列名" visible="true" order="0" width="151"/>
+		<column name="#" visible="true" order="1" width="34"/>
+		<column name="类型" visible="true" order="2" width="114"/>
+		<column name="类型修饰符" visible="false" order="3" width="100"/>
+		<column name="非空" visible="true" order="3" width="36"/>
+		<column name="默认" visible="true" order="4" width="36"/>
+		<column name="注释" visible="true" order="5" width="36"/>
+	</item>
 	<item id="projectExplorer">
 		<column name="名称" visible="true" order="0" width="633"/>
 		<column name="数据源" visible="true" order="1" width="222"/>

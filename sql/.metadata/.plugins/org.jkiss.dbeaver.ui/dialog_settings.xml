@@ -4,6 +4,13 @@
 	</section>
 	<section name="ResultSetViewer">
 		<section name="presentations">
+			<section name="spreadsheet">
+				<item key="enabledPanelIds" value=""/>
+				<item key="activePanelId" value="value-view"/>
+				<item key="panelRatio" value="300"/>
+				<item key="panelsVisible" value="false"/>
+				<item key="verticalLayout" value="false"/>
+			</section>
 		</section>
 	</section>
 	<section name="DBeaver.StandardErrorDialog">
@@ -32,6 +39,20 @@
 		<item key="DIALOG_Y_ORIGIN" value="-3"/>
 		<item key="DIALOG_WIDTH" value="525"/>
 		<item key="DIALOG_HEIGHT" value="605"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
+	</section>
+	<section name="DBeaver.ShowTipOfTheDayDialog">
+		<item key="DIALOG_X_ORIGIN" value="698"/>
+		<item key="DIALOG_Y_ORIGIN" value="260"/>
+		<item key="DIALOG_WIDTH" value="324"/>
+		<item key="DIALOG_HEIGHT" value="385"/>
+		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
+	</section>
+	<section name="DBeaver.SelectDataSourceDialog">
+		<item key="DIALOG_X_ORIGIN" value="335"/>
+		<item key="DIALOG_Y_ORIGIN" value="-72"/>
+		<item key="DIALOG_WIDTH" value="244"/>
+		<item key="DIALOG_HEIGHT" value="665"/>
 		<item key="DIALOG_FONT_NAME" value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI"/>
 	</section>
 </section>

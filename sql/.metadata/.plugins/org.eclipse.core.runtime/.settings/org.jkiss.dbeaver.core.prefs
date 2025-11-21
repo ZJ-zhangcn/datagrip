@@ -5,3 +5,4 @@ org.jkiss.dbeaver.core.confirm.exit=always
 sample.database.canceled=true
 tipOfTheDayInitializer.notFirstRun=true
 ui.auto.update.check.time=1763691944611
+ui.show.tip.of.the.day.on.startup=false

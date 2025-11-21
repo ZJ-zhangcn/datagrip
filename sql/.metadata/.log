@@ -153,3 +153,51 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\19166\A
 
 !ENTRY org.eclipse.ui 2 2 2025-11-21 11:16:38.334
 !MESSAGE Invalid preference category path: org.eclipse.debug.ui.ConsolePreferencePage (bundle: org.eclipse.ui.console, page: org.eclipse.ui.internal.console.ansi.preferences.AnsiConsolePreferencePage)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2025-11-21 11:45:14.246
+!MESSAGE SQL Workbench/J path not set
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2025-11-21 11:45:34.668
+!MESSAGE SQL Workbench/J path not set
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2025-11-21 11:47:22.913
+!MESSAGE SQL Workbench/J path not set
+!SESSION 2025-11-21 12:41:08.134 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=21.0.8
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh
+Framework arguments:  -eclipse.keyring C:\Users\19166\AppData\Roaming\DBeaverData\secure\secure_storage
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -eclipse.keyring C:\Users\19166\AppData\Roaming\DBeaverData\secure\secure_storage
+
+!ENTRY org.eclipse.ui 2 2 2025-11-21 12:41:14.762
+!MESSAGE Invalid preference category path: org.eclipse.debug.ui.ConsolePreferencePage (bundle: org.eclipse.ui.console, page: org.eclipse.ui.internal.console.ansi.preferences.AnsiConsolePreferencePage)
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2025-11-21 12:42:32.423
+!MESSAGE No active connection
+
+!ENTRY org.jkiss.dbeaver.model 4 0 2025-11-21 12:45:32.932
+!MESSAGE Timeout expired: 30000 MILLISECONDS
+!STACK 0
+java.util.concurrent.TimeoutException: Timeout expired: 30000 MILLISECONDS
+	at net.schmizz.concurrent.Promise.retrieve(Promise.java:140)
+	at net.schmizz.concurrent.Event.await(Event.java:105)
+	at net.schmizz.sshj.transport.KeyExchanger.waitForDone(KeyExchanger.java:172)
+	at net.schmizz.sshj.transport.KeyExchanger.startKex(KeyExchanger.java:160)
+	at net.schmizz.sshj.transport.TransportImpl.doKex(TransportImpl.java:255)
+	at net.schmizz.sshj.SSHClient.doKex(SSHClient.java:825)
+	at net.schmizz.sshj.SSHClient.onConnect(SSHClient.java:808)
+	at net.schmizz.sshj.SocketClient.connect(SocketClient.java:71)
+	at org.jkiss.dbeaver.model.net.ssh.SSHJSessionController.createNewSession(SSHJSessionController.java:79)
+	at org.jkiss.dbeaver.model.net.ssh.SSHJSession.connect(SSHJSession.java:61)
+	at org.jkiss.dbeaver.model.net.ssh.AbstractSessionController$DelegateSession.connect(AbstractSessionController.java:516)
+	at org.jkiss.dbeaver.model.net.ssh.AbstractSessionController$ShareableSession.connect(AbstractSessionController.java:433)
+	at org.jkiss.dbeaver.model.net.ssh.AbstractSessionController$WrapperSession.connect(AbstractSessionController.java:355)
+	at org.jkiss.dbeaver.model.net.ssh.AbstractSessionController$DirectSession.connect(AbstractSessionController.java:320)
+	at org.jkiss.dbeaver.model.net.ssh.AbstractSessionController.acquireSession(AbstractSessionController.java:64)
+	at org.jkiss.dbeaver.model.net.ssh.SSHTunnelImpl.initTunnel(SSHTunnelImpl.java:199)
+	at org.jkiss.dbeaver.model.net.ssh.SSHTunnelImpl.initializeHandler(SSHTunnelImpl.java:96)
+	at org.jkiss.dbeaver.ui.net.ssh.SSHTunnelDefaultConfiguratorUI$6.execute(SSHTunnelDefaultConfiguratorUI.java:457)
+	at org.jkiss.dbeaver.runtime.AbstractTrackingJob.run(AbstractTrackingJob.java:48)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:119)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
