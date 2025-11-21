@@ -11,7 +11,7 @@ INSERT INTO LISDATA.BONUSRATE (
   BONUSRATE
 )
 SELECT
-  '1113004' AS RISKCODE,--需要修改
+  '1136003' AS RISKCODE,--需要修改
   ADD_MONTHS(DATE '2025-07-01', (LEVEL - 1) * 12) AS CVALIDATE,--第一条起始期间
   ADD_MONTHS(DATE '2025-07-01', LEVEL * 12) - 1 AS ENDDATE,
   'H' AS BONUSGRADE,
@@ -19,7 +19,13 @@ SELECT
 FROM
   dual
 CONNECT BY
-  LEVEL <= 10; -- ★★★ 此处的数字 10 即为要插入的记录条数 (n) ★★★
+  LEVEL <= 50; -- ★★★ 此处的数字 10 即为要插入的记录条数 (n) ★★★
 
 -- 提交事务
 --COMMIT;
+
+/*
+select a.*
+from BONUSRATE a
+where riskcode = '1136003';
+*/

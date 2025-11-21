@@ -34,18 +34,23 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-4926-保单登记平台佣金报送-销管系统对接费控获取“佣金到账日期”字段的需求申请.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4950-保全强制终止后拆单扣费成功的金额自动退回客户.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4952-上海人寿臻鑫传家终身寿险（分红型）产品二期-保全.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4953-上海人寿鑫自由乐享版终身寿险（分红型）产品二期-保全.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4962-保单登记平台-付费明细表专项整改-保全.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4997-保全申请页面申请资格人电话获取逻辑调整.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5007-交行手机银行非实投保补充需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5010-关于团险开票系统修改发票抬头功能的需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5012-盛世欣利E——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5080-福多多乐福版——核心系统需求.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5091-团单被保险人主险险种存储及增加主险校验的需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5094-拆单收费金额拆分至险种层.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5127-上海人寿沪申宝永康版年金保险（分红型）——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5133-养乐嘟（永康版）——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5172-上海银行预约投保开发需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5177-臻享传家（分红型）——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5178-上海人寿沪申宝（永康版）年金保险1017——核心系统需求.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5184-交行预录入开发需求.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5186-上海人寿沪申宝富民版年金保险（分红型）——核心系统需求.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5197-关于恢复续期转账成功短信中NPS问卷链接的申请.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/个单.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-核心-清空temp表.sql" dialect="Oracle" />

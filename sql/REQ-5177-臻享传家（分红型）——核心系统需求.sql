@@ -218,8 +218,10 @@ order by dt;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '2025102900001486'
+where contno = '2025103100001116'
 order by makedate, maketime;
+
+select a.* from LISDATA.LPEDORITEM a where contno='2025103100001116'
 
 select nvl(sum(JQAmnt), 0)
 from LJABonusGet

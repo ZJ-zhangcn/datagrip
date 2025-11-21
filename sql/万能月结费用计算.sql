@@ -1,9 +1,11 @@
 --利息
 ----利率配置0.025，扣除初始费用之后账户价值为58298.53元，结息情况如下：
 ------例10月1日结息：
-Select round((power(1+0.03,1/12)-1)*12/365,8)/*将年利率0.03转化为日利率*/*(date'2028-04-10'-date'2028-04-10'+1)*96995.98/*账户价值*/ from dual;
---7.7833573016
+Select round((power(1+0.03,1/12)-1)*12/365,8)/*将年利率0.03转化为日利率*/*(date'2027-12-10'-date'2027-12-01'+1)*273310.77/*账户价值*/ from dual;
+Select round((power(1+0.03,1/12)-1)*12/365,8)/*将年利率0.03转化为日利率*/*(date'2027-11-10'-date'2027-11-10'+1)*171293.37/*账户价值*/ from dual;
+Select round((power(1+0.03,1/12)-1)*12/365,8)/*将年利率0.03转化为日利率*/*(date'2027-11-10'-date'2027-11-01'+1)*171293.37/*账户价值*/ from dual;
 
+select round(273310.77+221.60+14.86/31*21,2)*0.03 from dual;
 
 SELECT 0.00005430*(date'2025-12-01'-date'2025-11-01')*97585.86/*账户价值*/ from dual;
 --158.96736594
@@ -43,6 +45,10 @@ SELECT 24.645048422+16.216-0.000599992-0.8108+0.08108 FROM dual;
 死亡风险保额：有效保额（被保险人因疾病和意外等身故时，我们支付的身故保险金额）-保单账户价值
 到达年龄：投保年龄+保单年度数-1
 */
+select round((96300*1.4-96300)/1000*1.6/365*(date'2027-12-01'-date'2027-11-10'),2) FX from dual;
+select round((96500*1.4-96500)/1000*1.6/365*(date'2027-12-01'-date'2027-11-10'),2) FX from dual;
+
+select round((96688.56*1.4-96688.56)/1000*1.3/365*(date'2026-04-01'-date'2026-03-01'),2) FX from dual;
 
 select appflag,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,(select riskname from lmriskapp where riskcode=a.riskcode) riskname,contno,prtno,riskcode,signdate,cvalidate,enddate,paytodate,payenddate,payintv,amnt,prem,payendyear,insuyear,a.* from lcpol a
 where contno in ('','','','','','2024102200000186') order by a.contno;

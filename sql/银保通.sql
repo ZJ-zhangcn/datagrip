@@ -18,9 +18,9 @@ select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and t
 select a.* from TranLog a where TranDate='20231225';
 
 --银保险种
-select a.* from codemapping a where codealias like '%盛世欣利D%';
+select a.* from codemapping a where codealias like '%稳赢逸生C款%';
 select a.* from codemapping a where comcode='PSBC' and codetype='riskcode';
-select a.* from codemapping a where INSU_CODE='1133004';
+select a.* from codemapping a where INSU_CODE='1033029';
 select a.* from codemapping a where BANK_CODE='045';
 
 --银保险种默认领取方式  0-自动转账  1-累积生息  3-转入万能账户
