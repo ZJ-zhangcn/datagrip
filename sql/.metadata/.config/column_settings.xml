@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item id="NodeList/DBNProjectDatabases/DBNBookmarkFolder/DBNDashboardFolder/DBNDiagramFolder/DBNResource">
+		<column name="名称" visible="true" order="0" width="100"/>
+		<column name="路径" visible="true" order="1" width="131"/>
+		<column name="最后修改" visible="true" order="2" width="100"/>
+		<column name="大小" visible="true" order="3" width="100"/>
+	</item>
+	<item id="projectExplorer">
+		<column name="名称" visible="true" order="0" width="633"/>
+		<column name="数据源" visible="true" order="1" width="222"/>
+	</item>
+</items>
