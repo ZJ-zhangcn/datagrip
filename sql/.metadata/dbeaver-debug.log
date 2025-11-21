@@ -1,0 +1,89 @@
+2025-11-21 11:16:32.464 - DBeaver 25.2.5.202511161745 is starting
+2025-11-21 11:16:32.464 - OS: Windows 11 10.0 (amd64)
+2025-11-21 11:16:32.464 - Java version: 21.0.8 by Eclipse Adoptium (64bit)
+2025-11-21 11:16:32.464 - Install path: 'C:\Users\19166\AppData\Local\DBeaver'
+2025-11-21 11:16:32.465 - Instance path: 'file:/C:/Users/19166/AppData/Roaming/DBeaverData/datagrip/sql/'
+2025-11-21 11:16:32.466 - Memory available 64Mb/1024Mb
+2025-11-21 11:16:32.482 - Create display
+2025-11-21 11:16:32.730 - Initialize desktop platform...
+2025-11-21 11:16:32.908 - BounceCastle bundle found. Use JCE provider BC
+> Start Core File Systems [org.eclipse.core.filesystem 1.11.300.v20250607-0645]
+> Start Core Resource Management [org.eclipse.core.resources 3.23.0.v20250729-1759]
+Warning: NLS unused message: Team_Conflict_occured_for_ignored_resources_pattern in: org.eclipse.team.internal.core.messages
+> Start 小组支持核心 [org.eclipse.team.core 3.10.800.v20250610-0708]
+> Start DBeaver UI Navigator [org.jkiss.dbeaver.ui.navigator 1.0.167.202511161745]
+2025-11-21 11:16:33.145 - Initialize base platform...
+2025-11-21 11:16:33.162 - Platform initialized (432ms)
+2025-11-21 11:16:33.362 - Starting instance server at http://localhost:13496
+2025-11-21 11:16:33.371 - Run workbench
+> Start Eclipse IDE UI [org.eclipse.ui.ide 3.22.700.v20250727-0505]
+> Start Eclipse e4 工作台 SWT [org.eclipse.e4.ui.workbench.swt 0.17.900.v20250612-1000]
+> Start Eclipse Application Services [org.eclipse.e4.core.services 2.5.200.v20250326-1945]
+> Start Eclipse UI Application Services [org.eclipse.e4.ui.services 1.6.500.v20250123-0754]
+> Start Eclipse e4 Progress View [org.eclipse.e4.ui.progress 0.4.800.v20250422-1254]
+> Start Eclipse Bindings Support [org.eclipse.e4.ui.bindings 0.14.700.v20250612-1000]
+> Start Eclipse e4 core commands [org.eclipse.e4.core.commands 1.1.600.v20250307-1331]
+> Start EMF XML/XMI Persistence [org.eclipse.emf.ecore.xmi 2.39.0.v20250414-1351]
+> Start Eclipse CSS SWT Theme Support [org.eclipse.e4.ui.css.swt.theme 0.14.500.v20250213-1508]
+> Start Eclipse e4 工作台加载项 [org.eclipse.e4.ui.workbench.addons.swt 1.5.800.v20250701-0653]
+Warning: NLS unused message: WorkbenchPreference_reuseEditorsThreshold in: org.eclipse.ui.internal.messages
+Warning: NLS unused message: Workbench_missingPropertyMessage in: org.eclipse.ui.internal.messages
+> Start Eclipse e4 工作台 SWT 呈现器 [org.eclipse.e4.ui.workbench.renderers.swt 0.16.900.v20250828-1028]
+> Start Eclipse Dependency Injection Extensions [org.eclipse.e4.core.di.extensions 0.18.300.v20240413-1529]
+> Start DBeaver AI Model [org.jkiss.dbeaver.model.ai 2.0.10.202511161745]
+> Start DBeaver AI UI [org.jkiss.dbeaver.ui.ai 1.0.69.202511161745]
+> Start Eclipse CSS SWT Support [org.eclipse.e4.ui.css.swt 0.15.600.v20250409-1135]
+Warning: NLS unused message: UriHandlerPreferencePage_Warning_OtherApp in: org.eclipse.ui.internal.ide.messages
+2025-11-21 11:16:35.488 - Configure workbench window
+> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.157.202511161745]
+2025-11-21 11:16:35.705 - Total database drivers: 127 (127)
+> Start 帮助系统核心 [org.eclipse.help 3.10.600.v20250613-0437]
+2025-11-21 11:16:35.788 - Create actions
+2025-11-21 11:16:36.683 - Initialize workbench window
+2025-11-21 11:16:36.703 - Finish initialization
+> Start 缺省文本编辑器 [org.eclipse.ui.editors 3.20.100.v20250814-1056]
+> Start 文本编辑器框架 [org.eclipse.ui.workbench.texteditor 3.19.300.v20250815-0722]
+> Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.167.202511161745]
+> Start Equinox Java Authentication and Authorization Service (JAAS) [org.eclipse.equinox.security 1.4.700.v20250622-1644]
+> Start 因特网连接管理 UI [org.eclipse.ui.net 1.5.500.v20250611-0855]
+> Start Internet Connection Management [org.eclipse.core.net 1.5.800.v20250613-1119]
+> Start DBeaver UI Editors - SQL [org.jkiss.dbeaver.ui.editors.sql 1.0.167.202511161745]
+> Start DBeaver Sample Database [org.jkiss.dbeaver.ui.config.sample 1.0.204.202511161745]
+> Start DBeaver Dashboard UI [org.jkiss.dbeaver.ui.dashboard 1.0.164.202511161745]
+> Start GEF Classic Draw2d [org.eclipse.draw2d 3.20.100.202508011427]
+> Start GEF Classic GEF (MVC) [org.eclipse.gef 3.23.0.202507261623]
+> Start DBeaver ERD UI [org.jkiss.dbeaver.ui.editors.erd 3.1.8.202511161745]
+> Start DBeaver ERD Model [org.jkiss.dbeaver.model.erd 1.1.8.202511161745]
+Warning: NLS unused message: FindReplace_RegExCheckbox_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Status_wrapped_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_WrapCheckBox_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_IncrementalCheckBox_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Options in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_ReplaceSelectionButton_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_SelectedRangeRadioButton_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Status_noMatchWithValue_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_SelectAllButton_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Status_noMatch_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_GlobalRadioButton_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_WholeWordCheckBox_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_ReplaceFindButton_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_BackwardRadioButton_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_CloseButton_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Replace_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Status_selection_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_CaseCheckBox_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Status_replacement_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Status_selections_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Status_replacements_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_title in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Direction in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_ReplaceAllButton_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Scope in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_Find_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_ForwardRadioButton_label in: org.eclipse.ui.texteditor.EditorMessages
+Warning: NLS unused message: FindReplace_FindNextButton_label in: org.eclipse.ui.texteditor.EditorMessages
+> Start DBeaver SQL Terminal [org.jkiss.dbeaver.ui.editors.sql.terminal 1.0.143.202511161745]
+> Start 核心比较支持 [org.eclipse.compare.core 3.8.800.v20250718-1505]
+> Start 控制台 [org.eclipse.ui.console 3.14.400.v20250607-0653]
+> Start 调试核心 [org.eclipse.debug.core 3.23.100.v20250811-0711]
+> Start DBeaver SQL Language Semantic Model [org.jkiss.dbeaver.model.lsm 1.0.62.202511161745]
