@@ -1,0 +1,15 @@
+select paytodate,sumprem,a.* from lccont a where contno='2024052700000106';
+select paytodate,sumprem,a.* from lcpol a where contno='2024052700000106';
+select paytodate,sumprem,paytimes,a.* from lcprem a where contno='2024052700000106';
+select paytodate,sumprem,a.* from lcduty a where contno='2024072300003656';
+select a.* from ljapay a where otherno='2024052700000106';
+select a.* from ljapayperson a where contno='2024052700000106';
+select sumpay,insuaccbala,baladate,a.* from lcinsureacc a where contno='2024052700000106';
+select sumpay,insuaccbala,baladate,a.* from lcinsureaccclass a where contno='2024052700000106';
+select a.* from lcinsureacctrace a where contno='2024052700000106' order by paydate desc;
+select fee/*fee=feetrace表删除续期数据后的总和*/,baladate,a.* from lcinsureaccfee a where contno='2024052700000106';
+select fee,baladate,a.* from lcinsureaccclassfee a where contno='2024052700000106';
+select a.* from lcinsureaccfeetrace a where contno='2024052700000106' order by paydate desc;
+select a.* from ljaget a where otherno='2024052700000106';
+select a.* from ljagetdraw a where contno='2024052700000106' order by getdate desc;
+select a.* from lccontstate a where contno='2024052700000106';
