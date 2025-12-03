@@ -126,14 +126,14 @@ select a.* from lpgrpedoritem a where EDORTYPE='CT' and EDORSTATE='0' and makeda
 select a.* from lpgrpedoritem a where EDORTYPE='RP' and EDORSTATE='0';
 --个险保全表
 select a.CONFDATE 保全确认日期,a.* from LPEdorApp a where otherno='2025022700001186';
-select a.CONFDATE 保全确认日期,a.* from LPEdorApp a where edoracceptno='3229315100000615';
+select a.CONFDATE 保全确认日期,a.* from LPEdorApp a where edoracceptno='3229315100003132';
 select edorno 批单号,edoracceptno 受理号,edortype,edorstate,getmoney,getinterest,a.* from lpedoritem a where grpcontno='2025010600000186';
 select contno,a.* from lpedoritem a where edoracceptno='3229315100002511' order by a.contno;
 select sum(getmoney) from lpedoritem a where edoracceptno='3229315100002511';
 select a.* from lpedoritem a where insuredno='1060090852';
 select a.* from lpedoritem a where edortype='NI' and edorstate='0' order by makedate;
 select a.* from LISDATA.LJAGETENDORSE a where grpcontno='2025010600000186' order by MAKEDATE,MAKETIME;
-select a.* from LISDATA.LJAGETENDORSE a where otherno='3229315100006312';
+select a.* from LISDATA.LJAGETENDORSE a where otherno='3229315100003132';
 
 --保单未打印修改printcount为1
 select PrintCount,a.* from LCGrpCont a where grpcontNo = '2025032600004096';

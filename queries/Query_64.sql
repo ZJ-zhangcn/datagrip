@@ -1,0 +1,1 @@
+select a.* from channels a order by id;

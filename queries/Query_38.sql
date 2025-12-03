@@ -1,0 +1,1 @@
+SELECT appntname,appntidtype,appntidno FROM lccont WHERE contno = '2025102000000676'

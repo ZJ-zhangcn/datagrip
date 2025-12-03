@@ -1,0 +1,1 @@
+select * from ldcode where '1760946254000'='1760946254000' and  codetype='zejqrisk' and code='1111002'

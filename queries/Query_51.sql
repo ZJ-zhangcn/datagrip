@@ -1,0 +1,1 @@
+select a.* from ldtask a where TASKDESCRIBE like '%Éú´æ½ð%'

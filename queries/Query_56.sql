@@ -1,0 +1,1 @@
+select accname,bankcode,bankaccno from lccont where contno = '2025102481006618'

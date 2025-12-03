@@ -1,0 +1,1 @@
+select 7479.85*round(1/365,8)*(date'2027-03-10'-date'2026-10-11') from dual;

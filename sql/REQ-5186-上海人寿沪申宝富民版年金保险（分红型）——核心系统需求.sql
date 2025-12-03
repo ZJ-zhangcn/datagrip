@@ -124,15 +124,15 @@ where a.insuredsex = b.gender
   and b.dt = 5;
 
 --t>PPP，年领未欠缴保费
-select round((a.prem / 1000 * b.endcv * (DATE '2026-12-10' - DATE '2026-11-14') / 365) +
+select round((a.prem / 1000 * b.endcv * (DATE '2026-11-28' - DATE '2026-11-28') / 365) +
              (a.prem / 1000 * b.begcv *
-              (365 - (DATE '2026-12-10' - DATE '2026-11-14')) / 365), 2) cash
+              (365 - (DATE '2026-11-28' - DATE '2026-11-28')) / 365), 2) cash
 from lcpol a,
      cv_1136003 b
 where a.insuredsex = b.gender
   and a.insuredappage = b.age
   and a.payendyear = b.pt
-  and a.contno = '2025111300000486'
+  and a.contno = '2025112700000266'
   and b.dt = 2;
 
 
@@ -165,13 +165,13 @@ where a.riskcode = b.RISKCODE
   and b.INSUREDSEX = d.GENDER
   and b.PolYear = d.DT
   and a.contno = e.contno
-  and to_date('2027-11-13', 'yyyy-mm-dd') between b.startdate and b.enddate
-  and to_date('2027-11-13', 'yyyy-mm-dd') between c.cvalidate and c.enddate
+  and to_date('2026-11-28', 'yyyy-mm-dd') between b.startdate and b.enddate
+  and to_date('2026-11-28', 'yyyy-mm-dd') between c.cvalidate and c.enddate
   and b.bonusgrade = 'H'
   and b.annuitygetage = '0'
-  and e.DUTYCODE like '%1001'/*dt='1'时注释掉*/
-  and d.dt = '3'
-  and a.contno = '2025111200000296'
+--   and e.DUTYCODE like '%1001'/*dt='1'时注释掉*/
+  and d.dt = '1'
+  and a.contno = '2025112700000266'
 order by d.dt;
 
 select b.*
@@ -207,7 +207,7 @@ order by dt;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '2025111200000296'
+where contno = '2025112700000266'
 order by makedate, maketime;
 
 select a.*
@@ -216,8 +216,8 @@ where contno = '2025103100001116'
 
 --退保
 --累积交清基本保险金额应退金额
-select round(a.AMNT / 1000 * cv2 * (date'2028-11-20' - date'2028-11-13') / 365 +
-             a.AMNT / 1000 * cv1 * (1 - (date'2028-11-20' - date'2028-11-13') / 365), 2) cash,a.AMNT
+select round(a.AMNT / 1000 * cv2 * (date'2026-11-28' - date'2026-11-28') / 365 +
+             a.AMNT / 1000 * cv1 * (1 - (date'2026-11-28' - date'2026-11-28') / 365), 2) cash
 from lcduty a,
      PUA_1136003 b,
      lcpol c
@@ -225,8 +225,8 @@ where a.contno = c.contno
   and b.age = c.INSUREDAPPAGE
   and b.GENDER = c.INSUREDSEX
   and a.DUTYCODE like '%1001'
-  and a.contno = '2025111200000296'
-  and b.dt = 4;
+  and a.contno = '2025112700000266'
+  and b.dt = 2;
 --红利宣告交清基本保险金额应退金额
 select round(492.47 / 1000 * cv2 * (date'2030-12-10' - date'2030-11-13') / 365 +
              492.47 / 1000 * cv1 * (1 - (date'2030-12-10' - date'2030-11-13') / 365), 2) cash

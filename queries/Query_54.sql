@@ -1,0 +1,1 @@
+select a.* from lcpol a where prtno='2025042186400518'

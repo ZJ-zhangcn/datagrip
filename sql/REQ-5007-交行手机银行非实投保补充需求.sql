@@ -1,9 +1,9 @@
 select a.*
 from YBTNoticeSave a
-where prtno = '2025110300001426';
+where prtno = '2025112700000266';
 select a.*
 from LISDATA.ES_DOC_MAIN a
-where DOCCODE in ('2025102200000506', '');
+where DOCCODE in ('2025112700000266', '');
 select a.*
 from ldtask a
 where TASKCLASS = 'YbtUploadImageTask';

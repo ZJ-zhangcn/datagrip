@@ -1,0 +1,1 @@
+select bak1 /*是否为生存金产品*/,bak2 /*生存金是否配置*/,STANDBYFLAG /*是否为年金产品*/,a.* from lmduty a where RISKCODE='1133005'

@@ -1,0 +1,1 @@
+select a.* from lccont a where contno='2025080600001076'
