@@ -1,1 +1,0 @@
-select a.* from lcpol a where grpcontno='2027040200000166'

@@ -3,8 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/fc44b9d8-3371-42ed-9cf0-bf73bf48ceed/console_18.sql" dialect="Oracle" />
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/fc44b9d8-3371-42ed-9cf0-bf73bf48ceed/console_20.sql" dialect="Oracle" />
-    <file url="file://$PROJECT_DIR$/queries/Query_18.sql" dialect="Oracle" />
-    <file url="file://$PROJECT_DIR$/queries/Query_20.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/queries/Query.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/BUG-958-建行续期扣费回盘异常.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3947-“睡眠保单”数据自动更新至保单登记平台及核心清单下载需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3953-银保通线上生存金领取方式逻辑调整.sql" dialect="Oracle" />
@@ -44,6 +43,7 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-5007-交行手机银行非实投保补充需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5010-关于团险开票系统修改发票抬头功能的需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5012-盛世欣利E——核心系统需求.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5024-达标体检件及达标财务件自动生成函件需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5080-福多多乐福版——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5091-团单被保险人主险险种存储及增加主险校验的需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5094-拆单收费金额拆分至险种层.sql" dialect="Oracle" />

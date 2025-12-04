@@ -1,1 +1,0 @@
-select a.* from PUA_1111002 a where age='69'

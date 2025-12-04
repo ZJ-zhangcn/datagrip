@@ -107,5 +107,13 @@
       <jdbc-url>jdbc:mysql://mysql-zj2-mysql-zj2.j.aivencloud.com:18362/</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="ybt-pre-psbc" uuid="d28f827b-fad3-4242-b2e5-fb8effe59000">
+      <driver-ref>oracle.19</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@10.52.200.121:1521:lis</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

@@ -5,7 +5,7 @@ select HEALTHTYPE 体检套餐类别,
 4-累计保障型寿险（高净值）-1016007
 5-累计储蓄型寿险风险保额（A类）-1306002
 6-累计储蓄型寿险风险保额（B类）-1311005
-7-累计重大疾病保额-1051016
+7-累计重大疾病保额-1051020
 累计年交保费（年长年金）-1033017*/
        HEALTHCODE 体检套餐,
        MINAGE     最小年龄,
@@ -21,29 +21,45 @@ SELECT distinct PHYSICALSET, healthname
 FROM LCPENoticeItem a,
      ldhealth b
 WHERE a.PHYSICALSET = healthcode
-  and a.contno = '5000118351009932';
+  and a.contno = '5000118351203039';
 
-select 450 / 0.6
+select 900 / 0.4
 from dual;
 
 select a.*
 from lmriskapp a
-where riskcode = '1311005';
+where riskcode in ('1006001', '1056002', '1056001');
 
-select a.* from ldtask a where TASKDESCRIBE like '%问题件%';
+select a.*
+from lmriskapp a
+where riskname like '%附加投保人豁免保险费重大疾病保险%';--1006001  1056002
 
-select a.* from LISDATA.TRANAPP a where contno='5000118351009932';
+select riskcode, riskname
+from lmriskapp a
+where riskcode in ('1303018', '1116003', '1111003', '1016007', '1306002', '1311005', '1051016', '1033017', '1006001','1111002');
+
+select a.*
+from ldtask a
+where TASKDESCRIBE like '%问题件%';
+
+select a.*
+from ldtask a
+where taskcode = '000259';
+
+select a.*
+from LISDATA.TRANAPP a
+where contno = '5000118351009932';
 
 select a.*
 from ldriskrule a
-where riskcode in ('1303018', '1116003', '1111003', '1016007', '1306002', '1311005', '1051016')
+where riskcode in ('1303018', '1116003', '1111003', '1016007', '1306002', '1311005', '1051016', '1033017', '1006001')
   and SALECHNL = '02'
 order by a.riskcode, a.SALECHNL;--1303018
 
 INSERT INTO LISDATA.LDRISKRULE (RISKCODE, SALECHNL, COMGROUP, STARTPOLAPPLYDATE, ENDPOLAPPLYDATE, STARTSCANDATE,
                                 STARTSCANTIME, ENDSCANDATE, ENDSCANTIME, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE,
                                 MODIFYTIME)
-VALUES ('1303018', '02', '86', DATE '2024-08-01', null, DATE '2024-08-01', '0       ', null, null, '1',
+VALUES ('1033017', '02', '86', DATE '2024-08-01', null, DATE '2024-08-01', '0       ', null, null, '1',
         DATE '2024-08-01', '0       ', DATE '2024-08-01', '0       ');
 
 select a.*
@@ -55,7 +71,7 @@ where appflag = '1'
 --
 select a.*
 from lmrisksort a
-where risksorttype = '1'
+where risksorttype = '2'
   and RiskSortValue in ('G1', 'MU', 'MI');
 
 select distinct a.riskcode
@@ -85,7 +101,9 @@ where healthcode = 'PEG007'
 -- group by healthcode, healthname, subhealthcode
 order by healthcode, subhealthcode;
 
-SELECT * FROM ldhealth WHERE healthcode = 'PEG010';
+SELECT *
+FROM ldhealth
+WHERE healthcode = 'PEG010';
 
 update ldhealth
 set SUBHEALTHCODE = 'PE001#PE002#PE003#PE009#PE016#PE020#PE022#PE023#PE030#PE035#PE010#PE012#PE013#PE014#PE015#PE017#PE018#PE019#PE037#PE038#PE042#PE044#PE045#PE039#PE040#PE007#PE006#PE041#PE046#PE047#PE048#PE011'

@@ -8,7 +8,7 @@ select a.* from lccontstate a where contno='2024051100000126';
 --
 select a.* from lcconthangupstate a where contno='2024032500000126';
 --险种配置表
-select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1033032';
+select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1133004';
 select STARTDATE,a.* from lmriskapp a where riskname like '%盛世安欣%';
 select * from LMRiskParamsDef  where riskcode='1033029' order by PARAMSTYPE,ParamsCode;
 --H：健康险  S：重疾险  R：年金险  U：万能险
@@ -19,7 +19,7 @@ select a.* from lmriskpay a where riskcode='1133005';
 select a.* from lmriskedoritem a where riskcode='1036007';
 select a.* from lmriskedoritem a where edorcode='NP';
 --算法表
-select a.* from lmcalmode a where riskcode='1311005';
+select a.* from lmcalmode a where riskcode='1006001';
 --险种支持的销售渠道
 select salechnl,a.* from ldriskrule a where riskcode in ('1111003','') order by a.riskcode,a.SALECHNL;
 
@@ -96,7 +96,7 @@ select moneytype,money,paydate,dutycode,getdutycode from lcinsureacctrace a wher
 --犹豫期天数配置  HESITATEEND=条款中的犹豫期天数+1
 select HESITATEEND from LMEdorWT a where riskcode='1111002';
 --核心险种规则（新单录入、问题件修改、新单复核）
-select a.* from lmriskcheckrule a where riskcode='1016007' and checklocal='FHWB' order by CHECKLOCAL,checksort,REMARK;
+select a.* from lmriskcheckrule a where riskcode='1006001' and checklocal='FHWB' order by CHECKLOCAL,checksort,REMARK;
 select a.* from lmriskcheckrule a where remark like '%交费方式和交费期间不一致%';
 select a.* from lmriskcheckrule a where CALCODE in ('FC3366','FC3367','FC3368','FC3369','FC3370','FC3371');
 --碎片化险种规则

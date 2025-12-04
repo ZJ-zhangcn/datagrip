@@ -2,76 +2,6 @@
 <project version="4">
   <component name="DataSourcePerFileMappings">
     <file url="file://$PROJECT_DIR$/queries/Query.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_1.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_10.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_11.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_12.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_13.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_14.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_15.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_16.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_17.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_18.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_19.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_2.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_20.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_21.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_22.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_23.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_24.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_25.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_26.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_27.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_28.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_29.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_3.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_30.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_31.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_32.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_33.sql" value="c114f0b6-33d9-4ceb-925d-087ad44cf6c1" />
-    <file url="file://$PROJECT_DIR$/queries/Query_34.sql" value="c114f0b6-33d9-4ceb-925d-087ad44cf6c1" />
-    <file url="file://$PROJECT_DIR$/queries/Query_35.sql" value="c114f0b6-33d9-4ceb-925d-087ad44cf6c1" />
-    <file url="file://$PROJECT_DIR$/queries/Query_36.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_37.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_38.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_39.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_4.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_40.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_41.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_42.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_43.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_44.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_45.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_46.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_47.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_48.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_49.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/queries/Query_5.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_50.sql" value="096ce292-2a1d-405b-90fc-a03b8fe2400b" />
-    <file url="file://$PROJECT_DIR$/queries/Query_51.sql" value="b17bb0e9-e915-4180-b367-69309662678d" />
-    <file url="file://$PROJECT_DIR$/queries/Query_52.sql" value="b17bb0e9-e915-4180-b367-69309662678d" />
-    <file url="file://$PROJECT_DIR$/queries/Query_53.sql" value="b17bb0e9-e915-4180-b367-69309662678d" />
-    <file url="file://$PROJECT_DIR$/queries/Query_54.sql" value="b17bb0e9-e915-4180-b367-69309662678d" />
-    <file url="file://$PROJECT_DIR$/queries/Query_55.sql" value="b17bb0e9-e915-4180-b367-69309662678d" />
-    <file url="file://$PROJECT_DIR$/queries/Query_56.sql" value="b17bb0e9-e915-4180-b367-69309662678d" />
-    <file url="file://$PROJECT_DIR$/queries/Query_57.sql" value="40024b55-0232-42d4-b331-656b058bfc0a" />
-    <file url="file://$PROJECT_DIR$/queries/Query_58.sql" value="c3c79534-57b4-4c4c-9f31-71c78f86ef2a" />
-    <file url="file://$PROJECT_DIR$/queries/Query_59.sql" value="c3c79534-57b4-4c4c-9f31-71c78f86ef2a" />
-    <file url="file://$PROJECT_DIR$/queries/Query_6.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_60.sql" value="88866f63-c59f-4b8a-b8ad-b7a9bcaeae62" />
-    <file url="file://$PROJECT_DIR$/queries/Query_61.sql" value="b2fc2e16-47ce-4b3e-8813-35b5f71b5859" />
-    <file url="file://$PROJECT_DIR$/queries/Query_62.sql" value="2462e028-c1d9-4903-8995-9e04ddb90749" />
-    <file url="file://$PROJECT_DIR$/queries/Query_63.sql" value="2462e028-c1d9-4903-8995-9e04ddb90749" />
-    <file url="file://$PROJECT_DIR$/queries/Query_64.sql" value="5781cc6e-6878-43c0-80a2-b8d0bc23a0fc" />
-    <file url="file://$PROJECT_DIR$/queries/Query_65.sql" value="5781cc6e-6878-43c0-80a2-b8d0bc23a0fc" />
-    <file url="file://$PROJECT_DIR$/queries/Query_66.sql" value="5781cc6e-6878-43c0-80a2-b8d0bc23a0fc" />
-    <file url="file://$PROJECT_DIR$/queries/Query_67.sql" value="5781cc6e-6878-43c0-80a2-b8d0bc23a0fc" />
-    <file url="file://$PROJECT_DIR$/queries/Query_68.sql" value="5781cc6e-6878-43c0-80a2-b8d0bc23a0fc" />
-    <file url="file://$PROJECT_DIR$/queries/Query_69.sql" value="5781cc6e-6878-43c0-80a2-b8d0bc23a0fc" />
-    <file url="file://$PROJECT_DIR$/queries/Query_7.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_70.sql" value="5781cc6e-6878-43c0-80a2-b8d0bc23a0fc" />
-    <file url="file://$PROJECT_DIR$/queries/Query_8.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/queries/Query_9.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3953-银保通线上生存金领取方式逻辑调整.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3982-核心需求REQ-3778与报价系统需求XJ-12在关于地址四段式地址数据后台对接问题的需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4604-新增值税系统与核心系统开票信息对接的需求.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
@@ -81,6 +11,7 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-4952-上海人寿臻鑫传家终身寿险（分红型）产品二期-保全.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4953-上海人寿鑫自由乐享版终身寿险（分红型）产品二期-保全.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5007-交行手机银行非实投保补充需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5024-达标体检件及达标财务件自动生成函件需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5091-团单被保险人主险险种存储及增加主险校验的需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5094-拆单收费金额拆分至险种层.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5172-上海银行预约投保开发需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />

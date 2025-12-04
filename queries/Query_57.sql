@@ -1,1 +1,0 @@
-select a.* from rulelog a where YbtNorealTimeFlag='02'
