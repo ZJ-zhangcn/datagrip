@@ -1,11 +1,11 @@
 ------------------------------------------------------------------承保相关------------------------------------------------------------------
 --险种表
-select contno,grpcontno,riskcode,cvalidate,paytodate,payenddate,a.* from lcpol a where prtno='3206915150822036';
+select contno,grpcontno,riskcode,cvalidate,paytodate,payenddate,a.* from lcpol a where prtno='3206915150822050';
 select (select codename from ldcode a where codetype='appflag' and code=a.appflag) appflag,grpcontno,contno,prtno,riskcode,signdate,cvalidate,paytodate,enddate,payenddate,payintv,prem,payendyear,insuyear,a.* from lcpol a
 where grpcontno in ('2025092400000476','') and contno='130010002144918';
 select appflag,insuredname,polstate,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where grpcontno='2023100100000626';
 --团单总保费
-select sum(prem) from lcpol a where prtno='3206915150822036';
+select sum(prem) from lcpol a where prtno='3206915150822050';
 select sum(sumprem),sum(amnt) from lcpol a where grpcontno='2023110900001556' and appflag='1';
 --团单总保额
 select sum(amnt) from lcpol a where prtno='3206915140620035';
@@ -45,7 +45,7 @@ values ('1001735571', '上海市黄浦区林校路街道义和庄北路1号', '�
 select prem,standprem,a.* from lcpol a where prtno='3206915150314058';
 /*
 --趸交
-update lcpol set standprem=prem where prtno='3206915150314058'
+update lcpol set standprem=prem where prtno='3206915150822050'
 --月交
 update lcpol set standprem=(prem*12) where prtno='3206915150822029'
 */
@@ -138,13 +138,13 @@ select a.* from LISDATA.LJAGETENDORSE a where otherno='3229315100003132';
 --保单未打印修改printcount为1
 select PrintCount,a.* from LCGrpCont a where grpcontNo = '2025032600004096';
 /*
-update LCGrpCont set PrintCount='1' where grpcontNo = '2025111700006986'
+update LCGrpCont set PrintCount='1' where grpcontNo = '2025120400000366'
 */
 
 --回执回销
 select * from lcgrpcont where grpcontno = '2025012000000586'and CUSTOMGETPOLDATE is null;
 /*
-update lcgrpcont set CUSTOMGETPOLDATE=signdate where grpcontno = '2025111700006986'
+update lcgrpcont set CUSTOMGETPOLDATE=signdate where grpcontno = '2025120400000366'
 */
 
 --团单保全单证插表
@@ -155,7 +155,7 @@ insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, d
 values ((select max(DOCID)+1 from es_doc_main), '3229315100002511', 'BQ', '32293151', 1, '1', null, '001', '86', null, null, null, null, null, null, to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', '1', 'TB201586330014', '3229315100005698', 1, null, null);
 
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5005190150822170', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
+values ((select max(DOCID)+1 from es_doc_main), '5005190150822194', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
 
 */
 

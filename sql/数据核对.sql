@@ -1,6 +1,6 @@
 /*
 update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno='5000118351009475'
-update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('2025111000001186','','','')
+update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('2025120200000386','','','')
 update lccont set getpoldate=null,customgetpoldate=null where contno in ('2024122500000216','','','')
 */
 --
@@ -8,7 +8,7 @@ select a.* from lccontstate a where contno='2024051100000126';
 --
 select a.* from lcconthangupstate a where contno='2024032500000126';
 --险种配置表
-select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1133004';
+select STARTDATE,enddate,a.* from lmriskapp a where riskcode='1103002';
 select STARTDATE,a.* from lmriskapp a where riskname like '%盛世安欣%';
 select * from LMRiskParamsDef  where riskcode='1033029' order by PARAMSTYPE,ParamsCode;
 --H：健康险  S：重疾险  R：年金险  U：万能险
@@ -19,7 +19,7 @@ select a.* from lmriskpay a where riskcode='1133005';
 select a.* from lmriskedoritem a where riskcode='1036007';
 select a.* from lmriskedoritem a where edorcode='NP';
 --算法表
-select a.* from lmcalmode a where riskcode='1006001';
+select a.* from lmcalmode a where riskcode='1011005';
 --险种支持的销售渠道
 select salechnl,a.* from ldriskrule a where riskcode in ('1111003','') order by a.riskcode,a.SALECHNL;
 
@@ -111,9 +111,9 @@ update lcissuepol set REPLYMAN='001',REPLYRESULT='1',state='2',replydate=date'20
 */
 
 --
-select a.* from ljspay a where otherno='2025111000000816';
+select a.* from ljspay a where otherno='2025120200000386';
 /*
-update ljspay set payform='Y' where otherno='2025111300000576'
+update ljspay set payform='Y' where otherno='2025120500000286'
 */
 select a.* from ljspayperson a where contno='2025102700000286';
 
@@ -169,7 +169,7 @@ update lcinsureaccfeetrace set makedate=paydate,modifydate=paydate where contno=
 */
 
 --
-select a.* from LOPRTMANAGER a where OTHERNO='2025031000001496';
+select a.* from LOPRTMANAGER a where OTHERNO='2025120200000386';
 
 --万能月结利息计算方式
 select round((power(1+0.03,1/12)-1)*12/365,8)/*将年利率转化为月利率*/*(date'2025-09-25'-date'2025-09-01')*(19315.06-9500-50+0.03) from dual;

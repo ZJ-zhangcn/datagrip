@@ -4,11 +4,14 @@
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/fc44b9d8-3371-42ed-9cf0-bf73bf48ceed/console_18.sql" dialect="Oracle" />
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/fc44b9d8-3371-42ed-9cf0-bf73bf48ceed/console_20.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/queries/Query.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/queries/Query_1.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/queries/Query_2.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/BUG-958-建行续期扣费回盘异常.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3947-“睡眠保单”数据自动更新至保单登记平台及核心清单下载需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3953-银保通线上生存金领取方式逻辑调整.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3982-核心需求REQ-3778与报价系统需求XJ-12在关于地址四段式地址数据后台对接问题的需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4070-核心系统日结调整的需求.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4103-关于增加法人信息校验功能的需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4212-满期终止保单理赔操作优化需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4242-存储续期邮件发送记录需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4271-个险渠道新单投保手机号实名校验需求.sql" dialect="Oracle" />
@@ -55,6 +58,7 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-5184-交行预录入开发需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5186-上海人寿沪申宝富民版年金保险（分红型）——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5197-关于恢复续期转账成功短信中NPS问卷链接的申请.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5211-上海人寿鑫自由乐福版终身寿险——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/个单.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-核心-清空temp表.sql" dialect="Oracle" />

@@ -2,8 +2,11 @@
 <project version="4">
   <component name="DataSourcePerFileMappings">
     <file url="file://$PROJECT_DIR$/queries/Query.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
+    <file url="file://$PROJECT_DIR$/queries/Query_1.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
+    <file url="file://$PROJECT_DIR$/queries/Query_2.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3953-银保通线上生存金领取方式逻辑调整.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3982-核心需求REQ-3778与报价系统需求XJ-12在关于地址四段式地址数据后台对接问题的需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-4103-关于增加法人信息校验功能的需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4604-新增值税系统与核心系统开票信息对接的需求.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4705-交通银行2025年系统改造需求（第1点和第2点）.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-4730-银保线上出单（网银、银保通）新增生存金领取方式和年金领取方式校验规则.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
@@ -12,7 +15,7 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-4953-上海人寿鑫自由乐享版终身寿险（分红型）产品二期-保全.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5007-交行手机银行非实投保补充需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5024-达标体检件及达标财务件自动生成函件需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
-    <file url="file://$PROJECT_DIR$/sql/REQ-5091-团单被保险人主险险种存储及增加主险校验的需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5091-团单被保险人主险险种存储及增加主险校验的需求.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5094-拆单收费金额拆分至险种层.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5172-上海银行预约投保开发需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5177-臻享传家（分红型）——核心系统需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
@@ -20,12 +23,13 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-5184-交行预录入开发需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5186-上海人寿沪申宝富民版年金保险（分红型）——核心系统需求.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5197-关于恢复续期转账成功短信中NPS问卷链接的申请.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5211-上海人寿鑫自由乐福版终身寿险——核心系统需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/个单.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-核心-清空temp表.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-自理.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/协助测试收付费.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
-    <file url="file://$PROJECT_DIR$/sql/团单.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
+    <file url="file://$PROJECT_DIR$/sql/团单.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/循环插入红利k值.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/收付费模拟.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
     <file url="file://$PROJECT_DIR$/sql/数据核对.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />

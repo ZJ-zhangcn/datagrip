@@ -7,12 +7,12 @@ order by riskcode;
 
 select *
 from lccont
-where GrpContNo = '3206915150822036'
+where GrpContNo = '3206915150822050'
   and insuredIdno = '350624199001100746';
 
 select a.*
 from lcpol a
-where GRPCONTNO = '3206915150822036'
+where GRPCONTNO = '2025120400000366'
 order by INSUREDNO, RISKCODE desc;
 
 select *
