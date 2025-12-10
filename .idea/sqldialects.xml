@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/queries/Query.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/queries/Query_1.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/queries/Query_2.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/queries/Query_3.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/sql/BUG-958-建行续期扣费回盘异常.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3947-“睡眠保单”数据自动更新至保单登记平台及核心清单下载需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3953-银保通线上生存金领取方式逻辑调整.sql" dialect="Oracle" />
