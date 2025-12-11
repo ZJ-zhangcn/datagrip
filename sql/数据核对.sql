@@ -21,7 +21,7 @@ select a.* from lmriskedoritem a where edorcode='NP';
 --算法表
 select a.* from lmcalmode a where riskcode='1011005';
 --险种支持的销售渠道
-select salechnl,a.* from ldriskrule a where riskcode in ('1111003','') order by a.riskcode,a.SALECHNL;
+select salechnl,a.* from ldriskrule a where riskcode in ('1306002','') order by a.riskcode,a.SALECHNL;
 
 INSERT INTO LDRISKRULE (RISKCODE,SALECHNL,COMGROUP,STARTPOLAPPLYDATE,ENDPOLAPPLYDATE,STARTSCANDATE,STARTSCANTIME,ENDSCANDATE,ENDSCANTIME,OPERATOR,MAKEDATE,MAKETIME,MODIFYDATE,MODIFYTIME) VALUES ('1116002','02','86',TIMESTAMP '2025-06-01 00:00:00.000000',NULL,TIMESTAMP '2025-06-01 00:00:00.000000','0       ',NULL,NULL,'1',TIMESTAMP '2025-06-07 00:00:00.000000','0       ',TIMESTAMP '2025-06-07 00:00:00.000000','0       ');
 

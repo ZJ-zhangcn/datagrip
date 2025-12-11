@@ -70,9 +70,9 @@ select f.je_category_name                                                       
        attribute11
 from of_interface f
 where /*je_category_name = 'MQ_YT'
-  and*/ lis_contno = '2025091000001386'
+ and lis_contno = '2025091000001386'
 --lis_prtno = '3206915141230037'
---and f.source_batch_id = '00000000000000009590'
+and*/ f.source_batch_id = '00000000000000004272'
 --and accounting_date=date'2025-11-16'
 --f.segment3 = '22210101'
 order by f.ACCOUNTING_DATE asc, f.je_category_name asc, SOURCE_BATCH_ID asc, f.LIS_CONTNO asc, f.SEGMENT1 asc,
