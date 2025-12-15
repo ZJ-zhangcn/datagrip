@@ -19,6 +19,7 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-5024-达标体检件及达标财务件自动生成函件需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5091-团单被保险人主险险种存储及增加主险校验的需求.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5094-拆单收费金额拆分至险种层.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5144-上海人寿沪申盈永康版两全保险（万能型）产品二期-保全.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5172-上海银行预约投保开发需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5177-臻享传家（分红型）——核心系统需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5178-上海人寿沪申宝（永康版）年金保险1017——核心系统需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
@@ -27,12 +28,14 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-5197-关于恢复续期转账成功短信中NPS问卷链接的申请.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5211-上海人寿鑫自由乐福版终身寿险——核心系统需求.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
+    <file url="file://$PROJECT_DIR$/sql/万能险保全二期.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/个单.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-核心-清空temp表.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/保单登记-自理.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/协助测试收付费.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
     <file url="file://$PROJECT_DIR$/sql/团单.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
-    <file url="file://$PROJECT_DIR$/sql/循环插入红利k值.sql" value="fe6c3a2f-a889-4ef4-802b-26f5725929ed" />
+    <file url="file://$PROJECT_DIR$/sql/循环插入月结费率.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
+    <file url="file://$PROJECT_DIR$/sql/循环插入红利k值.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
     <file url="file://$PROJECT_DIR$/sql/收付费模拟.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
     <file url="file://$PROJECT_DIR$/sql/数据核对.sql" value="fc44b9d8-3371-42ed-9cf0-bf73bf48ceed" />
     <file url="file://$PROJECT_DIR$/sql/红利回退.sql" value="250db9ab-192c-4d5a-b099-9bace992fb31" />
