@@ -1,6 +1,6 @@
 select a.*
 from YBTNoticeSave a
-where prtno = '2025112700000266';
+where prtno = '2025121800000286';
 select a.*
 from LISDATA.ES_DOC_MAIN a
 where DOCCODE in ('2025112700000266', '');

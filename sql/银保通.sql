@@ -1,6 +1,6 @@
 ------------------------------------------------------------------银保通相关------------------------------------------------------------------
 --lcpol
-select appflag,getform,a.* from lcpol a where prtno in ('','5000118240250138');
+select appflag,getform,a.* from lcpol a where prtno in ('','2025121600000676');
 select uwflag,appflag,contno,riskcode,kindcode,insuredsex,insuredappage,signdate,cvalidate,enddate,payintv,payendyear,payendyearflag,insuyear,insuyearflag,prem,amnt,livegetmode from lcpol a 
 where contno in ('2025081400000926','','');
 --lccont
@@ -18,10 +18,11 @@ select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and t
 select a.* from TranLog a where TranDate='20231225';
 
 --银保险种
-select a.* from codemapping a where codealias like '%稳赢逸生C款%';
+select a.* from codemapping a where codealias like '%盛世安昕C款%';
 select a.* from codemapping a where comcode='PSBC' and codetype='riskcode';
-select a.* from codemapping a where INSU_CODE='1303012';
+select a.* from codemapping a where INSU_CODE='1113003';
 select a.* from codemapping a where BANK_CODE='045';
+select a.* from codemapping a where INSU_CODE IN ('1113002', '1113004', '1133005', '1133006') and COMCODE='SPDB';
 
 --银保险种默认领取方式  0-自动转账  1-累积生息  3-转入万能账户
 select a.* from ldcode a where codetype = 'ybtgetliveRisk' and code='1103007' order by comcode;

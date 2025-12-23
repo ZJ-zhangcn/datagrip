@@ -27,5 +27,5 @@ CONNECT BY
 /*
 select a.*
 from BONUSRATE a
-where riskcode = '1136003';
+where riskcode = '1306002';
 */

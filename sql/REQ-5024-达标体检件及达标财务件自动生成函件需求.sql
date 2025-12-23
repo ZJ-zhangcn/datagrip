@@ -14,7 +14,7 @@ select HEALTHTYPE 体检套餐类别,
        MAXAMNT    最大保额,
        SEX        性别
 from LdPENoticePackage a
-where HEALTHTYPE = '1'
+where HEALTHTYPE = '5'
 order by HEALTHTYPE, HEALTHCODE, MINAGE;
 
 SELECT distinct PHYSICALSET, healthname

@@ -25,14 +25,14 @@ select CUSTOMERNO from LDPERSON a group by CUSTOMERNO having count(CUSTOMERNO)>1
 select CUSTOMERNO,count(CUSTOMERNO) from lcaddress a where CUSTOMERNO in (select CUSTOMERNO from LDPERSON a) group by CUSTOMERNO having count(CUSTOMERNO)>1;
 
 select a.* from lcaddress a where CUSTOMERNO='1000000198' and rownum=1 order by makedate desc,maketime desc;
-select a.* from lysendbillorder a where contno='2024123000000466';
-select a.* from LYSENDBILLORDER a where GETNOTICENO='86010120250320003847' order by MODIFYDATE,MODIFYTIME;
-select a.* from lysendbillorder a where ORDERNO in ('S20250702000000655651','');
-select a.* from lysendbill a where orderno in ('S20250710000000656222','');
-select a.* from lysendbill a where orderno in (select ORDERNO from lysendbillorder where contno='2025070200002106');
+select a.* from lysendbillorder a where contno='2025121500000116';
+select a.* from LYSENDBILLORDER a where GETNOTICENO='86010120250320004932' order by MODIFYDATE,MODIFYTIME;
+select a.* from lysendbillorder a where ORDERNO in ('S20251217000000660284','');
+select a.* from lysendbill a where orderno in ('S20251217000000660284','');
+select a.* from lysendbill a where orderno in (select ORDERNO from lysendbillorder where contno='2025121500000116');
 select a.* from LYBILLLOG a where ORDERNO in ('S20250918000000633198','');
 --官微
-select a.* from LCInvoiceApplicationApp a where contno='2025061100000206';
+select a.* from LCInvoiceApplicationApp a where contno='2025121500000116';
 
 select a.* from LDPERSON a where name='银保投保六二';
 --update LDPERSON set MODIFYDATE=date'2025-06-19' where (name like '银保投保%' or name like '个险投保%')
@@ -62,7 +62,7 @@ SELECT orderReturnNo      流水号,
        StandByFlag1       开票ID,
        b.*
 FROM LYReturnBillOrder b
-WHERE orderNo in ('S20251030000000633270', '', '', '');
+WHERE orderNo in ('S20251216000000660292', '', '', '');
 --返回开票明细（lyReturnBill）
 SELECT ORDERRETURRNBILLNO 流水号,
        orderNo            订单号,
@@ -78,7 +78,7 @@ SELECT ORDERRETURRNBILLNO 流水号,
        StandByFlag1       开票ID,
        a.*
 FROM lyReturnBill a
-WHERE orderNo in ('S20250918000000633198', '', '', '');
+WHERE orderNo in ('S20251216000000660292', '', '', '');
 --删除核对
 select Status,Reason,a.* from LYSendBillOrder a where ORDERNO in ('S20250918000000633198','');
-select a.* from LYBillLog a where ORDERNO in ('S20250917000000633159','') order by SERIALNO;
+select a.* from LYBillLog a where ORDERNO in ('S20251216000000660292','') order by SERIALNO;

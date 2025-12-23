@@ -1,3 +1,5 @@
+delete from LMINSUACCRATE where RISKCODE='1306002';
+
 DECLARE
     v_start_date DATE := DATE '2015-10-01';
 -- 起始日期
@@ -28,5 +30,5 @@ BEGIN
 END LOOP;
 END;
 /*
-select a.* from LMINSUACCRATE a where RISKCODE='1306002'
+select a.* from LMINSUACCRATE a where RISKCODE='1306002';
 */;
