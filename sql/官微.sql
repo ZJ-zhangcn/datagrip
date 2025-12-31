@@ -1,8 +1,8 @@
 --g
 select a.appntname,a.appntbirthday,a.idtype,a.idno,b.mobile,idstdate,idexpdate,b.* from lcappnt a,lcaddress b
-where a.appntno=b.customerno and a.addressno=b.addressno and a.contno in ('2025121500000116','');
+where a.appntno=b.customerno and a.addressno=b.addressno and a.contno in ('2025042700000406','');
 
-select idstdate,idexpdate,a.* from lcappnt a where contno='2022032900000416';
+select /*idstdate,idexpdate,*/a.* from lcappnt a where contno='2025042700000406';
 
 --官微退保险种
 select a.* from ldcode1 a where codetype = 'wechatctlimit' and code1='1066009';

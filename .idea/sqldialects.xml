@@ -6,7 +6,7 @@
     <file url="file://$PROJECT_DIR$/queries/Query.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/queries/Query_1.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/queries/Query_2.sql" dialect="Oracle" />
-    <file url="file://$PROJECT_DIR$/queries/Query_3.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/queries/Query_3.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/BUG-958-建行续期扣费回盘异常.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3947-“睡眠保单”数据自动更新至保单登记平台及核心清单下载需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-3953-银保通线上生存金领取方式逻辑调整.sql" dialect="Oracle" />
@@ -63,8 +63,11 @@
     <file url="file://$PROJECT_DIR$/sql/REQ-5184-交行预录入开发需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5186-上海人寿沪申宝富民版年金保险（分红型）——核心系统需求.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5197-关于恢复续期转账成功短信中NPS问卷链接的申请.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5202-上海人寿沪申宝富民版年金保险（分红型）产品二期-保全.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5203-上海人寿养乐嘟富民版养老年金保险（分红型）产品二期-保全.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/REQ-5211-上海人寿鑫自由乐福版终身寿险——核心系统需求.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5222-交行银保通接口文件更新（适当性及保险数据每月核对）.sql" dialect="Oracle" />
+    <file url="file://$PROJECT_DIR$/sql/REQ-5223-工行银保通接口文档更新（保险产品适当性字段）.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/万能月结费用计算.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/万能险保全二期.sql" dialect="Oracle" />
     <file url="file://$PROJECT_DIR$/sql/个单.sql" dialect="Oracle" />
