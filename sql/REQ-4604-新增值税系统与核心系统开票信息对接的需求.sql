@@ -62,7 +62,7 @@ SELECT orderReturnNo      流水号,
        StandByFlag1       开票ID,
        b.*
 FROM LYReturnBillOrder b
-WHERE orderNo in ('S20251216000000660292', '', '', '');
+WHERE orderNo in ('S20260115000000634011', '', '', '');
 --返回开票明细（lyReturnBill）
 SELECT ORDERRETURRNBILLNO 流水号,
        orderNo            订单号,
@@ -78,7 +78,7 @@ SELECT ORDERRETURRNBILLNO 流水号,
        StandByFlag1       开票ID,
        a.*
 FROM lyReturnBill a
-WHERE orderNo in ('S20251216000000660292', '', '', '');
+WHERE orderNo in ('S20260115000000634011', '', '', '');
 --删除核对
-select Status,Reason,a.* from LYSendBillOrder a where ORDERNO in ('S20250918000000633198','');
-select a.* from LYBillLog a where ORDERNO in ('S20251216000000660292','') order by SERIALNO;
+select Status,Reason,a.* from LYSendBillOrder a where ORDERNO in ('S20260115000000634011','');
+select a.* from LYBillLog a where ORDERNO in ('S20260115000000634011','') order by SERIALNO;

@@ -25,13 +25,13 @@ where a.riskcode = b.RISKCODE
   and b.INSUREDSEX = d.GENDER
   and b.PolYear = d.DT
   and a.contno = e.contno
-  and to_date('2027-11-06', 'yyyy-mm-dd') between b.startdate and b.enddate
-  and to_date('2027-11-06', 'yyyy-mm-dd') between c.cvalidate and c.enddate
+  and to_date('2027-01-21', 'yyyy-mm-dd') between b.startdate and b.enddate
+  and to_date('2027-01-21', 'yyyy-mm-dd') between c.cvalidate and c.enddate
   and b.bonusgrade = 'H'
   and b.annuitygetage = '0'
-  and e.DUTYCODE like '%1001'/*dt='1'时注释掉*/
-  and d.dt = '3'
-  and a.contno = '2025110500000206'
+  --and e.DUTYCODE like '%1001'/*dt='1'时注释掉*/
+  and d.dt = '1'
+  and a.contno = '2026012100000786'
 order by d.dt;
 
 select a.*
@@ -59,23 +59,23 @@ order by dt;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '2025110500000206'
+where contno = '2026012100000786'
 order by makedate, maketime;
 
 select nvl(sum(JQAmnt), 0)
 from LJABonusGet
-where otherno = '2025110500000206'
+where otherno = '2026012100000786'
   and othernotype = '12'
   and FeeFinaType = 'HLAMNT'
   and BonusYear = '2026';
 
 select a.*
 from lcduty a
-where contno = '2025110500000206';
+where contno = '2026012100000786';
 
 select STATEFLAG, a.*
 from LOPRTMANAGER a
-where otherno = '2025110500000206';
+where otherno = '2026012100000786';
 
 select round(606.96 * round(0.03 / 365, 8) * (date'2029-09-18' - date'2028-09-18'), 2)
 from dual;
@@ -89,7 +89,7 @@ where a.contno = c.contno
   and b.age = c.INSUREDAPPAGE
   and b.GENDER = c.INSUREDSEX
   and a.DUTYCODE like '%1001'
-  and a.contno = '2025110500000206'
+  and a.contno = '2026012100000786'
   and b.dt = 5;
 --累积交清基本保险金额减保后保额
 select round((1 - 1000 / 1782.84) * 1701.02, 2)
@@ -104,7 +104,7 @@ where a.contno = c.contno
   and b.age = c.INSUREDAPPAGE
   and b.GENDER = c.INSUREDSEX
   and a.DUTYCODE like '%1001'
-  and a.contno = '2025110500000206'
+  and a.contno = '2026012100000786'
   and b.dt = 4;
 --红利宣告交清基本保险金额应退金额
 select round(a.amnt / 1000 * cv2 * (date'2028-11-10' - date'2028-11-06') / 365 +
@@ -118,7 +118,7 @@ where a.contno = c.contno
   and b.age = c.INSUREDAPPAGE
   and b.GENDER = c.INSUREDSEX
   and a.DUTYCODE like '%1001'
-  and a.contno = '2025110500000206'
+  and a.contno = '2026012100000786'
   and b.dt = 4;
 
 select 18188.46 + 13021.68
@@ -132,7 +132,7 @@ from cv_1113002 a,
 where pt = payendyear
   and age = insuredappage
   and gender = insuredsex
-  and contno = '2025110500000206'
+  and contno = '2026012100000786'
   and dt = 4;
 --红利利息
 select round(615.76 * round(0.03 / 365, 8) * (date'2029-12-10' - date'2029-10-17'), 2) LX

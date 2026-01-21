@@ -31,7 +31,7 @@ where a.riskcode = b.RISKCODE
   and b.annuitygetage = '0'
   and e.DUTYCODE like '%1001'/*dt='1'Ê±×¢ÊÍµô*/
   and d.dt = '3'
-  and a.contno = '2025121900000156'
+  and a.contno = '2026010700000256'
 order by d.dt;
 
 select b.*
@@ -67,7 +67,7 @@ order by dt;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '2025121900000156'
+where contno = '2026010700000256'
 order by makedate, maketime;
 
 select a.*

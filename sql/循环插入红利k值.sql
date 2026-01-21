@@ -1,4 +1,4 @@
-delete from BONUSRATE where riskcode='1136002';
+delete from BONUSRATE where riskcode='1116002';
 
 /*
  * Oracle SQL 脚本：使用 INSERT...SELECT 批量插入数据
@@ -13,7 +13,7 @@ INSERT INTO BONUSRATE (
   BONUSRATE
 )
 SELECT
-  '1136002' AS RISKCODE,--需要修改
+  '1116002' AS RISKCODE,--需要修改
   ADD_MONTHS(DATE '2025-07-01', (LEVEL - 1) * 12) AS CVALIDATE,--第一条起始期间
   ADD_MONTHS(DATE '2025-07-01', LEVEL * 12) - 1 AS ENDDATE,
   'H' AS BONUSGRADE,

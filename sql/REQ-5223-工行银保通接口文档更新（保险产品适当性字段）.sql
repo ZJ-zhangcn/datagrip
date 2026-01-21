@@ -15,8 +15,8 @@ select PRTNO          投保单号,
        CUSTPRODLEVEL  客户适配产品评级,
        TYPE           保单类型
 from LCCustEvaluation a
-where TYPE is not null
---and prtno = '5000118251009449'
+where /*TYPE is not null
+and*/ prtno = '3000117150314139'
 order by SERIALNO;
 
 select a.*
