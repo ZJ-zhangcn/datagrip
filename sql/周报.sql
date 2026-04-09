@@ -45,10 +45,10 @@ from req a
                    on a.serialno = b.serialno
          left join reqplan c
                    on a.serialno = c.serialno
-where c.csrenddate > date '2023-12-01'                                         --上周五
-   or (c.csrenddate is null and c.cspenddate <= date'2023-12-08' and
+where c.csrenddate > date '2026-02-28'                                         --上周五
+   or (c.csrenddate is null and c.cspenddate <= date'2026-03-06' and
        a.state in ('01', '02', '03', '04', '05', '06', '07', '08'))--本周五
-   or (c.cspenddate > date'2023-12-01' and c.cspstartdate <= date '2023-12-08')--上周五,本周五
+   or (c.cspenddate > date'2026-02-28' and c.cspstartdate <= date '2026-03-06')--上周五,本周五
 order by 状态, c.csopstartdate;
 
 
@@ -101,7 +101,7 @@ from req a
                    on a.serialno = c.serialno
 where c.csrenddate is null
   and a.State in ('01', '02', '03', '04', '05', '06')
-  and (c.csrstartdate is not null or c.csopstartdate <= date '2023-12-15') --下周五
+  and (c.csrstartdate is not null or c.csopstartdate <= date '2026-03-13') --下周五
 order by c.csrstartdate, c.csopstartdate;
 
 

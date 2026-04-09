@@ -14,17 +14,19 @@ select HEALTHTYPE 体检套餐类别,
        MAXAMNT    最大保额,
        SEX        性别
 from LdPENoticePackage a
-where HEALTHTYPE = '5'
+where HEALTHTYPE = '7'
 order by HEALTHTYPE, HEALTHCODE, MINAGE;
 
 SELECT distinct PHYSICALSET, healthname
 FROM LCPENoticeItem a,
      ldhealth b
 WHERE a.PHYSICALSET = healthcode
-  and a.contno = '5000118351203039';
+  and a.contno = '5000118351203718';
 
-select 900 / 0.4
+select 150 / 0.2
 from dual;
+
+SELECT Healthcode FROM LdPENoticePackage WHERE HealthType = '5' and minage <= 56 and (maxage is null or 56 <=maxage) and minamnt < 2500000 and (2500000 <=maxamnt or maxamnt is null);
 
 select a.*
 from lmriskapp a

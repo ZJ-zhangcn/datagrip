@@ -124,7 +124,7 @@ update ats_transactions a
        a.transstate      = '6',--退票处理
        a.payinfocode     = 'E8001',
        a.payinfo         = '其它错误'
- where a.reqseqid = '20301010_44133';
+ where a.reqseqid = '20300324_32356';
 --代扣代付 抽档成功 未返盘
 update ats_transactions a
    set a.dtcode          = '1',--抽档成功

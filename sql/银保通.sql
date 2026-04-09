@@ -1,13 +1,27 @@
 ------------------------------------------------------------------银保通相关------------------------------------------------------------------
 --lcpol
-select appflag,getform,a.* from lcpol a where prtno in ('','2025121600000676');
+select appflag,getform,a.* from lcpol a where prtno in ('','2026030600002226');
 select uwflag,appflag,contno,riskcode,kindcode,insuredsex,insuredappage,signdate,cvalidate,enddate,payintv,payendyear,payendyearflag,insuyear,insuyearflag,prem,amnt,livegetmode from lcpol a 
-where contno in ('2025081400000926','','');
+where contno in ('2026030600002226','','');
 --lccont
 select uwflag,appflag,contno,salechnl,selltype,salecom,salechannels,appntsex,appntbirthday,signdate,firstpaydate,cvalidate,customgetpoldate,payintv,paymode,printcount,prem,amnt,sumprem,getpolmode from lccont a 
 where contno='2025052200000896';
 --
 select a.* from ContBlcDtl a where ProposalPrtNo='2023122500001176';
+
+--银行网点
+select AgentCom, Name, UpAgentCom, AreaType, ChannelType
+from LACom
+where 1 = 1
+  and branchtype = '3'
+  and sellflag = 'Y'
+  and state = 'N'
+  and managecom like '%%'
+  and managecom like '86%%'
+  and ManageCom like '86%'
+order by AgentCom;
+
+
 
 --农商行当日重复对账
 --承保对账
@@ -18,10 +32,10 @@ select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and t
 select a.* from TranLog a where TranDate='20231225';
 
 --银保险种
-select a.* from codemapping a where codealias like '%鑫恒盈A款%';
+select a.* from codemapping a where codealias like '%稳赢添添A%';
 select a.* from codemapping a where comcode='PSBC' and codetype='riskcode';
-select a.* from codemapping a where INSU_CODE='1103008';
-select a.* from codemapping a where BANK_CODE='045';
+select a.* from codemapping a where INSU_CODE='1113004';
+select a.* from codemapping a where BANK_CODE='6000D004';
 select a.* from codemapping a where INSU_CODE IN ('1113002', '1113004', '1133005', '1133006') and COMCODE='SPDB';
 
 --银保险种默认领取方式  0-自动转账  1-累积生息  3-转入万能账户

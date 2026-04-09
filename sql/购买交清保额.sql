@@ -55,7 +55,7 @@ order by dt;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '2025072000000106'
+where contno = '5000118251009832'
 order by makedate, maketime;
 
 select nvl(sum(JQAmnt), 0)
@@ -95,8 +95,8 @@ select round(1134.88 / 1000 * 1062.2 * (date'2030-01-10' - date'2029-09-18') / 3
              1134.88 / 1000 * 1026.39 * (1 - (date'2030-01-10' - date'2029-09-18') / 365), 2) cash
 from dual;
 --累积交清基本保险金额应退金额
-select round(a.AMNT / 1000 * cv2 * (date'2028-10-10' - date'2028-09-29') / 365 +
-             a.AMNT / 1000 * cv1 * (1 - (date'2028-10-10' - date'2028-09-29') / 365), 2) cash
+select round(a.AMNT / 1000 * cv2 * (date'2027-05-31' - date'2027-04-08') / 365 +
+             a.AMNT / 1000 * cv1 * (1 - (date'2027-05-31' - date'2027-04-08') / 365), 2) cash
 from lcduty a,
      PUA_1111002 b,
      lcpol c
@@ -104,8 +104,8 @@ where a.contno = c.contno
   and b.age = c.INSUREDAPPAGE
   and b.GENDER = c.INSUREDSEX
   and a.DUTYCODE like '%1001'
-  and a.contno = '2025072000000106'
-  and b.dt = 4;
+  and a.contno = '2026040700000476'
+  and b.dt = 2;
 --红利宣告交清基本保险金额应退金额
 select round(13718.78 / 1000 * cv2 * (date'2028-10-10' - date'2028-09-29') / 365 +
              13718.78 / 1000 * cv1 * (1 - (date'2028-10-10' - date'2028-09-29') / 365), 2) cash

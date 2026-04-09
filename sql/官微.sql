@@ -1,6 +1,6 @@
 --g
 select a.appntname,a.appntbirthday,a.idtype,a.idno,b.mobile,idstdate,idexpdate,b.* from lcappnt a,lcaddress b
-where a.appntno=b.customerno and a.addressno=b.addressno and a.contno in ('2025042700000406','');
+where a.appntno=b.customerno and a.addressno=b.addressno and a.contno in ('2026013000000156','');--2024082800000386
 
 select /*idstdate,idexpdate,*/a.* from lcappnt a where contno='2025042700000406';
 

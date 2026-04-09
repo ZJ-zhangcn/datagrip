@@ -9,7 +9,7 @@ select PRTNO          投保单号,
        RISKSIGN       风险警示确认书是否签署,
        CUSTRISKLEVEL  客户风险评级
 from LCCustEvaluation a
-where prtno = '5000118251009449';
+where prtno = '5000118251009658';
 
 /*
 delete from LCCustEvaluation;
