@@ -1,8 +1,8 @@
 ------------------------------------------------------------------承保相关------------------------------------------------------------------
 --个单险种表
-select appflag,contno,grpcontno,riskcode,signdate,cvalidate,paytodate,payenddate,enddate,a.* from lcpol a where prtno='5000118351203893';
+select appflag,contno,grpcontno,riskcode,signdate,cvalidate,paytodate,payenddate,enddate,a.* from lcpol a where prtno='5000118251009887';
 select LEAVINGMONEY,appflag,a.bonusgetmode,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,a.getform,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,riskcode,(select riskname from lmriskapp where riskcode=a.riskcode) riskname,contno,prtno,polno,signdate,cvalidate,payintv,paytodate,payenddate,enddate,amnt,prem,payendyear,insuyear,INSUYEARFLAG,a.* from lcpol a
-where contno in ('2026033100010206','','','') order by a.contno;--2025010700000796
+where contno in ('2026042300000106','','','') order by a.contno;--2025010700000796
 select LEAVINGMONEY,appflag,bonusgetmode,getform,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where contno in ('2025102700000286','','','');
 select a.* from lcpol a where (appntname like '%个险投保%' or appntname like '%银保投保%' or appntname like '%海保宝投保%' or appntname like '%经代通投保%') and appflag='1';
 select a.* from lcpol a where riskcode='1103005' and APPFLAG='4';
@@ -15,7 +15,7 @@ select INPUTOPERATOR,a.* from lccont a where contno in ('2025080600000386','2025
 select appflag,conttype,printcount,contno,salechnl,selltype,salecom /*业绩归属渠道*/,salechannels,appntno,payintv,signdate,cvalidate,getpoldate,customgetpoldate,paytodate,a.* from lccont a
 where contno='2026033100010396';
 select appflag,conttype,printcount,contno,salechnl,selltype,salecom /*业绩归属渠道*/,salechannels,appntno,payintv,signdate,cvalidate,getpoldate,customgetpoldate,paytodate,a.* from lccont a
-where prtno='5000118351203893';
+where prtno='5000118251009887';
 /*
 update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno='5000118240902042'
 update lccont set getpoldate=signdate,customgetpoldate=signdate where contno='2025032700000286'
@@ -104,6 +104,18 @@ where a.polno = b.polno
   and not exists(select 1 from LCCONTHANGUPSTATE where contno = a.contno)
 order by CVALIDATE desc;
 
+--团险满期终止
+select a.*
+from LCGRPCONT a
+where appflag = '4' and payintv='0'
+  and exists(select 1
+             from LCGRPCONTSTATE
+             where grpcontno = a.grpcontno
+               and statetype = 'Terminate'
+               and state = '1'
+               and statereason = '01'
+               and enddate is null);
+
 --节假日查询  节假日：datetype = 'N'
 select a.* from ldworkcalendar a where caldate = date '2027-03-04' and datetype = 'N' order by caldate;
 /*
@@ -142,9 +154,9 @@ select a.* from lwmission a where MISSIONID='00000000000000584470';
 /*
 --碎片化
 insert into lwmission (MISSIONID, SUBMISSIONID, PROCESSID, ACTIVITYID, ACTIVITYSTATUS, MISSIONPROP1, MISSIONPROP2, MISSIONPROP3, MISSIONPROP4, MISSIONPROP5, MISSIONPROP6, MISSIONPROP7, MISSIONPROP8, MISSIONPROP9, MISSIONPROP10, MISSIONPROP11, MISSIONPROP12, MISSIONPROP13, MISSIONPROP14, MISSIONPROP15, MISSIONPROP16, MISSIONPROP17, MISSIONPROP18, MISSIONPROP19, MISSIONPROP20, DEFAULTOPERATOR, LASTOPERATOR, CREATEOPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, INDATE, INTIME, OUTDATE, OUTTIME, MISSIONPROP21, MISSIONPROP22, MISSIONPROP23, MISSIONPROP24, MISSIONPROP25, TIMEID, STANDENDDATE, STANDENDTIME, OPERATECOM, MAINMISSIONID)
-values ((select max(missionid)+1 from lwmission where REGEXP_LIKE(missionid, '^\d+$')), '1', '0000000003', '0000001095', '1', '5000118351203893', '2025-02-20', '11:12:58', '2025-02-20', '0', '860101', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '001', '001', '001', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', null, '', '', '', '', '', '', '', null, '', '860101', '00000000000000584470');
+values ((select max(missionid)+1 from lwmission where REGEXP_LIKE(missionid, '^\d+$')), '1', '0000000003', '0000001095', '1', '5000118251009887', '2025-02-20', '11:12:58', '2025-02-20', '0', '860101', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '001', '001', '001', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', to_date('20-02-2025', 'dd-mm-yyyy'), '17:59:16', null, '', '', '', '', '', '', '', null, '', '860101', '00000000000000584470');
 
-update lwmission set MISSIONID=(select max(missionid)+1 from lwmission where REGEXP_LIKE(missionid, '^\d+$')) where MISSIONPROP1='5000118351203893'
+update lwmission set MISSIONID=(select max(missionid)+1 from lwmission where REGEXP_LIKE(missionid, '^\d+$')) where MISSIONPROP1='5000118251009887'
 
 */
 
@@ -172,22 +184,22 @@ insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, D
 values ((select max(DOCID)+1 from es_doc_main), '5000118251009598', 'TB', '50001133', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
 --风险告知书（进合同）
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5000118351203893', 'TB', '50013800', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
+values ((select max(DOCID)+1 from es_doc_main), '5000118251009887', 'TB', '50013800', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
 ---声明与授权
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5000118351203893', 'TB', '50013400', 1, '1', null, '002', '86010101', null, null, null, null, null, null, null, '14:26:12', to_date('24-01-2024', 'dd-mm-yyyy'), '14:26:12', '1', 'TB2024860100001X', '5000118340230193', 512, 'GXTB', 'WBLR');
+values ((select max(DOCID)+1 from es_doc_main), '5000118251009887', 'TB', '50013400', 1, '1', null, '002', '86010101', null, null, null, null, null, null, null, '14:26:12', to_date('24-01-2024', 'dd-mm-yyyy'), '14:26:12', '1', 'TB2024860100001X', '5000118340230193', 512, 'GXTB', 'WBLR');
 --免除保险人责任条款影像
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5000118351203893', 'TB', '50001051', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
+values ((select max(DOCID)+1 from es_doc_main), '5000118251009887', 'TB', '50001051', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
 --双录影像
 insert into lccontmovie (CONTNO, PRTNO, BATCHNO, MANAGECOM, APPNTNO, APPNTNAME, VIDEODATE, VIDEOTIME, UPLOADDATE, UPLOADTIME, UPLOADENDDATE, UPLOADENDTIME, QUALITYTESTDATE, QUALITYTESTTIME, QUALITYTESTOPERATOR, QUALITYTESTSTATE, QUALITYTESTDESC, IDTYPE, BANKCODE, AREACODE, BANKTELLER, FILEPATH, FILENAME, MAINRISKCODE, TRANDATE, POLAPPLYDATE, BANKACCNO, REPEATFLAG, BAK1, BAK2, BAK3, BAK4, BAK5, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, SUBQUALITYSTATE, SYSTEMAUDIT, RECHECKSTATUS, ISISSUE, QUALITYPHONE, QUALITYRESULT, QUALITYNUM, REJECTNUM, ISPERMANENT, PERMANENTTIME, UPERRORREASON, PUSHHUILIUTIME, HUILIURECEIVETIME, LASTOPERATOR, BUSINESSNO, NODENO, RECODATE, BUSITYPE, TASKPARAMS, POLICYPARAMS)
-values ('5000118351203893', '5000118351203893', '20250410', '86010101', '1060096512', '个险投保四五', to_date('10-04-2025', 'dd-mm-yyyy'), null, to_date('10-04-2025', 'dd-mm-yyyy'), '23:55:11', to_date('10-04-2025', 'dd-mm-yyyy'), '23:56:37', to_date('10-04-2025', 'dd-mm-yyyy'), '15:44:36', null, '3', null, '111', '9111000071093465XC', '310000', null, '/sl/psbc/2018/07/15/', '3000117100826123_20180514.mp4', '1056024', to_date('10-04-2025', 'dd-mm-yyyy'), to_date('10-04-2025', 'dd-mm-yyyy'), '602921083200223215', null, '1', null, null, null, null, '001', to_date('10-04-2025', 'dd-mm-yyyy'), '09:33:23', to_date('10-04-2025', 'dd-mm-yyyy'), '07:31:54', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+values ('5000118251009887', '5000118251009887', '20250410', '86010101', '1060096512', '个险投保四五', to_date('10-04-2025', 'dd-mm-yyyy'), null, to_date('10-04-2025', 'dd-mm-yyyy'), '23:55:11', to_date('10-04-2025', 'dd-mm-yyyy'), '23:56:37', to_date('10-04-2025', 'dd-mm-yyyy'), '15:44:36', null, '3', null, '111', '9111000071093465XC', '310000', null, '/sl/psbc/2018/07/15/', '3000117100826123_20180514.mp4', '1056024', to_date('10-04-2025', 'dd-mm-yyyy'), to_date('10-04-2025', 'dd-mm-yyyy'), '602921083200223215', null, '1', null, null, null, null, '001', to_date('10-04-2025', 'dd-mm-yyyy'), '09:33:23', to_date('10-04-2025', 'dd-mm-yyyy'), '07:31:54', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 --投保人身份证明
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5000118351203893', 'TB', '36522151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 101, 'GXTB', 'HXLR');
+values ((select max(DOCID)+1 from es_doc_main), '5000118251009887', 'TB', '36522151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 101, 'GXTB', 'HXLR');
 --被保险人身份证明
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5000118351203893', 'TB', '36523151', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
+values ((select max(DOCID)+1 from es_doc_main), '5000118251009887', 'TB', '36523151', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
 --受益人信息补充问卷
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
 values ((select max(DOCID)+1 from es_doc_main), '50001183512036126', 'TB', '50012800', 1, '1', null, '002', '86310000', null, null, null, null, null, null, null, null, null, null, '1', 'TB2024863100001X', '5000118340190015', 102, 'GXTB', 'HXLR');
@@ -198,7 +210,7 @@ values ((select max(DOCID)+1 from es_doc_main), '50001183512031626', 'TB', '3652
 */
 
 --壹帐通校验通过   中保信身份验证通过修改zbxidentresult=10201：通过   30452：不通过
-select a.* from lcidCardCheckInfo a where contno='5000118351203893';
+select a.* from lcidCardCheckInfo a where contno='5000118251009887';
 select a.* from lcidCardCheckInfo a where CUSTOMERNO='1060099554';
 /*
 update lcidcardcheckinfo a set resultstatus='000000',resultdesc='通过',zbxidentresult='10201',BANKCARDNO=(select NEWBANKACCNO from lccont where contno=a.contno) where a.contno='5000118343652019';
@@ -261,14 +273,14 @@ select a.* from lcbnf a where contno='2023113000000296';
 select a.* from ldperson a where customerno='1060092206';
 
 --地址表
-select mobile,email,postaladdress,a.* from lcaddress a where customerno=(select appntno from lcappnt where contno='5000118351203893');
+select mobile,email,postaladdress,a.* from lcaddress a where customerno=(select appntno from lcappnt where contno='5000118251009887');
 select a.* from lcaddress a where customerno=(select appntno from lcappnt where contno='2023102300000316');
 select a.* from lcaddress a where email='zhangjin05@sinosoft.com.cn';
 select a.* from lcaddress a where customerno='1001734246';
 select a.* from lcaddress a where mobile='17503010001';
 
 /*
-update lcaddress set email=null where email='zhangjin05@sinosoft.com.cn' and customerno not in (select appntno from lcappnt where contno='5000118351203893');
+update lcaddress set email=null where email='zhangjin05@sinosoft.com.cn' and customerno not in (select appntno from lcappnt where contno='5000118251009887');
 update lcaddress set phone=null,HOMEPHONE=null where phone='12341234' or HOMEPHONE='12341234';
 update lcaddress set postaladdress='林校路街道义和庄北路10086号' where postaladdress like '%林校路街道义和庄北路%' and postaladdress!='林校路街道义和庄北路10086号';
 */
@@ -278,12 +290,12 @@ select a.* from lmcalmode a where riskcode='1033025';
 select a.* from lmcalmode a where remark like '%应交%';
 
 --配置贷款利率
-select * from LMEdorCal where RiskCode='1011005' and EdorType='LN' and CalType='Rate';
-select * from LDPubRate  where CalType = 'LN' and RiskCode='1011005';
+select * from LMEdorCal where RiskCode='1111001' and EdorType='LN' and CalType='Rate';
+select * from LDPubRate  where CalType = 'LN' and RiskCode='1111001';
 /*
-Insert into LMEdorCal values ('1011005','2025','ID0428','LN','Rate','RA0022','调用贷款利率');
+Insert into LMEdorCal values ('1111001','2025','ID0428','LN','Rate','RA0022','调用贷款利率');
 insert into LDPubRate (CALTYPE, RISKCODE, RLTYPE, SCTYPE, YMDINTEREST, STARTDATE, ENDDATE, RATE, CURRENCY, STATE, CVALISTARTDATE, CVALIENDDATE)
-values ('LN', '1011005', 'L', 'S', 'Y', to_date('01-01-2018', 'dd-mm-yyyy'), to_date('31-12-2038', 'dd-mm-yyyy'), 0.03, '01', null, to_date('01-01-2018', 'dd-mm-yyyy'), to_date('31-12-2038', 'dd-mm-yyyy'));
+values ('LN', '1111001', 'L', 'S', 'Y', to_date('01-01-2018', 'dd-mm-yyyy'), to_date('31-12-2038', 'dd-mm-yyyy'), 0.03, '01', null, to_date('01-01-2018', 'dd-mm-yyyy'), to_date('31-12-2038', 'dd-mm-yyyy'));
 
 */
 
@@ -439,7 +451,7 @@ select a.CONFDATE 保全确认日期,edoracceptno 受理号,a.* from lpedorapp a
 --个险保全状态
 select a.* from ldcode a where codetype = 'edorstate';
 --个险保全表
-select a.* from lpedoritem a where contno='2025120200000386' order by EDORACCEPTNO,makedate,maketime,modifydate,modifytime;
+select a.* from lpedoritem a where contno='2026042300000106' order by EDORACCEPTNO,makedate,maketime,modifydate,modifytime;
 select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
 where contno='2026012200000606' order by makedate,maketime,modifydate,modifytime;
 select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
@@ -460,12 +472,12 @@ select a.* from ldtask a where taskdescribe like '%贷款%';
 ------------------------------------------------------------------理赔相关------------------------------------------------------------------
 --理赔单证插表  报案号
 select a.* from es_doc_main a where DOCCODE='3631815101095885';
-select a.* from LLBNF a where CLMNO='3631815101095885';--FEEOPERATIONTYPE  A  C04-生存金  C05-累计生息红利
+select a.* from LLBNF a where CLMNO='3631815101007464';--FEEOPERATIONTYPE  A  C04-生存金  C05-累计生息红利
 select distinct BNFtype from LLBNF a;
 /*
 --
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '3631815101011235', 'LP', '36318151', 20, '1', null, 'chengang', '860101', null, null, null, null, null, null, to_date('04-01-2024', 'dd-mm-yyyy'), '00:00:00', to_date('04-01-2024', 'dd-mm-yyyy'), '00:00:00', '1', 'LP2016860100001X', '3631815101095549', 14, 'LP', null);
+values ((select max(DOCID)+1 from es_doc_main), '3631815101011237', 'LP', '36318151', 20, '1', null, 'chengang', '860101', null, null, null, null, null, null, to_date('04-01-2024', 'dd-mm-yyyy'), '00:00:00', to_date('04-01-2024', 'dd-mm-yyyy'), '00:00:00', '1', 'LP2016860100001X', '3631815101095549', 14, 'LP', null);
 
 --不予立案通知书
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
@@ -482,15 +494,15 @@ INSERT INTO LLBNF (CLMNO, CASENO, BATNO, GRPCONTNO, GRPPOLNO, CONTNO, BNFKIND, P
                            BANKPROVINCE, OBANKPROVINCE, IDEXPDATE, NATIVEPLACE, OCCUPATION, POSTALADDRESS, RGTADDRESS,
                            GRPNAME, ACCTYPE, BANKCITY, OBANKCITY, IDSTARTDATE, PAYEEIDSTARTDATE, PAYEEIDEXPDATE,
                            PAYEEMOBILE)
-VALUES ('3631815101011235', '3631815101011235', '0', '00000000000000000000', '00000000000000000000', '2026040700000566',
-        'A', '000000', '1060100064', '1', '0', '1', '06', '0', '受益', '1', DATE '1990-01-10', '0',
+VALUES ('3631815101007464', '3631815101007464', '0', '00000000000000000000', '00000000000000000000', '2026030200000486',
+        'A', '000000', '1004565160', '1', '0', '1', '06', '0', '受益', '1', DATE '1990-01-10', '0',
         '35062419900110056X', '00', '0', '受益', '1', DATE '1990-01-10', '0', null, '35062419900110056X', 100.0000,
         0.00, null, '4', '0', '0101', '12345678', '受益', null, null, null, null, null, '001', DATE '2036-04-20',
         '00:11:41', DATE '2036-04-20', '00:11:41', null, null, 'A', null, '17605235001', '1100', null, '2045-05-23',
         null, null, null, null, null, '0', '1100', null, '2025-05-23', '2025-05-23', '2045-05-23', '17605235001');
 
 --pre
-INSERT INTO LIS.LLBNF (CLMNO, CASENO, BATNO, GRPCONTNO, GRPPOLNO, CONTNO, BNFKIND, POLNO, INSUREDNO, BNFNO, BNFTYPE,
+INSERT INTO LLBNF (CLMNO, CASENO, BATNO, GRPCONTNO, GRPPOLNO, CONTNO, BNFKIND, POLNO, INSUREDNO, BNFNO, BNFTYPE,
                        BNFGRADE, RELATIONTOINSURED, CUSTOMERNO, NAME, SEX, BIRTHDAY, IDTYPE, IDNO, RELATIONTOPAYEE,
                        PAYEENO, PAYEENAME, PAYEESEX, PAYEEBIRTHDAY, PAYEEIDTYPE, NBPOLNO, PAYEEIDNO, BNFLOT, GETMONEY,
                        CASEGETMODE, CASEPAYMODE, CASEPAYFLAG, BANKCODE, BANKACCNO, ACCNAME, MODIREASONCODE,
@@ -498,8 +510,8 @@ INSERT INTO LIS.LLBNF (CLMNO, CASENO, BATNO, GRPCONTNO, GRPPOLNO, CONTNO, BNFKIN
                        MODIFYTIME, OTHERNO, OTHERNOTYPE, FEEOPERATIONTYPE, CURRENCY, PHONE, BANKPROVINCE, OBANKPROVINCE,
                        IDEXPDATE, NATIVEPLACE, OCCUPATION, POSTALADDRESS, RGTADDRESS, GRPNAME, ACCTYPE, BANKCITY,
                        OBANKCITY, IDSTARTDATE)
-VALUES ('3631815101095895', '3631815101095895', '0', '00000000000000000000', '00000000000000000000', '2026040100002256',
-        'A', '000000', '1001736336', '1', '0', '1', '06', '0', '受益', '1', DATE '1990-01-10', '0',
+VALUES ('3631815101007464', '3631815101007464', '0', '00000000000000000000', '00000000000000000000', '2026030200000716',
+        'A', '000000', '1004565160', '1', '0', '1', '06', '0', '受益', '1', DATE '1990-01-10', '0',
         '35062419900110056X', '00', '0', '受益', '1', DATE '1990-01-10', '0', null, '35062419900110056X', 100.0000,
         1000000.00, null, '4', '0', '0101', '12345678', '受益', null, null, null, null, null, '001', DATE '2026-06-10',
         '03:15:25', DATE '2026-06-10', '03:15:25', null, null, 'A', null, '17605235001', '1100', null, '2045-05-23',
@@ -512,7 +524,7 @@ select a.* from es_doc_main a where DOCCODE='3631815101010427';
 
 --
 select a.* from LLClaimPolicy a where contno='2025060600000416';
-select a.* from LLClaimPolicy a where caseno='3631815101010896';
+select a.* from LLClaimPolicy a where caseno='3631815101007464';
 
 select accdate 理赔出险日期,a.* from llcase a where caseno in (select caseno from LLClaimPolicy where contno='2025110500000666');
 

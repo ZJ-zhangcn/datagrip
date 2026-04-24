@@ -112,8 +112,8 @@ select f.je_category_name                                                       
 from of_interface f
 where --f.source_batch_id = '00000000000000004327'
 --lis_prtno = '3206915150822081'
-      accounting_date = date'2021-08-16'/* and entered_dr='0' and entered_cr='0'*/
--- and lis_contno = '2021060100001886'
+--       accounting_date = date'2021-08-16'/* and entered_dr='0' and entered_cr='0'*/
+lis_contno = '2026042300000106'
 -- and f.segment3 = '54020604'
 --LIS_CASENO='3631815101095847'
 order by f.ACCOUNTING_DATE asc, f.je_category_name asc, SOURCE_BATCH_ID asc, f.LIS_CONTNO asc, f.SEGMENT1 asc,

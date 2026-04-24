@@ -44,7 +44,7 @@ order by to_number(POLYEAR);
 
 select a.*
 from BonusRate a
-where riskcode = '1111002'
+where riskcode = '1111001'
 order by CVALIDATE;
 
 select a.*
@@ -55,7 +55,7 @@ order by dt;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '5000118251009832'
+where contno = '2026042300000106'
 order by makedate, maketime;
 
 select nvl(sum(JQAmnt), 0)

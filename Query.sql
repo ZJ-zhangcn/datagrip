@@ -19,17 +19,26 @@ from lcpol a
 where contno in ('2026040700000476', '2026040700000566', '2026040700000106', '2026040700000656', '2026040700001076',
                  '2026040700000296', '2026040700000786', '2026040700000386', '2026040700000886', '2026040700000926');
 
-select round(1530.68 / 1000 * cv2 * (date'2028-04-07' - date'2027-04-08') / 366 +
-             1530.68 / 1000 * cv1 * (1 - (date'2028-04-07' - date'2027-04-08') / 366), 2) cash
+select round((7525.19) / 1000 * cv2 * (date'2028-04-07' - date'2027-04-08') / 366 +
+             (7525.19) / 1000 * cv1 * (1 - (date'2028-04-07' - date'2027-04-08') / 366), 2) cash
 from lcduty a,
-     PUA_1113004 b,
+     PUA_1111001 b,
      lcpol c
 where a.contno = c.contno
   and b.age = c.INSUREDAPPAGE
   and b.GENDER = c.INSUREDSEX
   and a.DUTYCODE like '%1001'
-  and a.contno = '2026040700000476'
+  and a.contno = '2026040700000106'
   and b.dt = 2;
+
+select PAYINTV,a.* from lcpol a where contno='2026040700000476';
+
+select 3086.16 * power((1 + 0.0175), 3 - 1) from dual;
+
+select GETMONEY, JQAMNT, a.*
+from LJABonusGet a
+where contno = '2026040700000476'
+order by makedate, maketime;
 
 select a.*
 from BonusRate a
@@ -48,7 +57,7 @@ select round(a.amnt / 1000 * b.BonusFactor * nvl(c.bonusrate, '0'), 2)          
 from lcpol a,
      lobonusfactor b,
      BonusRate c,
-     PUA_1113004 d,
+     PUA_1111001 d,
      lcduty e
 where a.riskcode = b.RISKCODE
   and a.riskcode = c.RISKCODE
@@ -67,6 +76,6 @@ where a.riskcode = b.RISKCODE
   and b.bonusgrade = 'H'
   and b.annuitygetage = '0'
   and e.DUTYCODE like '%1001'
-  and d.dt = '2'
-  and a.contno = '2026040700000476'
+  and d.dt = '3'
+  and a.contno = '2026040700000106'
 order by d.dt;
