@@ -55,7 +55,7 @@ order by dt;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '2026042300000106'
+where contno = '2026040700000656'
 order by makedate, maketime;
 
 select nvl(sum(JQAmnt), 0)
