@@ -1,3 +1,6 @@
+-- ID: REQ-4266
+-- 标题: 未命名
+
 select appflag,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,(select riskname from lmriskapp where riskcode=a.riskcode) riskname,contno,prtno,riskcode,signdate,cvalidate,enddate,paytodate,payenddate,payintv,amnt,prem,payendyear,insuyear,a.* from lcpol a
 where contno in ('2024102100000126','2024102200000186','2024102200000316','2024102100000496') order by a.contno
 
