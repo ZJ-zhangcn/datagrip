@@ -1,9 +1,29 @@
 ------------------------------------------------------------------承保相关------------------------------------------------------------------
 --个单险种表
-select appflag,contno,grpcontno,riskcode,signdate,cvalidate,paytodate,payenddate,enddate,a.* from lcpol a where prtno='5000111000003960';
-select LEAVINGMONEY,appflag,a.bonusgetmode,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,a.getform,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,riskcode,(select riskname from lmriskapp where riskcode=a.riskcode) riskname,contno,prtno,polno,signdate,cvalidate,payintv,paytodate,payenddate,enddate,amnt,prem,payendyear,insuyear,INSUYEARFLAG,a.* from lcpol a
+select
+       appflag, contno, grpcontno,
+       riskcode, signdate, cvalidate,
+       paytodate, payenddate, enddate,
+       a.*
+from lcpol a where prtno='5000111000003960';
+select
+       LEAVINGMONEY, appflag, a.bonusgetmode,
+       (select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式, a.getform, (select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,
+       riskcode, (select riskname from lmriskapp where riskcode=a.riskcode) riskname, contno,
+       prtno, polno, signdate,
+       cvalidate, payintv, paytodate,
+       payenddate, enddate, amnt,
+       prem, payendyear, insuyear,
+       INSUYEARFLAG, a.*
+from lcpol a
 where contno IN ('2026062200000156', '', '', '', '', '') order by a.contno;--
-select LEAVINGMONEY,appflag,bonusgetmode,getform,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where contno in ('2025102700000286','','','');
+select
+       LEAVINGMONEY, appflag, bonusgetmode,
+       getform, contno, prtno,
+       riskcode, payintv, prem,
+       paytodate, cvalidate, payenddate,
+       a.*
+from lcpol a where contno in ('2025102700000286','','','');
 select a.* from lcpol a where (appntname like '%个险投保%' or appntname like '%银保投保%' or appntname like '%海保宝投保%' or appntname like '%经代通投保%') and appflag='1';
 select a.* from lcpol a where riskcode='1333012' and APPFLAG='1';
 select a.* from lcpol a where contno='2025122600000186';
@@ -174,8 +194,14 @@ select * from es_doc_def where subtypename like '%工行%';
 select SUBTYPE,(select SUBTYPENAME from es_doc_def where subtype=a.SUBTYPE and BUSSTYPE=a.BUSSTYPE) SUBTYPENAME,a.* from es_doc_main a where doccode='5000111000003960' and subtype = '50001051';
 select a.* from es_doc_main a where subtype='50013500' and managecom like '%8631%';
 select a.* from es_doc_main a where doccode='5000111000003960';
-select subtype,busstype,makedate,a.* from es_doc_main a where doccode='5000118251009740' and subtype='50001133';
-select subtype,(select codealias from ldcode where code=subtype) 单证名称,busstype,a.* from es_doc_main a where rownum<200 and subtype='50001171';
+select
+       subtype, busstype, makedate,
+       a.*
+from es_doc_main a where doccode='5000118251009740' and subtype='50001133';
+select
+       subtype, (select codealias from ldcode where code=subtype) 单证名称, busstype,
+       a.*
+from es_doc_main a where rownum<200 and subtype='50001171';
 
 select a.* from lccontmovie a where prtno='5000111000003960';
 /*
@@ -283,7 +309,10 @@ select a.* from lcbnf a where contno='2023113000000296';
 select a.* from ldperson a where customerno='1060092206';
 
 --地址表
-select mobile,email,postaladdress,a.* from lcaddress a where customerno=(select appntno from lcappnt where contno='5000111000003960');
+select
+       mobile, email, postaladdress,
+       a.*
+from lcaddress a where customerno=(select appntno from lcappnt where contno='5000111000003960');
 select a.* from lcaddress a where customerno=(select appntno from lcappnt where contno='2023102300000316');
 select a.* from lcaddress a where email='zhangjin05@sinosoft.com.cn';
 select a.* from lcaddress a where customerno='1001734246';
@@ -366,7 +395,10 @@ select a.* from loprtmanager a where otherno='2025052600000386';
 select a.* from ldcode a where /*code='B1' and*/ codetype='lettertype3';
 select a.* from ldcode a where codetype='lettertype3';
 --续期通知书及邮件暂停记录  standbyflag2：01-信函邮寄  02-电子邮件
-select standbyflag1,standbyflag2,(select codename from ldcode where codetype='lettertype3' and codealias=a.LETTERTYPE),LETTERTYPE,a.* from xqletterstopapply a
+select
+       standbyflag1, standbyflag2, (select codename from ldcode where codetype='lettertype3' and codealias=a.LETTERTYPE),
+       LETTERTYPE, a.*
+from xqletterstopapply a
 where contno='2023010100004756';
 --续期签批文件存储
 select a.* from xqletterstopfiles a where contno='2024022800004026';
@@ -376,7 +408,10 @@ select makedate,a.* from lcrnewautocont a where contno = '2023102500001026';
 select a.* from ldtask a where taskdescribe like '%恢复寄送%' order by taskcode;
 
 --应收表
-select startpaydate,bankcode,othernotype,BankOnTheWayFlag,BANKSUCCFLAG,a.* from ljspay a where otherno in ('5000118250522092','');
+select
+       startpaydate, bankcode, othernotype,
+       BankOnTheWayFlag, BANKSUCCFLAG, a.*
+from ljspay a where otherno in ('5000118250522092','');
 select a.* from splitcont a where contno='2025031900000386';
 select startpaydate,a.* from ljspay a where getnoticeno='86010120250310044474';
 --
@@ -394,7 +429,10 @@ select BANKONTHEWAYFLAG,BANKSUCCFLAG,a.* from ljsget a where otherno='2024042400
 --
 select a.* from ljsgetdraw a where contno='2024032900000526';
 --实付表
-select BANKONTHEWAYFLAG,BANKSUCCFLAG,inbankcode,inbankaccno,a.* from ljaget a where otherno='7402121100326772';
+select
+       BANKONTHEWAYFLAG, BANKSUCCFLAG, inbankcode,
+       inbankaccno, a.*
+from ljaget a where otherno='7402121100326772';
 --实付明细
 select a.* from ljagetdraw a where contno='2024042400000376';
 --
@@ -464,9 +502,19 @@ select a.CONFDATE 保全确认日期,edoracceptno 受理号,a.* from lpedorapp a
 select a.* from ldcode a where codetype = 'edorstate';
 --个险保全表
 select a.* from lpedoritem a where contno='2026043000001066' order by EDORACCEPTNO,makedate,maketime,modifydate,modifytime;
-select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
+select
+       edorno 批单号, edortype, edorstate,
+       (select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename, EdorValiDate 保全生效日期, getmoney,
+       getinterest, approvedate, approvetime,
+       a.*
+from lpedoritem a
 where contno='2026051300001126' order by makedate,maketime,modifydate,modifytime;
-select edorno 批单号,edortype,edorstate,(select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename,EdorValiDate 保全生效日期,getmoney,getinterest,approvedate,approvetime,a.* from lpedoritem a
+select
+       edorno 批单号, edortype, edorstate,
+       (select codename from ldcode where codetype='edorstate' and code=a.edorstate) statename, EdorValiDate 保全生效日期, getmoney,
+       getinterest, approvedate, approvetime,
+       a.*
+from lpedoritem a
 where edoracceptno='7402121100332303';
 select * from lpedoritem a where EDORTYPE='PU' and EdorValiDate between date'2027-07-27' and date'2027-07-28';
 select a.* from LJAGetEndorse a where endorsementno in (select edorno from lpedoritem a where EDORTYPE='RA' and EdorValiDate between date'2027-07-28' and date'2027-07-28');
@@ -541,7 +589,10 @@ select a.* from LLClaimPolicy a where caseno='3631815101007464';
 select accdate 理赔出险日期,a.* from llcase a where caseno in (select caseno from LLClaimPolicy where contno='2025110500000666');
 
 select a.* from llregister a where rgtno='3631815101010646';
-select endcasedate 理赔结案日期,clmstate,(select CodeName from ldcode where codetype = 'llclaimstate' and code=a.CLMSTATE) 赔案状态,a.* from llregister a
+select
+       endcasedate 理赔结案日期, clmstate, (select CodeName from ldcode where codetype = 'llclaimstate' and code=a.CLMSTATE) 赔案状态,
+       a.*
+from llregister a
 where rgtno='3631815101000207';
 
 select a.* from ljagetdraw a where contno='3631815101008667';

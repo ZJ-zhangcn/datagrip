@@ -1,7 +1,13 @@
 select appflag,a.* from lcpol a where contno='2025043000000586';
 select appflag,a.* from lccont a where contno='2025043000000586';
-select sumpay,insuaccbala,baladate,a.* from lcinsureacc a where contno='2025043000000586';
-select sumpay,insuaccbala,baladate,a.* from lcinsureaccclass a where contno='2025043000000586';
+select
+       sumpay, insuaccbala, baladate,
+       a.*
+from lcinsureacc a where contno='2025043000000586';
+select
+       sumpay, insuaccbala, baladate,
+       a.*
+from lcinsureaccclass a where contno='2025043000000586';
 select a.* from lcinsureacctrace a where contno='2025043000000586' order by paydate desc;
 select fee/*fee=feetrace表删除续期数据后的总和*/,baladate,a.* from lcinsureaccfee a where contno='2025043000000586';
 select fee,baladate,a.* from lcinsureaccclassfee a where contno='2025043000000586';

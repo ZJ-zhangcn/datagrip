@@ -35,16 +35,43 @@ INSERT INTO LDRISKRULE (RISKCODE,SALECHNL,COMGROUP,STARTPOLAPPLYDATE,ENDPOLAPPLY
 select * from ldcode1 where codetype='transferCont';
 --lcpol
 select prtno,contno from lcpol where prtno in ('5000118360513231','5000118360513248','5000118360513255','5000118360513262','','');
-select appflag,contno,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,riskcode,kindcode,insuredsex,insuredappage,paytodate,cvalidate,enddate,payintv,payendyear,payendyearflag,insuyear,insuyearflag,prem,amnt from lcpol a
+select
+       appflag, contno, (select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,
+       (select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式, riskcode, kindcode,
+       insuredsex, insuredappage, paytodate,
+       cvalidate, enddate, payintv,
+       payendyear, payendyearflag, insuyear,
+       insuyearflag, prem, amnt
+from lcpol a
 where contno='2026010500000506';
 --lccont
-select appflag,contno,salechnl,selltype,salecom,salechannels,appntsex,appntbirthday,signdate,firstpaydate,cvalidate,customgetpoldate,payintv,paymode,printcount,prem,amnt,sumprem,prtno from lccont a
+select
+       appflag, contno, salechnl,
+       selltype, salecom, salechannels,
+       appntsex, appntbirthday, signdate,
+       firstpaydate, cvalidate, customgetpoldate,
+       payintv, paymode, printcount,
+       prem, amnt, sumprem,
+       prtno
+from lccont a
 where contno='2024110400000686';
 --lcprem
-select contno,dutycode,payplancode,payintv,standprem,prem,sumprem,rate,paytimes,paystartdate,payenddate,paytodate from lcprem a
+select
+       contno, dutycode, payplancode,
+       payintv, standprem, prem,
+       sumprem, rate, paytimes,
+       paystartdate, payenddate, paytodate
+from lcprem a
 where contno='2024110400000686';
 --lcduty
-select contno,dutycode,standprem,payintv,payyears,insuyear,insuyearflag,prem,sumprem,firstpaydate,paytodate,payenddate,payendyear,payendyearflag,cvalidate,enddate from lcduty a
+select
+       contno, dutycode, standprem,
+       payintv, payyears, insuyear,
+       insuyearflag, prem, sumprem,
+       firstpaydate, paytodate, payenddate,
+       payendyear, payendyearflag, cvalidate,
+       enddate
+from lcduty a
 where contno='2024110400000686';
 --lcget
 select contno,/*(SELECT riskcode FROM lcpol WHERE contno=a.contno) riskcode,*/
@@ -69,7 +96,11 @@ select a.* from lcappnt a where appntno='1060097018';
 select idstdate,idexpdate,a.* from lcappnt a where contno='2025081900001486';
 select a.* from lcappnt a where appntname like '%个险投保三九%' order by appntno;
 --lcinsured
-select idstdate,idexpdate,contno,occupationcode,(select codename from ldcode where codetype='occupationtype' and code=a.occupationtype) 职业类别,insuredno,idtype,idno,relationtoappnt from lcinsured a
+select
+       idstdate, idexpdate, contno,
+       occupationcode, (select codename from ldcode where codetype='occupationtype' and code=a.occupationtype) 职业类别, insuredno,
+       idtype, idno, relationtoappnt
+from lcinsured a
 where contno='2025061400002896';
 select a.* from lcinsured a where contno='2026042800004466';
 select * from lcinsured a where insuredno='1001736137' and exists (select 1 from lcpol where contno=a.contno and appflag='1');
@@ -105,7 +136,10 @@ select a.* from ldtask a where taskdescribe like '%满期%';
 --大童影像批处理
 select a.* from ldtask a where taskdescribe like '%大童影像%';
 --账户轨迹
-select moneytype,money,paydate,dutycode,getdutycode from lcinsureacctrace a where contno='2024052700000296' order by paydate desc;
+select
+       moneytype, money, paydate,
+       dutycode, getdutycode
+from lcinsureacctrace a where contno='2024052700000296' order by paydate desc;
 --犹豫期天数配置  HESITATEEND=条款中的犹豫期天数+1
 select HESITATEEND from LMEdorWT a where riskcode='1111002';
 --核心险种规则（新单录入、问题件修改、新单复核）

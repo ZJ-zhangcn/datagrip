@@ -1,10 +1,25 @@
 ------------------------------------------------------------------承保相关------------------------------------------------------------------
 --险种表
 select a.* from lcpol a where appntname = '团险投保有限公司' and appflag in ('1','4') and rownum=1 order by grpcontno desc;
-select contno,grpcontno,riskcode,cvalidate,paytodate,payenddate,a.* from lcpol a where prtno='3206915150822166';
-select (select codename from ldcode a where codetype='appflag' and code=a.appflag) appflag,grpcontno,contno,prtno,riskcode,signdate,cvalidate,paytodate,enddate,payenddate,payintv,prem,payendyear,insuyear,a.* from lcpol a
+select
+       contno, grpcontno, riskcode,
+       cvalidate, paytodate, payenddate,
+       a.*
+from lcpol a where prtno='3206915150822166';
+select
+       (select codename from ldcode a where codetype='appflag' and code=a.appflag) appflag, grpcontno, contno,
+       prtno, riskcode, signdate,
+       cvalidate, paytodate, enddate,
+       payenddate, payintv, prem,
+       payendyear, insuyear, a.*
+from lcpol a
 where grpcontno in ('2026060900001286','') and contno='130310000002997';
-select appflag,insuredname,polstate,contno,prtno,riskcode,payintv,prem,paytodate,cvalidate,payenddate,a.* from lcpol a where grpcontno='2023100100000626';
+select
+       appflag, insuredname, polstate,
+       contno, prtno, riskcode,
+       payintv, prem, paytodate,
+       cvalidate, payenddate, a.*
+from lcpol a where grpcontno='2023100100000626';
 --团单总保费
 select sum(prem) from lcpol a where prtno='3206915150822210';
 select sum(sumprem),sum(amnt) from lcpol a where grpcontno='2023110900001556' and appflag='1';
@@ -15,7 +30,13 @@ select a.* from lcgrpcont a where grpcontno='2025080500000466';
 select a.* from ldtask a where TASKDESCRIBE like '%撤件%';
 
 --个单保单表
-select appflag,printcount,contno,salechnl,selltype,salechannels,appntno,payintv,signdate,cvalidate,getpoldate,customgetpoldate,paytodate,a.* from lccont a
+select
+       appflag, printcount, contno,
+       salechnl, selltype, salechannels,
+       appntno, payintv, signdate,
+       cvalidate, getpoldate, customgetpoldate,
+       paytodate, a.*
+from lccont a
 where grpcontno='2026060100001166';
 
 select a.* from lcgrpcontstate a where grpcontno='2024062100001686';
@@ -92,7 +113,10 @@ select a.* from lcbnf a where contno='130011003751676';
 select a.* from ldperson a where customerno='1060091002';
 
 --地址表
-select mobile,email,postaladdress,a.* from lcaddress a where customerno in (select insuredno from lcinsured where grpcontno='2023111500000886');
+select
+       mobile, email, postaladdress,
+       a.*
+from lcaddress a where customerno in (select insuredno from lcinsured where grpcontno='2023111500000886');
 select a.* from lcaddress a where customerno=(select appntno from lcappnt where contno='2023102300000316');
 select a.* from lcaddress a where email='zhangjin05@sinosoft.com.cn';
 
@@ -117,7 +141,10 @@ select flag/*0-关闭 1-开通*/,a.* from lpbalancedef a where grpcontno='202402
 select bqappno,edoracceptno 受理号,a.* from lpedorapp a where otherno='2024070200001316';
 select a.* from lpedorapp a where edoracceptno='3229315100006307';
 --团险保全表
-select a.MAKEDATE,edoracceptno 受理号,edorno 批单号,a.* from lpgrpedoritem a where grpcontno='2025111700006986' order by a.MAKEDATE,a.maketime;
+select
+       a.MAKEDATE, edoracceptno 受理号, edorno 批单号,
+       a.*
+from lpgrpedoritem a where grpcontno='2025111700006986' order by a.MAKEDATE,a.maketime;
 select a.* from lpgrpedoritem a where edoracceptno='3229315100003144';
 select a.* from lpgrpedoritem a where edorno='3229515100005969';
 select a.* from lpgrpedoritem a where edortype='RP' and EDORSTATE='0' order by MAKEDATE desc;
@@ -129,7 +156,11 @@ select a.* from lpgrpedoritem a where EDORTYPE='RP' and EDORSTATE='0';
 --个险保全表
 select a.CONFDATE 保全确认日期,a.* from LPEdorApp a where otherno='2026031800000156';
 select a.CONFDATE 保全确认日期,a.* from LPEdorApp a where edoracceptno='3229315100007060';
-select edorno 批单号,edoracceptno 受理号,edortype,edorstate,getmoney,getinterest,a.* from lpedoritem a where grpcontno='2025010600000186';
+select
+       edorno 批单号, edoracceptno 受理号, edortype,
+       edorstate, getmoney, getinterest,
+       a.*
+from lpedoritem a where grpcontno='2025010600000186';
 select contno,a.* from lpedoritem a where edoracceptno='3229315100002511' order by a.contno;
 select sum(getmoney) from lpedoritem a where edoracceptno='3229315100002511';
 select a.* from lpedoritem a where insuredno='1060090852';

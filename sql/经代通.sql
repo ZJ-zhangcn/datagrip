@@ -1,9 +1,19 @@
 --lccont
-select a.salechnl,a.selltype,a.salechannels,a.signdate,a.approvecode,a.prem,a.amnt,a.* from lccont a where prtno='5000112600019093';
+select
+       a.salechnl, a.selltype, a.salechannels,
+       a.signdate, a.approvecode, a.prem,
+       a.amnt, a.*
+from lccont a where prtno='5000112600019093';
 --费率表
 select 300*5.01+300*0.2*3.1 from dual;
 --lcpol
-select enddate,a.contno,a.prtno,a.riskcode,a.contplancode,a.amnt,a.prem,a.payyears 交费期间,a.payintv,a.insuyear,a.insuyearflag,insuredappage,a.* from lcpol a
+select
+       enddate, a.contno, a.prtno,
+       a.riskcode, a.contplancode, a.amnt,
+       a.prem, a.payyears 交费期间, a.payintv,
+       a.insuyear, a.insuyearflag, insuredappage,
+       a.*
+from lcpol a
 where prtno='5000112600019093';
 --地址表
 select distinct mobile,email from lcaddress a where customerno=(select appntno from lcappnt where prtno='5000112600005072');

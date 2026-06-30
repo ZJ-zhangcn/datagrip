@@ -19,8 +19,14 @@ select a.* from ldcode a where codetype='prompt';
 select a.* from ldcode a where codetype = 'healthguardrisk' and code = '2062001';
 
 --保单销售渠道
-select salechnl,selltype,salechannels,a.* from lccont a where contno='2023122800000286';
-select salecom,agentcom,signdate,a.* from lccont a where salechannels='010206' and appflag='1' order by a.signdate desc;
+select
+       salechnl, selltype, salechannels,
+       a.*
+from lccont a where contno='2023122800000286';
+select
+       salecom, agentcom, signdate,
+       a.*
+from lccont a where salechannels='010206' and appflag='1' order by a.signdate desc;
 --销售渠道配置
 select a.* from ldcode a where codetype = 'gsalechannels';
 

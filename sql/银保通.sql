@@ -1,10 +1,25 @@
 ------------------------------------------------------------------银保通相关------------------------------------------------------------------
 --lcpol
 select appflag,getform,a.* from lcpol a where prtno in ('','2026030600002226');
-select uwflag,appflag,contno,riskcode,kindcode,insuredsex,insuredappage,signdate,cvalidate,enddate,payintv,payendyear,payendyearflag,insuyear,insuyearflag,prem,amnt,livegetmode from lcpol a 
+select
+       uwflag, appflag, contno,
+       riskcode, kindcode, insuredsex,
+       insuredappage, signdate, cvalidate,
+       enddate, payintv, payendyear,
+       payendyearflag, insuyear, insuyearflag,
+       prem, amnt, livegetmode
+from lcpol a
 where contno in ('2026030600002226','','');
 --lccont
-select uwflag,appflag,contno,salechnl,selltype,salecom,salechannels,appntsex,appntbirthday,signdate,firstpaydate,cvalidate,customgetpoldate,payintv,paymode,printcount,prem,amnt,sumprem,getpolmode from lccont a 
+select
+       uwflag, appflag, contno,
+       salechnl, selltype, salecom,
+       salechannels, appntsex, appntbirthday,
+       signdate, firstpaydate, cvalidate,
+       customgetpoldate, payintv, paymode,
+       printcount, prem, amnt,
+       sumprem, getpolmode
+from lccont a
 where contno='2025052200000896';
 --
 select a.* from ContBlcDtl a where ProposalPrtNo='2023122500001176';
@@ -96,7 +111,10 @@ values ((select max(docid)+1 from es_doc_main), '2024121700000986', 'BQ', '36524
 */
 
 --上海银行保全对账所需数据
-select contno,idtype,idno,appntname from lcappnt a where contno='2023102700000996';
+select
+       contno, idtype, idno,
+       appntname
+from lcappnt a where contno='2023102700000996';
 
 --银保保单打印批处理
 select a.* from ldtask a where taskdescribe like '%一体化%' order by taskcode;

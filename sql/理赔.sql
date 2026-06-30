@@ -55,7 +55,10 @@ select * from LLCaseRela;
 SELECT * from LLReport where RPTNO='3631815101009649';
 ---个人报案表
 select t.dutycode,t.getendstate,t.* from lcget t where contno='2021102800000386';-----保单责任
-select rgtdate,accdate,deathdate,endcasedate,t.*  from llcase t where caseno='3631815101009649';--出险信息（受理日期、出险日期、死亡日期、结案日期）、出险人信息、账户信息等
+select
+       rgtdate, accdate, deathdate,
+       endcasedate, t.*
+from llcase t where caseno='3631815101009649';--出险信息（受理日期、出险日期、死亡日期、结案日期）、出险人信息、账户信息等
 select t.clmstate,t.endcasedate,t.* from llclaim t where
  caseno in('3631815101009649');---（案件状态、赔付金额等）
  select * from LLReportApply where contno='2024101000000286';
@@ -136,7 +139,10 @@ and t.modifydate=date'2021-07-20';
 ----(activityid值对应的理赔状态)
 select * from lwmission t where t.missionprop1='3631815101006579';
 
-    select a.riskcode,b.riskname,a.cvalidate,a.* from lcpol a,lmrisk b where a.riskcode=b.riskcode and a.insuredno='1002797463';
+    select
+           a.riskcode, b.riskname, a.cvalidate,
+           a.*
+    from lcpol a,lmrisk b where a.riskcode=b.riskcode and a.insuredno='1002797463';
 select * from lcduty where contno='130310000077571';
 select a.getdutycode,b.getdutyname,a.* from lcget a,lmdutygetrela b  where a.dutycode=b.dutycode and a. contno='130310000077571';
 select t.* from lmdutygetclm t where getdutycode in (select getdutycode from lmdutygetrela where

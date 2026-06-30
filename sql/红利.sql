@@ -39,7 +39,10 @@ select * from Lobonusrate;
 select * from BonusRate t where t.riskcode='1103007'; --年度红利分配比例（K）
 select * from lobonusfactor t where riskcode = '1103007' and t.insuredsex='0' and t.insuyear='6' and t.payendyear='3' and t.insuredappage='24'; ---红利因子
  select * from lobonusfactor t where riskcode = '1103002' and t.insuredsex='0' and t.insuyear='6' and t.payendyear='3' and t.insuredappage='27';---红利因子(测试手动配置)
- select t.insuredsex,t.insuyear,t.payendyear,t.* from lcpol t where t.contno='2023112900000586';
+ select
+        t.insuredsex, t.insuyear, t.payendyear,
+        t.*
+ from lcpol t where t.contno='2023112900000586';
 select t.insuredbirthday,t.cvalidate,t.* from lccont t where contno='2023112900000586';
 -- 维护红利因子	1.红利利息可以随便填；2.被保人年龄要填投保时的年龄；3.年份填要维护的年龄因子；
 -- 4.缴多久的保费；5.duration填1表示一个保单第一个红利利息，如果第二次跑红利批处理，就需要改为2（如累积生息）
@@ -73,7 +76,10 @@ select * from ldcode where codetype = 'companysumbonus';
 select * from ldcode where codetype = 'appntsumbonus';
 ----分配给投保人的红利总额
 
-select t.FisCalYear,t.divrate,t.publicdate,t.* from LOBonusPolRate t where riskcode='000000';
+select
+       t.FisCalYear, t.divrate, t.publicdate,
+       t.*
+from LOBonusPolRate t where riskcode='000000';
 ---累计生息时的红利利率表
 select * from lcinsureacc where acctype = '004';------004代表是红利账户
 ---（001 -- 集体公共账户002 -- 个人缴费账户003 -- 个人累积生息账户004 -- 个人红利账户）
