@@ -38,6 +38,7 @@ from dual;
 --初始保费
 select 10000 * 0.03 初始保费
 from dual;
+
 --风险保费
 select round((9700 * 1.2 - 9700) / 1000 * 34.5 / 365 * (date'2027-07-01' - date'2027-06-10'), 2) 风险保费
 from dual;
@@ -47,10 +48,12 @@ from dual;
 select a.*
 from LOLOANMAIN a
 where contno = '2026042800004286';
+
 --贷款停效批处理
 select a.*
 from ldtask a
 where TASKDESCRIBE like '%贷款停效%';
+
 --复效利息
 select round(15905.66 * round(0.03 / 365, 8) * (date '2028-02-10' - date '2027-07-11'), 2) 复效利息
 from dual;

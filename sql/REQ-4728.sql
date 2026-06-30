@@ -2,6 +2,7 @@
 -- 标题: 经代渠道创信新增协议退保数据对接开发需求
 
 select sysvarvalue from ldsysvar where sysvar = 'CXSftp_login'
+
 select sysvarvalue from ldsysvar where sysvar = 'CXFilePath'
 
 

@@ -3,27 +3,38 @@
 
 --
 select cvalidate,a.* from lccont a where prtno='5000118240402016';
+
 --
 select cvalidate,signdate,a.* from lcpol a where prtno='5000118240403012';
+
 select cvalidate,signdate,paytodate,a.* from lcpol a where contno='2024071000000716';
+
 --
 select a.* from ldtask a where taskdescribe like '%满期%';
 
 --应收
 select a.* from ljspay a where otherno='2024040300000326';
+
 --应收个人
 select a.* from ljspayperson a where contno='2024040300000286';
+
 --实收
 select startpaydate/* 应交日期*/,EnterAccDate/* 到账日期*/,ConfDate/* 确认日期*/,a.* from ljapay a where incomeno='2024071000000716';
+
 select a.* from ljapay a where PAYNO='86310020250320000127';
+
 --实收个人
 select confdate,a.* from ljapayperson a where contno='2024071000000716';
+
 --
 select a.* from splitcont a where contno='2024040300000286';
+
 --
 select a.* from lysendtobank a where polno='2024040300000286';
+
 --
 select a.* from lcinsureacc a where contno='2024071000000716';
+
 --账户轨迹
 select a.* from lcinsureacctrace a where contno='2023120700000466' order by paydate desc;
 --update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2024071000000716'
@@ -56,14 +67,18 @@ select a.* from FICostTypeDef a where CERTIFICATEID='SF_BQ';
 
 --记账算法表
 select a.* from ficostdataacquisitiondef a where ACQUISITIONID='00000782';
+
 select a.* from ficostdataacquisitiondef a where DISTILLSQL like '%WN_FY%';
 
 --正常收费模拟第三方收费修改bankcode='UnionPay' and bankcode=null
 select bankcode,bankaccno,inbankcode,inbankaccno,paymode,managecom 交费机构,policycom 管理机构,managecom,policycom from ljtempfeeclass a where otherno='7402121100347441';
+
 --拆单收费模拟第三方收费修改inbankcode='UnionPay' and inbankaccno=null
 select inbankcode,inbankaccno from splitcont a where contno='2024050700000386';
+
 --拆单收费模拟正常收费修改inbankcode='0116' and inbankaccno='216200100101807734'
 select inbankcode,inbankaccno from splitcont a where contno='2024040300000286';
+
 select a.* from ljaget a where otherno='7402121100347444';
 
 --数据回滚日期

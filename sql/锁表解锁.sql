@@ -13,14 +13,22 @@ SELECT A.USERNAME,
                   WHERE T1.SESSION_ID = T2.SID)
    AND A.SQL_ADDRESS = C.ADDRESS(+)
  ORDER BY C.PIECE;
+
 --以下几个为相关表
 SELECT * FROM v$lock;
+
 SELECT * FROM v$sqlarea;
+
 SELECT * FROM v$session;
+
 SELECT * FROM v$process;
+
 SELECT * FROM v$locked_object;
+
 SELECT * FROM all_objects;
+
 SELECT * FROM v$session_wait;
+
 --查看被锁表信息
 select sess.sid,
        sess.serial#,
@@ -36,7 +44,10 @@ select sess.sid,
 ----分别为SID和SERIAL#号
 /*
 alter system kill session '3446,8726';
+
 alter system kill session '2567,2750';
+
 alter system kill session '2289,2309';
+
 alter system kill session '869,11100';
 */;

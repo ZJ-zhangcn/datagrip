@@ -33,6 +33,7 @@ where a.contno = c.contno
   and a.DUTYCODE like '%1001'
   and a.contno = '2026012200000796'
   and b.dt = 6;
+
 --累积交清基本保险金额减保后保额  select (1-第t次减保的金额/第t次减保前的现金价值)*第t次减保前的保额 from dual;
 select round((1 - 1000 / 7575.90) * 215.43, 2) 减保后保额
 from dual;

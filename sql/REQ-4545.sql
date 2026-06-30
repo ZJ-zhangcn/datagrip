@@ -3,8 +3,10 @@
 
 --新增配置
 select * from ldcode where codetype = 'TerminateMesg';
+
 /*
 update lcpol set appflag='4' where contno='2018041200023568';
+
 update lccont set appflag='4' where contno='2018041200023568';
 */
 --满期终止批处理提数
@@ -53,6 +55,7 @@ select distinct(otherno),requesttime,count(requesttime),sendtime,count(sendtime)
 
 
 select a.* from sms_dispatch_list a where a.serviceid='Ma1029' and makedate=date'2024-12-04' order by requesttime
+
 select a.* from sms_dispatch_list a where serviceid='Ma1029' and otherno='2018080800001986'
 
 select * from lcmeglog where sendcode in('BQ00047','BQ00048') and makedate=date'2024-12-04';

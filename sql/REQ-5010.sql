@@ -2,9 +2,13 @@
 -- 标题: 关于团险开票系统修改发票抬头功能的需求
 
 SELECT a.* FROM LYInvoicingParty a where CUSTOMERNAME='上海比亚迪有限公司';
+
 select a.* from LYSendBillOrder a where grpcontno='2020103100000106';
+
 select CONFDATE,a.* from ljaget a where otherno='3229515100004682';
+
 select a.* from ljpbalancerela a where grpcontno='2020103100000106';
+
 /*
 UPDATE ljatax
 set standbyflag2='3060301010000000000'

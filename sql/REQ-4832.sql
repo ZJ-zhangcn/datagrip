@@ -59,8 +59,10 @@ select round((1 - 1000 / 9056.52) * amnt,8)
    and gender = insuredsex
    and contno = '2025062400001306'
    and dt = 6;
+
 --减保后的保费
 select 6359.35707358*1000/714.87 from dual;
+
 --减额交清公共保额限制
 select * from ldcode a where codetype = 'PublicPUlowestAmnt' and code='000000';
 --减额交清后保额计算
@@ -73,6 +75,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025070400001076'
   and dt = 3 - 1;
+
 --other
 select 135264.08 * 1000 / (a.END_AFACTOR * (date '2027-07-05' - date '2027-07-05') / 365 +
                           a.BEG_AFACTOR * (1 - (date '2027-07-05' - date '2027-07-05') / 365))
@@ -83,6 +86,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025070400001076'
   and dt = 3;
+
 --减额交清后保费计算
 select 58644.8 * 1000 / a.rate
 from rt_1016011 a,

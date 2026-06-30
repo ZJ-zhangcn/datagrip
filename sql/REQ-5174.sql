@@ -7,6 +7,7 @@ where (APPNTNO = '1001736301'
     or INSUREDNO = '1001736302')
   and appflag = '1'
   and SALECHANNELS = '020502';
+
 /*
 update lccont
 set appflag='4',
@@ -26,6 +27,7 @@ where (APPNTNO = '1060099604'
     or INSUREDNO = '1060099604')
   and appflag = '1'
   and SALECHANNELS = '020502';
+
 /*
 update lccont
 set appflag='1',
@@ -52,6 +54,7 @@ where CUSTOMERNO in ('1001736301', '1001736302');
 select /*state, */a.*
 from lcmobileCheckInfo a
 where name like '个险投保%';
+
 /*
 
 INSERT INTO LCMOBILECHECKINFO (CONTNO, CUSTOMERNO, CUSTOMERTYPE, NAME, IDCARD, MOBILE, MANAGECOM, REQCODE, REQMESSAGE,

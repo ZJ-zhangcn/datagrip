@@ -14,10 +14,12 @@
 
 --
 select cvalidate,a.* from lcpol a where contno='5000118340528063';
+
 select appflag,signdate,cvalidate,managecom,salechannels,a.* from lccont a where contno in ('20240424000001963','');
 
 --
 select a.*/**/ from lccontstate a where contno='2024042400000286';
+
 /*
 insert into lccontstate (CONTNO, INSUREDNO, POLNO, STATETYPE, STATE, STATEREASON, STARTDATE, ENDDATE, REMARK, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME)
 values ('2024042300000186', '1060093044', '210310000006481', 'DefedPay', '1', null, to_date('24-06-2025', 'dd-mm-yyyy'), null, null, 'sys', to_date('01-07-2025', 'dd-mm-yyyy'), '00:00:14', to_date('01-07-2025', 'dd-mm-yyyy'), '00:00:14');
@@ -27,14 +29,23 @@ select a.* from lcconthangupstate a where contno='2024080100000286';
 
 --
 select a.* from ljspay a where otherno='2024042400000286';
+
 select a.* from ljspayperson a where contno='2024042400000286';
+
 select a.* from ljapay a where otherno in ('2024042400000286','');
+
 select a.* from ljapayperson a where contno in ('2024042400000286','');
+
 select a.* from ljtempfee a where otherno='2024042400000286';
+
 select a.* from ljtempfeeclass a where TEMPFEENO='86000020270320000094';
+
 select a.* from lcinsureacctrace a where contno in ('2024042400000286','') and MONEYTYPE='CS' and riskcode='1303012' and makedate between date'2027-07-28' and date'2027-07-28' order by contno,paydate desc;
+
 select a.* from lcinsureacctrace a where contno in ('2024042400000286','') order by paydate desc,makedate desc,maketime desc;
+
 select a.* from lcinsureaccfeetrace a where contno='2024042400000286' order by paydate desc;
+
 select a.* from ldtask a where taskdescribe like '%缓交%';
 
 --科目明细

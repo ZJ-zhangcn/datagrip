@@ -12,6 +12,7 @@
         dat:http://10.52.200.101:8001/lisdat/services/AgentSaleService?wsdl
         pre:
   2、获取报文（可先从前端正常投保一单获取）：
+
     --请求报文：TRANTYPE=0  响应报文：TRANTYPE=1
     select * from tranxml where LOGNO in (select LOGNO from tranapp where prtno='5000110900005716');
   3、将获取的报文转为Base64编码：GBK转Base64

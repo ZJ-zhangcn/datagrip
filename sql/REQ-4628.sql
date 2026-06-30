@@ -15,10 +15,15 @@
 满期金自动转账：2025030300000586
 */
 select a.* from ljapay a where INCOMENO='2025030500001066' order by payno
+
 select a.* from ljaget a where otherno='2025030300000586'
+
 select a.* from ljagetdraw a where contno='2025022400000416' order by getdate
+
 select a.* from LCINSUREACCTRACE a where contno='2025022400000416' order by paydate,makedate,maketime
+
 select SOURCENOTECODE 应,paycode 实,GLVOUCHERNO 凭证号,a.* from LyAtsTranRela a where polno='7402121100347973' order by tranno
+
 select doc_seq_num,status,a.* from cux_gl_interface a where source_batch_id='00000000000000003647';
 --doc_seq_num
 /*

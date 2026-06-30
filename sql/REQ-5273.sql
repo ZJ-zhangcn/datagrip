@@ -13,6 +13,7 @@ update lccont set uwflag='9' where prtno='5000118251009757';
 select a.*
 from ldtask a
 where TASKCLASS = 'YbtUploadImageTask';
+
 select a.*
 from ldtaskplan a
 where taskcode = '000233';
@@ -36,6 +37,7 @@ where b.contno = '5000118251009757'
   and exists (select 1 from lpedoritem where edortype in ('CT', 'GT') and edorstate = '0' and contno = b.contno)
   and rownum = 1
 union
+
 select '2'
 from lccont d
 where d.contno = '5000118251009757'
@@ -43,6 +45,7 @@ where d.contno = '5000118251009757'
   and exists (select 1 from lpedoritem where edortype in ('WT', 'XT') and edorstate = '0' and contno = d.contno)
   and rownum = 1
 union
+
 select '4'
 from lccontstate e
 where e.contno = '5000118251009757'
@@ -51,6 +54,7 @@ where e.contno = '5000118251009757'
   and e.statereason in ('01', '04')
   and rownum = 1
 union
+
 select CASE uwflag WHEN '9' THEN '5' WHEN '1' THEN '7' WHEN '2' THEN '7' WHEN 'a' THEN '7' ELSE 'A' END
 from lccont c
 where c.contno = '5000118251009757'
@@ -58,6 +62,7 @@ where c.contno = '5000118251009757'
   and conttype = '1'
   and rownum = 1
 union
+
 select '8'
 from lccont a
 where a.contno = '5000118251009757'

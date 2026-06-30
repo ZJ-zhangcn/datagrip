@@ -97,6 +97,7 @@ select CustomerNo
 from ldgrp
 where GrpName = '上海塔苏国际商贸有限公司'
   and ComDocIDNo = '91310120D586DSF42T';
+
 select a.*
 from ldgrp a
 where CustomerNo = '1060101780';
@@ -131,6 +132,7 @@ delete from LLAutoCheckInfo where grpclmno = 'P86012026001143' and state = '1';
 
 /*
 update fxdj.cr_client set name='上海塔苏国际商贸有限公司',sex=null,birthday=null,cardtype=null,cardid='91310120D586DSF42T' where CLIENTNO='100181271701';
+
 update fxdj.cr_client set RISKGRADE='3',state='04' where CLIENTNO='100181271707';
 */
 
@@ -263,6 +265,7 @@ where IDNO IN
 
 /*
 delete from LOPRTMANAGER where otherno in (select rgtno from LLREGISTER where rgtobjno = 'P86012026001132') or otherno in ('3631815101011515');
+
 update ljaget set SENDBANKCOUNT='0',PRTNOTESTATE=null where otherno in (select rgtno from LLREGISTER where rgtobjno = 'P86012026001132') or otherno in ('3631815101011515');
 */
 
@@ -287,6 +290,7 @@ from (select 1 from LCGrpCont where 1 = 1 and appntno = '1000012249' group by ap
 select fdname
 FROM ldgrp
 WHERE customerno = '1000012249';
+
 select fdname
 FROM ldgrp
 WHERE customerno = '1060101140';

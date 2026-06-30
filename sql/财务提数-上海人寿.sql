@@ -23,6 +23,7 @@ where batchno = '00000000000000004399'
 
 /*
 update fiaboriginaldata set stringinfo11='R0300' where batchno='00000000000000004402' and acquisitionid in ('req78213','REQ71805','REQ71811','00000804');
+
 update fiaboriginaldata set stringinfo14='91302' where batchno='00000000000000004402' and acquisitionid in ('req78213','REQ71805','REQ71811','00000804');
 */
 
@@ -35,6 +36,7 @@ where contno = '2023122600000126';
 select *
 from vms_resp_inoutflow
 where contno = '2024022200000396';
+
 select distinct riskcode
 from vms_resp_inoutflow
 where tax > 0;
@@ -44,6 +46,7 @@ select *
 from ficostdataacquisitiondef
 where acquisitionid like '%REQ34514%'
 order by acquisitionid;
+
 --算法查询
 select a.*
 from ficostdataacquisitiondef a
@@ -93,10 +96,12 @@ where otherno in ('5000118360087332','7402121100332243','3631815101011280','5000
 select inbankcode, inbankaccno
 from splitcont a
 where contno = '2024050700000386';
+
 --拆单收费模拟正常收费修改inbankcode='0116' and inbankaccno='216200100101807734'
 select inbankcode, inbankaccno
 from splitcont a
 where contno = '2024040300000286';
+
 --科目明细
 select f.je_category_name                                                                                   凭证类型,
        --attribute2,
@@ -141,4 +146,5 @@ order by f.ACCOUNTING_DATE asc, f.je_category_name asc, SOURCE_BATCH_ID asc, f.L
 
 
 select contno from llclaimpolicy a where caseno='3631815101011284';
+
 select contno from lpedoritem a where edoracceptno='7402121100332298';

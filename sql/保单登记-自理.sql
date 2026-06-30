@@ -4,6 +4,7 @@ REQ-3961-关于保单登记平台销售渠道信息数据质量优化的申请
 
 --branchtype  5-网销  8-健康险    0000000031-网销
 select agentcom,branchtype,a.* from lacom a where agentcom in ('JK00000001','JK00000006','JKX0000000016','JK00000040','JKX0000000017','0000000031','JK00000016','','');
+
 select a.* from ldcode a where codetype like '%branchtype%';
 
 --许可证有效起止期
@@ -23,22 +24,27 @@ select
        salechnl, selltype, salechannels,
        a.*
 from lccont a where contno='2023122800000286';
+
 select
        salecom, agentcom, signdate,
        a.*
 from lccont a where salechannels='010206' and appflag='1' order by a.signdate desc;
+
 --销售渠道配置
 select a.* from ldcode a where codetype = 'gsalechannels';
 
 --交易执行脚本
 select * from LMCALMODE_PRIPSX where CALCODE = 'PRIP08';
+
 --第一步
 select * from LMCALMODE_PRIPSX where CALCODE in ( 'HH0001-02','','','','');
 --第二步
 --LCGrpCont脚本
 select * from LMCALMODE_PRIPSX where CALCODE = 'HH0004-01';
+
 --交易涉及表
 select * from LDCODEBDDJ where CODE = '58';
+
 --报送类型
 select * from LMCALMODE_PRIPSX a where calcode like 'PRIP16%';
 

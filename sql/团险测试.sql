@@ -51,6 +51,7 @@ where riskcode in (select RiskCode
                    where (enddate is null or enddate > date'2026-06-15')
                      and riskprop in ('G', 'D')
                    union
+
                    select riskcode
                    from LMRiskComCtrl
                    where startdate <= date'2026-06-15'

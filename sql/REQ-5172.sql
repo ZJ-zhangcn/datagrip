@@ -4,6 +4,7 @@
 select a.*
 from ybtreservcont a
 where STANDBYFLAG1 = '2025111300000206';
+
 --ssh
 select s.sysvarvalue
 from ldsysvar s
@@ -13,6 +14,7 @@ where s.sysvar = 'SFTPServer-ShareImage';
 select *
 from ldsysvar s
 where s.sysvar = 'SFTPServer-OriginalImage';--/data/Image/psbc/RECV
+
 --批处理
 select a.* from ldtask a where TASKDESCRIBE like '%上行预约单承保短信%';
 

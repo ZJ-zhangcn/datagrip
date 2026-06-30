@@ -3,8 +3,10 @@
 
 --壹帐通校验通过   中保信身份验证通过修改zbxidentresult=10201  30452
 select a.* from lcidCardCheckInfo a where contno='2024091200000516';
+
 /*
 update lcidcardcheckinfo set resultstatus='000000',resultdesc='通过',zbxidentresult='10201' where contno='2024071700000326'
+
 update lcidcardcheckinfo set resultstatus='000000',resultdesc='通过',zbxidentresult='10201' where Name='投保二' and IDNO='152123200601100359'
 */
 

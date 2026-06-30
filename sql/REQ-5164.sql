@@ -90,6 +90,7 @@ where a.contno = c.contno
   and a.DUTYCODE like '%1001'
   and a.contno = '2025121900000156'
   and b.dt = 4;
+
 --红利宣告交清基本保险金额应退金额
 select round(2678.16 / 1000 * cv2 * (date'2028-12-30' - date'2028-12-20') / 365 +
              2678.16 / 1000 * cv1 * (1 - (date'2028-12-30' - date'2028-12-20') / 365), 2) cash
@@ -105,6 +106,7 @@ where a.contno = c.contno
 
 select 4085.83 + 2540.86
 from dual;
+
 --基本保额应退金额
 select round(prem / 1000 * endcv * (date'2028-12-30' - date'2028-12-20') / 365 +
              prem / 1000 * begcv *
@@ -116,6 +118,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025121900000156'
   and dt = 4;
+
 --红利利息
 select round(33407.97 * round(0.03 / 365, 8) * (date'2030-10-10' - date'2030-09-29'), 2)
 from dual;
@@ -133,6 +136,7 @@ where a.contno = c.contno
   and a.DUTYCODE like '%1001'
   and a.contno = '2025121900000156'
   and b.dt = 4;
+
 --累积交清基本保险金额减保后保额  select (1-第t次减保的金额/第t次减保前的现金价值)*第t次减保前的保额 from dual;
 select round((1 - 1000 / 5085.83) * 5360.66, 2)
 from dual;

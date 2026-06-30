@@ -12,6 +12,7 @@ where otherno = '3631815101095877';
 select PAYMODE, BANKACCNO, a.*
 from ljaget a
 where ACTUGETNO = '86000020260370000184';
+
 /*
 update ljspay
 set paymode='9',

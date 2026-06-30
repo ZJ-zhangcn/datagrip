@@ -37,9 +37,13 @@ select contno,
  where contno = '2024041100000186'
 
 select a.* from ljsgetdraw a where contno='2024041100000186'
+
 select a.* from ljaget a where otherno='2024032900000526'
+
 select a.* from ljagetdraw a where contno='2024041100000186'
+
 select moneytype,a.* from lcinsureacctrace a where contno='2024041100000186' order by paydate desc,a.moneytype;
+
 select a.* from loprtmanager a where otherno='2024041100000186'
 
 select a.* from lmriskapp a where riskname like '%盛世安鑫%'
@@ -47,4 +51,5 @@ select a.* from lmriskapp a where riskname like '%盛世安鑫%'
 select a.* from lcaddress a where mobile='17503290008'
 
 select a.* from ljaget a where otherno='2024011900000456';
+
 select a.* from ljagetdraw a where contno='2024011900000456';

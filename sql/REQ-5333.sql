@@ -104,6 +104,7 @@ select *
 from ldcode
 where codetype = 'PublicPUlowestAmnt'
   and code = '000000';
+
 --减额交清后保额
 select round(6000 / 1000 * a.RPU) 减额交清后保额
 from cv_1116005 a,
@@ -113,6 +114,7 @@ where a.AGE = b.INSUREDAPPAGE
   and a.PT = b.PAYENDYEAR
   and b.contno = '2026051300001216'
   and a.dt = '2';
+
 --减额交清后的现金价值
 select round(7349.22 / 1000 *
              (a.CV_RPUAFACTOREND * (date '2028-05-20' - date '2028-05-14') / 365 +
@@ -124,6 +126,7 @@ where a.AGE = b.INSUREDAPPAGE
   and a.PT = b.PAYENDYEAR
   and b.contno = '2026051300001216'
   and a.dt = '3';
+
 --减额交清后保费
 select round(7349.22 * 1000 / a.RATE, 2) 减额交清后保费
 from rt_1116005 a,
@@ -226,6 +229,7 @@ where a.contno = c.contno
   and a.DUTYCODE like '%1001'
   and a.contno = '2026051300001126'
   and b.dt = 4;
+
 --累积交清基本保险金额减保后保额  select (1-第t次减保的金额/第t次减保前的现金价值)*第t次减保前的保额 from dual;
 select round((1 - 100 / 282.22) * 297.58, 2) 减保后保额
 from dual;

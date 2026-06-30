@@ -22,8 +22,11 @@ select 541.83*prem/1000-0 from lcpol where contno='2024060400001716'
 select 541.83*prem/1000-0 from lcpol where contno='2024060400001716'
 
 select contno,prtno,makedate from lccont where prtno='5000118340528049';
+
 select a.* from lcinsured a where contno='2024053000000426'
+
 select a.* from ldperson a where customerno='1060093458'
+
 select a.* from lcpol a where contno='2024061900000186'
 
 select insuredappage,payendyear,insuredsex,a.* from lcpol a where contno='2024052800000116'
@@ -46,5 +49,7 @@ select a.contno      保单号,
  where a.contno = b.contno
    and b.contno = c.contno
    and a.contno = '2023101500000686';
+
 select insuyear,a.* from lcpol a where contno='2024100100000456'
+
 select insuyear,a.* from lcduty a where contno='2024100100000456';

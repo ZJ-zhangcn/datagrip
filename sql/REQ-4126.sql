@@ -18,14 +18,18 @@ select contno,
        getenddate
   from lcget a
  where contno = '2024041800000206';
+
 --
 select IDStDate,IDEXPDATE,a.* from lcappnt a where contno='2024041800000206';
+
 select IDStDate,IDEXPDATE,a.* from lcinsured a where contno='2024041800000206'
 
 --
 select bankonthewayflag,banksuccflag,prtnotestate,bankprovince,bankcity,bankcode,bankaccno,ENTERACCDATE,CONFDATE,ACCTYPE,a.* from ljaget a where otherno='2024041800000206' order by shoulddate desc;
+
 --
 select dtcode,ats_returnstate,transstate,payinfocode,payinfo,a.* from ats_transactions a where reqseqid='20250101_27345'
+
 /*
 update ats_transactions
    set dtcode          = '1',--抽档成功

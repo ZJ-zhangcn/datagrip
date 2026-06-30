@@ -9,7 +9,9 @@ select a.* from loloanmain a where contno in ('2024102100000126','20241022000001
 select a.* from ldtask a where taskdescribe like '%贷款%' 
 
 select a.* from LJABonusGet a where otherno='2024102200000316' order by BONUSYEAR desc;
+
 select a.* from lobonuspol a where contno='2024102200000186' order by FISCALYEAR desc;
+
 select a.* from ljaget a where otherno='2024102200000316'
 
 select a.* from ljspay a where otherno='2024102200000316'

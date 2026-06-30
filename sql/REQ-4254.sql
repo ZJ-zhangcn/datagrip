@@ -9,7 +9,9 @@ select distinct contno
    and not exists (select 1 from lccontstate where contno = a.contno)
    and cvalidate <= date '2024-09-20'
  order by contno desc;
+
 select appflag,a.* from lcpol a where contno='2022030100055178'
+
 select a.* from lmriskapp a where riskcode in (select riskcode from lcpol a where contno='2020040300012026')
 
 select a.*
@@ -30,6 +32,7 @@ select a.*
  order by cvalidate desc
 
 select makedate,a.* from ljagetdraw a where contno='2024081600000116' order by getdate desc;
+
 select contno,
        dutycode,
        getdutycode,
@@ -42,6 +45,7 @@ select contno,
  where contno = '2020040300012026'
 
 select a.* from TEMP_LCPolTransaction a where policyno='2024091800001486';
+
 select Status,a.* from temp_LCLiability a where policyno='2024091800001486'
 
 select a.* from lccontstate a where contno='2024091800001486';

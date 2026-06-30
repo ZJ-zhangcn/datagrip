@@ -4,8 +4,11 @@
 select salechnl,selltype,salechannels,signdate,agentcode,agentcom,a.* from lccont a where contno='2023122500001266';
 
 select actype,a.* from lacom a where branchtype='2' and sellflag = 'Y'  and state='N';
+
 select a.licensestartdate 许可证,a.licenseenddate,CooperationStartDate 合作协议,CooperationEndDate,a.* from lacom a where agentcom='0000000050';
+
 select * from  ldthreadtask  where status in ('0','1') and prtno='3206915140103016';
+
 select policyno    保单号,
        DistribChnl 销售渠道代码,
        AgencyCode  代理机构编码,

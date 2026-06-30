@@ -2,8 +2,10 @@
 -- 标题: 兴业银行银保通接口改造需求（2024年4月）
 
 select appntname,idtype,idno,idexpdate from lcappnt a where contno='2015070100000218' 
+
 --select idexpdate,birthday from lcinsured a where contno='2024072300004256' --1983;
 select a.* from lcpol a where contno='2024072300004256'
+
 select a.* from lcpol a where appntname = '兴业投保' and cvalidate=date'2024-06-04' and appflag='1'
 
 select appflag,customgetpoldate,a.* from lccont a where contno='2024072300004386'
@@ -20,7 +22,9 @@ select contno,
        getenddate,LiveGetType
   from lcget a
  where contno = '2024072300004386';
+
 select a.* from ljsgetdraw a where contno='2024072300004386'
+
 select a.* from ljagetdraw a where contno='2024072300004386'
 
 

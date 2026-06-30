@@ -4,6 +4,7 @@
 --drop table cux_in_interface_temp;
 /*
 create table cux_in_interface_temp as
+
 select distinct a.source_batch_id ,
        accounting_date,
        line_description,
@@ -23,6 +24,7 @@ select a.* from cux_in_interface_temp a
 --drop table of_interface_temp;
 /*
 create table of_interface_temp as
+
 select distinct f.source_batch_id,
                 f.accounting_date,
                 f.je_category_name,
@@ -48,6 +50,7 @@ where f.source_batch_id = p.source_batch_id
   --and f.source_batch_id='00000000000000007597'
   and f.segment3 in ('10020101')
   and f.attribute15 = 'N'
+
 --and f.accounting_date between date'2022-01-01' and date'2025-01-31';
 alter table of_interface_temp modify paycode VARCHAR2(100);
 */
@@ -87,6 +90,7 @@ select DOC_SEQ_NUM,paycode,a.* from of_interface_temp a where paycode in ('86000
 --付费数据 修改实付号
 /*
 update of_interface_temp p set p.paycode = (
+
  select a.actugetno
  from ljaget a,lccont t
  where a.otherno=t.contno
@@ -106,6 +110,7 @@ update of_interface_temp p set p.paycode = (
 --付费数据 修改实付号
 /*
 update of_interface_temp p set p.paycode = (
+
  select a.actugetno
  from ljaget a,lccont t
  where a.otherno=t.contno
@@ -162,20 +167,28 @@ update of_interface_temp p
            and a.incometype = 'B' );
 */
 PayType=certifrela
+
 select GLVOUCHERNO,RDSEQ,reqseqid,ACTTYPE,a.* from LYATSTRANRELA a where ACTTYPE='S3' and exists (select VOUCHERCODE from S3_RTRECMENTS where urid=a.REQSEQID)
+
 /*
 update LYATSTRANRELA set GLVOUCHERNO=null where
 PayType=certif_ats
+
 select GLVOUCHERNO,a.* from ats_transactions a where rdseq in (select RDSEQ from LYATSTRANRELA)
 PayType=certif_ats_sup
+
 select GLVOUCHERNO,a.* from ats_transactions_supplemented a where rdseq in (select RDSEQ from LYATSTRANRELA) and GLVOUCHERNO is not null
+
 update ats_transactions_supplemented set GLVOUCHERNO=null
 PayType=certif_S3
+
 select VOUCHERCODE,a.* from S3_RTRECMENTS a where urid in (select reqseqid from LYATSTRANRELA)
 */
 
 select GLVOUCHERNO,a.* from LYATSTRANRELA a where exists (select VOUCHERCODE from S3_RTRECMENTS where urid=a.REQSEQID)
+
 select a.* from cux_gl_interface a where
+
 select a.* from of_interface a where
 
 

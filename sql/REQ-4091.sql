@@ -9,6 +9,7 @@
       b、发盘文件格式参照接口文档
     (2)预期结果
       生成文件路径（银保通服务器）：
+
     SELECT SYSVARVALUE FROM LDSYSVAR WHERE SYSVAR = 'YCsftp-down'--/data/app/FileContent/BankFile/psbc/SvcOut/
   2、核心执行邮储批量现价查询单号存储批处理
     (1)批处理执行类：YBTCashContnoSaveTask
@@ -16,13 +17,16 @@
     (3)预期结果
       a、先从第1步生成文件中下载文件至核心服务器解析
         下载文件存储路径（核心服务器）：
+
       SELECT a.sysvarvalue FROM ldsysvar a where a.sysvar = 'YCsftp-local'--/data/lis/xerox/runTimeFile/psbc
       b、文件解析成功后数据存储表生成文件中保单数据(flag='0'、fliename='第1步生成文件保单所在文件名')：
+
     select a.* from YBTCashValueBack a where trandate=date'2024-05-16'
         注：此时表中status、insuendate字段值为空
       c、删除核心服务器a步的解析文件
   3、核心执行邮储批量现价查询及数据上传批处理
     (1)批处理执行类：YBTCashContnoBackTask
+
       select a.* from ldtask a where taskclass='YBTCashContnoBackTask'
     (2)参数：无，直接执行，日期为当前系统日期当日
     (3)预期结果
@@ -48,8 +52,10 @@ select a.*
 
 --Terminate-终止状态\Available-失效状态\DefedPay-缓交状态
 select a.* from ldcode a where codetype = 'contstatetype'
+
 --
 select appflag,a.* from lccont a where contno='2024040400000156'
+
 --
 select a.contno
   from lccont a, lccontstate b
@@ -58,5 +64,6 @@ select a.contno
    and b.statetype = 'Terminate'
    and b.state = '1'
    and startdate between date '2024-01-01' and date '2024-04-15'
+
 --
 select a.* from YBTCashValueBack a where contno in ('2024040300000286','2024040300000326','2022112200001156','2022031000008986','2024040400000156');

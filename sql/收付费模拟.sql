@@ -20,4 +20,5 @@ UPDATE ats_transactions a
  WHERE a.SOURCENOTECODE in ('30001151000000003214','30001151000000003215');
 */
 select a.* from ats_transactions a where reqseqid = '20260105_43706' order by RDSEQ;
+
 select a.* from loprtmanager a where otherno='7402121100347611';

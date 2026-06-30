@@ -8,6 +8,7 @@ DECLARE
     v_end_date DATE := DATE '2050-12-01';
 -- 结束日期
     v_current_date DATE;
+
 BEGIN
     v_current_date := v_start_date;
 -- 循环直到结束日期
@@ -33,6 +34,7 @@ BEGIN
         v_current_date := ADD_MONTHS(v_current_date, 1);
 END LOOP;
 END;
+
 /*
 select a.* from LMINSUACCRATE a where RISKCODE='1303022';
 */;

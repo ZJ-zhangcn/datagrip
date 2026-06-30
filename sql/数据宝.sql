@@ -1,5 +1,6 @@
 --数据宝开关  1-开  0-关
 select codename from ldcode where codetype = 'CheckMobile_State' and code='01';
+
 --数据宝校验状态  state：1-通过  2-不通过
 select a.* from lcmobileCheckInfo a where contno='5000118240327031';
 
@@ -10,6 +11,9 @@ values ('5000118240327024', '1060092799', 'M', '银保投保九', '1521011983112
 select appflag,a.* from lccont a where contno='2024031800000596';
 
 select a.* from lcinsured a where contno='5000118240327024';
+
 select mobile,a.* from lcaddress a where customerno=(select appntno from lcappnt where contno='2024031800000596');
+
 select mobile,a.* from lcaddress a where mobile='17503250001';
+
 select a.* from laagent a where mobile='17503279999';

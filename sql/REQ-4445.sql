@@ -4,13 +4,19 @@
 select a.* from lcpol a where appntname like '%银保投保%' and a.insuredappage<18 
 
 select a.* from lcpol a where contno='2023051100000986'
+
 select a.* from lcappnt a where contno='2023051100000986'
+
 select a.* from lcinsured a where contno='2024082000000176'
+
 select a.* from lcaddress a where customerno in (select appntno from lcappnt  where contno='2023051100000986')
+
 select a.* from lcaddress a where customerno in (select insuredno from lcinsured  where contno='2024082000000176')
 
 select a.* from lmriskapp a where riskcode='1051016'
+
 select * from ldcode where codetype = 'QuickRisk' and comcode = 'Y'--2024082000000176  1051016;
+
 select a.*
   from lcpol a
  where appflag = '1'

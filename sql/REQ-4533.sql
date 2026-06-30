@@ -48,9 +48,13 @@ where a.appntno=b.customerno and a.addressno=b.addressno and a.contno='202203290
 select name,birthday,idtype,idno,a.* from lcinsured a where contno='2022032900000416'
 
 select state,riskgrade,a.* from fxdj.cr_client a where clientno = '6666666703';
+
 select state,riskgrade,a.* from fxdj.cr_client a where clientno = '6666700005';
+
 select a.* from fxdj.cr_client a where CARDID = '310107199205040131';
+
 select a.* from ldcode a where codetype like '%riskgrade%';
+
 /*
 INSERT INTO FXDJ.CR_CLIENT (CLIENTNO, SOURCE, NAME, BIRTHDAY, AGE, SEX, GRADE, CARDTYPE, CARDID, CARDEXPIREDATE,
                             CLIENTTYPE, WORKPHONE, FAMILYPHONE, TELEPHONE, OCCUPATION, BUSINESSTYPE, INCOME, GRPNAME,
@@ -68,6 +72,7 @@ VALUES ('1111111110', '1', '少一', DATE '1992-05-04', null, '0', null, '1', '3
         null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null, '4', '05', null, DATE '2022-05-01', null,
         null, null, null);
+
 insert into fxdj.cr_client (CLIENTNO, SOURCE, NAME, BIRTHDAY, AGE, SEX, GRADE, CARDTYPE, CARDID, CARDEXPIREDATE, CLIENTTYPE, WORKPHONE, FAMILYPHONE, TELEPHONE, OCCUPATION, BUSINESSTYPE, INCOME, GRPNAME, ADDRESS, OTHERCLIENTINFO, ZIPCODE, NATIONALITY, PROVINCE, COMCODE, CONTTYPE, BUSINESSLICENSENO, ORGCOMCODE, TAXREGISTCERTNO, BUSINESSSOURCE, LEGALPERSON, LEGALPERSONCARDTYPE, LEGALPERSONCARDID, LINKMAN, COMREGISTAREA, COMREGISTTYPE, COMBUSINESSAREA, COMBUSINESSSCOPE, APPNTNUM, COMSTAFFSIZE, AMLISCOUNT, AMLIHCOUNT, AMLISREPORTCOUNT, AMLIHREPORTCOUNT, GRPNATURE, FOUNDDATE, HOLDERKEY, HOLDERNAME, HOLDERCARDTYPE, HOLDERCARDID, HOLDEROCCUPATION, HOLDERRADIO, HOLDEROTHERINFO, RELARISKTIP, ISEXCEPTION, ISCOMPLETED, EXCEPTIONCODE, FIRSTAUDITOR, SECONDAUDITOR, THIRDAUDITOR, GRADEWAY, RISKSCORE, RISKGRADE, STATE, REMARK, DEALTIME, NEXTAUDITDATE, OPER, MAKEDATE, MAKETIME)
 values ((select max(CLIENTNO)+1 from fxdj.cr_client), '1', '预生产测试', to_date('01-10-1989', 'dd-mm-yyyy'), null, '1', null, '0', '110101198910016540', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '4', '05', null, to_date('01-05-2022', 'dd-mm-yyyy'), null, null, null, null);
 */

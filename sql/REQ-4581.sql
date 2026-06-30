@@ -6,7 +6,9 @@ select a.* from ldcode a WHERE CODETYPE = 'AssisadmissionDateflag'
 
 --
 select a.* from lcRiskMapInfo a where AUTHORIZEDCERTNO='350824198001100013'
+
 SELECT * FROM lcRiskMapInfo WHERE AdmissionDate is not null
+
 select admissionDate,dischargeDate,departmentCode,departmentName,a.* from lcRiskMapInfo a where policyno='5000118341206476' or CLAIMNO='5000118341206476'
 
 select admissionDate,dischargeDate,departmentCode,departmentName,a.*

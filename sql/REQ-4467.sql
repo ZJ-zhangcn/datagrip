@@ -3,6 +3,7 @@
 
 --保盾云开关  codename='0'为开
 select * from ldcode where codetype = 'bfyswitch';
+
 select COMCODE from ldcode where codetype = 'bfyswitch' and code = '0'
 
 --

@@ -10,6 +10,7 @@ where a.INDEXCALNO = b.wageno
   and a.managecom like '8601%'
   and a.branchtype = '3'
   and a.paysucdate = date '2025-05-13';
+
 select EnterAccDate,
        BankCode,
        BankName,

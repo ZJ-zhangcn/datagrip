@@ -1,18 +1,26 @@
 select * from ljaget where otherno='2026052500000296';
+
 --delete
 select leavingmoney,a.* from lcpol a where contno='2026052500000296';
+
 /*
 update lcpol a set leavingmoney=1540.80 where contno='2025042500000206';
 */
 select a.* from LOBONUSPOL a where contno='2026052500000296' order by FISCALYEAR;
+
 select * from ljabonusget where contno='2026052500000296' order by BONUSYEAR;
+
 --delete
 select * from lcinsureacctrace where contno='2026052500000296' order by paydate;
+
 --delete
 select a.* from LCINSUREACC a where contno='2026052500000296';
+
 select a.* from LCINSUREACCCLASS a where contno='2026052500000296';
+
 /*
 update lcinsureacc a set a.insuaccbala=25223.15,a.baladate=date'2031-04-26' where contno='2026052500000296' and acctype='004';
+
 update lcinsureaccclass a set a.insuaccbala=25223.15,a.baladate=date'2031-04-26' where contno='2026052500000296' and acctype='004';
 */
 

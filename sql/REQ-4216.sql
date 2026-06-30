@@ -4,8 +4,10 @@
 select a.* from ldtask a where taskdescribe like '%续期明细%' 
 
 select * from YBTInsRenewal order by to_number(SerialNo);
+
 /*
 update YBTInsRenewal set makedate=date'2024-07-10',modifydate=date'2024-07-10'
+
 update YBTInsRenewal set makedate=date'2025-03-05',modifydate=date'2025-03-05' where SERIALNO='4'
 */
 
@@ -20,6 +22,7 @@ select a.* from lccontstate a where contno='2023110600000786'
 select payform,a.* from ljspay a where otherno='2023030300001206'
 
 SELECT SYSVARVALUE FROM LDSYSVAR WHERE SYSVAR = 'SHSFtp';
+
 --/CallSvc/spdb/
 SELECT SYSVARVALUE FROM LDSYSVAR WHERE SYSVAR = 'BDFtp'
 

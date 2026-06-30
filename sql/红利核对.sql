@@ -35,6 +35,7 @@ select dutycode,
         where getdutycode = a.getdutycode
           and getdutykind = a.getdutykind
         union
+
         select distinct getdutyname
         from lmdutygetclm
         where getdutycode = a.getdutycode) getdutyname,

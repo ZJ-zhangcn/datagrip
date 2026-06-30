@@ -107,6 +107,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025120200000526'
   and dt = 3 - 1;
+
 --other
 select round(210736.96 * 1000 / (a.END_AFACTOR * (date '2028-11-10' - date '2027-12-03') / 366 +
                                  a.BEG_AFACTOR * (1 - (date '2028-11-10' - date '2027-12-03') / 366)), 2) 减额交清后保额
@@ -117,6 +118,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025120200000526'
   and dt = 3;
+
 --减额交清后保费计算
 select round(171247.56 * 1000 / a.rate, 2) 减额交清后保费
 from rt_1011005 a,
@@ -125,6 +127,7 @@ where pt = payendyear
   and age = insuredappage
   and gender = insuredsex
   and contno = '2025120200000526';
+
 --减额交清后现价计算
 select round((cast((171247.56 / 1000 * cv_rpuAfactorEnd) as decimal(18, 2)) *
               ((date '2028-11-10' - date '2027-12-03') / 366)) +
@@ -145,11 +148,13 @@ select least(829011 * 0.2 / 829011 * 859896.99 - 0,
              859896.99)
 from lcpol
 where contno = '2025120500000286';
+
 --本年度第二次
 select least(829011 * 0.2 / 819370.18 * 849896.99 - 10000,
              849896.99)
 from lcpol
 where contno = '2025120500000286';
+
 --减保后的保额
 select round((1 - 10000 / 859896.99) * 829011, 2)
 from cv_1011005 a,
@@ -159,6 +164,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025120500000286'
   and dt = 6;
+
 --减保后的保费
 select round(819370.18 * 1000 / rate, 2)
 from rt_1011005 a,

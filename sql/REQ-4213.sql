@@ -310,6 +310,7 @@ VALUES ('202408', '0101100010', '000000005190', '86010101', DATE '2030-03-11', n
         'D01', 0.00, 0.00, null, null, null, null, null, null, null, null, null, '01', 0.00, 0.00, 0.00, 0.00, 0.00,
         0.00, 0.00, 0.00, 0.00, 126202.50, 0.00, 0.00, 0.00, 0.00, null, null, null, null, null, null,
         DATE '2025-09-02', 'SJ0_860000002025090200932120');
+
 INSERT INTO LISDATA.LAWAGE (INDEXCALNO, AGENTCODE, AGENTGROUP, MANAGECOM, GETDATE, SUMMONEY, LASTMONEY, CURRMONEY, F01,
                             F02, F03, F04, F05, F06, F07, F08, F09, F10, F11, F12, F13, F14, F15, F16, F17, F18, F19,
                             F20, F21, F22, F23, F24, F25, F26, F27, F28, F29, F30, K01, K02, K03, K04, K05, K06, K07,
@@ -421,6 +422,7 @@ where contno = '2019061900004126';
 select a.*
 from lacommision a
 where (wageno = '202408' or wageno = '202407');
+
 /*
 update lacommision
 set fyc= -fyc

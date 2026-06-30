@@ -3,7 +3,9 @@
 
 /*
 update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2025121200000586' and moneytype != 'CXJJ';
+
 update lcinsureacctrace set makedate=paydate+1,modifydate=paydate+1 where contno='2025121200000586' and moneytype = 'CXJJ';
+
 update lcinsureaccfeetrace set makedate=paydate,modifydate=paydate where contno='2025121200000586';
 */
 

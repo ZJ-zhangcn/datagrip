@@ -21,40 +21,59 @@ select b.prem / 1000 * c.bonusrate * a.bonusfactor
 -- 红利催付核销→分红通知书打印→红利累积生息
 -- 满期终止后，可做红利催付核销-累积生息-红利领取，若最后一期红利未结息，红利领取的时候需要结息
 SELECT  round([利率]/[计息天数],8 ) * [计息天数] *[本金] FROM dual;---红利利息计算公式
+
 SELECT  round(0.03/365,8 ) * 365*569.59 FROM dual;
+
 SELECT round(0.03 / 730, 8) * 730 * 149.04 +
        round(0.03 / 365, 8) * 365 * 320.55
   from dual;
+
 -- 相关表结构
 select * from lisdata.ldcode where codetype='bonusgetmode';
+
 ---红利领取方式定义
 select code from ldcode where codetype = 'bqbonusgetmode' and comcode = '1103007';
+
 select * from LMRiskParamsDef where paramstype='bonusgetmode' and riskcode='1103005';
+
 select * from lmriskapp where bonusflag='1' and risktype3='2';
+
 -- 支持分红的产品(1  传统险2  分红3  投连4  万能5  其他)I--个人险、Y--银代险
 select * from Lmriskbonus where riskcode='1103004';
+
 -- 1103004
 select * from Lobonusrate;
+
 ----红利利率定义表(上海人寿)
 select * from BonusRate t where t.riskcode='1103007'; --年度红利分配比例（K）
+
 select * from lobonusfactor t where riskcode = '1103007' and t.insuredsex='0' and t.insuyear='6' and t.payendyear='3' and t.insuredappage='24'; ---红利因子
+
  select * from lobonusfactor t where riskcode = '1103002' and t.insuredsex='0' and t.insuyear='6' and t.payendyear='3' and t.insuredappage='27';---红利因子(测试手动配置)
+
  select
         t.insuredsex, t.insuyear, t.payendyear,
         t.*
  from lcpol t where t.contno='2023112900000586';
+
 select t.insuredbirthday,t.cvalidate,t.* from lccont t where contno='2023112900000586';
 -- 维护红利因子	1.红利利息可以随便填；2.被保人年龄要填投保时的年龄；3.年份填要维护的年龄因子；
 -- 4.缴多久的保费；5.duration填1表示一个保单第一个红利利息，如果第二次跑红利批处理，就需要改为2（如累积生息）
 
 select * from Ldbankrate;
+
 ---累计生息利率
 select * from lcpol where bonusgetmode='4';
+
 ---红利领取方式
 select * from Bonus_ENGP;---分红费率（建信）
+
 select * from lcinsureacc where contno='2025071200000786';
+
 select * from lcinsureaccclass where contno='2025071200000786';
+
 select * from lcinsureacctrace  where contno='2025071200000786';
+
 select * from lisdata.ldcode where codetype like '%finfeetype%';
 
 0.03  1102000000.00
@@ -65,21 +84,29 @@ select * from lisdata.ldcode where codetype like '%finfeetype%';
 -- 跑完红利批处理核对数据
 select * from LOBonusPol where contno='2023112900000586'
 and FisCalYear ='2016'; ---保单红利表,会计年度，催付后生成(AGetDate,bonusmoney,bonusinterest,bonusflag,bonusgetmode,)
+
 select * from LJABonusGet where otherno='2023112900000586';
+
 ---红利给付实付（资金返盘后置上回盘日期confdate）
 select * from LDEdorUser d where UserCode = '001' and UserType = '1';---保全员信息
+
 select * from lcinsureacc where acctype = '004';------004代表是红利账户
+
 select * from lcinsureacctrace at where at.contno='2023112900000586';
+
 ---保险帐户表记价履历表
 select * from ldcode where codetype = 'companysumbonus';
+
 ----分红业务红利分配额度
 select * from ldcode where codetype = 'appntsumbonus';
+
 ----分配给投保人的红利总额
 
 select
        t.FisCalYear, t.divrate, t.publicdate,
        t.*
 from LOBonusPolRate t where riskcode='000000';
+
 ---累计生息时的红利利率表
 select * from lcinsureacc where acctype = '004';------004代表是红利账户
 ---（001 -- 集体公共账户002 -- 个人缴费账户003 -- 个人累积生息账户004 -- 个人红利账户）
@@ -98,7 +125,9 @@ select * from lcinsureacc where acctype = '004';------004代表是红利账户
   -- 续期抽档的流程  实时投保--新单确认--签单--续期抽档（单笔抽件，成功后应付表能查到）--查询缴纳保费和确认缴纳保费（成功后，暂收表能查到）--做对账交易（确认缴纳保费）--对账成功后，去核销（续收管理-正常交易，成功后，实收表里边就能查到）
 	-- 相关查询的SQL语句：
 	select * from lis.ljspay y where y.otherno='290000305680';  --应收表，在抽件后
+
 select * from lis.ljapay y where y.otherno='290000305680';   --实付表，核销后便可查询
+
 select * from lis.ljtempfee f where f.otherno='290000305680';  --确认后，暂收费
 	-- 注意：要注意paytodate的值，续期成功后，其值会变成下一年需要缴费的日期
 	
@@ -117,6 +146,7 @@ select * from lis.ljtempfee f where f.otherno='290000305680';  --确认后，暂
 
 -- 如果要回滚红利数据，删除这两个表即可
 select * from LJABonusGet where otherno='2024071900000256';
+
 select * from lobonuspol where contno='2024071900000256';
 
 -----核心提取要分红的筛选条件

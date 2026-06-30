@@ -1,9 +1,14 @@
 select a.* from lccontstate a where contno='2023120700000826';
+
 select a.* from lcconthangupstate a where contno='2023120700000826';
+
 select a.* from ldcode a where codetype='conthanguptype';
+
 --保单失效状态
 select a.* from ldcode a where codetype='contavailablereason';
+
 select a.* from ldcode a where codetype='contterminatereason';
+
 --满期终止
 select a.*
   from lccont a
@@ -78,8 +83,10 @@ select a.*
 
 --核保状态
 select a.* from ldcode a where codetype = 'uwflag';
+
 --拒保
 select a.* from lccont a where uwflag='1' and appflag='0' and contno=prtno and grpcontno like '000000%' and prtno in (select CONTPRTNO from ybtnonrealtimepol/*非实时保单该表有数据*/);
+
 --延期
 select a.* from lccont a where uwflag='2' and appflag='0' and contno=prtno and grpcontno like '000000%' and contno in (select contno from ybtnonrealtimepol);
 

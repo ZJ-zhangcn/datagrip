@@ -30,6 +30,7 @@ insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, D
 values (1982763601, '5005190140620018', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
 */
 select sysvarvalue from ldsysvar where sysvar='BatIPHost';
+
 select otherno
   from lpedorapp a
  where othernotype = '4'

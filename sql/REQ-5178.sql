@@ -5,9 +5,11 @@
 select HESITATEEND, a.*
 from LMEdorWT a
 where RISKCODE = '1036012';
+
 --还款利息
 select round(34636.38 * round(0.03 / 365, 8) * (date'2026-01-20' - date'2025-12-02'), 2) LX
 from dual;
+
 --生存金
 select amnt
 from lcpol a
@@ -44,6 +46,7 @@ where a.insuredsex = b.gender
   and a.payendyear = b.pt
   and a.contno = '2025102300000286'
   and b.dt = 1;
+
 --t≤PPP，年领欠缴保费
 select round(a.prem / 1000 * b.endcv - 8430.00, 2) cash
 from lcpol a,
@@ -53,6 +56,7 @@ where a.insuredsex = b.gender
   and a.payendyear = b.pt
   and a.contno = '2025102300000286'
   and b.dt = 6;
+
 --t>PPP，年领欠缴保费
 select round(a.prem / 1000 * b.endcv - 8430.00, 2) cash
 from lcpol a,
@@ -62,6 +66,7 @@ where a.insuredsex = b.gender
   and a.payendyear = b.pt
   and a.contno = '2025102300000286'
   and b.dt = 8;
+
 --t>PPP，年领未欠缴保费
 select round((a.prem / 1000 * b.endcv * (DATE '2034-12-01' - DATE '2034-10-24') / 365) +
              (a.prem / 1000 * b.begcv *

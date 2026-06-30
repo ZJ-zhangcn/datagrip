@@ -69,6 +69,7 @@ order by BONUSYEAR, GETDATE, MAKEDATE, MAKETIME;
 --累积生息批处理
 select round(74.22 * round(0.03 / 365, 8) * (date'2027-11-11' - date'2026-11-11'), 2) HLLX
 from dual;
+
 --DB-红利给付
 select round(sum(GETMONEY) * round(0.03 / 365, 8) * (date'2031-11-20' - date'2031-11-11'), 2) HLLX
 from LJABONUSGET a
@@ -230,6 +231,7 @@ where a.contno = c.contno
   and a.DUTYCODE like '%1001'
   and a.contno = '2025112700000266'
   and b.dt = 2;
+
 --红利宣告交清基本保险金额应退金额
 select round(492.47 / 1000 * cv2 * (date'2030-12-10' - date'2030-11-13') / 365 +
              492.47 / 1000 * cv1 * (1 - (date'2030-12-10' - date'2030-11-13') / 365), 2) cash
@@ -245,6 +247,7 @@ where a.contno = c.contno
 
 select 3321.14 + 1686.04
 from dual;
+
 --基本保额应退金额
 select round(prem / 1000 * endcv * (date'2028-11-30' - date'2028-10-30') / 365 +
              prem / 1000 * begcv *
@@ -256,6 +259,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025111200000296'
   and dt = 4;
+
 --红利利息
 select round(33407.97 * round(0.03 / 365, 8) * (date'2030-10-10' - date'2030-09-29'), 2)
 from dual;

@@ -46,9 +46,12 @@ select a.*
 
 --续期相关短信
 select a.* from lcmeglog a where otherno='2024102900000476'
+
 --查短信编码  serivceid
 select * from lisdata.lcmegrelation WHERE sendcode='XQ00024';
+
 select a.* from ldtask a where taskdescribe like '%续期%短信%' 
+
 select a.* from ldtask a where taskclass like '%MessagesSend%'
 
 select a.* from lcaddress a,lcappnt b where a.customerno=;

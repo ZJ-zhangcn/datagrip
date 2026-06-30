@@ -1,4 +1,5 @@
 select a.* from ljagetendorse a where contno='2024112000000286' order by makedate,maketime;
+
 select a.* from vms_resp_inoutflow a where contno='2024112000000286';
 
 --OP保全手续费
@@ -62,6 +63,7 @@ values
 */
 --初始
 select a.* from lcinsureaccfeetrace a where contno='2024112000000286' order by makedate,maketime;
+
 /*
 insert into vms_resp_inoutflow
   (SERIALNO,

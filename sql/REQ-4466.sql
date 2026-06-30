@@ -18,22 +18,33 @@
 */
 --险种配置表
 select startdate,enddate,a.* from lmriskapp a where riskcode in ('1033029','','','','')
+
 select a.* from lmriskapp a where riskname like '%箐盛%'
+
 --险种支持的销售渠道
 select a.salechnl,a.* from ldriskrule a where riskcode in ('1003007','','','','','') order by a.riskcode,a.salechnl
+
 --险种支持的保全项
 select a.* from lmriskedoritem a where riskcode in ('2072004','','','','')
+
 select a.* from lmriskedoritem a where edorcode='WT' and riskname like '%团体%'
+
 select a.* from lmriskedoritem a where fintype like '%被保人重要资料变更%'
+
 select distinct FINTYPE,edorcode,riskcode from lmriskedoritem where FINTYPE is not null;
+
 --核心险种规则（新单录入、问题件修改、新单复核）
 select a.* from lmriskcheckrule a where riskcode='1303014' and checklocal='FHWB'
+
 --
 select a.* from ldtask a where TASKDESCRIBE like '%价税分离%'--000558
+
 select a.* from LDTASKPLAN a where taskcode='000558'
 
 select a.* from lcpol a where riskcode='1016004'
+
 select contno from lcpol a where prtno='5000118341230033'
+
 --lcget
 select contno,
        dutycode,
@@ -48,6 +59,7 @@ select contno,
 
 --税率配置
 select a.* from ldtaxrate a order by to_number(SERIALNO)
+
 /*
 delete from ldtaxrate where taxtype='0101'
 */
@@ -56,23 +68,34 @@ delete from ldtaxrate where taxtype='0101'
 select a.* from LMCALMODETAX a order by to_number(CALCODE)
 
 select a.* from ljatax a where STANDBYFLAG1='10';
+
 select a.* from ljatax a where (BUINESSNO like '74%' or BUINESSNO like '36%');
+
 select a.* from ljatax a where contno='2025070200002106' order by BUINESSDATE,BUINESSNO,TAXTYPE;
+
 select a.* from ljatax a where GRPCONTNO='2025010600000186' order by BUINESSDATE,BUINESSNO,TAXTYPE;
+
 select BUINESSTYPE,BUINESSDATE,GRPCONTNO,CONTNO,TAXTYPE,MONEY,PRICE 价额,TAX 税额,STANDBYFLAG1,a.* from LJATAX a
 where CONTNO='2024123000000466' and BUINESSDATE=date'2025-12-15'
+
 select BUINESSTYPE,BUINESSDATE,GRPCONTNO,CONTNO,TAXTYPE,MONEY,PRICE 价额,TAX 税额,STANDBYFLAG1,a.* from LJATAX a
 where GRPCONTNO='2025010600000186' and BUINESSNO='3229515100006000'
+
 select round(100000/(1+0.1)*0.1,2) from dual
+
 /*
 delete from LJATAX a where STANDBYFLAG1='10'
 */
 select a.* from ljatax a where CONTNO='2024123000000376'
+
 select a.* from ljatax a where grpCONTNO='2025010600000186'
+
 select a.* from lcinsureacctrace a where contno='2025010300000116'
+
 select a.* from lcinsureaccfeetrace a where contno='2025010300000116'
 
 select a.* from LPINSUREACCTRACE a where contno='2024123000000376'
+
 select a.* from LPINSUREACCFEETRACE a where contno='2024123000000376'
 
 --健康委托产品判断
@@ -98,6 +121,7 @@ CREATE SEQUENCE LDTAXRATE_SERIALNO_SEQ
 CREATE OR REPLACE TRIGGER trg_generate_serialno
 BEFORE INSERT ON LISDATA.LDTAXRATE  -- 触发器作用于 LDTAXRATE 表
 FOR EACH ROW                        -- 行级触发器
+
 BEGIN
     -- 生成 15 位长度的 SERIALNO，前导零补齐
     :NEW.SERIALNO := LPAD(LDTAXRATE_SERIALNO_SEQ.NEXTVAL, 15, '0');
@@ -109,6 +133,7 @@ END;
 /*
 INSERT INTO LISDATA.LDTAXRATE (SERIALNO, TAXTYPE, RISKCODE, TAXRATE, STATUS, MANAGECOM, OPERATOR, MAKEDATE, MAKETIME,
                                MODIFYDATE, MODIFYTIME, STARTDATE, ENDDATE, STANDBYFLAG1, STANDBYFLAG2, STANDBYFLAG3)
+
 SELECT NULL,  -- SERIALNO 由触发器自动生成，这里设为 NULL
        '0101',
        riskcode,

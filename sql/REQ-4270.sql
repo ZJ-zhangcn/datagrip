@@ -3,9 +3,12 @@
 
 --手工单开关
 select a.* from ldcode a where codetype='YZTIDCHECK_State' and code='01';
+
 select a.* from ldcode a where codetype = 'CHECK_STAUTS' and code='01';
+
 --app、经代通开关
 select a.* from ldcode a where codetype = 'appcheckstate' and code='01';
+
 select a.* from lcaddress a where customerno='1060094739'
 
 select a.* from ldcalcheck a where FREMARK like '%银保信银行卡实名认证未通过%'

@@ -5,12 +5,15 @@
 select HESITATEEND, a.*
 from LMEdorWT a
 where RISKCODE = '1113004';
+
 --还款利息
 select round(71100.38 * round(0.03 / 365, 8) * (date'2026-01-10' - date'2025-12-11'), 2) LX
 from dual;
+
 --复效利息
 select round(100000 * round(0.03 / 365, 8) * (date'2028-12-10' - date'2027-10-28'), 2) LX
 from dual;
+
 --红利
 select a.*
 from BonusRate a
@@ -35,6 +38,7 @@ where a.riskcode = b.RISKCODE
   and b.PolYear = '1'
   and contno = '2025102600000276'
 order by b.PolYear;
+
 --红利利息
 select round(1603.04 * round(0.03 / 365, 8) * (date'2026-12-10' - date'2026-10-27'), 2) HLLX
 from dual;
@@ -50,6 +54,7 @@ where a.insuredsex = b.gender
   and a.payendyear = b.pt
   and a.contno = '2025102600000276'
   and b.dt = 1;
+
 --t≤PPP，年领欠缴保费
 select round(a.prem / 1000 * b.endcv, 2) cash
 from lcpol a,
@@ -59,6 +64,7 @@ where a.insuredsex = b.gender
   and a.payendyear = b.pt
   and a.contno = '2025102700000196'
   and b.dt = 1;
+
 --t>PPP，年领欠缴保费
 select round(a.prem / 1000 * b.endcv, 2) cash
 from lcpol a,
@@ -68,6 +74,7 @@ where a.insuredsex = b.gender
   and a.payendyear = b.pt
   and a.contno = '2025102700000196'
   and b.dt = 2;
+
 --t>PPP，年领未欠缴保费
 select round((a.prem / 1000 * b.endcv * (DATE '2035-01-10' - DATE '2034-10-30') / 365) +
              (a.prem / 1000 * b.begcv *
@@ -245,6 +252,7 @@ where otherno = '2025102900001486';
 
 select round(606.96 * round(0.03 / 365, 8) * (date'2029-09-18' - date'2028-09-18'), 2)
 from dual;
+
 --累积交清基本保险金额减保限额
 select round(a.AMNT / 1000 * cv2 * (date'2028-11-30' - date'2028-10-30') / 365 +
              a.AMNT / 1000 * cv1 * (1 - (date'2028-11-30' - date'2028-10-30') / 365), 2) cash
@@ -257,13 +265,16 @@ where a.contno = c.contno
   and a.DUTYCODE like '%1001'
   and a.contno = '2025102900001486'
   and b.dt = 4;
+
 --累积交清基本保险金额减保后保额  select (1-第t次减保的金额/第t次减保前的现金价值)*第t次减保前的保额 from dual;
 select round((1 - 1000 / 3228.66) * 3086.31, 2)
 from dual;
+
 --减保前现价
 select round(1134.88 / 1000 * 1062.2 * (date'2030-01-10' - date'2029-09-18') / 365 +
              1134.88 / 1000 * 1026.39 * (1 - (date'2030-01-10' - date'2029-09-18') / 365), 2) cash
 from dual;
+
 --累积交清基本保险金额应退金额
 select round(a.AMNT / 1000 * cv2 * (date'2028-11-30' - date'2028-10-30') / 365 +
              a.AMNT / 1000 * cv1 * (1 - (date'2028-11-30' - date'2028-10-30') / 365), 2) cash
@@ -276,6 +287,7 @@ where a.contno = c.contno
   and a.DUTYCODE like '%1001'
   and a.contno = '2025102900001486'
   and b.dt = 4;
+
 --红利宣告交清基本保险金额应退金额
 select round(1579.76 / 1000 * cv2 * (date'2028-11-30' - date'2028-10-30') / 365 +
              1579.76 / 1000 * cv1 * (1 - (date'2028-11-30' - date'2028-10-30') / 365), 2) cash
@@ -291,6 +303,7 @@ where a.contno = c.contno
 
 select 3228.66 + 1652.62
 from dual;
+
 --基本保额应退金额
 select round(prem / 1000 * endcv * (date'2028-11-30' - date'2028-10-30') / 365 +
              prem / 1000 * begcv *
@@ -302,6 +315,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025102900001486'
   and dt = 4;
+
 --红利利息
 select round(33407.97 * round(0.03 / 365, 8) * (date'2030-10-10' - date'2030-09-29'), 2)
 from dual;
@@ -322,9 +336,11 @@ where a.insuredsex = b.gender
   and a.payendyear = b.pt
   and a.contno = '2025102900001486'
   and b.dt = 6;
+
 --基本保险金额减保后保额  select (1-第t次减保的金额/第t次减保前的现金价值)*第t次减保前的保额 from dual;
 select round((1 - 1000 / 102831.14) * 94461, 2)
 from dual;
+
 --减保后保费
 select round(((1 - 1000 / 102831.14) * 94461) * 1000 / RATE, 2) 减保后保费
 from lcpol a,

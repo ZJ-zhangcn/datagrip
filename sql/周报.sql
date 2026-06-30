@@ -108,9 +108,11 @@ order by c.csrstartdate, c.csopstartdate;
 select a.*
 from req a
 where no = 'REQ-3919';
+
 select a.*
 from reqwork a
 where no = 'REQ-3919';
+
 select a.*
 from reqplan a
 where no = 'REQ-3919';

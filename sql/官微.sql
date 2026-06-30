@@ -19,6 +19,7 @@ select
        appflag, contno, enddate,
        a.*
 from lcpol a where prtno='5000118331130024';
+
 select
        cvalidate, getpoldate, customgetpoldate,
        a.*
@@ -27,5 +28,7 @@ from lccont a where prtno='5000118331130024';
 
 
 select idexpdate from ldperson a where customerno=(select appntno from lcappnt where prtno='5000118331129012');
+
 select idexpdate,idstdate from lcappnt where prtno='5000118331129012';
+
 select idexpdate,idstdate from lcinsured where prtno='5000118331129012';

@@ -2,6 +2,7 @@
 -- 标题: 个险渠道新单投保手机号实名校验需求
 
 select a.* from lcmobilecheckinfo a where customerno in ('1060096945', '1060096946','','');
+
 /*
 insert into lcmobilecheckinfo (CONTNO, CUSTOMERNO, CUSTOMERTYPE, NAME, IDCARD, MOBILE, MANAGECOM, REQCODE, REQMESSAGE,
                                REQDATA, SEQNO, STATE, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME,
@@ -11,18 +12,26 @@ values ('5000118241250047', '1060095576', 'I', '银保投保三三', '1521232006
         '20:30:28', to_date('07-02-2021', 'dd-mm-yyyy'), '20:30:27', '000', null);
 */
 select a.* from lcappnt a where appntno='1060094710';
+
 select a.* from lcappnt a where contno='5000118241250047';
+
 select a.* from lcinsured a where insuredno='1060094744';
+
 select a.* from lcinsured a where contno='5000118241250047';
+
 select a.* from lcappnt a where idno='310101199007111025'
 
 select mobile,a.* from lcaddress a where customerno in ('1001735690', '')
+
 /*
 update lcaddress set POSTALADDRESS='上海市上海市黄浦区林校路街道义和庄北路4号' where customerno in ('1060094710', '1060094744')
 */
 
 
 select * from ldcode where codetype = 'appjd_mobile' and code='01';
+
 select * from ldcode where codetype = 'salechannels';
+
 select codename from ldcode where codetype = 'appjd_ProblemState' and code='01';
+
 select * from ldcode where codetype = 'CheckMobile_State' and code='01';

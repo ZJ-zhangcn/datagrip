@@ -47,11 +47,13 @@ select least(46093.5 * 0.2 / 46093.5 * 48665.61240621 - 0,
              48665.61240621)
 from lcpol
 where contno = '2025070800001786';
+
 --本年度第二次
 select least(46093.5 * 0.2 / 45165.42 * 48665.61240621 - 1000,
              48665.61240621)
 from lcpol
 where contno = '2025070800001786';
+
 --减保后的保额
 select round((1 - 2000 / 48665.61240621) * 45165.42,8)
   from cv_1011004 a, lcpol b
@@ -60,6 +62,7 @@ select round((1 - 2000 / 48665.61240621) * 45165.42,8)
    and gender = insuredsex
    and contno = '2025070800001786'
    and dt = 6;
+
 --减保后的保费
 select 43309.26663968 * 1000 / rate
 from rt_1011004 a,
@@ -68,6 +71,7 @@ where pt = payendyear
   and age = insuredappage
   and gender = insuredsex
   and contno = '2025070800001786';
+
 --减额交清公共保额限制
 select * from ldcode a where codetype = 'PublicPUlowestAmnt' and code='000000';
 --减额交清后保额计算
@@ -80,6 +84,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025070700000316'
   and dt = 6 - 1;
+
 --other
 select 4174.50 * 1000 / (a.END_AFACTOR * (date '2026-08-01' - date '2026-07-10') / 365 +
                           a.BEG_AFACTOR * (1 - (date '2026-08-01' - date '2026-07-10') / 365))
@@ -90,6 +95,7 @@ where pt = payendyear
   and gender = insuredsex
   and contno = '2025070900000286'
   and dt = 2;
+
 --减额交清后保费计算
 select 4079.55 * 1000 / a.rate
 from rt_1011004 a,
