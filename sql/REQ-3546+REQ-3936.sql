@@ -1,5 +1,5 @@
--- ID: REQ-3546
--- 标题: REQ-3936保盾云
+-- ID: REQ-3546+REQ-3936
+-- 标题: 保盾云
 
 --H：健康险  S：重疾险  R：年金险
 select a.* from ldcode a where codetype like '%kindcode%';
