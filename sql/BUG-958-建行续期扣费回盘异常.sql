@@ -1,4 +1,6 @@
+/*
 update ldcode set code = '300' where codetype = 'ccbcount';
+*/
 select a.* from ldcode a where codetype = 'ccbcount';
 select BANKONTHEWAYFLAG,
        BANKSUCCFLAG,
@@ -69,6 +71,7 @@ select * from LYBankLog where makedate = date'2025-02-13' and bankcode = '0104';
 
 select a.* from lysendtobank a where senddate = date'2025-02-13' and bankcode = '0104';
 --
+/*
 delete
 from lysendlog
 where otherno in ('5000112600004665', '5000112600003385', '3600117173618575', '5000112600001740', '3002006231737101',
@@ -82,3 +85,4 @@ where OPERATEDNO in
        '86310020190310000831', '3600127154966822','5000112600001740','3002006231737101','5000111000004145','5000112600003351');
 delete from LYBankLog where makedate = date'2025-02-13' and bankcode = '0104';
 delete from lysendtobank where senddate = date'2025-02-13' and bankcode = '0104';
+*/

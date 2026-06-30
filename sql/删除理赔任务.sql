@@ -1,4 +1,5 @@
---É¾³ýÀíÅâÈÎÎñ
+--É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+/*
 delete from llcase where caseno='3631815101011457';
 delete from LLAccident where accno in (select caserelano from LLCaseRela where caseno='3631815101011457');
 delete from LLCaseRela where caseno='3631815101011457';
@@ -22,3 +23,4 @@ delete from ljsgetclaim where otherno='3631815101011457';
 delete from llreport where rptno='3631815101011457';
 delete from llsubreport where SUBRPTNO='3631815101011457';
 delete from lwmission where missionprop1='3631815101011457';
+*/

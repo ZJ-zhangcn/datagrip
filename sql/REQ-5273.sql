@@ -91,10 +91,12 @@ select contno
 from lccont a
 where prtno = '3000115100037920';
 
+/*
 update lccont
 set BANKCODE='0117',
     AGENTCOM='030101200106'
 where contno = '2025102900001176';
+*/
 
 select agentcom
 from lccont a

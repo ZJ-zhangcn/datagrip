@@ -3,8 +3,10 @@
 
 --新增配置
 select * from ldcode where codetype = 'TerminateMesg';
+/*
 update lcpol set appflag='4' where contno='2018041200023568';
 update lccont set appflag='4' where contno='2018041200023568';
+*/
 --满期终止批处理提数
 select *
   from LCPol a

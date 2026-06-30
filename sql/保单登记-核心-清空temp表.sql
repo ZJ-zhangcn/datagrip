@@ -1,6 +1,9 @@
+/*
 truncate table temp_LCPOLTRANSACTION;
+*/
 /*delete from TEMP_LCPOLTRANSACTION where BUSSTYPE <> '73';
 */
+/*
 truncate table temp_LCCONT;
 truncate table temp_LCPRODINSURELA;
 truncate table temp_LCPRODUCT;
@@ -35,3 +38,4 @@ truncate table temp_LCBlacklist;
 truncate table temp_lmliability;
 truncate table temp_lcinsureacctrace;
 truncate table temp_LJAGetEndorse;
+*/

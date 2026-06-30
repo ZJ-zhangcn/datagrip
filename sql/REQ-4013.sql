@@ -18,8 +18,10 @@ select appflag,signdate,cvalidate,managecom,salechannels,a.* from lccont a where
 
 --
 select a.*/**/ from lccontstate a where contno='2024042400000286';
+/*
 insert into lccontstate (CONTNO, INSUREDNO, POLNO, STATETYPE, STATE, STATEREASON, STARTDATE, ENDDATE, REMARK, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME)
 values ('2024042300000186', '1060093044', '210310000006481', 'DefedPay', '1', null, to_date('24-06-2025', 'dd-mm-yyyy'), null, null, 'sys', to_date('01-07-2025', 'dd-mm-yyyy'), '00:00:14', to_date('01-07-2025', 'dd-mm-yyyy'), '00:00:14');
+*/
 --hanuptype:1-新契约 2-保全 3-续期 4-理赔 5-渠道  flag:0-未挂起  1-已挂起
 select a.* from lcconthangupstate a where contno='2024080100000286';
 

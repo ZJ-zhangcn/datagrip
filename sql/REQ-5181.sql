@@ -23,6 +23,7 @@ select a.*
 from ljspay a
 where otherno = '2026013000000156';
 
+/*
 INSERT INTO LISDATA.LJSPAY (GETNOTICENO, OTHERNO, OTHERNOTYPE, APPNTNO, SUMDUEPAYMONEY, PAYDATE, BANKONTHEWAYFLAG,
                             BANKSUCCFLAG, SENDBANKCOUNT, APPROVECODE, APPROVEDATE, SERIALNO, OPERATOR, MAKEDATE,
                             MAKETIME, MODIFYDATE, MODIFYTIME, MANAGECOM, AGENTCOM, AGENTTYPE, BANKCODE, BANKACCNO,
@@ -32,6 +33,7 @@ VALUES ('86010120280310000631', '2026013000000156', '2', '1060099726', 100000.00
         '002', DATE '2026-01-30', null, '001', DATE '2028-01-31', '00:00:24', DATE '2028-02-02', '05:34:00', '86010101',
         null, null, '0101', '1234567890654321', '1011005', '0101100032', '000000005971', '个险投保一二八',
         DATE '2028-01-31', null, 'N', '0', '350624197001101547', '01', null, '3100', '0', '3100', null, null, '0');
+*/
 
 
 select a.PubPayerRel                              对公转账人与投保人关系,
@@ -102,11 +104,13 @@ select a.*
 from lcappnt a
 where contno = '2026030200000586';
 
+/*
 update lccont
 set getpoldate=signdate,
     customgetpoldate=signdate,
     appflag='1'
 where contno in ('2026013000000156', '', '', '');--2026021000001516
+*/
 
 select a.*
 from LISDATA.LCCONTSTATE a
@@ -134,6 +138,7 @@ order by b.dealtime desc;
 update FXDJ.CR_CLIENT set riskgrade='4' where CARDID='460201199001010053';
 */
 
+/*
 INSERT INTO FXDJ.CR_CLIENT (CLIENTNO, SOURCE, NAME, BIRTHDAY, AGE, SEX, GRADE, CARDTYPE, CARDID, CARDEXPIREDATE,
                             CLIENTTYPE, WORKPHONE, FAMILYPHONE, TELEPHONE, OCCUPATION, BUSINESSTYPE, INCOME, GRPNAME,
                             ADDRESS, OTHERCLIENTINFO, ZIPCODE, NATIONALITY, PROVINCE, COMCODE, CONTTYPE,
@@ -150,3 +155,4 @@ VALUES ('6666700004', '1', '自己选一', DATE '1990-01-01', null, '0', null, '
         null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null, null, null, null, '3', '05', null, null, null,
         null, null, null);
+*/

@@ -26,5 +26,7 @@ select a.* from ldcode a where codetype = 'relation';
 --产品支持的销售渠道
 select a.* from ldriskrule a where riskcode in ('1033019');
 
+/*
 insert into ldriskrule (RISKCODE, SALECHNL, COMGROUP, STARTPOLAPPLYDATE, ENDPOLAPPLYDATE, STARTSCANDATE, STARTSCANTIME, ENDSCANDATE, ENDSCANTIME, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME)
 values ('1033019', '02', '86', to_date('01-11-2006', 'dd-mm-yyyy'), null, to_date('01-11-2006', 'dd-mm-yyyy'), '0       ', null, null, '1', to_date('01-05-2009', 'dd-mm-yyyy'), '0       ', to_date('01-05-2009', 'dd-mm-yyyy'), '0       ');
+*/

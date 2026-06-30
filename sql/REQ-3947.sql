@@ -49,6 +49,7 @@ select a.* from ljagetdraw a where contno='2024073100000856';
 select count(1) from ldworkcalendar where caldate between date'2027-10-01'  and date'2027-10-07' and datetype='Y';
 select * from ldworkcalendar where caldate between date'2027-10-01'  and date'2027-10-05';
 select * from ldworkcalendar where caldate between date'2063-08-01'  and date'2064-09-20' and datetype='Y';
+/*
 insert into ldworkcalendar (CALSN, YEAR, CALDATE, DATETYPE, AMBEGIN, AMEND, AMWORKTIME, PMBEGIN, PMEND, PMWORKTIME, WORKTIME, OPERATECOM, OPERATOR, MAKEDATE, MAKETIME, MODIFYOPERATOR, MODIFYDATE, MODIFYTIME)
 values ('000001000000027585', '2044', to_date('01-09-2031', 'dd-mm-yyyy'), 'Y', '09:00:00', '12:00:00', '10800', '13:00:00', '18:00:00', '18000', '28800', '86', 'SYS', to_date('01-07-2043', 'dd-mm-yyyy'), '12:00:00', 'SYS', to_date('01-07-2043', 'dd-mm-yyyy'), '12:00:00');
 insert into ldworkcalendar (CALSN, YEAR, CALDATE, DATETYPE, AMBEGIN, AMEND, AMWORKTIME, PMBEGIN, PMEND, PMWORKTIME, WORKTIME, OPERATECOM, OPERATOR, MAKEDATE, MAKETIME, MODIFYOPERATOR, MODIFYDATE, MODIFYTIME)
@@ -59,3 +60,4 @@ insert into ldworkcalendar (CALSN, YEAR, CALDATE, DATETYPE, AMBEGIN, AMEND, AMWO
 values ('000001000000027588', '2044', to_date('04-09-2031', 'dd-mm-yyyy'), 'Y', '09:00:00', '12:00:00', '10800', '13:00:00', '18:00:00', '18000', '28800', '86', 'SYS', to_date('01-07-2043', 'dd-mm-yyyy'), '12:00:00', 'SYS', to_date('01-07-2043', 'dd-mm-yyyy'), '12:00:00');
 insert into ldworkcalendar (CALSN, YEAR, CALDATE, DATETYPE, AMBEGIN, AMEND, AMWORKTIME, PMBEGIN, PMEND, PMWORKTIME, WORKTIME, OPERATECOM, OPERATOR, MAKEDATE, MAKETIME, MODIFYOPERATOR, MODIFYDATE, MODIFYTIME)
 values ('000001000000027589', '2044', to_date('05-09-2031', 'dd-mm-yyyy'), 'Y', '09:00:00', '12:00:00', '10800', '13:00:00', '18:00:00', '18000', '28800', '86', 'SYS', to_date('01-07-2043', 'dd-mm-yyyy'), '12:00:00', 'SYS', to_date('01-07-2043', 'dd-mm-yyyy'), '12:00:00');
+*/

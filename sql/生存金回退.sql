@@ -10,6 +10,7 @@ select a.* from LOPRTMANAGER a where otherno='2026062200000156' order by MAKEDAT
 select a.* from lcget a where contno='2026062200000156';
 
 
+/*
 delete from ljaget where otherno='2026062200000156';
 delete from ljagetdraw where contno='2026062200000156';
 delete from LCINSUREACC where contno='2026062200000156' and INSUACCNO='000009';
@@ -18,3 +19,4 @@ delete from LCINSUREACCCLASS where contno='2026062200000156' and INSUACCNO='0000
 update LCINSUREACCCLASS set baladate=date'2032-04-01',INSUACCBALA='108211.44' where contno='2026062200000156' and INSUACCNO='13030221';
 delete from LCINSUREACCTRACE where contno='2026062200000156' and PAYDATE>=date'2032-05-01';
 update lcget set SUMMONEY='0.00' where contno='2026062200000156' and GETDUTYCODE='IG2054';
+*/

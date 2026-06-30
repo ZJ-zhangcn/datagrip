@@ -1,6 +1,7 @@
 -- ID: REQ-4739
 -- 标题: 关于转账提醒短信的变更需求
 
+/*
 UPDATE ats_transactions a
 SET a.dtcode          = '1',--抽档成功
     a.ats_returnstate = '2',--已返盘
@@ -8,6 +9,7 @@ SET a.dtcode          = '1',--抽档成功
     a.payinfocode     = 'E1001',
     a.payinfo         = '账户不存在'
 WHERE a.reqseqid = '20250511_30197';
+*/
 --Ne2001：
 select codename from ldcode1 where codetype = 'failedtransfer' and code='03' and code1 = '1';
 --Ne2002：

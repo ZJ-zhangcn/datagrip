@@ -2,6 +2,7 @@ select a.* from ljagetendorse a where contno='2024112000000286' order by makedat
 select a.* from vms_resp_inoutflow a where contno='2024112000000286';
 
 --OP保全手续费
+/*
 insert into vms_resp_inoutflow
   (SERIALNO,
    PK_INOUTFLOW,
@@ -58,8 +59,10 @@ values
    '00:05:00',
    to_date('22-11-2025', 'dd-mm-yyyy'),
    '00:05:00');
+*/
 --初始
 select a.* from lcinsureaccfeetrace a where contno='2024112000000286' order by makedate,maketime;
+/*
 insert into vms_resp_inoutflow
   (SERIALNO,
    PK_INOUTFLOW,
@@ -116,3 +119,4 @@ values
    '00:05:00',
    to_date('22-11-2025', 'dd-mm-yyyy'),
    '00:05:00');
+*/

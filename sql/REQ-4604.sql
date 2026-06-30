@@ -6,6 +6,7 @@ select * from ldcode where codetype='PushAllLjaTax';
 select * from LjaTax where TAXMAINNO ='T0000000000037886';
 select a.* from ljatax a where CUSTOMERNO='1060092781';
 select a.* from LYBillLog a where TRANTYPE='A001';
+/*
 delete from LYBillLog where TRANTYPE='A005';
 
 INSERT INTO LJATAX (TAXMAINNO, BATCHNO, BUINESSNO, BUINESSTYPE, BUINESSDATE, SALECHNLNAME, MANAGECOM, GRPCONTNO,
@@ -17,6 +18,7 @@ VALUES ('T0000000000037886', '0000000000000675', '3623915100343109', 'RF', DATE 
         '00000000000000000000', '2024081900008306', '86000020250320000436', '1060092780', '银保投保八',
         DATE '2025-11-30', null, null, null, '0', '0102', '210010000406864', 12, '1303014', '000000', '000000', 260.27,
         236.61, 23.66, null, '001', DATE '2025-02-18', '14:07:23', DATE '2025-02-18', '14:07:23', '54', null, null);
+*/
 SELECT count(1) FROM (SELECT a.Mobile,a.EMail FROM lcaddress a order by makedate desc ,maketime desc)  WHERE ROWNUM = 1;
 
 select * from ldcode where codetype='LYRETURN_URL' and code='02';

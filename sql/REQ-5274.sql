@@ -28,7 +28,9 @@ from llbnf a
 where /*caseno in (select rgtno from llregister where rgtobjno = 'P86012026001144')
    or */caseno in ('3631815101011538');
 
+/*
 update llbnf set relationtopayee='01' where caseno in ('3631815101011515');
+*/
 
 --
 
@@ -84,9 +86,11 @@ select *
 FROM ldgrp
 WHERE customerno = '1060094014';
 
+/*
 update ldgrp
 set fdname='上海耕工广告有限公司'
 where customerno = '1060094014';
+*/
 
 
 select CustomerNo
@@ -130,6 +134,7 @@ update fxdj.cr_client set name='上海塔苏国际商贸有限公司',sex=null,b
 update fxdj.cr_client set RISKGRADE='3',state='04' where CLIENTNO='100181271707';
 */
 
+/*
 INSERT INTO FXDJ.CR_CLIENT (CLIENTNO, SOURCE, NAME, BIRTHDAY, AGE, SEX, GRADE, CARDTYPE, CARDID, CARDEXPIREDATE,
                             CLIENTTYPE, WORKPHONE, FAMILYPHONE, TELEPHONE, OCCUPATION, BUSINESSTYPE, INCOME, GRPNAME,
                             ADDRESS, OTHERCLIENTINFO, ZIPCODE, NATIONALITY, PROVINCE, COMCODE, CONTTYPE,
@@ -147,6 +152,7 @@ VALUES ('100181271707', '1', '受益五', DATE '1991-01-10', 30, '1', null, '0',
         null, null, null, null, null, null, null, null, null, null, 1, 1, null, null, 0, null, null, null, null, null,
         null, null, null, null, null, 'R00', null, null, null, 'zhangwei', null, null, '01', 46.00, '3', '05',
         '评级结束', TIMESTAMP '2021-04-19 02:48:21', DATE '2025-08-22', 'sys', DATE '2019-09-16', '05:04:59');
+*/
 
 --反洗钱黑名单
 select /*name     名称,
@@ -159,12 +165,14 @@ from lxblacklist a
 where seq in ('725973901', '725973902', '725973903', '725973904', '725973905', '725973906')
 order by seq;
 
+/*
 INSERT INTO LISDATA.LXBLACKLIST (SEQ, NAME, CONTTYPE, BIRTHDAY, STANDBYFLAG1, STANDBYFLAG2, STANDBYFLAG3, STANDBYFLAG4,
                                  STANDBYFLAG5, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, BLACKLISTSOURCE,
                                  COUNTRY, AREAGRADE, SEX, IDTYPE, IDNO, BLACKLISTTYPE)
 VALUES ('725973906', '受益五', '08', DATE '1991-01-10', '0901', '1037700253470', null, '0', '0', null,
         DATE '2020-07-01',
         '19:21:27', DATE '2020-01-28', null, null, null, null, '1', '0', '362229199101100341', '00');
+*/
 
 
 --政治公众人物
@@ -176,10 +184,12 @@ from amlPEPList a
 where SEQ in ('601', '602', '603', '604', '605', '606')
 order by seq;
 
+/*
 INSERT INTO LISDATA.AMLPEPLIST (SEQ, NAME, SEX, BIRTHDAY, CARDTYPE, CARDID, STANDBYFLAG1, STANDBYFLAG2, STANDBYFLAG3,
                                 STANDBYFLAG4, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME)
 VALUES ('606', '受益五', '1', '1991/1/10', '0', '362229199101100341', null, null, null, null, '001', DATE '2018-06-27',
         '08:00:00', DATE '2018-06-27', '08:00:00');
+*/
 
 
 
@@ -202,6 +212,7 @@ from LCIDCardCheckInfo
 where contno = '3229315100007235'
   and CUSTOMERTYPE = 'CD';
 
+/*
 INSERT INTO FXQBNFCHECKINFO (SERIALNO, GRPCONTNO, GRPCUSTOMERNO, GRPNAME, GRPIDNO, BDMANAGECOM, CONTNO, OTHERNO,
                              OTHERNOTYPE, MESSAGEFLAG, MESSAGE, RESULTFLAG, LOGINUSERNAME, ISGROUP, BNFKEY, NAME, SEX,
                              NATIVEPLACE, BRITHDAY, ADDR, IDTYPE, IDNO, IDDATE, MOBILE, PHONE, ACTCTRL, ACTHDRAT,
@@ -221,6 +232,7 @@ VALUES ('980QB000000000412', null, 'test_company_1', '上海塔苏国际商贸�
         null, null, null, null, null, null, null, 'N', null, null, 'N', null, null, null, null, null, null, null,
         '2026-06-16 14:41:00', '6ac0af432a16449d9eb84930973140a0', null, null, null, null, null, null, null, null, null,
         null, '86', '001', DATE '2026-06-16', '15:28:26', DATE '2026-06-16', '15:28:26', null, null, null, null, null);
+*/
 
 select a.*
 from ljaget a

@@ -62,8 +62,10 @@ select a.* from es_doc_main a where doccode='5000118240102022' and (subtype='500
 
 select a.* from es_doc_main a where subtype='50002166' order by docid desc;
 
+/*
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
 values (19823240, '5000118240102022', 'TB', '50002166', 1, '1', null, '001', '860101', null, null, null, null, null, null, to_date('03-01-2024', 'dd-mm-yyyy'), '00:00:00', to_date('03-01-2024', 'dd-mm-yyyy'), '00:00:00', '2', 'TB2022860100001X', '5000118240102022', 573, 'GXTB', 'HXLR');
+*/
 SELECT 1 from es_doc_main a, es_doc_relation b where a.docid = b.docid and a.subtype in('50002166','36131151') and bussno='5000118240102022';
 SELECT 1 from es_doc_main a, es_doc_relation b where a.docid = b.docid and a.subtype in('50002166','36131151') and bussno='5000118240102022';
 select a.* from es_doc_relation a where subtype='50002166' order by docid desc;

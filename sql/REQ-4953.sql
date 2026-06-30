@@ -55,8 +55,10 @@ from BonusRate a
 where riskcode = '1111002'
 order by CVALIDATE;
 
+/*
 INSERT INTO BONUSRATE (RISKCODE, CVALIDATE, ENDDATE, BONUSGRADE, BONUSRATE)
 VALUES ('1111002', DATE '2029-01-01', DATE '2030-01-01', 'H', '1');
+*/
 
 select a.*
 from PUA_1111002 a

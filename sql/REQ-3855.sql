@@ -25,8 +25,10 @@ select a.* from ldtask a where taskdescribe like '%满期%';
 
 select a.* from es_doc_main a where doccode in ('5005190140201018','');
 
+/*
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
 values (1982763601, '5005190140620018', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
+*/
 select sysvarvalue from ldsysvar where sysvar='BatIPHost';
 select otherno
   from lpedorapp a
@@ -43,5 +45,7 @@ select a.* from ldcode a where codename like '%撤销%';
 
 select a.* from es_doc_main a where doccode='5005190140228018';
 
+/*
 insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
 values (19828135, '5005190140228018', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('28-02-2024', 'dd-mm-yyyy'), '11:39:39', to_date('28-02-2024', 'dd-mm-yyyy'), '11:39:39', '1', 'BQ2024860100001X', '5005190140228018', 85, 'TXBQ', null);
+*/

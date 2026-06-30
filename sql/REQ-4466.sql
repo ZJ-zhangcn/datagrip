@@ -85,13 +85,16 @@ is_helarisk(a.riskcode) = 'Y'
 
 
 -- 创建序列，从 639877 开始递减
+/*
 CREATE SEQUENCE LDTAXRATE_SERIALNO_SEQ
     START WITH 639877  -- 起始值
     INCREMENT BY -1    -- 每次递减 1
     MAXVALUE 639877    -- 设置最大值为起始值
     MINVALUE 0         -- 设置最小值为 0
     NOCACHE;
+*/
 -- 创建触发器，在插入数据前自动生成 SERIALNO
+/*
 CREATE OR REPLACE TRIGGER trg_generate_serialno
 BEFORE INSERT ON LISDATA.LDTAXRATE  -- 触发器作用于 LDTAXRATE 表
 FOR EACH ROW                        -- 行级触发器
@@ -100,8 +103,10 @@ BEGIN
     :NEW.SERIALNO := LPAD(LDTAXRATE_SERIALNO_SEQ.NEXTVAL, 15, '0');
 END;
 /
+*/
 
 -- 插入数据
+/*
 INSERT INTO LISDATA.LDTAXRATE (SERIALNO, TAXTYPE, RISKCODE, TAXRATE, STATUS, MANAGECOM, OPERATOR, MAKEDATE, MAKETIME,
                                MODIFYDATE, MODIFYTIME, STARTDATE, ENDDATE, STANDBYFLAG1, STANDBYFLAG2, STANDBYFLAG3)
 SELECT NULL,  -- SERIALNO 由触发器自动生成，这里设为 NULL
@@ -122,7 +127,12 @@ SELECT NULL,  -- SERIALNO 由触发器自动生成，这里设为 NULL
        null
 FROM lmriskapp
 WHERE riskcode NOT IN (SELECT riskcode FROM LDTAXRATE WHERE TAXTYPE = '0101');
+*/
 -- 删除触发器
+/*
 DROP TRIGGER trg_generate_serialno;
+*/
 -- 删除序列
+/*
 DROP SEQUENCE LDTAXRATE_SERIALNO_SEQ;
+*/

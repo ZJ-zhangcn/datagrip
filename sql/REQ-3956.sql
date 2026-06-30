@@ -77,7 +77,9 @@ select a.* from ldtask a where taskdescribe like '%打印%';
 
 --
 select a.* from lcinsureacctrace a where contno='2024061800000266' and paydate between date'2026-06-19' and date'2026-06-20' order by paydate desc;
+/*
 update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2024061800000266';
+*/
 
 select sysvarvalue from ldsysvar where sysvar = 'XQDelayedCrossing';
 

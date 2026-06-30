@@ -1,4 +1,6 @@
+/*
 delete from LMINSUACCRATE where RISKCODE='1303022';
+*/
 
 DECLARE
     v_start_date DATE := DATE '2015-10-01';
@@ -11,6 +13,7 @@ BEGIN
 -- 循环直到结束日期
     WHILE v_current_date <= v_end_date LOOP
         -- 插入数据，每个月的第一天和最后一天
+/*
         INSERT INTO LMINSUACCRATE
         (RISKCODE, INSUACCNO, BALADATE, SRATEDATE, ARATEDATE, RATEINTV, RATE, OPERATOR, MAKEDATE, MAKETIME, RATESTATE, ENDDATE, FISCALYEAR, FLAG, BONUSTYPE, STARTDATE, CVALIDATEFROM, CVALIDATETO)
         VALUES
@@ -25,6 +28,7 @@ BEGIN
          NULL, 0, NULL, NULL, NULL,
          -- CVALIDATEFROM 和 CVALIDATETO 为指定的日期
          DATE '2023-10-25', DATE '2099-10-25');
+*/
 -- 增加一个月
         v_current_date := ADD_MONTHS(v_current_date, 1);
 END LOOP;

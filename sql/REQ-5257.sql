@@ -24,6 +24,8 @@ where bak1 = '0103'
 order by prtno;
 
 select a.* from LCCustEvaluation a where prtno = '5000118251009665';
+/*
 delete from LCCustEvaluation where bak1 = '0103';
+*/
 
 select * from tranlog where rcode='0' and trancom='22' and funcflag='2017' and trandate='20260513'

@@ -44,9 +44,11 @@ select UWFLAG
 from LCCont
 where prtno = '5000118351203589';
 
+/*
 update LCCont
 set UWFLAG='9'
 where prtno = '5000118351203589';
+*/
 
 select a.*
 from ldcode a

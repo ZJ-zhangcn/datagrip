@@ -288,6 +288,7 @@ select a.*
 from lawage a
 where MODIFYDATE = date'2028-01-01';
 
+/*
 update lawage
 set STATE='4'
 where MODIFYDATE = date'2028-01-01';
@@ -325,6 +326,7 @@ VALUES ('202407', '0101100032', '000000005971', '86010101', DATE '2025-10-10', n
         0.00, null, null, null, null, null, null, null, null, null, '01', 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00,
         0.00, 0.00, 1227.05, 0.00, 0.00, 0.00, 0.00, null, null, null, null, null, null, DATE '2025-06-15',
         'SJ0_860000002025061300932120');
+*/
 
 select a.F40, a.F44, a.F17, a.F16, a.F42, a.k16
 from lawage a
@@ -419,9 +421,11 @@ where contno = '2019061900004126';
 select a.*
 from lacommision a
 where (wageno = '202408' or wageno = '202407');
+/*
 update lacommision
 set fyc= -fyc
 where (wageno = '202408' or wageno = '202407')
+*/
 
 
 /*

@@ -20,4 +20,6 @@ where bak1 = '0117'
 order by prtno;
 
 select a.* from LCCustEvaluation a where prtno = '5000118251009665';
+/*
 delete from LCCustEvaluation where bak1 = '0117';
+*/

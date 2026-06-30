@@ -1,3 +1,4 @@
+/*
 truncate table PRIP_LRPRODUCT;
 truncate table PRIP_LRINSURECONT;
 truncate table PRIP_LREDOR;
@@ -47,3 +48,4 @@ truncate table PRIP_LALLUNDERWRITING;
 truncate table PRIP_LACOMMISSION;
 truncate table PRIP_LAAGENT;
 truncate table PRIP_LCInsured;
+*/

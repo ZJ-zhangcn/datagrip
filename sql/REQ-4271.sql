@@ -2,12 +2,14 @@
 -- 标题: 个险渠道新单投保手机号实名校验需求
 
 select a.* from lcmobilecheckinfo a where customerno in ('1060096945', '1060096946','','');
+/*
 insert into lcmobilecheckinfo (CONTNO, CUSTOMERNO, CUSTOMERTYPE, NAME, IDCARD, MOBILE, MANAGECOM, REQCODE, REQMESSAGE,
                                REQDATA, SEQNO, STATE, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME,
                                STANDBYFLAG1, STANDBYFLAG2)
 values ('5000118241250047', '1060095576', 'I', '银保投保三三', '152123200601101175', '17512279999', '86010101', '10000',
         '成功', '{"state":"2"}', '8YDS9W1D990208131726978', '2', 'ZHHL_GXTB', to_date('07-02-2021', 'dd-mm-yyyy'),
         '20:30:28', to_date('07-02-2021', 'dd-mm-yyyy'), '20:30:27', '000', null);
+*/
 select a.* from lcappnt a where appntno='1060094710';
 select a.* from lcappnt a where contno='5000118241250047';
 select a.* from lcinsured a where insuredno='1060094744';

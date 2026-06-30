@@ -14,9 +14,11 @@ from dual;
 select round(5000 * round(0.03 / 365, 8) * (date '2029-06-10' - date '2028-05-14'), 2) 复效利息
 from dual;
 --权限
+/*
 update lpedorapp
 set apppregrade='IPOS-12'
 where EdorAcceptNo = '7402121100332332';
+*/
 
 --当年度红利计算
 --保费（保额）/1000*K值*红利因子

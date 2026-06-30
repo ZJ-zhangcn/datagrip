@@ -19,11 +19,13 @@ select a.* from ldtask a where TASKCLASS='AutoExportFinitemTask';
 
 select a.* from ldtask a where TASKDESCRIBE like '%生存金%';
 select a.* from ljspay a where otherno='2025080100000386';
+/*
 update ats_transactions a
 set a.TPVOUCHERNO=(select p.glvoucherno
                    from lyatstranrela p
                    where a.rdseq = p.rdseq and p.acttype = 'ZJ' and p.STANDBYFLAG5='TPJY' and rownum = 1)
 where exists (select 1 from lyatstranrela p where a.rdseq = p.rdseq and p.acttype = 'ZJ' )
   and a.glvoucherno is null;
+*/
 select p.glvoucherno from lyatstranrela p where reqseqid='20301010_44133' and p.acttype='ZJ' and rownum=1 and STANDBYFLAG5='TPJY';
 select a.* from ATS_TRANSACTIONS a where reqseqid='20301010_44133';
