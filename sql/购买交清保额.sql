@@ -44,19 +44,24 @@ order by to_number(POLYEAR);
 
 select a.*
 from BonusRate a
-where riskcode = '1111001'
+where riskcode = '1116003'
 order by CVALIDATE;
 
 select a.*
-from PUA_1111002 a
-where age = 50
-  and gender = 1
+from PUA_1111003 a,
+     lcpol b
+where a.AGE = b.INSUREDAPPAGE
+  and a.GENDER = b.INSUREDSEX
+  and a.dt = 2
 order by dt;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '2026040700000656'
+where contno = '2026040700000106'
 order by makedate, maketime;
+
+select 170.51 + 4.52
+from dual;
 
 select nvl(sum(JQAmnt), 0)
 from LJABonusGet
@@ -95,16 +100,16 @@ select round(1134.88 / 1000 * 1062.2 * (date'2030-01-10' - date'2029-09-18') / 3
              1134.88 / 1000 * 1026.39 * (1 - (date'2030-01-10' - date'2029-09-18') / 365), 2) cash
 from dual;
 --累积交清基本保险金额应退金额
-select round(a.AMNT / 1000 * cv2 * (date'2027-05-31' - date'2027-04-08') / 365 +
-             a.AMNT / 1000 * cv1 * (1 - (date'2027-05-31' - date'2027-04-08') / 365), 2) cash
+select round(a.AMNT / 1000 * cv2 * (date'2027-11-19' - date'2027-05-19') / 365 +
+             a.AMNT / 1000 * cv1 * (1 - (date'2027-11-19' - date'2027-05-19') / 365), 2) cash
 from lcduty a,
-     PUA_1111002 b,
+     PUA_1116005 b,
      lcpol c
 where a.contno = c.contno
   and b.age = c.INSUREDAPPAGE
   and b.GENDER = c.INSUREDSEX
   and a.DUTYCODE like '%1001'
-  and a.contno = '2026040700000476'
+  and a.contno = '2026051800002596'
   and b.dt = 2;
 --红利宣告交清基本保险金额应退金额
 select round(13718.78 / 1000 * cv2 * (date'2028-10-10' - date'2028-09-29') / 365 +

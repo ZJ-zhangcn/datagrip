@@ -35,7 +35,7 @@ select sess.sid,
 --解锁
 ----分别为SID和SERIAL#号
 /*
-alter system kill session '3706,2970';
+alter system kill session '3446,8726';
 alter system kill session '2567,2750';
 alter system kill session '2289,2309';
 alter system kill session '869,11100';

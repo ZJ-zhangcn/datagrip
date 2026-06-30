@@ -1,19 +1,19 @@
 --ÓÌÔ¥ÆÚ
 select HESITATEEND
 from LMEdorWT
-where riskcode = '1116004';
+where riskcode = '1111004';
 
 --»¹¿îÀûÏ¢
-select round(5779.32 * 0.03 / 365 * (date '2026-08-20' - date '2026-07-20' - 1), 2) »¹¿îÀûÏ¢
+select round(2005.7 * 0.03 / 365 * (date '2026-07-20' - date '2026-06-20' - 1), 2) »¹¿îÀûÏ¢
 from dual;
 
 --¸´Ð§ÀûÏ¢
-select round(5000 * round(0.03 / 365, 8) * (date '2029-08-20' - date '2028-06-16'), 2) ¸´Ð§ÀûÏ¢
+select round(5000 * round(0.03 / 365, 8) * (date '2029-06-10' - date '2028-05-22'), 2) ¸´Ð§ÀûÏ¢
 from dual;
 --È¨ÏÞ
 update lpedorapp
 set apppregrade='IPOS-12'
-where EdorAcceptNo = '7402121100333055';
+where EdorAcceptNo = '7402121100332591';
 
 --µ±Äê¶ÈºìÀû¼ÆËã
 --±£·Ñ£¨±£¶î£©/1000*KÖµ*ºìÀûÒò×Ó
@@ -28,14 +28,14 @@ where a.riskcode = b.riskcode
   and a.INSUREDAPPAGE = b.INSUREDAPPAGE
   and a.INSUYEAR = b.INSUYEAR
   and a.BONUSGRADE = 'H'
-  and a.riskcode = '1116004'
-  and date'2027-06-15' between c.CVALIDATE and c.ENDDATE
---   and a.POLYEAR = '2'
-  and b.contno = '2026061500000526'
+  and a.riskcode = '1111004'
+  and date'2027-05-22' between c.CVALIDATE and c.ENDDATE
+  and a.POLYEAR = '1'
+  and b.contno = '2026052100002586'
 order by to_number(POLYEAR);
 --ºìÀûÀûÏ¢¼ÆËã
 --ºìÀû±¾½ð*ÈÕÀûÂÊ*¼ÆÏ¢ÌìÊý
-select round(196.46 * round(0.03 / 365, 8) * (date'2029-10-20' - date'2029-08-20'), 2) ºìÀûÀûÏ¢
+select round(194.37 * round(0.03 / 365, 8) * (date'2029-07-10' - date'2029-06-10'), 2) ºìÀûÀûÏ¢
 from dual;
 
 --Éú´æ½ð
@@ -46,51 +46,51 @@ where contno = '2026050600002916';
 --ÍË±£
 --t¡ÜPPP£¬Î´Ç·½É±£·Ñ
 select round(a.prem / 1000 * b.endcv *
-             power(1 + 0.0375, (((date '2026-07-20' - date '2026-06-16') - 365) / 365)), 2) cash/*,
+             power(1 + 0.0375, (((date '2026-06-10' - date '2026-05-22') - 365) / 365)), 2) cash/*,
        round(a.prem * 1.2, 2)                                                               ±ÈÀý,
        round(a.amnt * power((1 + 0.0175), (select dt - 1 from dual)), 2)                    ÓÐÐ§±£ÏÕ½ð¶î*/
 from lcpol a,
-     cv_1116004 b
+     cv_1111004 b
 where a.insuredsex = b.gender
   and a.insuredappage = b.age
   and a.payendyear = b.pt
-  and a.contno = '2026061500000526'
+  and a.contno = '2026052500000296'
   and b.dt = 1
 order by dt;
 
 --t¡ÜPPP£¬Ç·½É±£·Ñ
 select round(a.prem / 1000 * b.endcv, 2) cash/*, round(a.prem * 3 * 1.2, 2) ±ÈÀý*/
 from lcpol a,
-     cv_1116004 b
+     cv_1111004 b
 where a.insuredsex = b.gender
   and a.insuredappage = b.age
   and a.payendyear = b.pt
-  and a.contno = '2026061500000526'
+  and a.contno = '2026052100002456'
   and b.dt = 2;
 
 --t>PPP£¬Ç·½É±£·Ñ
 select round(a.prem / 1000 * b.endcv, 2) cash
 from lcpol a,
-     cv_1116004 b
+     cv_1111004 b
 where a.insuredsex = b.gender
   and a.insuredappage = b.age
   and a.payendyear = b.pt
-  and a.contno = '2026061500000526'
+  and a.contno = '2026052100002586'
   and b.dt = 2;
 
 --t>PPP£¬Î´Ç·½É±£·Ñ
-select round((a.prem / 1000 * b.endcv * (date '2029-12-10' - date '2029-06-16') / 365) +
+select round((a.prem / 1000 * b.endcv * (date '2029-12-10' - date '2029-05-22') / 365) +
              (a.prem / 1000 * b.begcv *
-              (365 - (date '2029-12-10' - date '2029-06-16')) / 365), 2) cash,
+              (365 - (date '2029-12-10' - date '2029-05-22')) / 365), 2) cash,
        round(a.prem * 1.6, 2)                                            ±ÈÀý,
        round(a.amnt * power((1 + 0.0175), (select dt - 1 from dual)), 2) ÓÐÐ§±£ÏÕ½ð¶î
 from lcpol a,
-     cv_1116004 b
+     cv_1111004 b
 where a.insuredsex = b.gender
   and a.insuredappage = b.age
   and a.payendyear = b.pt
-  and a.contno = '2026061500000386'
-  and b.dt = 35
+  and a.contno = '2026052100002096'
+  and b.dt = 36
 order by dt;
 
 --¼õ¶î½»Çå
@@ -99,45 +99,36 @@ select *
 from ldcode
 where codetype = 'PublicPUlowestAmnt'
   and code = '000000';
---¼õ¶î½»ÇåÇ°ÏÖ¼Û
-select round(a.prem / 1000 * b.endcv, 2) cash
-from lcpol a,
-     cv_1116004 b
-where a.insuredsex = b.gender
-  and a.insuredappage = b.age
-  and a.payendyear = b.pt
-  and a.contno = '2026061500000526'
-  and b.dt = 2;
 --¼õ¶î½»Çåºó±£¶î
 select round(6000 / 1000 * a.RPU, 2) ¼õ¶î½»Çåºó±£¶î
-from cv_1116004 a,
+from cv_1111004 a,
      lcpol b
 where a.AGE = b.INSUREDAPPAGE
   and a.GENDER = b.INSUREDSEX
   and a.PT = b.PAYENDYEAR
-  and b.contno = '2026061500000526'
+  and b.contno = '2026052100002456'
   and a.dt = '2';
---¼õ¶î½»Çåºó±£·Ñ
-select round(7157.4 * 1000 / a.RATE, 2) ¼õ¶î½»Çåºó±£·Ñ
-from rt_1116004 a,
-     lcpol b
-where a.AGE = b.INSUREDAPPAGE
-  and a.PT = b.PAYENDYEAR
-  and a.GENDER = b.INSUREDSEX
-  and b.contno = '2026061500000526';
 --¼õ¶î½»ÇåºóµÄÏÖ½ð¼ÛÖµ
-select round(7157.4 / 1000 *
-             (a.CV_RPUAFACTOREND * (date '2028-08-10' - date '2028-06-16') / 365 +
-              a.CV_RPUAFACTORBEG * (365 - (date '2028-08-10' - date '2028-06-16')) / 365), 2) ¼õ¶î½»Çåºó±£¶î
-from cv_1116004 a,
+select round(7821.66 / 1000 *
+             (a.CV_RPUAFACTOREND * (date '2028-05-30' - date '2028-05-22') / 365 +
+              a.CV_RPUAFACTORBEG * (365 - (date '2028-05-30' - date '2028-05-22')) / 365), 2) ¼õ¶î½»Çåºó±£¶î
+from cv_1111004 a,
      lcpol b
 where a.AGE = b.INSUREDAPPAGE
   and a.GENDER = b.INSUREDSEX
   and a.PT = b.PAYENDYEAR
-  and b.contno = '2026061500000526'
+  and b.contno = '2026052100002456'
   and a.dt = '3';
+--¼õ¶î½»Çåºó±£·Ñ
+select round(7821.66 * 1000 / a.RATE, 2) ¼õ¶î½»Çåºó±£·Ñ
+from rt_1111004 a,
+     lcpol b
+where a.AGE = b.INSUREDAPPAGE
+  and a.PT = b.PAYENDYEAR
+  and a.GENDER = b.INSUREDSEX
+  and b.contno = '2026052100002456';
 
-select a.* from ldtask a where TASKDESCRIBE like '%´û¿î%'
+
 -------------------------------------------------------------------------------------------------------------
 --¹ºÂò½»Çå±£¶î
 --±¾Äê¶È¹ºÂò½»Çå±£¶î=Êµ¼Ê¸ø¸¶ºìÀû*1000/õ»½»¾»±£·ÑÂÊ
@@ -153,7 +144,7 @@ select round(a.amnt / 1000 * b.BonusFactor * nvl(c.bonusrate, '0'), 2) µ±Äê¶È»ù±
 from lcpol a,
      lobonusfactor b,
      BonusRate c,
-     PUA_1116004 d,
+     PUA_1111004 d,
      lcduty e
 where a.riskcode = b.RISKCODE
   and a.riskcode = c.RISKCODE
@@ -167,13 +158,13 @@ where a.riskcode = b.RISKCODE
   and b.INSUREDSEX = d.GENDER
   and b.PolYear = d.DT
   and a.contno = e.contno
-  and to_date('2028-06-16', 'yyyy-mm-dd') between b.startdate and b.enddate
-  and to_date('2028-06-16', 'yyyy-mm-dd') between c.cvalidate and c.enddate
+  and to_date('2028-05-22', 'yyyy-mm-dd') between b.startdate and b.enddate
+  and to_date('2028-05-22', 'yyyy-mm-dd') between c.cvalidate and c.enddate
   and b.bonusgrade = 'H'
   and b.annuitygetage = '0'
   and e.DUTYCODE like '%1001'/*dt='1'Ê±×¢ÊÍµô*/
   and d.dt = '3'
-  and a.contno = '2026061500000486'
+  and a.contno = '2026052100002366'
 order by d.dt;
 
 select b.*
@@ -187,126 +178,95 @@ where a.riskcode = b.RISKCODE
   and b.PAYENDYEARFLAG = a.PAYENDYEARFLAG
   and b.INSUREDAPPAGE = a.INSUREDAPPAGE
   and b.BONUSGRADE = 'H'
-  and a.contno = '2025111200000296'
+  and a.contno = '2026052100002366'
 order by to_number(POLYEAR);
 
 select a.*
 from lobonusfactor a
-where RISKCODE = '1116004';
+where RISKCODE = '1111004';
 
 select a.*
 from BonusRate a
-where riskcode = '1116004'
+where riskcode = '1111004'
 order by CVALIDATE;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '2026061500000486'
+where contno = '2026052100002366'
 order by makedate, maketime;
 
 --ÍË±£
 --ºìÀûÐû¸æ½»Çå»ù±¾±£ÏÕ½ð¶îÓ¦ÍË½ð¶î
-select round((185.94 + a.amnt) / 1000 * cv2 * (date'2029-06-20' - date'2029-06-16') / 365 +
-             (185.94 + a.amnt) / 1000 * cv1 * (1 - (date'2029-06-20' - date'2029-06-16') / 365), 2) cash
+select round((154.94 + a.amnt) / 1000 * cv2 * (date'2029-06-10' - date'2029-05-22') / 365 +
+             (154.94 + a.amnt) / 1000 * cv1 * (1 - (date'2029-06-10' - date'2029-05-22') / 365), 2) cash
 from lcduty a,
-     PUA_1116004 b,
+     PUA_1111004 b,
      lcpol c
 where a.contno = c.contno
   and b.age = c.INSUREDAPPAGE
   and b.GENDER = c.INSUREDSEX
   and a.DUTYCODE like '%1001'
-  and a.contno = '2026061500000486'
+  and a.contno = '2026052100002366'
   and b.dt = 4;
 
 --ÀÛ»ý½»Çå»ù±¾±£ÏÕ½ð¶î¼õ±£ÏÞ¶î
-select round(a.AMNT / 1000 * cv2 * (date'2027-12-16' - date'2027-06-16') / 365 +
-             a.AMNT / 1000 * cv1 * (1 - (date'2027-12-16' - date'2027-06-16') / 365), 2) cash,
-       round(a.amnt * power((1 + 0.0175), (select dt - 1 from dual)), 2)                 ±ÈÀý
+select round(a.AMNT / 1000 * cv2 * (date'2029-12-10' - date'2029-05-22') / 365 +
+             a.AMNT / 1000 * cv1 * (1 - (date'2029-12-10' - date'2029-05-22') / 365), 2) cash,
+       round(a.amnt * power((1 + 0.0175), (select dt - 1 from dual)), 2) ÓÐÐ§±£ÏÕ½ð¶î
 from lcduty a,
-     PUA_1116004 b,
+     PUA_1111004 b,
      lcpol c
 where a.contno = c.contno
   and b.age = c.INSUREDAPPAGE
   and b.GENDER = c.INSUREDSEX
   and a.DUTYCODE like '%1001'
-  and a.contno = '2026061500000486'
-  and b.dt = 11
+  and a.contno = '2026052100002366'
+  and b.dt = 15
 order by dt;
 --ÀÛ»ý½»Çå»ù±¾±£ÏÕ½ð¶î¼õ±£ºó±£¶î  select (1-µÚt´Î¼õ±£µÄ½ð¶î/µÚt´Î¼õ±£Ç°µÄÏÖ½ð¼ÛÖµ)*µÚt´Î¼õ±£Ç°µÄ±£¶î from dual;
-select round((1 - 10 / 127.31) * 144.57, 2) ¼õ±£ºó±£¶î
+select round((1 - 200 / 288.12) * 303.4, 2) ¼õ±£ºó±£¶î
 from dual;
 
 --»ù±¾±£¶î¼õ±£ÏÞ¶î
-select least(round(a.amnt * 0.2 / a.amnt * ((a.prem / 1000 * b.endcv * (date '2031-06-20' - date '2031-06-16') / 366) +
+select least(round(a.amnt * 0.2 / a.amnt * ((a.prem / 1000 * b.endcv * (date '2031-06-10' - date '2031-05-22') / 366) +
                                             (a.prem / 1000 * b.begcv *
-                                             (366 - (date '2031-06-20' - date '2031-06-16')) / 366)) - 0, 2),
-             round(((a.prem / 1000 * b.endcv * (date '2031-06-20' - date '2031-06-16') / 366) +
+                                             (366 - (date '2031-06-10' - date '2031-05-22')) / 366)) - 0, 2),
+             round(((a.prem / 1000 * b.endcv * (date '2031-06-10' - date '2031-05-22') / 366) +
                     (a.prem / 1000 * b.begcv *
-                     (366 - (date '2031-06-20' - date '2031-06-16')) / 366)), 2)) ¼õ±£ÏÞ¶î
+                     (366 - (date '2031-06-10' - date '2031-05-22')) / 366)), 2)) ¼õ±£ÏÞ¶î
 from lcpol a,
-     cv_1116004 b,
+     cv_1111004 b,
      lcduty c
 where a.insuredsex = b.gender
   and a.insuredappage = b.age
   and a.payendyear = b.pt
   and a.contno = c.contno
-  and c.dutycode = 'ID0554'
-  and a.contno = '2026061500000486'
+  and c.dutycode = 'ID0545'
+  and a.contno = '2026052100002366'
   and b.dt = 6;
 
 --¼õ±£ºó±£¶î
-select round((1 - 1000 / ((a.prem / 1000 * b.endcv * (date '2031-06-20' - date '2031-06-16') / 366) +
+select round((1 - 1000 / ((a.prem / 1000 * b.endcv * (date '2031-06-10' - date '2031-05-22') / 365) +
                           (a.prem / 1000 * b.begcv *
-                           (366 - (date '2031-06-20' - date '2031-06-16')) / 366))) * 9923.1, 2) ¼õ±£ºó±£¶î
+                           (365 - (date '2031-06-10' - date '2031-05-22')) / 365))) * 10351.99, 2) ¼õ±£ºó±£¶î
 from lcpol a,
-     cv_1116004 b,
+     cv_1111004 b,
      lcduty c
 where a.insuredsex = b.gender
   and a.insuredappage = b.age
   and a.payendyear = b.pt
   and a.contno = c.contno
-  and c.dutycode = 'ID0554'
-  and a.contno = '2026061500000486'
+  and c.dutycode = 'ID0545'
+  and a.contno = '2026052100002366'
   and b.dt = 6;
 
 --¼õ±£ºó±£·Ñ
-select round(8947.99 * 1000 / rate, 2) ¼õ±£ºó±£·Ñ
+select round(9377.56 * 1000 / rate, 2) ¼õ±£ºó±£·Ñ
 from lcpol a,
-     rt_1116004 b
+     rt_1111004 b
 where a.insuredsex = b.gender
   and a.insuredappage = b.age
   and a.payendyear = b.pt
-  and a.contno = '2026061500000486';
+  and a.contno = '2026052100002366';
 
-
-select appflag, contno, insuredname, prem, standprem
-from lcpol a
-where grpcontno = '2026121200000196'
-  and insuredname = 'Ãûµ¥Ò»';
-
-select 99 / 12
-from dual;
-
---±£ÏÕ¼Æ»®±ä¸ü
-select round(99 / 12 * (date'2026-07-16' - date'2026-07-11') / 30, 2),
-       round(180 / 12 * (date'2026-07-16' - date'2026-07-11'/*±ä¸üÉúÐ§ÈÕÆÚ*/) / 30, 2)
-from dual;
-
-
-select prem, standprem, a.*
-from lcpol a
-where prtno = '3206915160615043';
-
-select appflag, prem, standprem, STANDBYFLAG1, a.*
-from lppol a
-where grpcontno = '2026061600001086';
-
-select 120 * 1.01
-from dual;
-
-select round(round(8.25 * (date'2026-07-15' - date'2026-07-11') / 30, 2) * (1 - 0.25), 2),
-       round(round(15 * (date'2026-07-15' - date'2026-07-11') / 30, 2) * (1 - 0.25), 2),
-       round(round(22.5 * (date'2026-07-15' - date'2026-07-11') / 30, 2) * (1 - 0.25), 2),
-       round(round(35 * (date'2026-07-15' - date'2026-07-11') / 30, 2) * (1 - 0.25), 2)
-from dual;
 

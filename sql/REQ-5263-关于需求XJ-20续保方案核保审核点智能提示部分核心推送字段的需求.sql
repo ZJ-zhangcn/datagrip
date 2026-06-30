@@ -98,7 +98,7 @@ SELECT b.grpcontno                          AS 承保单号,
        '2026-04-22'                         AS 最后更新日期,
        '16:41:51'                           AS 最后更新时间
 FROM LCGRPCONT b
-WHERE b.grpcontno = '2026042200000556';
+WHERE b.grpcontno = '2026052800000186';
 
 --团单终止LCGRPCONTXBBAK
 SELECT b.grpcontno                                        AS 承保单号,
@@ -297,7 +297,7 @@ SELECT a.grpcontno                         AS 保单号,
 FROM LCCONTPLAN a,
      LCGRPCONT b
 WHERE a.grpcontno = b.grpcontno
-  AND a.grpcontno = '2026042200000556';
+  AND a.grpcontno = '2026052800000186';
 
 --团单终止LCCONTPLANXBBAK
 SELECT a.grpcontno                                        AS 保单号,
@@ -498,7 +498,7 @@ SELECT a.grpcontno                                AS 保单号,
        '16:57:31'                                 AS 最后更新时间
 FROM (SELECT DISTINCT grpcontno, contplancode, riskcode, dutycode
       FROM lccontplandutyparam c
-      WHERE c.grpcontno = '2026042200000556') a,
+      WHERE c.grpcontno = '2026052800000186') a,
      lcgrpcont b
 WHERE a.grpcontno = b.grpcontno;
 

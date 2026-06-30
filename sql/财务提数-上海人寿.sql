@@ -10,14 +10,22 @@ order by batchno desc;
 
 select makedate, a.*
 from fiaboriginaldata a
-where batchno = '00000000000000004374';
+where batchno in ('00000000000000003673','','') order by batchno;
+
+select makedate, a.*
+from fiaboriginaldata a
+where BUSINESSNO02 = '2026051400000266';
 
 select stringinfo11, stringinfo14, stringinfo05, a.*
 from fiaboriginaldata a
-where batchno = '00000000000000004193'
-  and acquisitionid in ('REQ71811', '');
+where batchno = '00000000000000004399'
+  and acquisitionid in ('00000804', '');
 
---update fiaboriginaldata set stringinfo11='R0300' where batchno='00000000000000004007' and acquisitionid in ('req4116067','');
+/*
+update fiaboriginaldata set stringinfo11='R0300' where batchno='00000000000000004402' and acquisitionid in ('req78213','REQ71805','REQ71811','00000804');
+update fiaboriginaldata set stringinfo14='91302' where batchno='00000000000000004402' and acquisitionid in ('req78213','REQ71805','REQ71811','00000804');
+*/
+
 --enteraccdate:到账日期
 select a.*
 from ljagetdraw a
@@ -34,7 +42,7 @@ where tax > 0;
 --
 select *
 from ficostdataacquisitiondef
-where acquisitionid like '%req4213%'
+where acquisitionid like '%REQ34514%'
 order by acquisitionid;
 --算法查询
 select a.*
@@ -44,7 +52,7 @@ where acquisitionid in
        from fiaboriginaldata
        where aserialno in (select distinct attribute1
                            from of_interface
-                           where je_category_name = 'MQ_YT'));
+                           where je_category_name = 'BQ_YFG'));
 
 --统信校验
 select *
@@ -55,7 +63,16 @@ order by serialno;
 --SF_FF\SF_SF提取先修改inbankcode
 select inbankcode, inbankaccno, a.*
 from ljaget a
-where otherno = '7402121100347973';
+where otherno in ('7402121100332428', '3631815101011336', '7402121100332669', '3631815101011385', '7402121100332413',
+                  '3631815101011313', '7402121100332486', '3631815101011344', '7402121100332665', '3631815101011377',
+                  '7402121100332523', '3631815101011384', '7402121100332506', '3631815101011338', '');
+
+update ljaget
+set inbankcode='0101',
+    inbankaccno='1202027719900258161'
+where otherno in ('7402121100332428', '3631815101011336', '7402121100332669', '3631815101011385', '7402121100332413',
+                  '3631815101011313', '7402121100332486', '3631815101011344', '7402121100332665', '3631815101011377',
+                  '7402121100332523', '3631815101011384', '7402121100332506', '3631815101011338', '');
 
 --正常收费模拟第三方收费修改bankcode='UnionPay' and bankcode=null
 select bankcode,
@@ -68,7 +85,8 @@ select bankcode,
        managecom,
        policycom
 from ljtempfeeclass a
-where otherno = '7402121100347973';
+where otherno in ('5000118360087332','7402121100332243','3631815101011280','5000118388214111','7402121100332092','3631815101011276','5000118341869548','7402121100332079','3631815101011272','5000118388867918','7402121100332292','3631815101011283');
+
 --拆单收费模拟第三方收费修改inbankcode='UnionPay' and inbankaccno=null
 select inbankcode, inbankaccno
 from splitcont a
@@ -113,8 +131,12 @@ from of_interface f
 where --f.source_batch_id = '00000000000000004327'
 --lis_prtno = '3206915150822081'
 --       accounting_date = date'2021-08-16'/* and entered_dr='0' and entered_cr='0'*/
-lis_contno = '2026042300000106'
+lis_contno in ('2026051500001416','')
 -- and f.segment3 = '54020604'
 --LIS_CASENO='3631815101095847'
 order by f.ACCOUNTING_DATE asc, f.je_category_name asc, SOURCE_BATCH_ID asc, f.LIS_CONTNO asc, f.SEGMENT1 asc,
          f.SEGMENT3 asc, f.SEGMENT4 asc, f.SEGMENT5 asc, f.SEGMENT6 asc, f.ATTRIBUTE15 asc;
+
+
+select contno from llclaimpolicy a where caseno='3631815101011284';
+select contno from lpedoritem a where edoracceptno='7402121100332298';

@@ -256,4 +256,3 @@ where pt = payendyear
 --ºìÀûÀûÏ¢
 select round(33407.97 * round(0.03 / 365, 8) * (date'2030-10-10' - date'2030-09-29'), 2)
 from dual;
-

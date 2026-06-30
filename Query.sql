@@ -31,9 +31,12 @@ where a.contno = c.contno
   and a.contno = '2026040700000106'
   and b.dt = 2;
 
-select PAYINTV,a.* from lcpol a where contno='2026040700000476';
+select PAYINTV, a.*
+from lcpol a
+where contno = '2026040700000476';
 
-select 3086.16 * power((1 + 0.0175), 3 - 1) from dual;
+select 3086.16 * power((1 + 0.0175), 3 - 1)
+from dual;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
@@ -79,3 +82,68 @@ where a.riskcode = b.RISKCODE
   and d.dt = '3'
   and a.contno = '2026040700000106'
 order by d.dt;
+
+--
+select GETMONEY, JQAMNT, a.*
+from LJABonusGet a
+where contno = '2026040700000786'
+order by makedate, maketime;
+
+--1111001-上海人寿鑫自在终身寿险（分红型）身故保险金
+select round(a.AMNT / 1000 * cv2 * (date'2037-03-10' - date'2036-04-08') / 365 +
+             a.AMNT / 1000 * cv1 * (1 - (date'2037-03-10' - date'2036-04-08') / 365), 2) cash,
+       round(a.AMNT * power((1 + 0.02), b.dt - 1), 2)
+from lcduty a,
+     PUA_1111001 b,
+     lcpol c
+where a.contno = c.contno
+  and b.age = c.INSUREDAPPAGE
+  and b.GENDER = c.INSUREDSEX
+  and a.DUTYCODE like '%1001'
+  and a.contno = '2026040700000106'
+  and b.dt = 11;
+
+--1111002-上海人寿鑫自由乐享版终身寿险（分红型）身故保险金
+select round(19131.36 / 1000 * cv2 * (date'2028-12-08' - date'2028-04-08') / 365 +
+             19131.36 / 1000 * cv1 * (1 - (date'2028-12-08' - date'2028-04-08') / 365), 2) cash,
+       round(19131.36 * power((1 + 0.0175), b.dt - 1), 2)
+from lcduty a,
+     PUA_1111002 b,
+     lcpol c
+where a.contno = c.contno
+  and b.age = c.INSUREDAPPAGE
+  and b.GENDER = c.INSUREDSEX
+  and a.DUTYCODE like '%1001'
+  and a.contno = '2026040700000656'
+  and b.dt = 12
+order by b.dt;
+
+--1113002-上海人寿臻鑫传家终身寿险（分红型）身故保险金
+select round(2477.72 / 1000 * cv2 * (date'2028-12-08' - date'2028-04-08') / 365 +
+             2477.72 / 1000 * cv1 * (1 - (date'2028-12-08' - date'2028-04-08') / 365), 2) cash,
+       round(2477.72 * power((1 + 0.0175), b.dt - 1), 2)
+from lcduty a,
+     PUA_1113002 b,
+     lcpol c
+where a.contno = c.contno
+  and b.age = c.INSUREDAPPAGE
+  and b.GENDER = c.INSUREDSEX
+  and a.DUTYCODE like '%1001'
+  and a.contno = '2026040700000296'
+  and b.dt = 12
+order by b.dt;
+
+--1113002-上海人寿臻鑫传家终身寿险（分红型）身故保险金
+select round(1249.54 / 1000 * cv2 * (date'2028-04-07' - date'2027-04-08') / 366 +
+             1249.54 / 1000 * cv1 * (1 - (date'2028-04-07' - date'2027-04-08') / 366), 2) cash,
+       round(1249.54 * power((1 + 0.0175), b.dt - 1), 2)
+from lcduty a,
+     PUA_1113003 b,
+     lcpol c
+where a.contno = c.contno
+  and b.age = c.INSUREDAPPAGE
+  and b.GENDER = c.INSUREDSEX
+  and a.DUTYCODE like '%1001'
+  and a.contno = '2026040700000786'
+  and b.dt = 2
+order by b.dt;

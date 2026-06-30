@@ -33,9 +33,9 @@ select a.* from TranLog a where TranDate='20231225';
 
 --银保险种
 select a.* from codemapping a where codealias like '%分红型%';
-select a.* from codemapping a where comcode='PSBC' and codetype='riskcode';
-select a.* from codemapping a where INSU_CODE='1303021';
-select a.* from codemapping a where BANK_CODE='6000D004';
+select a.* from codemapping a where comcode='SPDB' and codetype='riskcode';
+select a.* from codemapping a where INSU_CODE in ('1033043','1013014');
+select a.* from codemapping a where BANK_CODE='6000D005';
 select a.* from codemapping a where INSU_CODE IN ('1113002', '1113004', '1133005', '1133006') and COMCODE='SPDB';
 
 --银保险种默认领取方式  0-自动转账  1-累积生息  3-转入万能账户

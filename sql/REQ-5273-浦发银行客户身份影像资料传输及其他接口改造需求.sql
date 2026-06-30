@@ -1,16 +1,30 @@
 --
-select uwflag,a.* from lccont a where prtno='5000118251009788';
+select uwflag, a.*
+from lccont a
+where prtno = '5000118251009788';
 
 /*
 update lccont set uwflag='9' where prtno='5000118251009757';
 */
 
-select a.* from ldtask a where TASKCLASS='YbtUploadImageTask';
-select a.* from ldtask a where TASKCLASS='SynchronizationSendDealTask';
+select a.*
+from ldtask a
+where TASKCLASS = 'YbtUploadImageTask';
+select a.*
+from ldtaskplan a
+where taskcode = '000233';
 
-SELECT SYSVARVALUE FROM LDSYSVAR WHERE SYSVAR = 'PFFtp';--10.52.200.157,22,weblogic,weblogic%,/data/app/FileContent/BankFile/ccb/CallSvc/
+select a.*
+from ldtask a
+where TASKCLASS = 'SynchronizationSendDealTask';
 
-select a.* from LPEDORITEM a where contno='2026033100010396';
+SELECT SYSVARVALUE
+FROM LDSYSVAR
+WHERE SYSVAR = 'PFFtp';--10.52.200.157,22,weblogic,weblogic%,/data/app/FileContent/BankFile/ccb/CallSvc/
+
+select a.*
+from LPEDORITEM a
+where contno = '2026033100010396';
 
 select '1'
 from lccont b
@@ -49,7 +63,7 @@ where a.contno = '5000118251009757'
 
 
 select a.*
-from LISDATA.LPEDORITEM a
+from LPEDORITEM a
 where EDORSTATE = '0'
   and EDORTYPE = 'PU'
   and GRPCONTNO like '0000000000000000%'
