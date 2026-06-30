@@ -1,4 +1,4 @@
--- ID: REQ-4378
+-- id: req-4378
 -- 标题: 享未来养老年金——核心系统需求
 
 --退保
@@ -18,7 +18,7 @@ select a.prem / 1000 * b.endcv *
    and a.contno = '2024082900000386'
    and b.dt = 1
 
---t≤PPP，月领欠缴保费
+--t≤ppp，月领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney),0)
           from ljagetdraw
@@ -35,7 +35,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024082700000286'
    and b.dt = 1
 
---t>PPP，月领欠缴保费
+--t>ppp，月领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney),0)
           from ljagetdraw
@@ -52,7 +52,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024082700000286'
    and b.dt = 2
 
---t>PPP，月领未欠缴保费
+--t>ppp，月领未欠缴保费
 select (a.prem / 1000 * b.endcv * (date '2034-10-01' - date '2034-08-28') / 365) +
        (a.prem / 1000 * b.begcv *
        (365 - (date '2034-10-01' - date '2034-08-28')) / 365) +
@@ -60,7 +60,7 @@ select (a.prem / 1000 * b.endcv * (date '2034-10-01' - date '2034-08-28') / 365)
                 (select nvl(sum(getmoney), 0)
                     from ljagetdraw
                    where contno = a.contno
-                     and FEEOPERATIONTYPE = 'AG'
+                     and feeoperationtype = 'AG'
                      and getdate between date '2034-08-28' and date
                    '2034-10-01')),
                 0)
@@ -75,7 +75,7 @@ select (a.prem / 1000 * b.endcv * (date '2034-10-01' - date '2034-08-28') / 365)
    and a.contno = '2024082700000286'
    and b.dt = 11
 
---t≤PPP，年领未欠缴保费
+--t≤ppp，年领未欠缴保费
 select a.prem / 1000 * b.endcv *
        power(1 + 0.045,
              (((date '2024-10-01' - date '2024-08-23') - 365) / 365))
@@ -90,7 +90,7 @@ select a.prem / 1000 * b.endcv *
    and a.contno='2024082200000376'
    and b.dt = 1
 
---t≤PPP，年领欠缴保费
+--t≤ppp，年领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney), 0)
           from ljagetdraw
@@ -107,7 +107,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024082200000376'
    and b.dt = 1
 
---t>PPP，年领欠缴保费
+--t>ppp，年领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney), 0)
           from ljagetdraw
@@ -124,7 +124,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024082200000376'
    and b.dt = 2
 
---t>PPP，年领未欠缴保费
+--t>ppp，年领未欠缴保费
 select (a.prem / 1000 * b.endcv * (date '2035-10-01' - date '2035-08-18') / 365) +
        (a.prem / 1000 * b.begcv *
        (365 - (date '2035-10-01' - date '2035-08-18')) / 365)

@@ -1,612 +1,612 @@
--- ID: REQ-5263
--- 标题: 关于需求XJ-20续保方案核保审核点智能提示部分核心推送字段的需求
+-- id: req-5263
+-- 标题: 关于需求xj-20续保方案核保审核点智能提示部分核心推送字段的需求
 
---团单有效LCGRPCONTXBBAK
-SELECT b.grpcontno                          AS 承保单号,
-       b.GrpName                            AS 投保单位,
-       b.SaleChannels                       AS 销售渠道,
-       b.CValiDate                          AS 生效日期,
-       b.Peoples                            AS 团体人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND appflag = '1')) AS 承保人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND sex = '0'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND appflag = '1')) AS 男性被保人人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND sex = '1'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND appflag = '1')) AS 女性被保人人数,
-       (SELECT TO_CHAR(AVG(TRUNC(MONTHS_BETWEEN(TO_DATE('2026-04-22', 'yyyy-mm-dd'), Birthday) / 12)), '999999999.99')
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND appflag = '1')) AS 平均年龄,
-       (SELECT MAX(TRUNC(MONTHS_BETWEEN(TO_DATE('2026-04-22', 'yyyy-mm-dd'), Birthday) / 12))
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND appflag = '1')) AS 最大年龄,
-       (SELECT MIN(TRUNC(MONTHS_BETWEEN(TO_DATE('2026-04-22', 'yyyy-mm-dd'), Birthday) / 12))
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND appflag = '1')) AS 最小年龄,
-       (SELECT MAX(Salary)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND appflag = '1')) AS 最高月薪,
-       (SELECT AVG(Salary)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND appflag = '1')) AS 平均月薪,
-       DECODE(PayIntv, 0, '0', '12')        AS 交费方式,
-       GrpSpec                              AS 特别约定信息,
-       (SELECT amnt
-        FROM lcgrppol
-        WHERE riskcode = '2062050'
-          AND b.GRPCONTNO = GRPCONTNO)      AS 公共保额保额,
-       (SELECT (SELECT (SELECT SUM(pag.sumactupaymoney)
-                        FROM ljapaygrp pag
-                        WHERE pag.grppolno = gp.grppolno
-                          AND EXISTS (SELECT 1
-                                      FROM ljapay ap
-                                      WHERE ap.payno = pag.payno
-                                        AND ap.incomeno = b.grpcontno)) +
-                       (SELECT NVL(SUM(agd.getmoney), 0)
-                        FROM ljagetendorse agd
-                        WHERE agd.grppolno = gp.grppolno
-                          AND agd.getflag <> '1'
-                          AND EXISTS (SELECT 1
-                                      FROM lpedoritem pd
-                                      WHERE pd.edorno = agd.endorsementno
-                                        AND pd.edorstate = '0'))
-                FROM DUAL) -
-               (SELECT NVL(SUM(agd.getmoney) * -1, 0)
-                FROM ljagetendorse agd
-                WHERE agd.grppolno = gp.grppolno
-                  AND agd.getflag = '1'
-                  AND EXISTS (SELECT 1
-                              FROM lpedoritem pd
-                              WHERE pd.edorno = agd.endorsementno
-                                AND pd.edorstate = '0'))
-        FROM lcgrppol gp
-        WHERE gp.riskcode = '2062050'
-          AND b.GRPCONTNO = gp.GRPCONTNO)   AS 公共保额保费,
-       '2026-04-22'                         AS 最后更新日期,
-       '16:41:51'                           AS 最后更新时间
-FROM LCGRPCONT b
-WHERE b.grpcontno = '2026052800000186';
+--团单有效lcgrpcontxbbak
+select b.grpcontno                          as 承保单号,
+       b.grpname                            as 投保单位,
+       b.salechannels                       as 销售渠道,
+       b.cvalidate                          as 生效日期,
+       b.peoples                            as 团体人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and appflag = '1')) as 承保人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and sex = '0'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and appflag = '1')) as 男性被保人人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and sex = '1'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and appflag = '1')) as 女性被保人人数,
+       (select to_char(avg(trunc(months_between(to_date('2026-04-22', 'yyyy-mm-dd'), birthday) / 12)), '999999999.99')
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and appflag = '1')) as 平均年龄,
+       (select max(trunc(months_between(to_date('2026-04-22', 'yyyy-mm-dd'), birthday) / 12))
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and appflag = '1')) as 最大年龄,
+       (select min(trunc(months_between(to_date('2026-04-22', 'yyyy-mm-dd'), birthday) / 12))
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and appflag = '1')) as 最小年龄,
+       (select max(salary)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and appflag = '1')) as 最高月薪,
+       (select avg(salary)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and appflag = '1')) as 平均月薪,
+       decode(payintv, 0, '0', '12')        as 交费方式,
+       grpspec                              as 特别约定信息,
+       (select amnt
+        from lcgrppol
+        where riskcode = '2062050'
+          and b.grpcontno = grpcontno)      as 公共保额保额,
+       (select (select (select sum(pag.sumactupaymoney)
+                        from ljapaygrp pag
+                        where pag.grppolno = gp.grppolno
+                          and exists (select 1
+                                      from ljapay ap
+                                      where ap.payno = pag.payno
+                                        and ap.incomeno = b.grpcontno)) +
+                       (select nvl(sum(agd.getmoney), 0)
+                        from ljagetendorse agd
+                        where agd.grppolno = gp.grppolno
+                          and agd.getflag <> '1'
+                          and exists (select 1
+                                      from lpedoritem pd
+                                      where pd.edorno = agd.endorsementno
+                                        and pd.edorstate = '0'))
+                from dual) -
+               (select nvl(sum(agd.getmoney) * -1, 0)
+                from ljagetendorse agd
+                where agd.grppolno = gp.grppolno
+                  and agd.getflag = '1'
+                  and exists (select 1
+                              from lpedoritem pd
+                              where pd.edorno = agd.endorsementno
+                                and pd.edorstate = '0'))
+        from lcgrppol gp
+        where gp.riskcode = '2062050'
+          and b.grpcontno = gp.grpcontno)   as 公共保额保费,
+       '2026-04-22'                         as 最后更新日期,
+       '16:41:51'                           as 最后更新时间
+from lcgrpcont b
+where b.grpcontno = '2026052800000186';
 
---团单终止LCGRPCONTXBBAK
-SELECT b.grpcontno                                        AS 承保单号,
-       b.grpname                                          AS 投保单位,
-       b.SaleChannels                                     AS 销售渠道,
-       b.CValiDate                                        AS 生效日期,
-       b.Peoples                                          AS 团体人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 承保人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND sex = '0'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 男性被保人人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND sex = '1'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 女性被保人人数,
-       (SELECT TO_CHAR(AVG(TRUNC(MONTHS_BETWEEN(TO_DATE('2026-04-22', 'yyyy-mm-dd'), Birthday) / 12)), '999999999.99')
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 平均年龄,
-       (SELECT MAX(TRUNC(MONTHS_BETWEEN(TO_DATE('2026-04-22', 'yyyy-mm-dd'), Birthday) / 12))
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 最大年龄,
-       (SELECT MIN(TRUNC(MONTHS_BETWEEN(TO_DATE('2026-04-22', 'yyyy-mm-dd'), Birthday) / 12))
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 最小年龄,
-       (SELECT MAX(Salary)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 最高月薪,
-       (SELECT AVG(Salary)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 平均月薪,
-       DECODE(PayIntv, 0, '0', '12')                      AS 交费方式,
-       GrpSpec                                            AS 特别约定信息,
-       (SELECT amnt
-        FROM lcgrppol
-        WHERE riskcode = '2062050'
-          AND b.GRPCONTNO = GRPCONTNO)                    AS 公共保额保额,
-       (SELECT (SELECT (SELECT SUM(pag.sumactupaymoney)
-                        FROM ljapaygrp pag
-                        WHERE pag.grppolno = gp.grppolno
-                          AND EXISTS (SELECT 1
-                                      FROM ljapay ap
-                                      WHERE ap.payno = pag.payno
-                                        AND ap.incomeno = b.grpcontno))
-                           + (SELECT NVL(SUM(agd.getmoney), 0)
-                              FROM ljagetendorse agd
-                              WHERE agd.grppolno = gp.grppolno
-                                AND agd.getflag <> '1'
-                                AND EXISTS (SELECT 1
-                                            FROM lpedoritem pd
-                                            WHERE pd.edorno = agd.endorsementno
-                                              AND pd.edorstate = '0'))
-                FROM dual)
-                   - (SELECT NVL(SUM(agd.getmoney) * -1, 0)
-                      FROM ljagetendorse agd
-                      WHERE agd.grppolno = gp.grppolno
-                        AND agd.getflag = '1'
-                        AND EXISTS (SELECT 1
-                                    FROM lpedoritem pd
-                                    WHERE pd.edorno = agd.endorsementno
-                                      AND pd.edorstate = '0'))
-        FROM lcgrppol gp
-        WHERE gp.riskcode = '2062050'
-          AND b.GRPCONTNO = gp.GRPCONTNO)                 AS 公共保额保费,
-       '2026-04-22'                                       AS 最后更新日期,
-       '17:53:35'                                         AS 最后更新时间
-FROM LCGRPCONT b
-WHERE b.grpcontno = '2024022200000576';
-
-
---团单有效LCCONTPLANXBBAK
-SELECT a.grpcontno                         AS 保单号,
-       a.contplancode                      AS 计划别,
-       a.contplanname                      AS 计划名称,
-       a.HealthInsFlag                     AS 有无社保,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '0'
-          AND EXISTS(SELECT 1
-                     FROM lcpol
-                     WHERE contno = li.contno
-                       AND appflag = '1')) AS 被保险人属性,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '1'
-          AND EXISTS(SELECT 1
-                     FROM lcpol
-                     WHERE contno = li.contno
-                       AND appflag = '1')) AS 一类人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '2'
-          AND EXISTS(SELECT 1
-                     FROM lcpol
-                     WHERE contno = li.contno
-                       AND appflag = '1')) AS 二类人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '3'
-          AND EXISTS(SELECT 1
-                     FROM lcpol
-                     WHERE contno = li.contno
-                       AND appflag = '1')) AS 三类人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '4'
-          AND EXISTS(SELECT 1
-                     FROM lcpol
-                     WHERE contno = li.contno
-                       AND appflag = '1')) AS 四类人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '5'
-          AND EXISTS(SELECT 1
-                     FROM lcpol
-                     WHERE contno = li.contno
-                       AND appflag = '1')) AS 五类人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '6'
-          AND EXISTS(SELECT 1
-                     FROM lcpol
-                     WHERE contno = li.contno
-                       AND appflag = '1')) AS 六类人数,
-       CASE
-           WHEN (SELECT COUNT(1)
-                 FROM LCContPlanDutyParam
-                 WHERE GrpContNo = a.grpcontno
-                   AND ContPlanCode = a.contplancode
-                   AND calfactor = 'CalRule'
-                   AND riskcode <> '2062050'
-                   AND calfactorvalue = '3') =
-                (SELECT COUNT(DISTINCT (dutycode))
-                 FROM LCContPlanDutyParam
-                 WHERE GrpContNo = a.grpcontno
-                   AND ContPlanCode = a.contplancode
-                   AND riskcode <> '2062050')
-               THEN (SELECT NVL(TO_CHAR(SUM(TO_NUMBER(calfactorvalue)), 'fm999999999.00'), 0)
-                     FROM LCContPlanDutyParam
-                     WHERE GrpContNo = a.GrpContNo
-                       AND ContPlanCode = a.ContPlanCode
-                       AND calfactor = 'Prem'
-                       AND riskcode <> '2062050')
-           ELSE '0.00'
-           END                             AS 人均保费,
-       '2026-04-22'                        AS 最后更新日期,
-       '16:41:51'                          AS 最后更新时间
-FROM LCCONTPLAN a,
-     LCGRPCONT b
-WHERE a.grpcontno = b.grpcontno
-  AND a.grpcontno = '2026052800000186';
-
---团单终止LCCONTPLANXBBAK
-SELECT a.grpcontno                                        AS 保单号,
-       a.contplancode                                     AS 计划别,
-       a.contplanname                                     AS 计划名称,
-       a.HealthInsFlag                                    AS 有无社保,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE li.grpcontno = b.grpcontno
-          AND li.contplancode = a.contplancode
-          AND li.occupationtype = '0'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 被保险人属性,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '1'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 一类人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '2'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 二类人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '3'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 三类人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '4'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 四类人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '5'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 五类人数,
-       (SELECT COUNT(1)
-        FROM lcinsured li
-        WHERE grpcontno = b.grpcontno
-          AND contplancode = a.contplancode
-          AND occupationtype = '6'
-          AND EXISTS (SELECT 1
-                      FROM lcpol
-                      WHERE contno = li.contno
-                        AND enddate = DATE '2025-01-08')) AS 六类人数,
-       CASE
-           WHEN (SELECT COUNT(1)
-                 FROM LCContPlanDutyParam
-                 WHERE GrpContNo = a.grpcontno
-                   AND ContPlanCode = a.contplancode
-                   AND calfactor = 'CalRule'
-                   AND riskcode <> '2062050'
-                   AND calfactorvalue = '3') =
-                (SELECT COUNT(DISTINCT dutycode)
-                 FROM LCContPlanDutyParam
-                 WHERE GrpContNo = a.grpcontno
-                   AND ContPlanCode = a.contplancode
-                   AND riskcode <> '2062050')
-               THEN (SELECT NVL(TO_CHAR(SUM(TO_NUMBER(calfactorvalue)), 'fm999999999.00'), 0)
-                     FROM LCContPlanDutyParam
-                     WHERE GrpContNo = a.GrpContNo
-                       AND ContPlanCode = a.ContPlanCode
-                       AND calfactor = 'Prem'
-                       AND riskcode <> '2062050')
-           ELSE '0.00'
-           END                                            AS 人均保费,
-       '2026-04-22'                                       AS 最后更新日期,
-       '17:53:35'                                         AS 最后更新时间
-FROM LCCONTPLAN a,
-     LCGRPCONT b
-WHERE a.grpcontno = b.grpcontno
-  AND a.grpcontno = '2024062100000126';
+--团单终止lcgrpcontxbbak
+select b.grpcontno                                        as 承保单号,
+       b.grpname                                          as 投保单位,
+       b.salechannels                                     as 销售渠道,
+       b.cvalidate                                        as 生效日期,
+       b.peoples                                          as 团体人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 承保人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and sex = '0'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 男性被保人人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and sex = '1'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 女性被保人人数,
+       (select to_char(avg(trunc(months_between(to_date('2026-04-22', 'yyyy-mm-dd'), birthday) / 12)), '999999999.99')
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 平均年龄,
+       (select max(trunc(months_between(to_date('2026-04-22', 'yyyy-mm-dd'), birthday) / 12))
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 最大年龄,
+       (select min(trunc(months_between(to_date('2026-04-22', 'yyyy-mm-dd'), birthday) / 12))
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 最小年龄,
+       (select max(salary)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 最高月薪,
+       (select avg(salary)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 平均月薪,
+       decode(payintv, 0, '0', '12')                      as 交费方式,
+       grpspec                                            as 特别约定信息,
+       (select amnt
+        from lcgrppol
+        where riskcode = '2062050'
+          and b.grpcontno = grpcontno)                    as 公共保额保额,
+       (select (select (select sum(pag.sumactupaymoney)
+                        from ljapaygrp pag
+                        where pag.grppolno = gp.grppolno
+                          and exists (select 1
+                                      from ljapay ap
+                                      where ap.payno = pag.payno
+                                        and ap.incomeno = b.grpcontno))
+                           + (select nvl(sum(agd.getmoney), 0)
+                              from ljagetendorse agd
+                              where agd.grppolno = gp.grppolno
+                                and agd.getflag <> '1'
+                                and exists (select 1
+                                            from lpedoritem pd
+                                            where pd.edorno = agd.endorsementno
+                                              and pd.edorstate = '0'))
+                from dual)
+                   - (select nvl(sum(agd.getmoney) * -1, 0)
+                      from ljagetendorse agd
+                      where agd.grppolno = gp.grppolno
+                        and agd.getflag = '1'
+                        and exists (select 1
+                                    from lpedoritem pd
+                                    where pd.edorno = agd.endorsementno
+                                      and pd.edorstate = '0'))
+        from lcgrppol gp
+        where gp.riskcode = '2062050'
+          and b.grpcontno = gp.grpcontno)                 as 公共保额保费,
+       '2026-04-22'                                       as 最后更新日期,
+       '17:53:35'                                         as 最后更新时间
+from lcgrpcont b
+where b.grpcontno = '2024022200000576';
 
 
---团单有效LCCONTPLANDUTYPARAMXBBAK
-SELECT a.grpcontno                                AS 保单号,
-       a.contplancode                             AS 计划编码,
-       a.riskcode                                 AS 险种编码,
-       (SELECT riskname
-        FROM lmriskapp
-        WHERE riskcode = a.riskcode)              AS 险种名称,
-       a.dutycode                                 AS 责任编码,
-       (SELECT DutyName
-        FROM LMDUTY
-        WHERE dutycode = a.dutycode)              AS 责任名称,
-       (SELECT CASE SUBSTR(c.calfactorvalue, 0, INSTR(c.calfactorvalue, ',') - 1)
-                   WHEN '2' THEN 0
-                   WHEN '1' THEN TO_NUMBER(SUBSTR(c.calfactorvalue, INSTR(c.calfactorvalue, ',', -1) + 1))
-                   ELSE TO_NUMBER(c.calfactorvalue)
-                   END
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'Amnt'
-          AND c.contplancode = a.contplancode)    AS 保额,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'DailyLimit'
-          AND c.contplancode = a.contplancode)    AS 日限额,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'GetLimitType'
-          AND c.contplancode = a.contplancode)    AS 免赔类型,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'GetLimit'
-          AND c.contplancode = a.contplancode)    AS 免赔额,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'GetRate'
-          AND c.contplancode = a.contplancode)    AS 赔付比例,
-       (SELECT SUBSTR(c.calfactorvalue, INSTR(c.calfactorvalue, ',', -1) + 1)
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'Amnt'
-          AND c.contplancode = a.contplancode
-          AND c.riskcode = '2062050'
-          AND c.dutycode IN ('062050', '062051')) AS 个人限额,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'PayDay'
-          AND c.contplancode = a.contplancode)    AS 给付天数,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'Prem'
-          AND c.contplancode = a.contplancode)    AS 保费,
-       (SELECT CASE SUBSTR(c.calfactorvalue, 0, INSTR(c.calfactorvalue, ',') - 1)
-                   WHEN '2' THEN 'Y'
-                   ELSE 'N'
-                   END
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'Amnt'
-          AND c.contplancode = a.contplancode)    AS 按月薪算保额标记,
-       (SELECT SUBSTR(c.calfactorvalue, INSTR(c.calfactorvalue, ',', -1) + 1)
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'Amnt'
-          AND c.contplancode = a.contplancode
-          AND c.calfactorvalue LIKE '2,%')        AS 月薪倍数,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'FloatRate'
-          AND c.contplancode = a.contplancode)    AS 费率,
-       '2026-04-22'                               AS 最后更新日期,
-       '16:57:31'                                 AS 最后更新时间
-FROM (SELECT DISTINCT grpcontno, contplancode, riskcode, dutycode
-      FROM lccontplandutyparam c
-      WHERE c.grpcontno = '2026052800000186') a,
+--团单有效lccontplanxbbak
+select a.grpcontno                         as 保单号,
+       a.contplancode                      as 计划别,
+       a.contplanname                      as 计划名称,
+       a.healthinsflag                     as 有无社保,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '0'
+          and exists(select 1
+                     from lcpol
+                     where contno = li.contno
+                       and appflag = '1')) as 被保险人属性,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '1'
+          and exists(select 1
+                     from lcpol
+                     where contno = li.contno
+                       and appflag = '1')) as 一类人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '2'
+          and exists(select 1
+                     from lcpol
+                     where contno = li.contno
+                       and appflag = '1')) as 二类人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '3'
+          and exists(select 1
+                     from lcpol
+                     where contno = li.contno
+                       and appflag = '1')) as 三类人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '4'
+          and exists(select 1
+                     from lcpol
+                     where contno = li.contno
+                       and appflag = '1')) as 四类人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '5'
+          and exists(select 1
+                     from lcpol
+                     where contno = li.contno
+                       and appflag = '1')) as 五类人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '6'
+          and exists(select 1
+                     from lcpol
+                     where contno = li.contno
+                       and appflag = '1')) as 六类人数,
+       case
+           when (select count(1)
+                 from lccontplandutyparam
+                 where grpcontno = a.grpcontno
+                   and contplancode = a.contplancode
+                   and calfactor = 'CalRule'
+                   and riskcode <> '2062050'
+                   and calfactorvalue = '3') =
+                (select count(distinct (dutycode))
+                 from lccontplandutyparam
+                 where grpcontno = a.grpcontno
+                   and contplancode = a.contplancode
+                   and riskcode <> '2062050')
+               then (select nvl(to_char(sum(to_number(calfactorvalue)), 'fm999999999.00'), 0)
+                     from lccontplandutyparam
+                     where grpcontno = a.grpcontno
+                       and contplancode = a.contplancode
+                       and calfactor = 'Prem'
+                       and riskcode <> '2062050')
+           else '0.00'
+           end                             as 人均保费,
+       '2026-04-22'                        as 最后更新日期,
+       '16:41:51'                          as 最后更新时间
+from lccontplan a,
      lcgrpcont b
-WHERE a.grpcontno = b.grpcontno;
+where a.grpcontno = b.grpcontno
+  and a.grpcontno = '2026052800000186';
 
---团单终止LCCONTPLANDUTYPARAMXBBAK
-SELECT a.grpcontno                                AS 保单号,
-       a.contplancode                             AS 计划编码,
-       a.riskcode                                 AS 险种编码,
-       (SELECT riskname
-        FROM lmriskapp
-        WHERE riskcode = a.riskcode)              AS 险种名称,
-       a.dutycode                                 AS 责任编码,
-       (SELECT DutyName
-        FROM LMDUTY
-        WHERE dutycode = a.dutycode)              AS 责任名称,
-       (SELECT CASE SUBSTR(c.calfactorvalue, 0, INSTR(c.calfactorvalue, ',') - 1)
-                   WHEN '2' THEN 0
-                   WHEN '1' THEN TO_NUMBER(SUBSTR(c.calfactorvalue, INSTR(c.calfactorvalue, ',', -1) + 1))
-                   ELSE TO_NUMBER(c.calfactorvalue)
-                   END
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'Amnt'
-          AND c.contplancode = a.contplancode)    AS 保额,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'DailyLimit'
-          AND c.contplancode = a.contplancode)    AS 日限额,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'GetLimitType'
-          AND c.contplancode = a.contplancode)    AS 免赔类型,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'GetLimit'
-          AND c.contplancode = a.contplancode)    AS 免赔额,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'GetRate'
-          AND c.contplancode = a.contplancode)    AS 赔付比例,
-       (SELECT SUBSTR(c.calfactorvalue, INSTR(c.calfactorvalue, ',') + 1)
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'Amnt'
-          AND c.contplancode = a.contplancode
-          AND c.riskcode = '2062050'
-          AND c.dutycode IN ('062050', '062051')) AS 个人限额,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'PayDay'
-          AND c.contplancode = a.contplancode)    AS 给付天数,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'Prem'
-          AND c.contplancode = a.contplancode)    AS 保费,
-       (SELECT CASE SUBSTR(c.calfactorvalue, 0, INSTR(c.calfactorvalue, ',') - 1)
-                   WHEN '2' THEN 'Y'
-                   ELSE 'N'
-                   END
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'Amnt'
-          AND c.contplancode = a.contplancode)    AS 按月薪算保额标记,
-       (SELECT SUBSTR(c.calfactorvalue, INSTR(c.calfactorvalue, ',', -1) + 1)
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'Amnt'
-          AND c.contplancode = a.contplancode
-          AND c.calfactorvalue LIKE '2,%')        AS 月薪倍数,
-       (SELECT c.calfactorvalue
-        FROM lccontplandutyparam c
-        WHERE c.grpcontno = a.grpcontno
-          AND c.riskcode = a.riskcode
-          AND c.dutycode = a.dutycode
-          AND c.calfactor = 'FloatRate'
-          AND c.contplancode = a.contplancode)    AS 费率,
-       '2026-04-22'                               AS 最后更新日期,
-       '17:53:35'                                 AS 最后更新时间
-FROM (SELECT DISTINCT grpcontno, contplancode, riskcode, dutycode
-      FROM lccontplandutyparam c
-      WHERE c.grpcontno = '2024062100000126') a,
+--团单终止lccontplanxbbak
+select a.grpcontno                                        as 保单号,
+       a.contplancode                                     as 计划别,
+       a.contplanname                                     as 计划名称,
+       a.healthinsflag                                    as 有无社保,
+       (select count(1)
+        from lcinsured li
+        where li.grpcontno = b.grpcontno
+          and li.contplancode = a.contplancode
+          and li.occupationtype = '0'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 被保险人属性,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '1'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 一类人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '2'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 二类人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '3'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 三类人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '4'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 四类人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '5'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 五类人数,
+       (select count(1)
+        from lcinsured li
+        where grpcontno = b.grpcontno
+          and contplancode = a.contplancode
+          and occupationtype = '6'
+          and exists (select 1
+                      from lcpol
+                      where contno = li.contno
+                        and enddate = date '2025-01-08')) as 六类人数,
+       case
+           when (select count(1)
+                 from lccontplandutyparam
+                 where grpcontno = a.grpcontno
+                   and contplancode = a.contplancode
+                   and calfactor = 'CalRule'
+                   and riskcode <> '2062050'
+                   and calfactorvalue = '3') =
+                (select count(distinct dutycode)
+                 from lccontplandutyparam
+                 where grpcontno = a.grpcontno
+                   and contplancode = a.contplancode
+                   and riskcode <> '2062050')
+               then (select nvl(to_char(sum(to_number(calfactorvalue)), 'fm999999999.00'), 0)
+                     from lccontplandutyparam
+                     where grpcontno = a.grpcontno
+                       and contplancode = a.contplancode
+                       and calfactor = 'Prem'
+                       and riskcode <> '2062050')
+           else '0.00'
+           end                                            as 人均保费,
+       '2026-04-22'                                       as 最后更新日期,
+       '17:53:35'                                         as 最后更新时间
+from lccontplan a,
      lcgrpcont b
-WHERE a.grpcontno = b.grpcontno;
+where a.grpcontno = b.grpcontno
+  and a.grpcontno = '2024062100000126';
+
+
+--团单有效lccontplandutyparamxbbak
+select a.grpcontno                                as 保单号,
+       a.contplancode                             as 计划编码,
+       a.riskcode                                 as 险种编码,
+       (select riskname
+        from lmriskapp
+        where riskcode = a.riskcode)              as 险种名称,
+       a.dutycode                                 as 责任编码,
+       (select dutyname
+        from lmduty
+        where dutycode = a.dutycode)              as 责任名称,
+       (select case substr(c.calfactorvalue, 0, instr(c.calfactorvalue, ',') - 1)
+                   when '2' then 0
+                   when '1' then to_number(substr(c.calfactorvalue, instr(c.calfactorvalue, ',', -1) + 1))
+                   else to_number(c.calfactorvalue)
+                   end
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'Amnt'
+          and c.contplancode = a.contplancode)    as 保额,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'DailyLimit'
+          and c.contplancode = a.contplancode)    as 日限额,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'GetLimitType'
+          and c.contplancode = a.contplancode)    as 免赔类型,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'GetLimit'
+          and c.contplancode = a.contplancode)    as 免赔额,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'GetRate'
+          and c.contplancode = a.contplancode)    as 赔付比例,
+       (select substr(c.calfactorvalue, instr(c.calfactorvalue, ',', -1) + 1)
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'Amnt'
+          and c.contplancode = a.contplancode
+          and c.riskcode = '2062050'
+          and c.dutycode in ('062050', '062051')) as 个人限额,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'PayDay'
+          and c.contplancode = a.contplancode)    as 给付天数,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'Prem'
+          and c.contplancode = a.contplancode)    as 保费,
+       (select case substr(c.calfactorvalue, 0, instr(c.calfactorvalue, ',') - 1)
+                   when '2' then 'Y'
+                   else 'N'
+                   end
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'Amnt'
+          and c.contplancode = a.contplancode)    as 按月薪算保额标记,
+       (select substr(c.calfactorvalue, instr(c.calfactorvalue, ',', -1) + 1)
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'Amnt'
+          and c.contplancode = a.contplancode
+          and c.calfactorvalue like '2,%')        as 月薪倍数,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'FloatRate'
+          and c.contplancode = a.contplancode)    as 费率,
+       '2026-04-22'                               as 最后更新日期,
+       '16:57:31'                                 as 最后更新时间
+from (select distinct grpcontno, contplancode, riskcode, dutycode
+      from lccontplandutyparam c
+      where c.grpcontno = '2026052800000186') a,
+     lcgrpcont b
+where a.grpcontno = b.grpcontno;
+
+--团单终止lccontplandutyparamxbbak
+select a.grpcontno                                as 保单号,
+       a.contplancode                             as 计划编码,
+       a.riskcode                                 as 险种编码,
+       (select riskname
+        from lmriskapp
+        where riskcode = a.riskcode)              as 险种名称,
+       a.dutycode                                 as 责任编码,
+       (select dutyname
+        from lmduty
+        where dutycode = a.dutycode)              as 责任名称,
+       (select case substr(c.calfactorvalue, 0, instr(c.calfactorvalue, ',') - 1)
+                   when '2' then 0
+                   when '1' then to_number(substr(c.calfactorvalue, instr(c.calfactorvalue, ',', -1) + 1))
+                   else to_number(c.calfactorvalue)
+                   end
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'Amnt'
+          and c.contplancode = a.contplancode)    as 保额,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'DailyLimit'
+          and c.contplancode = a.contplancode)    as 日限额,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'GetLimitType'
+          and c.contplancode = a.contplancode)    as 免赔类型,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'GetLimit'
+          and c.contplancode = a.contplancode)    as 免赔额,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'GetRate'
+          and c.contplancode = a.contplancode)    as 赔付比例,
+       (select substr(c.calfactorvalue, instr(c.calfactorvalue, ',') + 1)
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'Amnt'
+          and c.contplancode = a.contplancode
+          and c.riskcode = '2062050'
+          and c.dutycode in ('062050', '062051')) as 个人限额,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'PayDay'
+          and c.contplancode = a.contplancode)    as 给付天数,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'Prem'
+          and c.contplancode = a.contplancode)    as 保费,
+       (select case substr(c.calfactorvalue, 0, instr(c.calfactorvalue, ',') - 1)
+                   when '2' then 'Y'
+                   else 'N'
+                   end
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'Amnt'
+          and c.contplancode = a.contplancode)    as 按月薪算保额标记,
+       (select substr(c.calfactorvalue, instr(c.calfactorvalue, ',', -1) + 1)
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'Amnt'
+          and c.contplancode = a.contplancode
+          and c.calfactorvalue like '2,%')        as 月薪倍数,
+       (select c.calfactorvalue
+        from lccontplandutyparam c
+        where c.grpcontno = a.grpcontno
+          and c.riskcode = a.riskcode
+          and c.dutycode = a.dutycode
+          and c.calfactor = 'FloatRate'
+          and c.contplancode = a.contplancode)    as 费率,
+       '2026-04-22'                               as 最后更新日期,
+       '17:53:35'                                 as 最后更新时间
+from (select distinct grpcontno, contplancode, riskcode, dutycode
+      from lccontplandutyparam c
+      where c.grpcontno = '2024062100000126') a,
+     lcgrpcont b
+where a.grpcontno = b.grpcontno;

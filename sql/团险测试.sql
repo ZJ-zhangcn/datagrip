@@ -46,17 +46,17 @@ from dual;
 
 select riskcode, count(riskcode)
 from lmriskduty a
-where riskcode in (select RiskCode
-                   from LMRiskApp
+where riskcode in (select riskcode
+                   from lmriskapp
                    where (enddate is null or enddate > date'2026-06-15')
                      and riskprop in ('G', 'D')
                    union
 
                    select riskcode
-                   from LMRiskComCtrl
+                   from lmriskcomctrl
                    where startdate <= date'2026-06-15'
                      and (enddate is null or enddate > date'2026-06-15')
-                     and ManageComGrp = '86010101'
+                     and managecomgrp = '86010101'
                      and
                        (select distinct(riskprop) from lmriskapp where riskcode = lmriskcomctrl.riskcode) in ('G', 'D'))
   and riskcode in (select riskcode from lmriskapp where riskname like 'ÆÖÒø%')

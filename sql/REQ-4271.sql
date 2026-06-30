@@ -1,12 +1,12 @@
--- ID: REQ-4271
+-- id: req-4271
 -- 标题: 个险渠道新单投保手机号实名校验需求
 
 select a.* from lcmobilecheckinfo a where customerno in ('1060096945', '1060096946','','');
 
 /*
-insert into lcmobilecheckinfo (CONTNO, CUSTOMERNO, CUSTOMERTYPE, NAME, IDCARD, MOBILE, MANAGECOM, REQCODE, REQMESSAGE,
-                               REQDATA, SEQNO, STATE, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME,
-                               STANDBYFLAG1, STANDBYFLAG2)
+insert into lcmobilecheckinfo (contno, customerno, customertype, name, idcard, mobile, managecom, reqcode, reqmessage,
+                               reqdata, seqno, state, operator, makedate, maketime, modifydate, modifytime,
+                               standbyflag1, standbyflag2)
 values ('5000118241250047', '1060095576', 'I', '银保投保三三', '152123200601101175', '17512279999', '86010101', '10000',
         '成功', '{"state":"2"}', '8YDS9W1D990208131726978', '2', 'ZHHL_GXTB', to_date('07-02-2021', 'dd-mm-yyyy'),
         '20:30:28', to_date('07-02-2021', 'dd-mm-yyyy'), '20:30:27', '000', null);
@@ -24,7 +24,7 @@ select a.* from lcappnt a where idno='310101199007111025'
 select mobile,a.* from lcaddress a where customerno in ('1001735690', '')
 
 /*
-update lcaddress set POSTALADDRESS='上海市上海市黄浦区林校路街道义和庄北路4号' where customerno in ('1060094710', '1060094744')
+update lcaddress set postaladdress='上海市上海市黄浦区林校路街道义和庄北路4号' where customerno in ('1060094710', '1060094744')
 */
 
 

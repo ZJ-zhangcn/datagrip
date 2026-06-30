@@ -1,71 +1,71 @@
--- ID: REQ-4794
+-- id: req-4794
 -- 标题: 双录问题件汇流回传全量清单报表字段取值调整
 
-SELECT *
-FROM LEFragmentLogs
-WHERE Bak1 = 'DQ'
-  and FMProposalPrtNo in ('5000118250813076');
+select *
+from lefragmentlogs
+where bak1 = 'DQ'
+  and fmproposalprtno in ('5000118250813076');
 
 /*
-INSERT INTO LISDATA.LCCONTMOVIE (CONTNO, PRTNO, BATCHNO, MANAGECOM, APPNTNO, APPNTNAME, VIDEODATE, VIDEOTIME, UPLOADDATE, UPLOADTIME, UPLOADENDDATE, UPLOADENDTIME, QUALITYTESTDATE, QUALITYTESTTIME, QUALITYTESTOPERATOR, QUALITYTESTSTATE, QUALITYTESTDESC, IDTYPE, BANKCODE, AREACODE, BANKTELLER, FILEPATH, FILENAME, MAINRISKCODE, TRANDATE, POLAPPLYDATE, BANKACCNO, REPEATFLAG, BAK1, BAK2, BAK3, BAK4, BAK5, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, SUBQUALITYSTATE, SYSTEMAUDIT, RECHECKSTATUS, ISISSUE, QUALITYPHONE, QUALITYRESULT, QUALITYNUM, REJECTNUM, ISPERMANENT, PERMANENTTIME, UPERRORREASON, PUSHHUILIUTIME, HUILIURECEIVETIME, LASTOPERATOR, BUSINESSNO, NODENO, RECODATE, BUSITYPE, TASKPARAMS, POLICYPARAMS) VALUES ('3002004101304102', '3002004101304102', '20191019', '86010101', '1052283555', '养增十一', null, null, DATE '2020-06-10', '13:16:53', null, null, DATE '2019-10-21', '14:10:51', '焦锋', '3', '通过', null, '1', null, null, null, null, null, null, null, null, null, null, '1', '2', null, '102001R231564464655719034', 'jh', DATE '2021-10-13', '11:34:18', DATE '2025-07-11', '00:25:20', null, null, null, null, null, '2', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+insert into lisdata.lccontmovie (contno, prtno, batchno, managecom, appntno, appntname, videodate, videotime, uploaddate, uploadtime, uploadenddate, uploadendtime, qualitytestdate, qualitytesttime, qualitytestoperator, qualityteststate, qualitytestdesc, idtype, bankcode, areacode, bankteller, filepath, filename, mainriskcode, trandate, polapplydate, bankaccno, repeatflag, bak1, bak2, bak3, bak4, bak5, operator, makedate, maketime, modifydate, modifytime, subqualitystate, systemaudit, recheckstatus, isissue, qualityphone, qualityresult, qualitynum, rejectnum, ispermanent, permanenttime, uperrorreason, pushhuiliutime, huiliureceivetime, lastoperator, businessno, nodeno, recodate, busitype, taskparams, policyparams) values ('3002004101304102', '3002004101304102', '20191019', '86010101', '1052283555', '养增十一', null, null, date '2020-06-10', '13:16:53', null, null, date '2019-10-21', '14:10:51', '焦锋', '3', '通过', null, '1', null, null, null, null, null, null, null, null, null, null, '1', '2', null, '102001R231564464655719034', 'jh', date '2021-10-13', '11:34:18', date '2025-07-11', '00:25:20', null, null, null, null, null, '2', null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 */
-select a.* from lccontmovie a where QUALITYTESTSTATE='8'
+select a.* from lccontmovie a where qualityteststate='8'
 
-SELECT count(1)
-FROM LEFragmentLogs d
-         INNER JOIN lccontmovie c ON d.fmproposalprtno = c.prtno
-         LEFT JOIN LCISSUEPOL a
-                   ON a.proposalcontno = substr(c.prtno, 1, 16) and a.issuetype = '1000200' and a.MakeDate = d.makedate
-         LEFT JOIN lccont aa ON aa.prtno = substr(c.prtno, 1, 16)
-WHERE d.Bak1 = 'DQ'
-  AND d.fmfuncflag = 'DQ002'
-  AND d.fmobjctinfotype = '0'
-  AND 1 = 1
-  AND 1 = 1
-  AND 1 = 1
-  AND d.FMProposalPrtNo = '3002004101304102'
-  AND 1 = 1
-  AND 1 = 1
+select count(1)
+from lefragmentlogs d
+         inner join lccontmovie c on d.fmproposalprtno = c.prtno
+         left join lcissuepol a
+                   on a.proposalcontno = substr(c.prtno, 1, 16) and a.issuetype = '1000200' and a.makedate = d.makedate
+         left join lccont aa on aa.prtno = substr(c.prtno, 1, 16)
+where d.bak1 = 'DQ'
+  and d.fmfuncflag = 'DQ002'
+  and d.fmobjctinfotype = '0'
+  and 1 = 1
+  and 1 = 1
+  and 1 = 1
+  and d.fmproposalprtno = '3002004101304102'
+  and 1 = 1
+  and 1 = 1
 
 
-SELECT d.FMProposalPrtNo,
-       CASE
-           WHEN aa.appflag = 'B' THEN '未对账'
-           WHEN aa.appflag = '1' THEN '承保'
-           WHEN aa.appflag = '4' THEN '终止'
-           WHEN aa.appflag = '0' AND aa.uwflag IN ('a', '1', '2') THEN '撤单'
-           WHEN aa.appflag = '0' AND aa.uwflag NOT IN ('a', '1', '2') THEN '未承保'
-           ELSE '' END,
+select d.fmproposalprtno,
+       case
+           when aa.appflag = 'B' then '未对账'
+           when aa.appflag = '1' then '承保'
+           when aa.appflag = '4' then '终止'
+           when aa.appflag = '0' and aa.uwflag in ('a', '1', '2') then '撤单'
+           when aa.appflag = '0' and aa.uwflag not in ('a', '1', '2') then '未承保'
+           else '' end,
        aa.appntname,
        aa.appntno,
-       CASE
-           WHEN a.BackObjType = '1' THEN '内部确认'
-           WHEN a.BackObjType = '2' THEN '客户'
-           WHEN a.BackObjType = '3' THEN '业务员'
-           ELSE '' END,
-       CASE WHEN a.needprint = 'Y' THEN '是' WHEN a.needprint = 'N' THEN '否' ELSE '' END,
-       CASE WHEN nvl(a.ErrTrial, d.bak3) = 'Y' THEN '是' WHEN nvl(a.ErrTrial, d.bak3) = 'N' THEN '否' ELSE '' END,
-       c.QualityTestDesc,
-       a.IssueCont,
+       case
+           when a.backobjtype = '1' then '内部确认'
+           when a.backobjtype = '2' then '客户'
+           when a.backobjtype = '3' then '业务员'
+           else '' end,
+       case when a.needprint = 'Y' then '是' when a.needprint = 'N' then '否' else '' end,
+       case when nvl(a.errtrial, d.bak3) = 'Y' then '是' when nvl(a.errtrial, d.bak3) = 'N' then '否' else '' end,
+       c.qualitytestdesc,
+       a.issuecont,
        a.operator,
-       TO_CHAR(a.startdate, 'yyyy-mm-dd'),
-       a.StartTime,
+       to_char(a.startdate, 'yyyy-mm-dd'),
+       a.starttime,
        d.makedate,
        d.maketime,
-       TO_CHAR(c.QualityTestDate, 'yyyy-mm-dd') || '  ' || c.QualityTestTime,
-       TO_CHAR(c.PUSHHUILIUTIME, 'yyyy-MM-dd HH24:mi:ss'),
-       TO_CHAR(c.HUILIURECEIVETIME, 'yyyy-MM-dd HH24:mi:ss')
-FROM LEFragmentLogs d
-         INNER JOIN lccontmovie c ON d.fmproposalprtno = c.prtno
-         LEFT JOIN LCISSUEPOL a
-                   ON a.proposalcontno = substr(c.prtno, 1, 16) and a.issuetype = '1000200' and a.MakeDate = d.makedate
-         LEFT JOIN lccont aa ON aa.prtno = substr(c.prtno, 1, 16)
-WHERE d.Bak1 = 'DQ'
-  AND d.fmfuncflag = 'DQ002'
-  AND d.fmobjctinfotype = '0'
-  AND 1 = 1
-  AND 1 = 1
-  AND 1 = 1
-  AND d.FMProposalPrtNo = '3002004101304102'
-  AND 1 = 1
-  AND 1 = 1;
+       to_char(c.qualitytestdate, 'yyyy-mm-dd') || '  ' || c.qualitytesttime,
+       to_char(c.pushhuiliutime, 'yyyy-MM-dd HH24:mi:ss'),
+       to_char(c.huiliureceivetime, 'yyyy-MM-dd HH24:mi:ss')
+from lefragmentlogs d
+         inner join lccontmovie c on d.fmproposalprtno = c.prtno
+         left join lcissuepol a
+                   on a.proposalcontno = substr(c.prtno, 1, 16) and a.issuetype = '1000200' and a.makedate = d.makedate
+         left join lccont aa on aa.prtno = substr(c.prtno, 1, 16)
+where d.bak1 = 'DQ'
+  and d.fmfuncflag = 'DQ002'
+  and d.fmobjctinfotype = '0'
+  and 1 = 1
+  and 1 = 1
+  and 1 = 1
+  and d.fmproposalprtno = '3002004101304102'
+  and 1 = 1
+  and 1 = 1;

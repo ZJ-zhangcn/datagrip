@@ -1,9 +1,9 @@
--- ID: REQ-5307
--- 标题: 浦银人寿盛世安昕C款两全保险（万能型）——核心系统需求
+-- id: req-5307
+-- 标题: 浦银人寿盛世安昕c款两全保险（万能型）——核心系统需求
 
 --犹豫期
-select HESITATEEND
-from LMEdorWT
+select hesitateend
+from lmedorwt
 where riskcode = '1303022';
 
 --还款利息
@@ -12,19 +12,19 @@ from dual;
 
 --月结利息
 --月结利息=日利率*经过天数*结息时的账户价值
-Select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
+select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
              (date'2026-05-01' - date'2026-04-29') * 10670/*结息时的账户价值*/, 2) 月结利息
 from dual;
 
-Select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
+select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
              (date'2026-06-01' - date'2026-05-01') * 10671.73/*结息时的账户价值*/, 2) 月结利息
 from dual;
 
-Select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
+select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
              (date'2026-07-01' - date'2026-06-01') * 10698.55/*结息时的账户价值*/, 2) 月结利息
 from dual;
 
-Select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
+select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
              (date'2026-08-01' - date'2026-07-01') * 10724.57/*结息时的账户价值*/, 2) 月结利息
 from dual;
 
@@ -47,15 +47,15 @@ select round((9700 * 1.2 - 9700) / 1000 * 34.5 / 365 * (date'2027-07-01' - date'
 from dual;
 
 --贷款停效后复效利息计算
---INTERESTRATE修改贷款利率
+--interestrate修改贷款利率
 select a.*
-from LOLOANMAIN a
+from loloanmain a
 where contno = '2026042800004286';
 
 --贷款停效批处理
 select a.*
 from ldtask a
-where TASKDESCRIBE like '%贷款停效%';
+where taskdescribe like '%贷款停效%';
 
 --复效利息
 select round(15905.66 * round(0.03 / 365, 8) * (date '2028-02-10' - date '2027-07-11'), 2) 复效利息
@@ -67,7 +67,7 @@ from dual;
 
 --退保现价
 --月结利息
-Select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
+select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
              (date'2028-07-10' - date'2028-07-01' + 1) * 20191.34/*结息时的账户价值*/, 2) 月结利息
 from dual;
 --16.37
@@ -86,7 +86,7 @@ from dual;
 
 --持续奖金
 --月结利息
-Select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
+select round(round((power(1 + 0.03, 1 / 12) - 1) * 12 / 365, 8)/*将年利率0.03转化为日利率*/*
              (date'2031-04-29' - date'2031-04-01') * 21337.77/*结息时的账户价值*/, 2) 月结利息
 from dual;
 --48.44

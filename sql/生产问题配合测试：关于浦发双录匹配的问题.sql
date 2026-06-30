@@ -1,19 +1,19 @@
-select a.* from ybtmovietrace a where FILENAME in ('A.mp4','B.mp4','C.mp4','D.mp4','E.mp4','F.mp4');
+select a.* from ybtmovietrace a where filename in ('A.mp4','B.mp4','C.mp4','D.mp4','E.mp4','F.mp4');
                                     --prtno in ('5000118260428232','5000118260428256','5000118260428263','5000118260428270');
 /*
-delete from ybtmovietrace where FILENAME in ('A.mp4','B.mp4','C.mp4','D.mp4','E.mp4','F.mp4');
+delete from ybtmovietrace where filename in ('A.mp4','B.mp4','C.mp4','D.mp4','E.mp4','F.mp4');
 */
 
-select a.* from lccontmovie a where FILENAME in ('A.mp4','B.mp4','C.mp4','D.mp4','E.mp4','F.mp4');
+select a.* from lccontmovie a where filename in ('A.mp4','B.mp4','C.mp4','D.mp4','E.mp4','F.mp4');
                                   --prtno in ('5000118260428232','5000118260428256','5000118260428263','5000118260428270');
 /*
-delete from lccontmovie where FILENAME in ('A.mp4','B.mp4','C.mp4','D.mp4','E.mp4','F.mp4');
+delete from lccontmovie where filename in ('A.mp4','B.mp4','C.mp4','D.mp4','E.mp4','F.mp4');
 */
 
-select a.* from LIS.MOVIE a where prtno in ('5000118260428232','5000118260428256','5000118260428263','5000118260428270');
+select a.* from lis.movie a where prtno in ('5000118260428232','5000118260428256','5000118260428263','5000118260428270');
 
 /*
-delete from MOVIE where prtno in ('5000118260428232','5000118260428256','5000118260428263','5000118260428270');
+delete from movie where prtno in ('5000118260428232','5000118260428256','5000118260428263','5000118260428270');
 */
 
 select contno,riskcode from lcpol a where prtno in ('5000118260428232','5000118260428256','5000118260428263','5000118260428270');

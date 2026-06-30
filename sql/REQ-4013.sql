@@ -1,4 +1,4 @@
--- ID: REQ-4013
+-- id: req-4013
 -- 标题: 关于万能期交缓交账务处理规则及万能期交日结新增的需求
 
 /*
@@ -21,7 +21,7 @@ select appflag,signdate,cvalidate,managecom,salechannels,a.* from lccont a where
 select a.*/**/ from lccontstate a where contno='2024042400000286';
 
 /*
-insert into lccontstate (CONTNO, INSUREDNO, POLNO, STATETYPE, STATE, STATEREASON, STARTDATE, ENDDATE, REMARK, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME)
+insert into lccontstate (contno, insuredno, polno, statetype, state, statereason, startdate, enddate, remark, operator, makedate, maketime, modifydate, modifytime)
 values ('2024042300000186', '1060093044', '210310000006481', 'DefedPay', '1', null, to_date('24-06-2025', 'dd-mm-yyyy'), null, null, 'sys', to_date('01-07-2025', 'dd-mm-yyyy'), '00:00:14', to_date('01-07-2025', 'dd-mm-yyyy'), '00:00:14');
 */
 --hanuptype:1-新契约 2-保全 3-续期 4-理赔 5-渠道  flag:0-未挂起  1-已挂起
@@ -38,9 +38,9 @@ select a.* from ljapayperson a where contno in ('2024042400000286','');
 
 select a.* from ljtempfee a where otherno='2024042400000286';
 
-select a.* from ljtempfeeclass a where TEMPFEENO='86000020270320000094';
+select a.* from ljtempfeeclass a where tempfeeno='86000020270320000094';
 
-select a.* from lcinsureacctrace a where contno in ('2024042400000286','') and MONEYTYPE='CS' and riskcode='1303012' and makedate between date'2027-07-28' and date'2027-07-28' order by contno,paydate desc;
+select a.* from lcinsureacctrace a where contno in ('2024042400000286','') and moneytype='CS' and riskcode='1303012' and makedate between date'2027-07-28' and date'2027-07-28' order by contno,paydate desc;
 
 select a.* from lcinsureacctrace a where contno in ('2024042400000286','') order by paydate desc,makedate desc,maketime desc;
 
@@ -66,7 +66,7 @@ select f.source_batch_id 提账批次号,
        f.segment5 渠道,
        f.segment6 产品/*,
        (select acquisitionid from fiaboriginaldata where aserialno = f.attribute1) 算法代码,
-       (select DISTILLSQL from ficostdataacquisitiondef where acquisitionid in (select acquisitionid from fiaboriginaldata where aserialno = f.attribute1)) 算法*/
+       (select distillsql from ficostdataacquisitiondef where acquisitionid in (select acquisitionid from fiaboriginaldata where aserialno = f.attribute1)) 算法*/
   from of_interface f
  where lis_contno in ('2024061400000186', '') --2024052600000196\2024052700000106
    and f.source_batch_id = '00000000000000009280'

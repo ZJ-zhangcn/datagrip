@@ -1,4 +1,4 @@
--- ID: REQ-4429
+-- id: req-4429
 -- 标题: 银保手续费账务规则调整
 
 /*
@@ -7,7 +7,7 @@
 */
 
 --
-select a.* from ldtask a where taskdescribe like '%财务自动提数批处理%' --StartDate\EndDate\CertificateID:SXF
+select a.* from ldtask a where taskdescribe like '%财务自动提数批处理%' --startdate\enddate\certificateid:sxf
 
 select a.* from ldtask a where taskdescribe like '%手续费%'
 
@@ -19,11 +19,11 @@ select a.codename,a.codealias from ldcode1 a where codetype ='FLPassemail' and a
 0-空、1-差异项、2-加扣款、3-待审核、4-加扣款待审核、5-差异项待审核、6-已审核、7-加扣款已审核、8-差异项已审核
 9-已结算、10-加扣款已结算、11-差异项已结算、12-审核不通过、13-重复项、14-待结算
 */
-select a.* from FMCalculatePrem a order by modifydate desc;
+select a.* from fmcalculateprem a order by modifydate desc;
 
-select state,AuditDate,paycount,a.* from FMCalculatePrem a where contno in ('2030010100000466','2023021400001528') and batchno like 'JD202404412%' order by contno,commisionsn
+select state,auditdate,paycount,a.* from fmcalculateprem a where contno in ('2030010100000466','2023021400001528') and batchno like 'JD202404412%' order by contno,commisionsn
 
-select a.* from FMCalculatePrem a where contno='2023021400001528' order by contno desc
+select a.* from fmcalculateprem a where contno='2023021400001528' order by contno desc
 
 --科目明细
 select f.source_batch_id 提账批次号,
@@ -33,7 +33,7 @@ select f.source_batch_id 提账批次号,
        f.accounting_date 账务日期,
        f.source_desc 业务类别,
        f.line_desc 描述,
-       f.attribute15 新旧, /*C:新&旧  D:旧  N:新*/
+       f.attribute15 新旧, /*c:新&旧  d:旧  n:新*/
        f.entered_dr 借方金额,
        f.entered_cr 贷方金额,
        f.segment1 公司,

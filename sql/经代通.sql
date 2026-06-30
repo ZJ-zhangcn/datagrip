@@ -31,7 +31,7 @@ select a.* from ldtask a where taskdescribe like '%一体化%';
 select code1 from ldcode1 where codetype = 'wechatctlimit';
 
 --现金价值
-select dt,(begcv*10),a.* from cv_1056018 a where age='40' and PT='1000' and gender='1' order by a.dt;
+select dt,(begcv*10),a.* from cv_1056018 a where age='40' and pt='1000' and gender='1' order by a.dt;
 
 select a.* from ljspay a where otherno='5001060200018159';
 
@@ -45,4 +45,4 @@ select a.* from ldcode a where codetype like '%riskperiod%';
 
 select a.* from lcpol a where riskcode='1066011';
 
-select a.* from lcidCardCheckInfo a where contno='5000112600018171';
+select a.* from lcidcardcheckinfo a where contno='5000112600018171';

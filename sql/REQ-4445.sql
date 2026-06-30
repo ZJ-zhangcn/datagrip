@@ -1,7 +1,7 @@
--- ID: REQ-4445
+-- id: req-4445
 -- 标题: 转账失败回销收款人户名校验的变更优化需求
 
-select a.* from lcpol a where appntname like '%银保投保%' and a.insuredappage<18 
+select a.* from lcpol a where appntname like '%银保投保%' and a.insuredappage<18
 
 select a.* from lcpol a where contno='2023051100000986'
 
@@ -43,11 +43,11 @@ select a.appntname,a.idtype,a.idno,b.mobile,idstdate,idexpdate from lcappnt a,lc
 
 select a.* from lcappnt a where contno='2020100900028278'
 
- SELECT *
-   FROM ldcriticalillness a, ldcode1 b
-  WHERE 1 = 1
+ select *
+   from ldcriticalillness a, ldcode1 b
+  where 1 = 1
     and a.cicode = b.code1
     and b.code like '1056006%'
-  ORDER BY cicode
+  order by cicode
 
 select a.* from ldcode a where;

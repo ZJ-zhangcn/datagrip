@@ -1,4 +1,4 @@
--- ID: REQ-4533
+-- id: req-4533
 -- 标题: 线上平台保全操作客户风险等级校验话术调整-核心
 
 --投保人
@@ -42,7 +42,7 @@ select a.contno, a.idno, b.state, b.riskgrade, b.clientno
 
 select lc.* from lcpol lc where contno='2025091500002026'
 
-select a.appntname,a.appntbirthday,a.idtype,a.idno,a.appntsex,b.mobile,idstdate,idexpdate from lcappnt a,lcaddress b 
+select a.appntname,a.appntbirthday,a.idtype,a.idno,a.appntsex,b.mobile,idstdate,idexpdate from lcappnt a,lcaddress b
 where a.appntno=b.customerno and a.addressno=b.addressno and a.contno='2022032900000416'
 
 select name,birthday,idtype,idno,a.* from lcinsured a where contno='2022032900000416'
@@ -51,35 +51,35 @@ select state,riskgrade,a.* from fxdj.cr_client a where clientno = '6666666703';
 
 select state,riskgrade,a.* from fxdj.cr_client a where clientno = '6666700005';
 
-select a.* from fxdj.cr_client a where CARDID = '310107199205040131';
+select a.* from fxdj.cr_client a where cardid = '310107199205040131';
 
 select a.* from ldcode a where codetype like '%riskgrade%';
 
 /*
-INSERT INTO FXDJ.CR_CLIENT (CLIENTNO, SOURCE, NAME, BIRTHDAY, AGE, SEX, GRADE, CARDTYPE, CARDID, CARDEXPIREDATE,
-                            CLIENTTYPE, WORKPHONE, FAMILYPHONE, TELEPHONE, OCCUPATION, BUSINESSTYPE, INCOME, GRPNAME,
-                            ADDRESS, OTHERCLIENTINFO, ZIPCODE, NATIONALITY, PROVINCE, COMCODE, CONTTYPE,
-                            BUSINESSLICENSENO, ORGCOMCODE, TAXREGISTCERTNO, BUSINESSSOURCE, LEGALPERSON,
-                            LEGALPERSONCARDTYPE, LEGALPERSONCARDID, LINKMAN, COMREGISTAREA, COMREGISTTYPE,
-                            COMBUSINESSAREA, COMBUSINESSSCOPE, APPNTNUM, COMSTAFFSIZE, AMLISCOUNT, AMLIHCOUNT,
-                            AMLISREPORTCOUNT, AMLIHREPORTCOUNT, GRPNATURE, FOUNDDATE, HOLDERKEY, HOLDERNAME,
-                            HOLDERCARDTYPE, HOLDERCARDID, HOLDEROCCUPATION, HOLDERRADIO, HOLDEROTHERINFO, RELARISKTIP,
-                            ISEXCEPTION, ISCOMPLETED, EXCEPTIONCODE, FIRSTAUDITOR, SECONDAUDITOR, THIRDAUDITOR,
-                            GRADEWAY, RISKSCORE, RISKGRADE, STATE, REMARK, DEALTIME, NEXTAUDITDATE, OPER, MAKEDATE,
-                            MAKETIME)
-VALUES ('1111111110', '1', '少一', DATE '1992-05-04', null, '0', null, '1', '310107199205040131', null, null, null, null, null,
+insert into fxdj.cr_client (clientno, source, name, birthday, age, sex, grade, cardtype, cardid, cardexpiredate,
+                            clienttype, workphone, familyphone, telephone, occupation, businesstype, income, grpname,
+                            address, otherclientinfo, zipcode, nationality, province, comcode, conttype,
+                            businesslicenseno, orgcomcode, taxregistcertno, businesssource, legalperson,
+                            legalpersoncardtype, legalpersoncardid, linkman, comregistarea, comregisttype,
+                            combusinessarea, combusinessscope, appntnum, comstaffsize, amliscount, amlihcount,
+                            amlisreportcount, amlihreportcount, grpnature, founddate, holderkey, holdername,
+                            holdercardtype, holdercardid, holderoccupation, holderradio, holderotherinfo, relarisktip,
+                            isexception, iscompleted, exceptioncode, firstauditor, secondauditor, thirdauditor,
+                            gradeway, riskscore, riskgrade, state, remark, dealtime, nextauditdate, oper, makedate,
+                            maketime)
+values ('1111111110', '1', '少一', date '1992-05-04', null, '0', null, '1', '310107199205040131', null, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
         null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-        null, null, null, null, null, null, null, null, null, null, null, '4', '05', null, DATE '2022-05-01', null,
+        null, null, null, null, null, null, null, null, null, null, null, '4', '05', null, date '2022-05-01', null,
         null, null, null);
 
-insert into fxdj.cr_client (CLIENTNO, SOURCE, NAME, BIRTHDAY, AGE, SEX, GRADE, CARDTYPE, CARDID, CARDEXPIREDATE, CLIENTTYPE, WORKPHONE, FAMILYPHONE, TELEPHONE, OCCUPATION, BUSINESSTYPE, INCOME, GRPNAME, ADDRESS, OTHERCLIENTINFO, ZIPCODE, NATIONALITY, PROVINCE, COMCODE, CONTTYPE, BUSINESSLICENSENO, ORGCOMCODE, TAXREGISTCERTNO, BUSINESSSOURCE, LEGALPERSON, LEGALPERSONCARDTYPE, LEGALPERSONCARDID, LINKMAN, COMREGISTAREA, COMREGISTTYPE, COMBUSINESSAREA, COMBUSINESSSCOPE, APPNTNUM, COMSTAFFSIZE, AMLISCOUNT, AMLIHCOUNT, AMLISREPORTCOUNT, AMLIHREPORTCOUNT, GRPNATURE, FOUNDDATE, HOLDERKEY, HOLDERNAME, HOLDERCARDTYPE, HOLDERCARDID, HOLDEROCCUPATION, HOLDERRADIO, HOLDEROTHERINFO, RELARISKTIP, ISEXCEPTION, ISCOMPLETED, EXCEPTIONCODE, FIRSTAUDITOR, SECONDAUDITOR, THIRDAUDITOR, GRADEWAY, RISKSCORE, RISKGRADE, STATE, REMARK, DEALTIME, NEXTAUDITDATE, OPER, MAKEDATE, MAKETIME)
-values ((select max(CLIENTNO)+1 from fxdj.cr_client), '1', '预生产测试', to_date('01-10-1989', 'dd-mm-yyyy'), null, '1', null, '0', '110101198910016540', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '4', '05', null, to_date('01-05-2022', 'dd-mm-yyyy'), null, null, null, null);
+insert into fxdj.cr_client (clientno, source, name, birthday, age, sex, grade, cardtype, cardid, cardexpiredate, clienttype, workphone, familyphone, telephone, occupation, businesstype, income, grpname, address, otherclientinfo, zipcode, nationality, province, comcode, conttype, businesslicenseno, orgcomcode, taxregistcertno, businesssource, legalperson, legalpersoncardtype, legalpersoncardid, linkman, comregistarea, comregisttype, combusinessarea, combusinessscope, appntnum, comstaffsize, amliscount, amlihcount, amlisreportcount, amlihreportcount, grpnature, founddate, holderkey, holdername, holdercardtype, holdercardid, holderoccupation, holderradio, holderotherinfo, relarisktip, isexception, iscompleted, exceptioncode, firstauditor, secondauditor, thirdauditor, gradeway, riskscore, riskgrade, state, remark, dealtime, nextauditdate, oper, makedate, maketime)
+values ((select max(clientno)+1 from fxdj.cr_client), '1', '预生产测试', to_date('01-10-1989', 'dd-mm-yyyy'), null, '1', null, '0', '110101198910016540', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '4', '05', null, to_date('01-05-2022', 'dd-mm-yyyy'), null, null, null, null);
 */
-select SaleChnl,a.* from lccont a where contno='2022032900000416'
+select salechnl,a.* from lccont a where contno='2022032900000416'
 
 select a.* from laagent a where name='周围'
 
-SELECT GiveType,GetDutyCode FROM LLClaimDetail where  ClmNo = '3631815101010354'
+select givetype,getdutycode from llclaimdetail where  clmno = '3631815101010354'
 
-select a.* from LLClaimDetail a where;
+select a.* from llclaimdetail a where;

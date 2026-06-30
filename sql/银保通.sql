@@ -25,19 +25,19 @@ from lccont a
 where contno='2025052200000896';
 
 --
-select a.* from ContBlcDtl a where ProposalPrtNo='2023122500001176';
+select a.* from contblcdtl a where proposalprtno='2023122500001176';
 
 --银行网点
-select AgentCom, Name, UpAgentCom, AreaType, ChannelType
-from LACom
+select agentcom, name, upagentcom, areatype, channeltype
+from lacom
 where 1 = 1
   and branchtype = '3'
   and sellflag = 'Y'
   and state = 'N'
   and managecom like '%%'
   and managecom like '86%%'
-  and ManageCom like '86%'
-order by AgentCom;
+  and managecom like '86%'
+order by agentcom;
 
 
 
@@ -49,18 +49,18 @@ select * from tranlog where rcode='0' and trancom='12' and funcflag='7005' and t
 select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and trandate='20251010';
 
 --
-select a.* from TranLog a where TranDate='20231225';
+select a.* from tranlog a where trandate='20231225';
 
 --银保险种
 select a.* from codemapping a where codealias like '%分红型%';
 
 select a.* from codemapping a where comcode='SPDB' and codetype='riskcode';
 
-select a.* from codemapping a where INSU_CODE in ('1033043','1013014');
+select a.* from codemapping a where insu_code in ('1033043','1013014');
 
-select a.* from codemapping a where BANK_CODE='6000D005';
+select a.* from codemapping a where bank_code='6000D005';
 
-select a.* from codemapping a where INSU_CODE IN ('1113002', '1113004', '1133005', '1133006') and COMCODE='SPDB';
+select a.* from codemapping a where insu_code in ('1113002', '1113004', '1133005', '1133006') and comcode='SPDB';
 
 --银保险种默认领取方式  0-自动转账  1-累积生息  3-转入万能账户
 select a.* from ldcode a where codetype = 'ybtgetliveRisk' and code='1103007' order by comcode;
@@ -71,7 +71,7 @@ select a.* from ldcode a where codetype='addinsuracc';
 --短信
 select mobile from lcaddress a where customerno=(select appntno from lcappnt where contno='2025031900000386');
 
-select a.* from sms_dispatch_list a where SENDTARGET='17503180003';
+select a.* from sms_dispatch_list a where sendtarget='17503180003';
 
 select a.* from sms_dispatch_list a where otherno='5000118240612033';
 
@@ -89,7 +89,7 @@ select a.* from ldtask a where taskdescribe like '%生存%';
 select a.* from ldtask a where taskdescribe like '%满期%';
 
 --
-SELECT IDExpDate FROM ldperson where CustomerNo='1001733666';
+select idexpdate from ldperson where customerno='1001733666';
 
 --需对账的保单
 select contno,appntname,insuredname from ybtdat.cont where proposalprtno='2023110100000976' and state='2';
@@ -157,7 +157,7 @@ select salechnl,selltype,a.* from lccont a where contno='2023040100000116';
 
 select a.* from lcappnt a where contno='2023040100000116';
 
-select a.* from LCCONTDZYTPRINT a where contno='2023112300000116';
+select a.* from lccontdzytprint a where contno='2023112300000116';
 
 select a.* from lcepolicy a where contno='2023112300000116';
 

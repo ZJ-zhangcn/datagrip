@@ -1,4 +1,4 @@
--- ID: REQ-4256
+-- id: req-4256
 -- 标题: 保险责任专项整改问题7
 
 select a.* from lmriskapp a where riskname = '上海人寿大金刚个人综合意外伤害保险'--1075001
@@ -36,10 +36,10 @@ select contno,
        --(select codename from ldcode where codetype = 'bqannuitygetmode' and code = (select annuitygetmode from lcduty where contno=a.contno)) 生存金领取方式,
        gettodate,
        getstartdate,
-       getenddate,LiveGetType
+       getenddate,livegettype
   from lcget a
  where contno = '2024041700000386'
 
-select a.* from TEMP_LCPolTransaction a where policyno='2024041700000386'
+select a.* from temp_lcpoltransaction a where policyno='2024041700000386'
 
-select AllowanceType,a.* from temp_LCLiability a where policyno='130011000504817';
+select allowancetype,a.* from temp_lcliability a where policyno='130011000504817';

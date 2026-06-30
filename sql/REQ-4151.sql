@@ -1,7 +1,7 @@
--- ID: REQ-4151
+-- id: req-4151
 -- 标题: 沪申宝——核心系统需求
 
-select a.* from lmriskapp a where riskname like '%沪申宝%' 
+select a.* from lmriskapp a where riskname like '%沪申宝%'
 
 select 330.66*prem/1000,amnt from lcpol a where contno='2024052800000116'
 
@@ -38,7 +38,7 @@ select a.contno      保单号,
        a.payintv     交费方式,
        a.payendyear  交费期间,
        b.annuitygetage||'-周岁' as 年金领取起始时间,
-       b.insugetmode as 保至年金领取后XX年,
+       b.insugetmode as 保至年金领取后xx年,
        b.getyearmode as 后台保证领取期间,
        b.insuyear as 保险期间,
        b.enddate as 终止日期,

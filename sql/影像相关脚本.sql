@@ -17,16 +17,16 @@ from ldsysvar s
 where s.sysvar = 'SFTPServer-LocalImage';
 
 --核心组装报文的位置，为本地
-SELECT a.sysvarvalue
-FROM ldsysvar a
+select a.sysvarvalue
+from ldsysvar a
 where a.sysvar = 'SFTPServer-XMLImage';
 
 --核心组装压缩包的位置，为本地
-SELECT a.sysvarvalue
-FROM ldsysvar a
+select a.sysvarvalue
+from ldsysvar a
 where a.sysvar = 'SFTPServer-CompressImage';
 
 --信雅达地址
-SELECT SYSVARVALUE
-FROM LDSYSVAR
-WHERE SYSVAR = 'Server-SunECM';
+select sysvarvalue
+from ldsysvar
+where sysvar = 'Server-SunECM';

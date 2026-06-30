@@ -1,74 +1,74 @@
 /*
-truncate table temp_LCPOLTRANSACTION;
+truncate table temp_lcpoltransaction;
 */
-/*delete from TEMP_LCPOLTRANSACTION where BUSSTYPE <> '73';
+/*delete from temp_lcpoltransaction where busstype <> '73';
 */
 /*
-truncate table temp_LCCONT;
+truncate table temp_lccont;
 
-truncate table temp_LCPRODINSURELA;
+truncate table temp_lcprodinsurela;
 
-truncate table temp_LCPRODUCT;
+truncate table temp_lcproduct;
 
-truncate table temp_LCLiability;
+truncate table temp_lcliability;
 
-truncate table temp_LCBNF;
+truncate table temp_lcbnf;
 
-truncate table temp_LCGrpCont;
+truncate table temp_lcgrpcont;
 
-truncate table temp_LCGrpProduct;
+truncate table temp_lcgrpproduct;
 
-truncate table temp_LCGrpAppnt;
+truncate table temp_lcgrpappnt;
 
-truncate table temp_LCInsured;
+truncate table temp_lcinsured;
 
-truncate table temp_LCInsureAcc;
+truncate table temp_lcinsureacc;
 
-truncate table temp_LLClaimPolicy;
+truncate table temp_llclaimpolicy;
 
-truncate table temp_LLBnf;
+truncate table temp_llbnf;
 
-truncate table temp_LLClaimDetail;
+truncate table temp_llclaimdetail;
 
-truncate table temp_LLClaimInfo;
+truncate table temp_llclaiminfo;
 
-truncate table temp_LLClaimantInfo;
+truncate table temp_llclaimantinfo;
 
-truncate table temp_LLReceipt;
+truncate table temp_llreceipt;
 
-truncate table temp_LLCostItem;
+truncate table temp_llcostitem;
 
-truncate table temp_LLMedicalFeeDetail;
+truncate table temp_llmedicalfeedetail;
 
-truncate table temp_LLDisease;
+truncate table temp_lldisease;
 
-truncate table temp_LLOperation;
+truncate table temp_lloperation;
 
-truncate table temp_LASales;
+truncate table temp_lasales;
 
-truncate table temp_LAAgent;
+truncate table temp_laagent;
 
-truncate table temp_LJTempFee;
+truncate table temp_ljtempfee;
 
-truncate table temp_LJDivDistrib;
+truncate table temp_ljdivdistrib;
 
-truncate table temp_LJAGetLivBene;
+truncate table temp_ljagetlivbene;
 
-truncate table temp_LJAPayGrp;
+truncate table temp_ljapaygrp;
 
-truncate table temp_LJAPay;
+truncate table temp_ljapay;
 
-truncate table temp_LMProduct;
+truncate table temp_lmproduct;
 
-truncate table temp_LJAGet;
+truncate table temp_ljaget;
 
 truncate table temp_lallunderwriting;
 
-truncate table temp_LCBlacklist;
+truncate table temp_lcblacklist;
 
 truncate table temp_lmliability;
 
 truncate table temp_lcinsureacctrace;
 
-truncate table temp_LJAGetEndorse;
+truncate table temp_ljagetendorse;
 */

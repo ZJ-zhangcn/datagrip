@@ -39,7 +39,7 @@ select (select codename
        c.csrate                进度,
        c.xkf                   开发,
        c.xcs                   测试,
-       a.it                    IT
+       a.it                    it
 from req a
          left join reqwork b
                    on a.serialno = b.serialno
@@ -93,14 +93,14 @@ select (select codename
        c.csrate                进度,
        c.kf                    开发,
        c.xcs                   测试,
-       a.it                    IT
+       a.it                    it
 from req a
          left join reqwork b
                    on a.serialno = b.serialno
          left join reqplan c
                    on a.serialno = c.serialno
 where c.csrenddate is null
-  and a.State in ('01', '02', '03', '04', '05', '06')
+  and a.state in ('01', '02', '03', '04', '05', '06')
   and (c.csrstartdate is not null or c.csopstartdate <= date '2026-03-13') --下周五
 order by c.csrstartdate, c.csopstartdate;
 
@@ -125,7 +125,7 @@ select a.demo          模块,
        a.name          需求名称,
        a.report        报告人,
        a.createdate    创建日期,
-       a.it            IT负责人,
+       a.it            it负责人,
        a.csopstartdate 计划开始日期,
        a.csopenddate   计划结束日期,
        a.csrstartdate  实际开始日期,
@@ -136,7 +136,7 @@ where a.csopenddate between date '2024-05-01' and date '2024-05-31';
 --上线需求
 select count(*)
 from req a
-where ONLINEDATE between date '2024-05-01' and date '2024-05-31';
+where onlinedate between date '2024-05-01' and date '2024-05-31';
 
 select demo, state
 from reqinfoop a
@@ -144,6 +144,6 @@ where a.csopenddate between date'2024-05-01' and date '2024-05-31'
 group by demo, state;
 
 
-select DISTINCT *
+select distinct *
 from reqinfoop
-where (XQPENDDATE > date '2025-1-1' AND XQPSTARTDATE < date '2026-1-1' AND BA = '张锦')
+where (xqpenddate > date '2025-1-1' and xqpstartdate < date '2026-1-1' and ba = '张锦')

@@ -6,24 +6,24 @@
 --------------------------------------------------------------------------------------------------------------------------------------------
 保全项目表中根据保单号查询保全受理号
 
-SELECT * FROM lpedoritem a WHERE a.contno = ' ';
+select * from lpedoritem a where a.contno = ' ';
 应收表中根据保全受理号查询数据
 
-SELECT * FROM ljspay a WHERE a.otherno IN (' ');
+select * from ljspay a where a.otherno in (' ');
 实付表中根据保全受理号查询数据
 
-SELECT * FROM ljaget a WHERE a.otherno IN (' ');
+select * from ljaget a where a.otherno in (' ');
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 
 --保全数据协助收付费
-SELECT * FROM lpedoritem a WHERE a.contno = '2021011500000886';
+select * from lpedoritem a where a.contno = '2021011500000886';
 --先付费
 --付费--7402121100371903
-SELECT * FROM ljaget a WHERE a.otherno IN ('7402121100383155','7402121100383092');
+select * from ljaget a where a.otherno in ('7402121100383155','7402121100383092');
 --再收费
 --收费--7402121100365714
-SELECT * FROM ljspay a WHERE a.otherno IN ('7402121100364011','7402121100364012');
+select * from ljspay a where a.otherno in ('7402121100364011','7402121100364012');
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 --新旧资金判断
@@ -33,24 +33,24 @@ select * from lybanklog where serialno='20210803_19436';
 --------------------------------------------------------------------------------------------------------------------------------------------
 --代收 抽档成功 支付成功
 /*
-UPDATE cux_gather_detail_interface a
-   SET a.deal_status        = '2',
+update cux_gather_detail_interface a
+   set a.deal_status        = '2',
        a.gather_status      = '0',
        a.gather_result_code = '0000',
        a.segment12          = '9007',
        a.bank_feedback      = '支付成功'
- WHERE a.segment11 = '20220601_19743'
+ where a.segment11 = '20220601_19743'
    and a.trade_code = '30001151000000001394';
 */
 --代收 抽档失败
 /*
-update CUX_gather_DETAIL_INTERFACE a
+update cux_gather_detail_interface a
    set a.deal_status = '3'
  where a.segment11 = '20150611_02980';
 */
 --代收 抽档成功 支付失败(客户原因)
 /*
-update CUX_gather_DETAIL_INTERFACE a
+update cux_gather_detail_interface a
    set a.deal_status        = '2',
        a.gather_status      = '3',
        a.gather_result_code = '3008',
@@ -61,14 +61,14 @@ update CUX_gather_DETAIL_INTERFACE a
 */
 --代收 抽档成功 支付失败(系统原因)
 /*
-update CUX_gather_DETAIL_INTERFACE a
+update cux_gather_detail_interface a
    set a.deal_status        = '2',
        a.gather_status      = '3',
        a.gather_result_code = '2006',
        a.segment12          = '3008'
     -- a.bank_feedback      = '失败原因'
  where a.segment11 = '20200515_18060'
-   AND a.trade_code = '30001151000000004746';
+   and a.trade_code = '30001151000000004746';
 */
 --------------------------------------------------------------------------------------------------------------------------------------------
 select * from cux_payment_detail_interface a where a.segment11 = '20791230_14448';
@@ -99,7 +99,7 @@ update cux_payment_detail_interface a
    set a.deal_status = '3'
  where a.segment11 = '20200423_17948';
 */
---代付 抽档成功 支付失败(客户原因) 
+--代付 抽档成功 支付失败(客户原因)
 /*
 update cux_payment_detail_interface a
    set a.deal_status     = '2',
@@ -134,13 +134,13 @@ update ats_transactions a
 */
 --代扣代付 抽档成功 支付失败 已返盘
 /*
-UPDATE ats_transactions a
-   SET a.dtcode          = '1',--抽档成功
+update ats_transactions a
+   set a.dtcode          = '1',--抽档成功
        a.ats_returnstate = '2',--已返盘
        a.transstate      = '3',--处理失败
        a.payinfocode     = 'E1004',
        a.payinfo         = '余额不足'
- WHERE a.reqseqid = '20250929_22679';
+ where a.reqseqid = '20250929_22679';
 */
 --代扣代付 抽档成功 已返盘 退票
 /*

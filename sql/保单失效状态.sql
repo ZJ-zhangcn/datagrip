@@ -18,7 +18,7 @@ select a.*
                     from lccontstate
                    where statetype = 'Terminate'
                      and state = '1'
-                     and STATEREASON = '01')
+                     and statereason = '01')
  order by contno desc;
 
 --退保终止
@@ -30,7 +30,7 @@ select a.*
                     from lccontstate
                    where statetype = 'Terminate'
                      and state = '1'
-                     and STATEREASON = '02')
+                     and statereason = '02')
  order by contno desc;
 
 --解约终止
@@ -42,7 +42,7 @@ select a.*
                     from lccontstate
                    where statetype = 'Terminate'
                      and state = '1'
-                     and STATEREASON = '03')
+                     and statereason = '03')
  order by contno desc;
 
 --理赔终止
@@ -54,7 +54,7 @@ select a.*
                     from lccontstate
                    where statetype = 'Terminate'
                      and state = '1'
-                     and STATEREASON = '04')
+                     and statereason = '04')
  order by contno desc;
 
 --协退终止
@@ -66,7 +66,7 @@ select a.*
                     from lccontstate
                    where statetype = 'Terminate'
                      and state = '1'
-                     and STATEREASON = '05')
+                     and statereason = '05')
  order by contno desc;
 
 --犹退终止
@@ -78,14 +78,14 @@ select a.*
                     from lccontstate
                    where statetype = 'Terminate'
                      and state = '1'
-                     and STATEREASON = '06')
+                     and statereason = '06')
  order by contno desc;
 
 --核保状态
 select a.* from ldcode a where codetype = 'uwflag';
 
 --拒保
-select a.* from lccont a where uwflag='1' and appflag='0' and contno=prtno and grpcontno like '000000%' and prtno in (select CONTPRTNO from ybtnonrealtimepol/*非实时保单该表有数据*/);
+select a.* from lccont a where uwflag='1' and appflag='0' and contno=prtno and grpcontno like '000000%' and prtno in (select contprtno from ybtnonrealtimepol/*非实时保单该表有数据*/);
 
 --延期
 select a.* from lccont a where uwflag='2' and appflag='0' and contno=prtno and grpcontno like '000000%' and contno in (select contno from ybtnonrealtimepol);
@@ -100,7 +100,7 @@ select a.*
                     from lccontstate
                    where statetype = 'Available'
                      and state = '1'
-                     and STATEREASON = '01')
+                     and statereason = '01')
  order by contno desc;
 
 --贷款终止
@@ -112,5 +112,5 @@ select a.*
                     from lccontstate
                    where statetype = 'Available'
                      and state = '1'
-                     and STATEREASON = '04')
+                     and statereason = '04')
  order by contno desc;

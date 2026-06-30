@@ -1,5 +1,5 @@
--- ID: REQ-4667
--- 标题: EAST2.0账务历史数据处理需求
+-- id: req-4667
+-- 标题: east2.0账务历史数据处理需求
 
 --drop table cux_in_interface_temp;
 /*
@@ -52,9 +52,9 @@ where f.source_batch_id = p.source_batch_id
   and f.attribute15 = 'N'
 
 --and f.accounting_date between date'2022-01-01' and date'2025-01-31';
-alter table of_interface_temp modify paycode VARCHAR2(100);
+alter table of_interface_temp modify paycode varchar2(100);
 */
-select DOC_SEQ_NUM,paycode,a.* from of_interface_temp a where paycode in ('86000020260370000918','86010120270320000294','86010120250320003929','86000020260370000918','86010120250320003936','86010120250320003918','86010120250320003919','86310020250320000285','86010120250320003927','86010120250320003928','86010120280320000227','86010120250320003938','86010120250320003939','86010120250320003913','86010120250320003920','86000020260370000920','86010120250320003916','86010120250320003917','86000020250370015332','86000020260370000922','86000020270370000729','86010120250320003935','86310020250320000284','86000020260370000924','86010120250320003933')
+select doc_seq_num,paycode,a.* from of_interface_temp a where paycode in ('86000020260370000918','86010120270320000294','86010120250320003929','86000020260370000918','86010120250320003936','86010120250320003918','86010120250320003919','86310020250320000285','86010120250320003927','86010120250320003928','86010120280320000227','86010120250320003938','86010120250320003939','86010120250320003913','86010120250320003920','86000020260370000920','86010120250320003916','86010120250320003917','86000020250370015332','86000020260370000922','86000020270370000729','86010120250320003935','86310020250320000284','86000020260370000924','86010120250320003933')
 
 
 --契约首期
@@ -156,36 +156,36 @@ update of_interface_temp p set p.paycode = (
 update of_interface_temp p
     set p.paycode =
         (select a.payno
-           from ljapay a ,LjpBalanceRela t
+           from ljapay a ,ljpbalancerela t
           where a.payno=t.actugetno
            and t.balancerelano = p.header_id
            and a.incometype = 'B' and rownum=1  )
   where exists (select a.payno
-           from ljapay a ,LjpBalanceRela t
+           from ljapay a ,ljpbalancerela t
           where a.payno=t.actugetno
            and t.balancerelano = p.header_id
            and a.incometype = 'B' );
 */
-PayType=certifrela
+paytype=certifrela
 
-select GLVOUCHERNO,RDSEQ,reqseqid,ACTTYPE,a.* from LYATSTRANRELA a where ACTTYPE='S3' and exists (select VOUCHERCODE from S3_RTRECMENTS where urid=a.REQSEQID)
+select glvoucherno,rdseq,reqseqid,acttype,a.* from lyatstranrela a where acttype='S3' and exists (select vouchercode from s3_rtrecments where urid=a.reqseqid)
 
 /*
-update LYATSTRANRELA set GLVOUCHERNO=null where
-PayType=certif_ats
+update lyatstranrela set glvoucherno=null where
+paytype=certif_ats
 
-select GLVOUCHERNO,a.* from ats_transactions a where rdseq in (select RDSEQ from LYATSTRANRELA)
-PayType=certif_ats_sup
+select glvoucherno,a.* from ats_transactions a where rdseq in (select rdseq from lyatstranrela)
+paytype=certif_ats_sup
 
-select GLVOUCHERNO,a.* from ats_transactions_supplemented a where rdseq in (select RDSEQ from LYATSTRANRELA) and GLVOUCHERNO is not null
+select glvoucherno,a.* from ats_transactions_supplemented a where rdseq in (select rdseq from lyatstranrela) and glvoucherno is not null
 
-update ats_transactions_supplemented set GLVOUCHERNO=null
-PayType=certif_S3
+update ats_transactions_supplemented set glvoucherno=null
+paytype=certif_s3
 
-select VOUCHERCODE,a.* from S3_RTRECMENTS a where urid in (select reqseqid from LYATSTRANRELA)
+select vouchercode,a.* from s3_rtrecments a where urid in (select reqseqid from lyatstranrela)
 */
 
-select GLVOUCHERNO,a.* from LYATSTRANRELA a where exists (select VOUCHERCODE from S3_RTRECMENTS where urid=a.REQSEQID)
+select glvoucherno,a.* from lyatstranrela a where exists (select vouchercode from s3_rtrecments where urid=a.reqseqid)
 
 select a.* from cux_gl_interface a where
 
@@ -193,6 +193,6 @@ select a.* from of_interface a where
 
 
 /*
-update S3_RTRECMENTS a set a.VOUCHERCODE=(select p.glvoucherno from lyatstranrela p where p.reqseqid=a.urid and p.acttype='S3' and rownum=1 )
+update s3_rtrecments a set a.vouchercode=(select p.glvoucherno from lyatstranrela p where p.reqseqid=a.urid and p.acttype='S3' and rownum=1 )
  where exists (select p.glvoucherno from lyatstranrela p where p.reqseqid=a.urid and p.acttype='S3');
 */

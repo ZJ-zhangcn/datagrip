@@ -1,7 +1,7 @@
--- ID: REQ-4464
--- 标题: 盛世鑫利B款——核心系统需求
+-- id: req-4464
+-- 标题: 盛世鑫利b款——核心系统需求
 
---t<=PPP
+--t<=ppp
 select b.prem / 1000 * a.endcv *
        power(1 + 0.045, (date '2025-12-01' - date '2025-11-21') / 365 - 1)
   from cv_1003007 a, lcpol b
@@ -12,7 +12,7 @@ select b.prem / 1000 * a.endcv *
    and dt = 1
    and contno = '2024112000000196'
 
---t>PPP
+--t>ppp
 select b.prem / 1000 * a.endcv * (date '2025-12-03' - date '2025-11-21') / 365 +
        b.prem / 1000 * a.begcv * (1 - (date '2025-12-03' - date '2025-11-21') / 365)
   from cv_1003007 a, lcpol b

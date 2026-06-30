@@ -1,99 +1,99 @@
 /*
-truncate table PRIP_LRPRODUCT;
+truncate table prip_lrproduct;
 
-truncate table PRIP_LRINSURECONT;
+truncate table prip_lrinsurecont;
 
-truncate table PRIP_LREDOR;
+truncate table prip_lredor;
 
-truncate table PRIP_LRCONT;
+truncate table prip_lrcont;
 
-truncate table PRIP_LRCLAIM;
+truncate table prip_lrclaim;
 
-truncate table PRIP_LRBENEFIT;
+truncate table prip_lrbenefit;
 
-truncate table PRIP_LRACCOUNT;
+truncate table prip_lraccount;
 
-truncate table PRIP_LMPRODUCT;
+truncate table prip_lmproduct;
 
-truncate table PRIP_LMLIABILITY;
+truncate table prip_lmliability;
 
-truncate table PRIP_LLRECEIPT;
+truncate table prip_llreceipt;
 
-truncate table PRIP_LLOPERATION;
+truncate table prip_lloperation;
 
-truncate table PRIP_LLMEDICALFEEDETAIL;
+truncate table prip_llmedicalfeedetail;
 
-truncate table PRIP_LLDISEASE;
+truncate table prip_lldisease;
 
-truncate table PRIP_LLCOSTITEM;
+truncate table prip_llcostitem;
 
-truncate table PRIP_LLCLAIMPOLICY;
+truncate table prip_llclaimpolicy;
 
-truncate table PRIP_LLCLAIMINFO;
+truncate table prip_llclaiminfo;
 
-truncate table PRIP_LLCLAIMDETAIL;
+truncate table prip_llclaimdetail;
 
-truncate table PRIP_LLCLAIMANTINFO;
+truncate table prip_llclaimantinfo;
 
-truncate table PRIP_LLBNF;
+truncate table prip_llbnf;
 
-truncate table PRIP_LJTEMPFEE;
+truncate table prip_ljtempfee;
 
-truncate table PRIP_LJTAX;
+truncate table prip_ljtax;
 
-truncate table PRIP_LJLOANREPAYMENT;
+truncate table prip_ljloanrepayment;
 
-truncate table PRIP_LJLOAN;
+truncate table prip_ljloan;
 
-truncate table PRIP_LJINVOICERELATION;
+truncate table prip_ljinvoicerelation;
 
-truncate table PRIP_LJINVOICE;
+truncate table prip_ljinvoice;
 
-truncate table PRIP_LJDIVDISTRIB;
+truncate table prip_ljdivdistrib;
 
-truncate table PRIP_LJAPAYGRP;
+truncate table prip_ljapaygrp;
 
-truncate table PRIP_LJAPAY;
+truncate table prip_ljapay;
 
-truncate table PRIP_LJAGETLIVBENE;
+truncate table prip_ljagetlivbene;
 
-truncate table PRIP_LJAGETENDORSE;
+truncate table prip_ljagetendorse;
 
-truncate table PRIP_LJAGET;
+truncate table prip_ljaget;
 
-truncate table PRIP_LCPRODUCT;
+truncate table prip_lcproduct;
 
-truncate table PRIP_LCPRODINSURELA;
+truncate table prip_lcprodinsurela;
 
-truncate table PRIP_LCPOLTRANSACTION;
+truncate table prip_lcpoltransaction;
 
-truncate table PRIP_LCLIABILITY;
+truncate table prip_lcliability;
 
-truncate table PRIP_LCINSUREACCTRACE;
+truncate table prip_lcinsureacctrace;
 
-truncate table PRIP_LCINSUREACC;
+truncate table prip_lcinsureacc;
 
-truncate table PRIP_LCGRPPRODUCT;
+truncate table prip_lcgrpproduct;
 
-truncate table PRIP_LCGRPCONT;
+truncate table prip_lcgrpcont;
 
-truncate table PRIP_LCGRPAPPNT;
+truncate table prip_lcgrpappnt;
 
-truncate table PRIP_LCCUSTOMERRETURNCALL;
+truncate table prip_lccustomerreturncall;
 
-truncate table PRIP_LCCONT;
+truncate table prip_lccont;
 
-truncate table PRIP_LCBNF;
+truncate table prip_lcbnf;
 
-truncate table PRIP_LCBLACKLIST;
+truncate table prip_lcblacklist;
 
-truncate table PRIP_LASALES;
+truncate table prip_lasales;
 
-truncate table PRIP_LALLUNDERWRITING;
+truncate table prip_lallunderwriting;
 
-truncate table PRIP_LACOMMISSION;
+truncate table prip_lacommission;
 
-truncate table PRIP_LAAGENT;
+truncate table prip_laagent;
 
-truncate table PRIP_LCInsured;
+truncate table prip_lcinsured;
 */

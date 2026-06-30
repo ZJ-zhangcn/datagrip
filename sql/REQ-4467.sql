@@ -1,10 +1,10 @@
--- ID: REQ-4467
--- 标题: REQ-4525守沪菁盛
+-- id: req-4467
+-- 标题: req-4525守沪菁盛
 
 --保盾云开关  codename='0'为开
 select * from ldcode where codetype = 'bfyswitch';
 
-select COMCODE from ldcode where codetype = 'bfyswitch' and code = '0'
+select comcode from ldcode where codetype = 'bfyswitch' and code = '0'
 
 --
 select 19999000/1000*66.53 from dual
@@ -18,7 +18,7 @@ select amnt / 1000 * endcv, endcv
    and contno = '2024111200000466'
  order by dt
 
---t<PPP，未欠缴保费
+--t<ppp，未欠缴保费
 select amnt / 1000 * endcv *
        power((1 + 0.045),
              ((date '2024-12-31' - date '2024-11-29') / 365 - 1))
@@ -29,7 +29,7 @@ select amnt / 1000 * endcv *
    and contno = '2024112800000266'
    and dt = 1
 
---t<PPP，欠缴保费
+--t<ppp，欠缴保费
 select amnt / 1000 * endcv
   from cv_1016007 a, lcpol b
  where pt = payendyear
@@ -38,7 +38,7 @@ select amnt / 1000 * endcv
    and contno = '2024111400002686'
    and dt = 1
 
---t>PPP，欠缴保费
+--t>ppp，欠缴保费
 select amnt / 1000 * endcv
   from cv_1016007 a, lcpol b
  where pt = payendyear
@@ -47,7 +47,7 @@ select amnt / 1000 * endcv
    and contno = '2024111400002316'
    and dt = 2
 
---t>PPP，未欠缴保费
+--t>ppp，未欠缴保费
 select amnt / 1000 * endcv * (date '2030-06-30' - date '2030-06-25') / 365 +
        amnt / 1000 * begcv *
        (1 - (date '2030-06-30' - date '2030-06-25') / 365)

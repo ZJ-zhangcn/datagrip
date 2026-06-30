@@ -1,4 +1,4 @@
--- ID: REQ-4370
+-- id: req-4370
 -- 标题: 沪申宝（明珠版）——核心系统需求
 
 --退保
@@ -18,7 +18,7 @@ select a.prem / 1000 * b.endcv *
    and a.contno = '2024082900000256'
    and b.dt = 1
 
---t≤PPP，月领欠缴保费
+--t≤ppp，月领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney),0)
           from ljagetdraw
@@ -35,7 +35,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024081700004256'
    and b.dt = 1
 
---t>PPP，月领欠缴保费
+--t>ppp，月领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney),0)
           from ljagetdraw
@@ -52,7 +52,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024081700004256'
    and b.dt = 2
 
---t>PPP，月领未欠缴保费
+--t>ppp，月领未欠缴保费
 select (a.prem / 1000 * b.endcv * (date '2033-10-01' - date '2033-08-18') / 366) +
        (a.prem / 1000 * b.begcv *
        (366 - (date '2033-10-01' - date '2033-08-18')) / 366) +
@@ -74,7 +74,7 @@ select (a.prem / 1000 * b.endcv * (date '2033-10-01' - date '2033-08-18') / 366)
    and a.contno = '2024081700004256'
    and b.dt = 10
 
---t≤PPP，年领未欠缴保费
+--t≤ppp，年领未欠缴保费
 select a.prem / 1000 * b.endcv *
        power(1 + 0.045,
              (((date '2024-10-01' - date '2024-08-18') - 365) / 365))
@@ -89,7 +89,7 @@ select a.prem / 1000 * b.endcv *
    and a.contno='2024081700004486'
    and b.dt = 1
 
---t≤PPP，年领欠缴保费
+--t≤ppp，年领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney), 0)
           from ljagetdraw
@@ -106,7 +106,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024081700004486'
    and b.dt = 1
 
---t>PPP，年领欠缴保费
+--t>ppp，年领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney), 0)
           from ljagetdraw
@@ -123,7 +123,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024081700004486'
    and b.dt = 2
 
---t>PPP，年领未欠缴保费
+--t>ppp，年领未欠缴保费
 select (a.prem / 1000 * b.endcv * (date '2034-08-18' - date '2034-08-18') / 365) +
        (a.prem / 1000 * b.begcv *
        (365 - (date '2034-08-18' - date '2034-08-18')) / 365)

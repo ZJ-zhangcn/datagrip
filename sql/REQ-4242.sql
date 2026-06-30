@@ -1,23 +1,23 @@
--- ID: REQ-4242
+-- id: req-4242
 -- 标题: 存储续期邮件发送记录需求
 
-select a.* from XQEmailSendLogs a order by serialno desc;
+select a.* from xqemailsendlogs a order by serialno desc;
 
-select a.* from XQEmailSendLogs a where contno='2024082000000176'
+select a.* from xqemailsendlogs a where contno='2024082000000176'
 
 --select a.* from xqsaveemlsendinfo a;
-select a.* from Xqletterstopapply a where contno='2024071000000806';
+select a.* from xqletterstopapply a where contno='2024071000000806';
 
 /*
-insert into Xqletterstopapply (SERIALNO, BATCHNO, CONTNO, LETTERTYPE, STOPSTATE, STOPAPPLYDATE, STOPSTARTDATE, STOPENDDATE, STOPOPERATOR, STOPMAKEDATE, STOPMAKETIME, STOPREMARK, STOPFILEURL, STOPLETTERURL, RENEWOPERATOR, RENEWMAKEDATE, RENEWMAKETIME, RENEWREMARK, RENEWFILEURL, RENEWLETTERURL, PAYTODATE, PAYTOMONEY, PAYTOCOUNT, PAYTOYEAR, MANAGECOM, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, STANDBYFLAG1, STANDBYFLAG2, STANDBYFLAG3, STANDBYFLAG4, STANDBYFLAG5, STANDBYFLAG6)
+insert into xqletterstopapply (serialno, batchno, contno, lettertype, stopstate, stopapplydate, stopstartdate, stopenddate, stopoperator, stopmakedate, stopmaketime, stopremark, stopfileurl, stopletterurl, renewoperator, renewmakedate, renewmaketime, renewremark, renewfileurl, renewletterurl, paytodate, paytomoney, paytocount, paytoyear, managecom, operator, makedate, maketime, modifydate, modifytime, standbyflag1, standbyflag2, standbyflag3, standbyflag4, standbyflag5, standbyflag6)
 values ('980Le0000003025', '00000000', '2023010100004756', '42', '01', to_date('09-09-2023', 'dd-mm-yyyy'), to_date('09-09-2023', 'dd-mm-yyyy'), to_date('31-12-9999', 'dd-mm-yyyy'), 'lis-001', to_date('09-09-2024', 'dd-mm-yyyy'), '00:20:42', '1', null, 'xerox/XQNoteFile/StopFile/2024-09-09/2024-09-09_2023010100004756_0000003024.pdf', null, null, null, null, null, null, to_date('02-01-2024', 'dd-mm-yyyy'), 10000.00, '2', '2', '86', '001', to_date('09-09-2024', 'dd-mm-yyyy'), '00:20:42', to_date('09-09-2024', 'dd-mm-yyyy'), '00:20:42', '01', '02', null, null, null, null);
 */
 --补寄记录
-select a.* from LLettersReissue a where contno ='2024071000000806';
+select a.* from llettersreissue a where contno ='2024071000000806';
 
 select a.* from ldtask a where taskclass='EMailSendRenewApplyDateTask'
 
-SELECT 1 FROM Xqletterstopapply WHERE standbyflag1 ='01' and stopstate ='01' and standbyflag2 = '02' and contno ='2024090200000406'
+select 1 from xqletterstopapply where standbyflag1 ='01' and stopstate ='01' and standbyflag2 = '02' and contno ='2024090200000406'
 
 select a.* from loprtmanager a where otherno ='2023010100004756';
 
@@ -33,6 +33,6 @@ update lcaddress set email=null where email='zhangjin05@sinosoft.com.cn'
 
 select signdate,cvalidate,paytodate,payenddate,a.* from lcpol a where contno='2024082000000176'
 
-select a.* from ldtask a where taskdescribe like '%邮件%' 
+select a.* from ldtask a where taskdescribe like '%邮件%'
 
 select a.* from ldworkcalendar a where datetype = 'N' and caldate = date '2025-08-11';

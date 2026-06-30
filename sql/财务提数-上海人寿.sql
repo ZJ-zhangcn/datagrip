@@ -14,7 +14,7 @@ where batchno in ('00000000000000003673','','') order by batchno;
 
 select makedate, a.*
 from fiaboriginaldata a
-where BUSINESSNO02 = '2026051400000266';
+where businessno02 = '2026051400000266';
 
 select stringinfo11, stringinfo14, stringinfo05, a.*
 from fiaboriginaldata a
@@ -63,7 +63,7 @@ from lfcheckfield
 where isneedchk = '1'
 order by serialno;
 
---SF_FF\SF_SF提取先修改inbankcode
+--sf_ff\sf_sf提取先修改inbankcode
 select inbankcode, inbankaccno, a.*
 from ljaget a
 where otherno in ('7402121100332428', '3631815101011336', '7402121100332669', '3631815101011385', '7402121100332413',
@@ -110,17 +110,17 @@ select f.je_category_name                                                       
        f.accounting_date                                                                                    账务日期,
        f.source_desc                                                                                        业务类别,
        (case
-            when f.SEGMENT3 like '4031%' then (select FINITEMNAME
+            when f.segment3 like '4031%' then (select finitemname
                                                from fifinitemdef
-                                               where ITEMMAINCODE = '4031'
+                                               where itemmaincode = '4031'
                                                  and rownum = 1)
-            when f.SEGMENT3 like '261101%' then (select FINITEMNAME
+            when f.segment3 like '261101%' then (select finitemname
                                                  from fifinitemdef
-                                                 where ITEMMAINCODE = '261101'
+                                                 where itemmaincode = '261101'
                                                    and rownum = 1)
-            else (select FINITEMNAME from fifinitemdef where ITEMMAINCODE = f.SEGMENT3 and rownum = 1) end) 描述,
+            else (select finitemname from fifinitemdef where itemmaincode = f.segment3 and rownum = 1) end) 描述,
        f.segment3                                                                                           核算科目,
-       f.attribute15                                                                                        新旧,/*C:新&旧  D:旧  N:新*/
+       f.attribute15                                                                                        新旧,/*c:新&旧  d:旧  n:新*/
        f.entered_dr                                                                                         借方金额,
        f.entered_cr                                                                                         贷方金额,
        f.segment1                                                                                           机构,
@@ -140,9 +140,9 @@ where --f.source_batch_id = '00000000000000004327'
 --       accounting_date = date'2021-08-16'/* and entered_dr='0' and entered_cr='0'*/
 lis_contno in ('2026051500001416','')
 -- and f.segment3 = '54020604'
---LIS_CASENO='3631815101095847'
-order by f.ACCOUNTING_DATE asc, f.je_category_name asc, SOURCE_BATCH_ID asc, f.LIS_CONTNO asc, f.SEGMENT1 asc,
-         f.SEGMENT3 asc, f.SEGMENT4 asc, f.SEGMENT5 asc, f.SEGMENT6 asc, f.ATTRIBUTE15 asc;
+--lis_caseno='3631815101095847'
+order by f.accounting_date asc, f.je_category_name asc, source_batch_id asc, f.lis_contno asc, f.segment1 asc,
+         f.segment3 asc, f.segment4 asc, f.segment5 asc, f.segment6 asc, f.attribute15 asc;
 
 
 select contno from llclaimpolicy a where caseno='3631815101011284';

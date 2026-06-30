@@ -1,4 +1,4 @@
--- ID: REQ-5091
+-- id: req-5091
 -- 标题: 团单被保险人主险险种存储及增加主险校验的需求
 
 select a.*
@@ -10,15 +10,15 @@ order by riskcode;
 
 select *
 from lccont
-where GrpContNo = '3206915150822050'
-  and insuredIdno = '350624199001100746';
+where grpcontno = '3206915150822050'
+  and insuredidno = '350624199001100746';
 
 select a.*
 from lcpol a
-where GRPCONTNO = '2025120400000366'
-order by INSUREDNO, RISKCODE desc;
+where grpcontno = '2025120400000366'
+order by insuredno, riskcode desc;
 
 select *
 from lcinsured
-where InsuredNo = '1060099098'
+where insuredno = '1060099098'
   and contplancode is null;

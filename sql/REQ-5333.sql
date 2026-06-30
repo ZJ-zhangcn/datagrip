@@ -1,9 +1,9 @@
--- ID: REQ-5333
+-- id: req-5333
 -- 标题: 浦银人寿沪申福富民版终身寿险（分红型）——核心系统需求
 
 --犹豫期
-select HESITATEEND
-from LMEdorWT
+select hesitateend
+from lmedorwt
 where riskcode = '1116005';
 
 --还款利息
@@ -17,27 +17,27 @@ from dual;
 /*
 update lpedorapp
 set apppregrade='IPOS-12'
-where EdorAcceptNo = '7402121100332332';
+where edoracceptno = '7402121100332332';
 */
 
 --当年度红利计算
---保费（保额）/1000*K值*红利因子
-select round(b.amnt / 1000 * round(a.BONUSFACTOR, 2) * c.BONUSRATE, 2) 当年度红利
+--保费（保额）/1000*k值*红利因子
+select round(b.amnt / 1000 * round(a.bonusfactor, 2) * c.bonusrate, 2) 当年度红利
 from lobonusfactor a,
      lcpol b,
-     BonusRate c
+     bonusrate c
 where a.riskcode = b.riskcode
-  and a.RISKCODE = c.RISKCODE
-  and a.INSUREDSEX = b.INSUREDSEX
-  and a.PAYENDYEAR = b.PAYENDYEAR
-  and a.INSUREDAPPAGE = b.INSUREDAPPAGE
-  and a.INSUYEAR = b.INSUYEAR
-  and a.BONUSGRADE = 'H'
+  and a.riskcode = c.riskcode
+  and a.insuredsex = b.insuredsex
+  and a.payendyear = b.payendyear
+  and a.insuredappage = b.insuredappage
+  and a.insuyear = b.insuyear
+  and a.bonusgrade = 'H'
   and a.riskcode = '1116005'
-  and date'2027-05-14' between c.CVALIDATE and c.ENDDATE
-  and a.POLYEAR = '1'
+  and date'2027-05-14' between c.cvalidate and c.enddate
+  and a.polyear = '1'
   and b.contno = '2026051300001586'
-order by to_number(POLYEAR);
+order by to_number(polyear);
 --红利利息计算
 --红利本金*日利率*计息天数
 select round(194.37 * round(0.03 / 365, 8) * (date'2029-07-10' - date'2029-06-10'), 2) 红利利息
@@ -49,7 +49,7 @@ from ljsgetdraw a
 where contno = '2026050600002916';
 
 --退保
---t≤PPP，未欠缴保费
+--t≤ppp，未欠缴保费
 select round(a.prem / 1000 * b.endcv *
              power(1 + 0.0375, (((date '2026-12-09' - date '2026-05-14') - 365) / 365)), 2) cash,
        round(a.prem * 1.2, 2)                                                               比例,
@@ -63,7 +63,7 @@ where a.insuredsex = b.gender
 --   and b.dt = 1
 order by dt;
 
---t≤PPP，欠缴保费
+--t≤ppp，欠缴保费
 select round(a.prem / 1000 * b.endcv, 2) cash, round(a.prem * 3 * 1.2, 2) 比例
 from lcpol a,
      cv_1116005 b
@@ -73,7 +73,7 @@ where a.insuredsex = b.gender
   and a.contno = '2026051300001216'
   and b.dt = 3;
 
---t>PPP，欠缴保费
+--t>ppp，欠缴保费
 select round(a.prem / 1000 * b.endcv, 2) cash
 from lcpol a,
      cv_1116005 b
@@ -83,7 +83,7 @@ where a.insuredsex = b.gender
   and a.contno = '2026051300001586'
   and b.dt = 2;
 
---t>PPP，未欠缴保费
+--t>ppp，未欠缴保费
 select round((a.prem / 1000 * b.endcv * (date '2048-05-15' - date '2048-05-14') / 365) +
              (a.prem / 1000 * b.begcv *
               (365 - (date '2048-05-15' - date '2048-05-14')) / 365), 2) cash,
@@ -106,71 +106,71 @@ where codetype = 'PublicPUlowestAmnt'
   and code = '000000';
 
 --减额交清后保额
-select round(6000 / 1000 * a.RPU) 减额交清后保额
+select round(6000 / 1000 * a.rpu) 减额交清后保额
 from cv_1116005 a,
      lcpol b
-where a.AGE = b.INSUREDAPPAGE
-  and a.GENDER = b.INSUREDSEX
-  and a.PT = b.PAYENDYEAR
+where a.age = b.insuredappage
+  and a.gender = b.insuredsex
+  and a.pt = b.payendyear
   and b.contno = '2026051300001216'
   and a.dt = '2';
 
 --减额交清后的现金价值
 select round(7349.22 / 1000 *
-             (a.CV_RPUAFACTOREND * (date '2028-05-20' - date '2028-05-14') / 365 +
-              a.CV_RPUAFACTORBEG * (365 - (date '2028-05-20' - date '2028-05-14')) / 365), 2) 减额交清后保额
+             (a.cv_rpuafactorend * (date '2028-05-20' - date '2028-05-14') / 365 +
+              a.cv_rpuafactorbeg * (365 - (date '2028-05-20' - date '2028-05-14')) / 365), 2) 减额交清后保额
 from cv_1116005 a,
      lcpol b
-where a.AGE = b.INSUREDAPPAGE
-  and a.GENDER = b.INSUREDSEX
-  and a.PT = b.PAYENDYEAR
+where a.age = b.insuredappage
+  and a.gender = b.insuredsex
+  and a.pt = b.payendyear
   and b.contno = '2026051300001216'
   and a.dt = '3';
 
 --减额交清后保费
-select round(7349.22 * 1000 / a.RATE, 2) 减额交清后保费
+select round(7349.22 * 1000 / a.rate, 2) 减额交清后保费
 from rt_1116005 a,
      lcpol b
-where a.AGE = b.INSUREDAPPAGE
-  and a.PT = b.PAYENDYEAR
-  and a.GENDER = b.INSUREDSEX
+where a.age = b.insuredappage
+  and a.pt = b.payendyear
+  and a.gender = b.insuredsex
   and b.contno = '2026051300001216';
 
 
 -------------------------------------------------------------------------------------------------------------
 --购买交清保额
 --本年度购买交清保额=实际给付红利*1000/趸交净保费率
-select round(a.amnt / 1000 * b.BonusFactor * nvl(c.bonusrate, '0'), 2) 当年度基本保额红利,
+select round(a.amnt / 1000 * b.bonusfactor * nvl(c.bonusrate, '0'), 2) 当年度基本保额红利,
        decode(d.dt, 1, 0, round(e.amnt / 1000 * nvl(b.jqbonusfactor, 0) * nvl(c.bonusrate, '0'),
                                 2))                                    已产生的减额交清红利,
-       round(a.amnt / 1000 * b.BonusFactor * nvl(c.bonusrate, '0'), 2) +
+       round(a.amnt / 1000 * b.bonusfactor * nvl(c.bonusrate, '0'), 2) +
        decode(d.dt, 1, 0, round(e.amnt / 1000 * nvl(b.jqbonusfactor, 0) * nvl(c.bonusrate, '0'),
                                 2))                                    当年度总和,
-       round((round(a.amnt / 1000 * b.BonusFactor * nvl(c.bonusrate, '0'), 2) +
+       round((round(a.amnt / 1000 * b.bonusfactor * nvl(c.bonusrate, '0'), 2) +
               decode(d.dt, 1, 0, round(e.amnt / 1000 * nvl(b.jqbonusfactor, 0) * nvl(c.bonusrate, '0'),
-                                       2))) * 1000 / PUACOST, 2)       当年度减额交清红利
+                                       2))) * 1000 / puacost, 2)       当年度减额交清红利
 from lcpol a,
      lobonusfactor b,
-     BonusRate c,
-     PUA_1116005 d,
+     bonusrate c,
+     pua_1116005 d,
      lcduty e
-where a.riskcode = b.RISKCODE
-  and a.riskcode = c.RISKCODE
-  and b.INSUREDSEX = a.INSUREDSEX
-  and b.InsuYear = a.INSUYEAR
-  and b.INSUYEARFLAG = a.INSUYEARFLAG
-  and b.PAYENDYEAR = a.PAYENDYEAR
-  and b.PAYENDYEARFLAG = a.PAYENDYEARFLAG
-  and b.INSUREDAPPAGE = a.INSUREDAPPAGE
-  and b.INSUREDAPPAGE = d.AGE
-  and b.INSUREDSEX = d.GENDER
-  and b.PolYear = d.DT
+where a.riskcode = b.riskcode
+  and a.riskcode = c.riskcode
+  and b.insuredsex = a.insuredsex
+  and b.insuyear = a.insuyear
+  and b.insuyearflag = a.insuyearflag
+  and b.payendyear = a.payendyear
+  and b.payendyearflag = a.payendyearflag
+  and b.insuredappage = a.insuredappage
+  and b.insuredappage = d.age
+  and b.insuredsex = d.gender
+  and b.polyear = d.dt
   and a.contno = e.contno
   and to_date('2027-05-15', 'yyyy-mm-dd') between b.startdate and b.enddate
   and to_date('2027-05-15', 'yyyy-mm-dd') between c.cvalidate and c.enddate
   and b.bonusgrade = 'H'
   and b.annuitygetage = '0'
-  and e.DUTYCODE like '%1001'/*dt='1'时注释掉*/
+  and e.dutycode like '%1001'/*dt='1'时注释掉*/
   and d.dt = '3'
   and a.contno = '2026051300001126'
 order by d.dt;
@@ -178,28 +178,28 @@ order by d.dt;
 select b.*
 from lcpol a,
      lobonusfactor b
-where a.riskcode = b.RISKCODE
-  and b.INSUREDSEX = a.INSUREDSEX
-  and b.InsuYear = a.INSUYEAR
-  and b.INSUYEARFLAG = a.INSUYEARFLAG
-  and b.PAYENDYEAR = a.PAYENDYEAR
-  and b.PAYENDYEARFLAG = a.PAYENDYEARFLAG
-  and b.INSUREDAPPAGE = a.INSUREDAPPAGE
-  and b.BONUSGRADE = 'H'
+where a.riskcode = b.riskcode
+  and b.insuredsex = a.insuredsex
+  and b.insuyear = a.insuyear
+  and b.insuyearflag = a.insuyearflag
+  and b.payendyear = a.payendyear
+  and b.payendyearflag = a.payendyearflag
+  and b.insuredappage = a.insuredappage
+  and b.bonusgrade = 'H'
   and a.contno = '2025111200000296'
-order by to_number(POLYEAR);
+order by to_number(polyear);
 
 select a.*
 from lobonusfactor a
-where RISKCODE = '1116005';
+where riskcode = '1116005';
 
 select a.*
-from BonusRate a
+from bonusrate a
 where riskcode = '1116005'
-order by CVALIDATE;
+order by cvalidate;
 
-select GETMONEY, JQAMNT, a.*
-from LJABonusGet a
+select getmoney, jqamnt, a.*
+from ljabonusget a
 where contno = '2026040700001076'
 order by makedate, maketime;
 
@@ -208,25 +208,25 @@ order by makedate, maketime;
 select round((/*152.02 + */a.amnt) / 1000 * cv2 * (date'2029-05-20' - date'2029-05-14') / 365 +
              (/*152.02 + */a.amnt) / 1000 * cv1 * (1 - (date'2029-05-20' - date'2029-05-14') / 365), 2) cash
 from lcduty a,
-     PUA_1116005 b,
+     pua_1116005 b,
      lcpol c
 where a.contno = c.contno
-  and b.age = c.INSUREDAPPAGE
-  and b.GENDER = c.INSUREDSEX
-  and a.DUTYCODE like '%1001'
+  and b.age = c.insuredappage
+  and b.gender = c.insuredsex
+  and a.dutycode like '%1001'
   and a.contno = '2026051300001126'
   and b.dt = 4;
 
 --累积交清基本保险金额减保限额
-select round(a.AMNT / 1000 * cv2 * (date'2029-05-20' - date'2029-05-14') / 365 +
-             a.AMNT / 1000 * cv1 * (1 - (date'2029-05-20' - date'2029-05-14') / 365), 2) cash
+select round(a.amnt / 1000 * cv2 * (date'2029-05-20' - date'2029-05-14') / 365 +
+             a.amnt / 1000 * cv1 * (1 - (date'2029-05-20' - date'2029-05-14') / 365), 2) cash
 from lcduty a,
-     PUA_1116005 b,
+     pua_1116005 b,
      lcpol c
 where a.contno = c.contno
-  and b.age = c.INSUREDAPPAGE
-  and b.GENDER = c.INSUREDSEX
-  and a.DUTYCODE like '%1001'
+  and b.age = c.insuredappage
+  and b.gender = c.insuredsex
+  and a.dutycode like '%1001'
   and a.contno = '2026051300001126'
   and b.dt = 4;
 

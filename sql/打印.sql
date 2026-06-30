@@ -2,9 +2,9 @@
 --打印平台（易高）共享的保单pdf路径：
 	--配置在易高平台的产品，银保通，银保网银，都可以打印纸质保单，和电子保单
 		--电子保单：
-    --/data/lis/xerox/runTimeFile/epolicy_yg/epolicy/secur/
+    --/data/lis/xerox/runtimefile/epolicy_yg/epolicy/secur/
 		--纸质保单：
-    --/data/lis/xerox/runTimeFile/epolicy_yg/policy/secur/
+    --/data/lis/xerox/runtimefile/epolicy_yg/policy/secur/
 
 --经代通/app，批处理后直接电子保单和纸质保单pdf（未切换打印平台的险种），通过批处理推送给百星打印
 select * from ldtask t where t.taskdescribe like'%微信电子保单生成%';
@@ -18,7 +18,7 @@ select * from ldcode where codetype = 'dzytriskcode' and code='1056024';
 select * from ldcode1 where codetype='xmlPushYG'  and code='1006004';
 
 --团险保单打印:
---/data/lis/xerox/runTimeFile/epolicy_yg/tpolicyxml/
+--/data/lis/xerox/runtimefile/epolicy_yg/tpolicyxml/
 
 --补发只打印纸质保单，不打印电子保单
 select * from ldcode1 where codetype='xmlpushyg';

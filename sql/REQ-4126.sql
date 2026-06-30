@@ -1,4 +1,4 @@
--- ID: REQ-4126
+-- id: req-4126
 -- 标题: 呼叫中心查询接口转账失败原因调整
 
 --生存金自动转账反洗钱限额配置
@@ -20,12 +20,12 @@ select contno,
  where contno = '2024041800000206';
 
 --
-select IDStDate,IDEXPDATE,a.* from lcappnt a where contno='2024041800000206';
+select idstdate,idexpdate,a.* from lcappnt a where contno='2024041800000206';
 
-select IDStDate,IDEXPDATE,a.* from lcinsured a where contno='2024041800000206'
+select idstdate,idexpdate,a.* from lcinsured a where contno='2024041800000206'
 
 --
-select bankonthewayflag,banksuccflag,prtnotestate,bankprovince,bankcity,bankcode,bankaccno,ENTERACCDATE,CONFDATE,ACCTYPE,a.* from ljaget a where otherno='2024041800000206' order by shoulddate desc;
+select bankonthewayflag,banksuccflag,prtnotestate,bankprovince,bankcity,bankcode,bankaccno,enteraccdate,confdate,acctype,a.* from ljaget a where otherno='2024041800000206' order by shoulddate desc;
 
 --
 select dtcode,ats_returnstate,transstate,payinfocode,payinfo,a.* from ats_transactions a where reqseqid='20250101_27345'
@@ -50,4 +50,4 @@ select a.* from lcdrawautoacctrace a where contno='2024041800000206'
 
 select a.* from lcdrawfxqlimittrace a where contno='2024041800000206'
 
-select a.* from lyrefundlog a where ACTUGETNO='86000020450370000019';
+select a.* from lyrefundlog a where actugetno='86000020450370000019';

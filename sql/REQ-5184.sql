@@ -1,4 +1,4 @@
--- ID: REQ-5184
+-- id: req-5184
 -- 标题: 交行预录入开发需求
 
 select a.*
@@ -14,16 +14,16 @@ from ljspay a
 where otherno in ('2025111900000176', '');
 
 select a.*
-from LYSENDTOBANK a
+from lysendtobank a
 where polno = '2025111900000176';
 
 /*
-update ljspay set BANKONTHEWAYFLAG='0' where otherno = '2025111900000176';
+update ljspay set bankonthewayflag='0' where otherno = '2025111900000176';
 
-delete from LYSENDTOBANK where polno = '2025111900000176';
+delete from lysendtobank where polno = '2025111900000176';
 */
 
-select a.* from ldtask a where TASKDESCRIBE like '%发盘批处理%';
+select a.* from ldtask a where taskdescribe like '%发盘批处理%';
 
-select a.* from LISDATA.LDTASKPLAN a where TASKCODE='000319';
+select a.* from lisdata.ldtaskplan a where taskcode='000319';
 

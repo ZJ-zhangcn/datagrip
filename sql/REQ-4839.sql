@@ -1,7 +1,7 @@
--- ID: REQ-4839
+-- id: req-4839
 -- 标题: 鑫自由乐享版——核心系统需求
 
---t≤PPP，年领未欠缴保费
+--t≤ppp，年领未欠缴保费
 select a.prem / 1000 * b.endcv *
        power(1 + 0.0425,
              (((date '2030-07-08' - date '2030-07-08') - 365) / 365))
@@ -12,7 +12,7 @@ select a.prem / 1000 * b.endcv *
    and a.contno='2025070700000316'
    and b.dt = 6
 
---t≤PPP，年领欠缴保费
+--t≤ppp，年领欠缴保费
 select a.prem / 1000 * b.endcv
   from lcpol a, cv_1011004 b
  where a.insuredsex = b.gender
@@ -21,7 +21,7 @@ select a.prem / 1000 * b.endcv
    and a.contno = '2025070200005096'
    and b.dt = 1
 
---t>PPP，年领欠缴保费
+--t>ppp，年领欠缴保费
 select a.prem / 1000 * b.endcv
   from lcpol a, cv_1011004 b
  where a.insuredsex = b.gender
@@ -30,7 +30,7 @@ select a.prem / 1000 * b.endcv
    and a.contno = '2025070200005096'
    and b.dt = 2
 
---t>PPP，年领未欠缴保费
+--t>ppp，年领未欠缴保费
 select prem / 1000 * endcv * (date '2030-10-01' - date '2030-07-09') / 365 +
        prem / 1000 * begcv *
        (1 - (date '2030-10-01' - date '2030-07-09') / 365)
@@ -76,7 +76,7 @@ where pt = payendyear
 select * from ldcode a where codetype = 'PublicPUlowestAmnt' and code='000000';
 --减额交清后保额计算
 --u=0 & 未交纳年初应交保费 & 未发放年初生存保险金
-select 10000 / 1000 * a.RPU
+select 10000 / 1000 * a.rpu
 from cv_1011004 a,
      lcpol b
 where pt = payendyear
@@ -86,8 +86,8 @@ where pt = payendyear
   and dt = 6 - 1;
 
 --other
-select 4174.50 * 1000 / (a.END_AFACTOR * (date '2026-08-01' - date '2026-07-10') / 365 +
-                          a.BEG_AFACTOR * (1 - (date '2026-08-01' - date '2026-07-10') / 365))
+select 4174.50 * 1000 / (a.end_afactor * (date '2026-08-01' - date '2026-07-10') / 365 +
+                          a.beg_afactor * (1 - (date '2026-08-01' - date '2026-07-10') / 365))
 from cv_1011004 a,
      lcpol b
 where pt = payendyear
@@ -106,8 +106,8 @@ where pt = payendyear
   and contno = '2025070900000286'
 
 --减额交清后现价计算
-select (cast((4079.55400692 / 1000 * cv_rpuAfactorEnd) as decimal(18, 2)) * ((date '2026-08-01' - date '2026-07-10') / 365)) +
-       (cast((4079.55400692 / 1000 * cv_rpuAfactorBeg) as decimal(18, 2)) *
+select (cast((4079.55400692 / 1000 * cv_rpuafactorend) as decimal(18, 2)) * ((date '2026-08-01' - date '2026-07-10') / 365)) +
+       (cast((4079.55400692 / 1000 * cv_rpuafactorbeg) as decimal(18, 2)) *
         (1 - ((date '2026-08-01' - date '2026-07-10') / 365))) cash
 from cv_1011004 a,
      lcpol b

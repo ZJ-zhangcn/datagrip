@@ -1,4 +1,4 @@
--- ID: REQ-3956
+-- id: req-3956
 -- 标题: 盛世恒赢两全（万能型）_续期需求
 
 /*
@@ -36,7 +36,7 @@ select a.* from ljapayperson a where contno='2024061800000266';
 
 select a.* from ljtempfee a where otherno='2024061800000266';
 
-select a.* from ljtempfeeclass a where TEMPFEENO='7402121100347444';
+select a.* from ljtempfeeclass a where tempfeeno='7402121100347444';
 
 --
 select a.* from lpedoritem a where contno='2024022800004026';
@@ -64,28 +64,28 @@ select a.* from ljagettempfee a where actugetno='86000020250370015030';
 /*
 暂交退费后数据处理；
        ljaget和ljagettempfee表生成数据
-       ljtempfee表ConfFlag置为1，ConfDate为当前日期
+       ljtempfee表confflag置为1，confdate为当前日期
 */
 select a.* from ljaget a where otherno='2024042400000376';
 
-select a.* from ljagettempfee a where ACTUGETNO in (select ACTUGETNO from ljaget where otherno='2024042400000376' and makedate=date'2026-06-26');
+select a.* from ljagettempfee a where actugetno in (select actugetno from ljaget where otherno='2024042400000376' and makedate=date'2026-06-26');
 
---ljtempfee表ConfFlag置为1，ConfDate为当前日期
+--ljtempfee表confflag置为1，confdate为当前日期
 select a.* from ljtempfee a where otherno='2024042400000376' and paydate between date'2026-06-24' and date'2026-06-26';
 
 --
 select a.* from lysendtobank a where polno='2024022800004026';
 
-select a.* from lybanklog a where a.SERIALNO='20250228_27554';
+select a.* from lybanklog a where a.serialno='20250228_27554';
 
 select banksuccflag,a.* from lyreturnfrombankb a where polno in ('2024022800004026','');
 
 select a.* from lyreturnfrombankb a where paycode='86310020250310000292';
 
 --
-select a.* from SMS_DISPATCH_LIST a where otherno='2024032500000126';
+select a.* from sms_dispatch_list a where otherno='2024032500000126';
 
-select a.* from SMS_DISPATCH_LIST a where SENDTARGET='17504240001';
+select a.* from sms_dispatch_list a where sendtarget='17504240001';
 
 --
 select a.* from ldtask a where taskdescribe like '%打印%';
@@ -99,4 +99,4 @@ update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='20
 
 select sysvarvalue from ldsysvar where sysvar = 'XQDelayedCrossing';
 
-SELECT SYSVARVALUE FROM LDSYSVAR WHERE SYSVAR = 'BX-SFTP';
+select sysvarvalue from ldsysvar where sysvar = 'BX-SFTP';

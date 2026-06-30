@@ -1,4 +1,4 @@
--- ID: REQ-4840
+-- id: req-4840
 -- 标题: 鑫自由乐享版分红——核心系统需求
 
 select a.bonusgetmode,
@@ -7,48 +7,48 @@ select a.bonusgetmode,
 from lcpol a
 where contno = '2025071100000466';
 
-select a.* from LOBONUSPOL a where contno='2025071400001276' order by SGETDATE;
+select a.* from lobonuspol a where contno='2025071400001276' order by sgetdate;
 
-select a.* from LCINSUREACCTRACE a where contno='2025071100000826' order by paydate,makedate,maketime,otherno;
+select a.* from lcinsureacctrace a where contno='2025071100000826' order by paydate,makedate,maketime,otherno;
 
 select (68.22+142.02+2.05+218.96+7.31) 本金,(68.22+142.02+2.05+218.96+7.31)*round(0.03/365/*恒365*/,8)*(date '2029-07-20' - date '2029-07-12') 利息 from dual;
 
 select bonussamenewacc,a.* from lccont a where prtno='5000118400039408';
 
-SELECT *
-FROM BonusRate
-WHERE riskcode = '1111002'
-order by CVALIDATE;
+select *
+from bonusrate
+where riskcode = '1111002'
+order by cvalidate;
 
 /*
-INSERT INTO BONUSRATE (RISKCODE, CVALIDATE, ENDDATE, BONUSGRADE, BONUSRATE) VALUES ('1111002', DATE '2025-07-01', DATE '2026-06-30', 'H', '1.2');
+insert into bonusrate (riskcode, cvalidate, enddate, bonusgrade, bonusrate) values ('1111002', date '2025-07-01', date '2026-06-30', 'H', '1.2');
 
-INSERT INTO BONUSRATE (RISKCODE, CVALIDATE, ENDDATE, BONUSGRADE, BONUSRATE) VALUES ('1111002', DATE '2026-07-01', DATE '2027-06-30', 'H', '1.2');
+insert into bonusrate (riskcode, cvalidate, enddate, bonusgrade, bonusrate) values ('1111002', date '2026-07-01', date '2027-06-30', 'H', '1.2');
 
-INSERT INTO BONUSRATE (RISKCODE, CVALIDATE, ENDDATE, BONUSGRADE, BONUSRATE) VALUES ('1111002', DATE '2027-07-01', DATE '2028-06-30', 'H', '1.2');
+insert into bonusrate (riskcode, cvalidate, enddate, bonusgrade, bonusrate) values ('1111002', date '2027-07-01', date '2028-06-30', 'H', '1.2');
 
-INSERT INTO BONUSRATE (RISKCODE, CVALIDATE, ENDDATE, BONUSGRADE, BONUSRATE) VALUES ('1111002', DATE '2028-07-01', DATE '2029-06-30', 'H', '1.2');
+insert into bonusrate (riskcode, cvalidate, enddate, bonusgrade, bonusrate) values ('1111002', date '2028-07-01', date '2029-06-30', 'H', '1.2');
 
-INSERT INTO BONUSRATE (RISKCODE, CVALIDATE, ENDDATE, BONUSGRADE, BONUSRATE) VALUES ('1111002', DATE '2029-07-01', DATE '2030-06-30', 'H', '1.2');
+insert into bonusrate (riskcode, cvalidate, enddate, bonusgrade, bonusrate) values ('1111002', date '2029-07-01', date '2030-06-30', 'H', '1.2');
 */
 
-select amnt / 1000 * 1.2 * b.BONUSFACTOR
+select amnt / 1000 * 1.2 * b.bonusfactor
 from lcpol a,
      lobonusfactor b
 where a.riskcode = b.riskcode
-  and a.INSUREDSEX = b.INSUREDSEX
-  and a.INSUREDAPPAGE = b.INSUREDAPPAGE
-  and a.INSUYEAR = b.INSUYEAR
-  and a.INSUYEARFLAG = b.INSUYEARFLAG
-  and a.PAYENDYEAR = b.PAYENDYEAR
-  and a.PAYENDYEARFLAG = b.PAYENDYEARFLAG
-  and b.POLYEAR = '1'
-  and b.BONUSGRADE = 'H'
+  and a.insuredsex = b.insuredsex
+  and a.insuredappage = b.insuredappage
+  and a.insuyear = b.insuyear
+  and a.insuyearflag = b.insuyearflag
+  and a.payendyear = b.payendyear
+  and a.payendyearflag = b.payendyearflag
+  and b.polyear = '1'
+  and b.bonusgrade = 'H'
   and contno = '2025071100000786';
 
 select 68.22*round(0.03/365,8)*(date'2026-07-20'-date'2026-07-12') from dual;
 
---t≤PPP，年领未欠缴保费
+--t≤ppp，年领未欠缴保费
 select a.prem / 1000 * b.endcv *
        power(1 + 0.0375,
              (((date '2026-10-10' - date '2026-08-08') - 365) / 365))
@@ -59,7 +59,7 @@ select a.prem / 1000 * b.endcv *
    and a.contno='2025080700000116'
    and b.dt = 2;
 
---t≤PPP，年领欠缴保费
+--t≤ppp，年领欠缴保费
 select a.prem / 1000 * b.endcv
   from lcpol a, cv_1111002 b
  where a.insuredsex = b.gender
@@ -68,7 +68,7 @@ select a.prem / 1000 * b.endcv
    and a.contno = '2025071100001286'
    and b.dt = 5;
 
---t>PPP，年领欠缴保费
+--t>ppp，年领欠缴保费
 select a.prem / 1000 * b.endcv
   from lcpol a, cv_1111002 b
  where a.insuredsex = b.gender
@@ -80,7 +80,7 @@ select a.prem / 1000 * b.endcv
 --复效利息
 select 5000*round(0.03/365,8)*(date'2028-07-20'-date'2027-07-12') from dual;
 
---t>PPP，年领未欠缴保费
+--t>ppp，年领未欠缴保费
 select prem / 1000 * endcv * (date '2029-07-20' - date '2029-07-12') / 365 +
        prem / 1000 * begcv *
        (1 - (date '2029-07-20' - date '2029-07-12') / 365)
@@ -95,7 +95,7 @@ select prem / 1000 * endcv * (date '2029-07-20' - date '2029-07-12') / 365 +
 select * from ldcode a where codetype = 'PublicPUlowestAmnt' and code='000000';
 --减额交清后保额计算
 --u=0 & 未交纳年初应交保费 & 未发放年初生存保险金
-select 10000 / 1000 * a.RPU
+select 10000 / 1000 * a.rpu
 from cv_1111002 a,
      lcpol b
 where pt = payendyear
@@ -105,8 +105,8 @@ where pt = payendyear
   and dt = 3 - 1;
 
 --other
-select 30694.71 * 1000 / (a.END_AFACTOR * (date '2030-06-01' - date '2029-07-12') / 365 +
-                          a.BEG_AFACTOR * (1 - (date '2030-06-01' - date '2029-07-12') / 365))
+select 30694.71 * 1000 / (a.end_afactor * (date '2030-06-01' - date '2029-07-12') / 365 +
+                          a.beg_afactor * (1 - (date '2030-06-01' - date '2029-07-12') / 365))
 from cv_1111002 a,
      lcpol b
 where pt = payendyear
@@ -125,8 +125,8 @@ where pt = payendyear
   and contno = '2025071100001286'
 
 --减额交清后现价计算
-select (cast((25071.06 / 1000 * cv_rpuAfactorEnd) as decimal(18, 2)) * ((date '2030-06-01' - date '2029-07-12') / 365)) +
-       (cast((25071.06 / 1000 * cv_rpuAfactorBeg) as decimal(18, 2)) *
+select (cast((25071.06 / 1000 * cv_rpuafactorend) as decimal(18, 2)) * ((date '2030-06-01' - date '2029-07-12') / 365)) +
+       (cast((25071.06 / 1000 * cv_rpuafactorbeg) as decimal(18, 2)) *
         (1 - ((date '2030-06-01' - date '2029-07-12') / 365))) cash
 from cv_1111002 a,
      lcpol b

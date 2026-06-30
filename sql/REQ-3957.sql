@@ -1,36 +1,36 @@
--- ID: REQ-3957
+-- id: req-3957
 -- 标题: 申请修改保单登记管理平台中“代理或经纪机构编码”和“代理或经纪机构名称”两个字段的取数逻辑
 
 select salechnl,selltype,salechannels,signdate,agentcode,agentcom,a.* from lccont a where contno='2023122500001266';
 
 select actype,a.* from lacom a where branchtype='2' and sellflag = 'Y'  and state='N';
 
-select a.licensestartdate 许可证,a.licenseenddate,CooperationStartDate 合作协议,CooperationEndDate,a.* from lacom a where agentcom='0000000050';
+select a.licensestartdate 许可证,a.licenseenddate,cooperationstartdate 合作协议,cooperationenddate,a.* from lacom a where agentcom='0000000050';
 
 select * from  ldthreadtask  where status in ('0','1') and prtno='3206915140103016';
 
 select policyno    保单号,
-       DistribChnl 销售渠道代码,
-       AgencyCode  代理机构编码,
-       AgencyName  代理机构名称,
+       distribchnl 销售渠道代码,
+       agencycode  代理机构编码,
+       agencyname  代理机构名称,
        a.*
   from temp_lccont a
  where --grppolicyno in ('', '', '', '')
  policyno in ('2023122800000786', '', '', '');
-   --and AgencyCode = '5A0120603100000078'
-   --and AgencyName = '上海银行股份有限公司华泾支行'
+   --and agencycode = '5A0120603100000078'
+   --and agencyname = '上海银行股份有限公司华泾支行'
 
 select policyno        保单号,
-       AgencyCode      代理或经纪机构编码,
-       AgencyName      代理或经纪机构名称,
-       AgentCode       从业人员编码,
-       Name            从业人员姓名,
-       Sex             从业人员性别代码,
-       BirthDate       从业人员出生日期,
-       QuafCertNo      从业人员资格证书号码,
-       CertStartDate   证书开始日期,
-       CertEndDate     证书结束日期,
-       BusiDevCertifNo 执业证号码,
+       agencycode      代理或经纪机构编码,
+       agencyname      代理或经纪机构名称,
+       agentcode       从业人员编码,
+       name            从业人员姓名,
+       sex             从业人员性别代码,
+       birthdate       从业人员出生日期,
+       quafcertno      从业人员资格证书号码,
+       certstartdate   证书开始日期,
+       certenddate     证书结束日期,
+       busidevcertifno 执业证号码,
        a.*
   from temp_laagent a
  where policyno in ('2023122800000786', '', '','');

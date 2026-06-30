@@ -1,7 +1,7 @@
--- ID: REQ-4289
--- 标题: 上海人寿享赢添添安盈版A款养老年金保险——核心系统需求
+-- id: req-4289
+-- 标题: 上海人寿享赢添添安盈版a款养老年金保险——核心系统需求
 
---t≤PPP，月领未欠缴保费
+--t≤ppp，月领未欠缴保费
 select a.prem / 1000 * b.endcv *
        power(1 + 0.035,
              (((date '2025-01-01' - date '2024-08-10') - 365) / 365)) +
@@ -13,7 +13,7 @@ select a.prem / 1000 * b.endcv *
    and a.contno='2024080900002056'
    and b.dt = 1
 
---t≤PPP，月领欠缴保费
+--t≤ppp，月领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select sum(getmoney)
           from ljagetdraw
@@ -26,7 +26,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024080900002056'
    and b.dt = 1
 
---t>PPP，月领欠缴保费
+--t>ppp，月领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney),0)
           from ljagetdraw
@@ -39,7 +39,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024080900002056'
    and b.dt = 2
 
---t>PPP，月领未欠缴保费
+--t>ppp，月领未欠缴保费
 select (a.prem / 1000 * b.endcv * (date '2027-10-01' - date '2027-08-10') / 366) +
        (a.prem / 1000 * b.begcv *
        (366 - (date '2027-10-01' - date '2027-08-10')) / 366) +
@@ -57,7 +57,7 @@ select (a.prem / 1000 * b.endcv * (date '2027-10-01' - date '2027-08-10') / 366)
    and a.contno = '2024080900002056'
    and b.dt = 4
 
---t≤PPP，年领未欠缴保费
+--t≤ppp，年领未欠缴保费
 select a.prem / 1000 * b.endcv *
        power(1 + 0.035,
              (((date '2024-10-01' - date '2024-08-17') - 365) / 365))
@@ -68,7 +68,7 @@ select a.prem / 1000 * b.endcv *
    and a.contno='2024081600000576'
    and b.dt = 1
 
---t≤PPP，年领欠缴保费
+--t≤ppp，年领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney), 0)
           from ljagetdraw
@@ -81,7 +81,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024080900002186'
    and b.dt = 1
 
---t>PPP，年领欠缴保费
+--t>ppp，年领欠缴保费
 select a.prem / 1000 * b.endcv -
        (select nvl(sum(getmoney), 0)
           from ljagetdraw
@@ -94,7 +94,7 @@ select a.prem / 1000 * b.endcv -
    and a.contno = '2024080900002186'
    and b.dt = 2
 
---t>PPP，年领未欠缴保费
+--t>ppp，年领未欠缴保费
 select (a.prem / 1000 * b.endcv * (date '2043-08-01' - date '2042-08-14') / 365) +
        (a.prem / 1000 * b.begcv *
        (365 - (date '2043-08-01' - date '2042-08-14')) / 365)

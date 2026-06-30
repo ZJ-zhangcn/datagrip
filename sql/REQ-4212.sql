@@ -1,4 +1,4 @@
--- ID: REQ-4212
+-- id: req-4212
 -- 标题: 满期终止保单理赔操作优化需求
 
 /*
@@ -49,13 +49,13 @@ select a.* from ljagetdraw a where contno='2024121100002906'
 select a.* from lljagetdraw a where contno='2024121100002906'
 
 --
-select a.StateFlag,a.* from loprtmanager a where otherno='2024121100002906'
+select a.stateflag,a.* from loprtmanager a where otherno='2024121100002906'
 
 --
 select a.* from loprtmanageclm a where otherno='2024121100002906'
 
 --
-select a.* from ldtask a where taskdescribe like '%满期%' 
+select a.* from ldtask a where taskdescribe like '%满期%'
 
 select a.* from ldtask a where taskclass='EFLongTermUNGetNoticeTask'
 
@@ -63,7 +63,7 @@ select a.* from ldtask a where taskclass='EFLongTermUNGetNoticeTask'
 select a.* from ljaget a where otherno='3631815101010394'
 
 --保单登记
-select a.* from temp_lcpoltransaction a where CLAIMNO='3631815101010445';
+select a.* from temp_lcpoltransaction a where claimno='3631815101010445';
 
 select polstatus,terminationdate,terminationreason,a.* from temp_lccont a where policyno='2025011000000296';
 

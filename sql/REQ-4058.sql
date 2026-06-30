@@ -1,4 +1,4 @@
--- ID: REQ-4058
+-- id: req-4058
 -- 标题: 新增期交万能交费方式变更功能
 
 select a.* from lmriskapp a where riskname like '%盛世恒赢%';
@@ -27,23 +27,23 @@ select a.* from xqpaychangeinfo a where paytype='1' and contno in (select contno
 select a.* from lcpol a where riskcode='1303012' and appflag='1' and not exists (select 1 from xqpaychangeinfo where contno=a.contno) and paytodate != payenddate;
 
 --短信
-select a.* from sms_dispatch_list a where SENDTARGET='18541665582';
+select a.* from sms_dispatch_list a where sendtarget='18541665582';
 
 --续期短信
 select a.* from lcmeglog a where otherno='2023090100000206';
 
 --serivceid短信编码
-select * from lisdata.lcmegrelation WHERE sendcode='XQ00024';
+select * from lisdata.lcmegrelation where sendcode='XQ00024';
 
 --修改万能交费方式上传资料路径
 select a.* from xqpaychangeimporterror a where contno='2023120700000826';
 
-select a.* from xqpaychangeimporterror a where SERIALNO='980Pa0000000022';
+select a.* from xqpaychangeimporterror a where serialno='980Pa0000000022';
 
 --万能交费方式修改轨迹
 select a.* from xqpaychangetrace a where contno='2023120700000826';
 
-select a.* from xqpaychangetrace a where SERIALNO='980Pa0000000022';
+select a.* from xqpaychangetrace a where serialno='980Pa0000000022';
 
 --万能交费方式置值批处理取数
 select *
@@ -67,12 +67,12 @@ select c.managecom || '-' ||
        (select name
           from ldcom
          where '1710749971000' = '1710749971000'
-           and ComCode = c.managecom) managecom,
-       C.CONTNO 保单号,
-       (SELECT D.CODENAME
-          FROM LDCODE D
-         WHERE D.CODETYPE = 'salecom'
-           AND D.CODE = C.SALECOM) 业绩归属渠道,
+           and comcode = c.managecom) managecom,
+       c.contno 保单号,
+       (select d.codename
+          from ldcode d
+         where d.codetype = 'salecom'
+           and d.code = c.salecom) 业绩归属渠道,
        (select to_char(wm_concat((select riskname
                                    from lmriskapp
                                   where riskcode = lcpol.riskcode)))

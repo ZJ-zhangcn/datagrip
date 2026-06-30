@@ -1,4 +1,4 @@
--- ID: REQ-4100
+-- id: req-4100
 -- 标题: 生存金付费退票后优化
 
 /*
@@ -16,8 +16,8 @@ select a.* from lcpol a where prtno='5000118240419017'
 select /*(select codename from ldcode a where codetype='appflag' and code=a.appflag) */appflag,(select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,(select codename from ldcode where codetype='getlocation' and code=a.getform) 生存金领取方式,contno,prtno,riskcode,signdate,cvalidate,enddate,paytodate,payenddate,payintv,amnt,prem,payendyear,insuyear,a.* from lcpol a
 where contno='2024050900000186'
 
---TrustCompanyFlag='Y'时为信托单
-select appflag,TrustCompanyFlag,a.* from lccont a where contno='2024050900000186'
+--trustcompanyflag='Y'时为信托单
+select appflag,trustcompanyflag,a.* from lccont a where contno='2024050900000186'
 
 /*
 update lccont set getpoldate=cvalidate-1,customgetpoldate=cvalidate-1 where prtno='5000118340418029'
@@ -38,21 +38,21 @@ select contno,
  where contno = '2024050900000586';
 
 --
-select IDStDate,IDEXPDATE,a.* from lcappnt a where contno='2024041800000116';
+select idstdate,idexpdate,a.* from lcappnt a where contno='2024041800000116';
 
-select IDStDate,IDEXPDATE,a.* from lcinsured a where contno='2024041800000116'
+select idstdate,idexpdate,a.* from lcinsured a where contno='2024041800000116'
 
 /*
-update lcappnt set IDEXPDATE='2054-04-16' where contno='2024041800000116';
+update lcappnt set idexpdate='2054-04-16' where contno='2024041800000116';
 
-update lcinsured set IDEXPDATE='2054-04-16' where contno='2024041800000116'
+update lcinsured set idexpdate='2054-04-16' where contno='2024041800000116'
 */
 
 --
-select bankonthewayflag,banksuccflag,prtnotestate,bankprovince,bankcity,bankcode,bankaccno,ENTERACCDATE,CONFDATE,ACCTYPE,a.* from ljaget a where otherno='2024050900000586' order by shoulddate desc;
+select bankonthewayflag,banksuccflag,prtnotestate,bankprovince,bankcity,bankcode,bankaccno,enteraccdate,confdate,acctype,a.* from ljaget a where otherno='2024050900000586' order by shoulddate desc;
 
 --个险保全表
-select edorno 批单号,edortype,edorstate,EdorValiDate 保全生效日期,getmoney,getinterest,a.* from lpedoritem a where contno='2024041800000116' order by EdorValiDate desc;
+select edorno 批单号,edortype,edorstate,edorvalidate 保全生效日期,getmoney,getinterest,a.* from lpedoritem a where contno='2024041800000116' order by edorvalidate desc;
 
 --
 select a.* from lyreturnfrombankb a where paycode='86000020250370001571'
@@ -68,15 +68,15 @@ update ats_transactions
 */
 
 --
-select a.* from ldtask a where taskdescribe like '%生存金%' 
+select a.* from ldtask a where taskdescribe like '%生存金%'
 
 --退票批处理
-select a.* from ldtask a where taskdescribe like '%退票%' 
+select a.* from ldtask a where taskdescribe like '%退票%'
 
 --系统原因or客户原因
-Select * FROM ldcode1 a Where a.codetype = 'cuxbankerror' /*And a.code = 'ncux' And a.comcode != 'S' */and comcode='Y'
+select * from ldcode1 a where a.codetype = 'cuxbankerror' /*and a.code = 'ncux' and a.comcode != 'S' */and comcode='Y'
 
 select a.* from lyreturnfrombankb a where paycode='86000020250370014963'
 
 --红冲轨迹
-select a.* from lyrefundlog a where ACTUGETNO='86000020440370000009' order by SERIALNOT desc;
+select a.* from lyrefundlog a where actugetno='86000020440370000009' order by serialnot desc;

@@ -1,10 +1,10 @@
--- ID: REQ-4092
+-- id: req-4092
 -- 标题: 满期未领取短信提示需求
 
 /*
 批处理名称：满期金长期未领取提示功能
-批处理类：MQUnclaimedSMSTask
-参数：ContNo
+批处理类：mqunclaimedsmstask
+参数：contno
 
 含满期金的保单，批处理执行日期-保单满期日大于等于30，且未领取满期金，则生成该保单满期金未领取提示短信。
 未领取满期金包括几下几种情况：
@@ -13,7 +13,7 @@
 	c、满期金已产生，领取方式为累积生息，未申请生存给付
 	d、满期金已产生，领取方式为累积生息，申请生存给付未到账
 
-短信编码：Ma1034
+短信编码：ma1034
 短信模板：尊敬的【投/被保人姓名】[先生/女士]，您好!您购买的【险种名称】保单号【保单号】已满期终止，请及时办理满期领取，若您已申请请关注近期支付到账情况。有问题可咨询我公司客服热线4009118118，祝您阖家幸福！
 */
 
@@ -23,7 +23,7 @@ select appflag,enddate,a.* from lcpol a where contno='2023053100003956'
 
 select a.* from lccontstate a where contno='2023053100003956'
 
-select a.* from SMS_DISPATCH_LIST a where otherno='2024041100000186'
+select a.* from sms_dispatch_list a where otherno='2024041100000186'
 
 select contno,
        dutycode,

@@ -1,33 +1,33 @@
---查看数据库引起锁表的SQL语句
-SELECT A.USERNAME,
-       A.MACHINE,
-       A.PROGRAM,
-       A.SID,
-       A.SERIAL#,
-       A.STATUS,
-       C.PIECE,
-       C.SQL_TEXT
-  FROM V$SESSION A, V$SQLTEXT C
- WHERE A.SID IN (SELECT DISTINCT T2.SID
-                   FROM V$LOCKED_OBJECT T1, V$SESSION T2
-                  WHERE T1.SESSION_ID = T2.SID)
-   AND A.SQL_ADDRESS = C.ADDRESS(+)
- ORDER BY C.PIECE;
+--查看数据库引起锁表的sql语句
+select a.username,
+       a.machine,
+       a.program,
+       a.sid,
+       a.serial#,
+       a.status,
+       c.piece,
+       c.sql_text
+  from v$session a, v$sqltext c
+ where a.sid in (select distinct t2.sid
+                   from v$locked_object t1, v$session t2
+                  where t1.session_id = t2.sid)
+   and a.sql_address = c.address(+)
+ order by c.piece;
 
 --以下几个为相关表
-SELECT * FROM v$lock;
+select * from v$lock;
 
-SELECT * FROM v$sqlarea;
+select * from v$sqlarea;
 
-SELECT * FROM v$session;
+select * from v$session;
 
-SELECT * FROM v$process;
+select * from v$process;
 
-SELECT * FROM v$locked_object;
+select * from v$locked_object;
 
-SELECT * FROM all_objects;
+select * from all_objects;
 
-SELECT * FROM v$session_wait;
+select * from v$session_wait;
 
 --查看被锁表信息
 select sess.sid,
@@ -41,7 +41,7 @@ select sess.sid,
    and lo.session_id = sess.sid;
 
 --解锁
-----分别为SID和SERIAL#号
+----分别为sid和serial#号
 /*
 alter system kill session '3446,8726';
 

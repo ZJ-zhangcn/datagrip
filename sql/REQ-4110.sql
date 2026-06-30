@@ -1,4 +1,4 @@
--- ID: REQ-4110
+-- id: req-4110
 -- 标题: 核心系统双录信息查询质检状态取值逻辑优化
 
 select qualityteststate,a.* from lccontmovie a where prtno='5000118323511362'

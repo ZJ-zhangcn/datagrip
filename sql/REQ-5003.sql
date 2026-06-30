@@ -1,14 +1,14 @@
--- ID: REQ-5003
+-- id: req-5003
 -- 标题: 处理历史开票数据的需求
 
 select a.*
 from ldtask a
-where TASKDESCRIBE like '%价税分离%';
+where taskdescribe like '%价税分离%';
 
 select a.*
 from ldtaskplan a
 where taskcode = '000621'
-order by TASKPLANCODE desc;
+order by taskplancode desc;
 
 select a.*
 from ljatax a
@@ -24,7 +24,7 @@ where a.grpcontno like '00%'
                   where d.orderno = b.orderno
                     and a.taxmainno = b.taxmainno
                     and d.status in ('1', '2', '3'))
-  and a.GetnoticeNo = '86010120250320004932'
+  and a.getnoticeno = '86010120250320004932'
   and a.buinessdate >= date'2025-09-18'
   and a.buinessdate <= date'2025-12-16'
 group by a.buinessno, a.buinesstype, a.buinessdate, a.contno;

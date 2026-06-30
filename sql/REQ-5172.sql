@@ -1,9 +1,9 @@
--- ID: REQ-5172
+-- id: req-5172
 -- 标题: 上海银行预约投保开发需求
 
 select a.*
 from ybtreservcont a
-where STANDBYFLAG1 = '2025111300000206';
+where standbyflag1 = '2025111300000206';
 
 --ssh
 select s.sysvarvalue
@@ -13,10 +13,10 @@ where s.sysvar = 'SFTPServer-ShareImage';
 --核心影像路径
 select *
 from ldsysvar s
-where s.sysvar = 'SFTPServer-OriginalImage';--/data/Image/psbc/RECV
+where s.sysvar = 'SFTPServer-OriginalImage';--/data/image/psbc/recv
 
 --批处理
-select a.* from ldtask a where TASKDESCRIBE like '%上行预约单承保短信%';
+select a.* from ldtask a where taskdescribe like '%上行预约单承保短信%';
 
 select uwflag from lccont a where contno='2025111300000206';
 

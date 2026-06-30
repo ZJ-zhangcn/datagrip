@@ -35,7 +35,7 @@ select sum(amnt) from lcpol a where prtno='3206915140620035';
 --
 select a.* from lcgrpcont a where grpcontno='2025080500000466';
 
-select a.* from ldtask a where TASKDESCRIBE like '%撤件%';
+select a.* from ldtask a where taskdescribe like '%撤件%';
 
 --个单保单表
 select
@@ -50,14 +50,14 @@ where grpcontno='2026060100001166';
 select a.* from lcgrpcontstate a where grpcontno='2024062100001686';
 
 --询价
-select UnitProvince           单位注册地址省,
-       UnitCity               单位注册地址市,
-       UnitDistrict           单位注册地址县区,
-       UNITREGDETADDRESS      单位注册地址详细地址,
-       UnitRegisteredProvince 单位地址省,
-       UnitRegisteredCity     单位地址市,
-       UnitRegisteredDistrict 单位地址县区,
-       UNITDETADDRESS         单位地址详细地址,
+select unitprovince           单位注册地址省,
+       unitcity               单位注册地址市,
+       unitdistrict           单位注册地址县区,
+       unitregdetaddress      单位注册地址详细地址,
+       unitregisteredprovince 单位地址省,
+       unitregisteredcity     单位地址市,
+       unitregistereddistrict 单位地址县区,
+       unitdetaddress         单位地址详细地址,
        a.*
   from lcask a
  where askno like 'XJ2024%%'
@@ -70,7 +70,7 @@ select a.* from lcappnt a where appntno in (select grpcustomerno from lcgrpcusto
 
 /*
 
-insert into lcgrpcustomerinfo (GRPCUSTOMERNO, POSTADDRESS, BUSINESSSCOPE, REGIDNO, LICNAME, LICIDNO, LICSTARTDATE, LICENDDATE, LEGNAME, LEGIDTYPE, LEGIDNO, LEGSTARTDATE, LEGENDDATE, DPARTNAME, DPARTIDNO, DPARTIDTYPE, DPARTSTARTDATE, DPARTENDDATE, TRANNAME, TRANIDTYPE, TRANIDNO, TRANSTARTDATE, TRANENDDATE, BAK1, BAK2, BAK3, BAK4, BAK5, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, BNFNAME, BNFIDTYPE, BNFIDNO, BNFSTARTDATE, BNFENDDATE, BNFBIRTHDAY, BNFADDRESS, BNFTDPEOPLE, BNFNATIVEPLACE, BNFFLAG, SHARESNUM)
+insert into lcgrpcustomerinfo (grpcustomerno, postaddress, businessscope, regidno, licname, licidno, licstartdate, licenddate, legname, legidtype, legidno, legstartdate, legenddate, dpartname, dpartidno, dpartidtype, dpartstartdate, dpartenddate, tranname, tranidtype, tranidno, transtartdate, tranenddate, bak1, bak2, bak3, bak4, bak5, operator, makedate, maketime, modifydate, modifytime, bnfname, bnfidtype, bnfidno, bnfstartdate, bnfenddate, bnfbirthday, bnfaddress, bnftdpeople, bnfnativeplace, bnfflag, sharesnum)
 values ('1004565464', '上海市黄浦区林校路街道义和庄北路1号', '经营范围', '12345', '依法设立', '1234', to_date('01-01-2023', 'dd-mm-yyyy'), to_date('01-01-2028', 'dd-mm-yyyy'), '法人', '1', '123456', to_date('01-01-2023', 'dd-mm-yyyy'), to_date('01-01-2028', 'dd-mm-yyyy'), '控股股东', '123456', '1', to_date('01-01-2023', 'dd-mm-yyyy'), to_date('01-01-2028', 'dd-mm-yyyy'), '授权办理业务人', '1', '123456', to_date('01-01-2023', 'dd-mm-yyyy'), to_date('01-01-2028', 'dd-mm-yyyy'), null, null, null, null, null, '001', to_date('07-11-2023', 'dd-mm-yyyy'), '06:53:22', to_date('07-11-2023', 'dd-mm-yyyy'), '06:53:22', null, null, null, null, null, null, null, null, null, null, null);
 
 */
@@ -99,7 +99,7 @@ select a.* from es_doc_main a where subtype='32076151' and managecom='86010101';
 
 /*
 insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, docremark, scanoperator, managecom, inputstate, operator, inputstartdate, inputstarttime, inputenddate, inputendtime, makedate, maketime, modifydate, modifytime, version, scanno, printcode, pkgcode, subtypesuncan, scanflag)
-values ((select max(DOCID)+1 from es_doc_main), '3206915160615043', 'TB', '36083151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', '1', 'TB2023860100001X', '3206915131026011', 1350, 'TXTB', null);
+values ((select max(docid)+1 from es_doc_main), '3206915160615043', 'TB', '36083151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', '1', 'TB2023860100001X', '3206915131026011', 1350, 'TXTB', null);
 
 */
 
@@ -170,26 +170,26 @@ select a.* from lpedorapp a where edoracceptno='3229315100006307';
 
 --团险保全表
 select
-       a.MAKEDATE, edoracceptno 受理号, edorno 批单号,
+       a.makedate, edoracceptno 受理号, edorno 批单号,
        a.*
-from lpgrpedoritem a where grpcontno='2025111700006986' order by a.MAKEDATE,a.maketime;
+from lpgrpedoritem a where grpcontno='2025111700006986' order by a.makedate,a.maketime;
 
 select a.* from lpgrpedoritem a where edoracceptno='3229315100003144';
 
 select a.* from lpgrpedoritem a where edorno='3229515100005969';
 
-select a.* from lpgrpedoritem a where edortype='RP' and EDORSTATE='0' order by MAKEDATE desc;
+select a.* from lpgrpedoritem a where edortype='RP' and edorstate='0' order by makedate desc;
 
 select a.* from ldcode a where codetype like '%edorstate%';
 
-select a.* from lpgrpedoritem a where EDORTYPE='CT' and EDORSTATE='0' and makedate between date'2024-01-01' and date'2024-12-31';
+select a.* from lpgrpedoritem a where edortype='CT' and edorstate='0' and makedate between date'2024-01-01' and date'2024-12-31';
 
-select a.* from lpgrpedoritem a where EDORTYPE='RP' and EDORSTATE='0';
+select a.* from lpgrpedoritem a where edortype='RP' and edorstate='0';
 
 --个险保全表
-select a.CONFDATE 保全确认日期,a.* from LPEdorApp a where otherno='2026031800000156';
+select a.confdate 保全确认日期,a.* from lpedorapp a where otherno='2026031800000156';
 
-select a.CONFDATE 保全确认日期,a.* from LPEdorApp a where edoracceptno='3229315100007060';
+select a.confdate 保全确认日期,a.* from lpedorapp a where edoracceptno='3229315100007060';
 
 select
        edorno 批单号, edoracceptno 受理号, edortype,
@@ -205,22 +205,22 @@ select a.* from lpedoritem a where insuredno='1060090852';
 
 select a.* from lpedoritem a where edortype='NI' and edorstate='0' order by makedate;
 
-select a.* from LJAGETENDORSE a where grpcontno='2025111700006986' order by MAKEDATE,MAKETIME;
+select a.* from ljagetendorse a where grpcontno='2025111700006986' order by makedate,maketime;
 
-select a.* from LJAGETENDORSE a where otherno='3229315100003132';
+select a.* from ljagetendorse a where otherno='3229315100003132';
 
 --保单未打印修改printcount为1
-select PrintCount,a.* from LCGrpCont a where grpcontNo = '2025032600004096';
+select printcount,a.* from lcgrpcont a where grpcontno = '2025032600004096';
 
 /*
-update LCGrpCont set PrintCount='1' where grpcontNo = '2026061600001316'
+update lcgrpcont set printcount='1' where grpcontno = '2026061600001316'
 */
 
 --回执回销
-select * from lcgrpcont where grpcontno = '2025012000000586'and CUSTOMGETPOLDATE is null;
+select * from lcgrpcont where grpcontno = '2025012000000586'and customgetpoldate is null;
 
 /*
-update lcgrpcont set CUSTOMGETPOLDATE=signdate where grpcontno = '2026061600001316'
+update lcgrpcont set customgetpoldate=signdate where grpcontno = '2026061600001316'
 */
 
 --团单保全单证插表
@@ -229,10 +229,10 @@ select a.* from es_doc_main a where subtype='32293151';
 /*
 
 insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, docremark, scanoperator, managecom, inputstate, operator, inputstartdate, inputstarttime, inputenddate, inputendtime, makedate, maketime, modifydate, modifytime, version, scanno, printcode, pkgcode, subtypesuncan, scanflag)
-values ((select max(DOCID)+1 from es_doc_main), '3631815101011509', 'BQ', '32293151', 1, '1', null, '001', '86', null, null, null, null, null, null, to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', '1', 'TB201586330014', '3229315100005698', 1, null, null);
+values ((select max(docid)+1 from es_doc_main), '3631815101011509', 'BQ', '32293151', 1, '1', null, '001', '86', null, null, null, null, null, null, to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', '1', 'TB201586330014', '3229315100005698', 1, null, null);
 
-insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '5005190150822378', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
+insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, docremark, scanoperator, managecom, inputstate, operator, inputstartdate, inputstarttime, inputenddate, inputendtime, makedate, maketime, modifydate, modifytime, version, scanno, printcode, pkgcode, subtypesuncan, scanflag)
+values ((select max(docid)+1 from es_doc_main), '5005190150822378', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
 
 */
 
@@ -243,9 +243,9 @@ select getflag/*1：退费 0：补费*/,getmoney,contno,a.* from ljsgetendorse a
 select docid from es_doc_main a order by docid desc;
 
 /*
-insert into es_doc_main (DOCID, DOCCODE, BUSSTYPE, SUBTYPE, NUMPAGES, DOCFLAG, DOCREMARK, SCANOPERATOR, MANAGECOM, INPUTSTATE, OPERATOR, INPUTSTARTDATE, INPUTSTARTTIME, INPUTENDDATE, INPUTENDTIME, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME, VERSION, SCANNO, PRINTCODE, PKGCODE, SUBTYPESUNCAN, SCANFLAG)
-values ((select max(DOCID)+1 from es_doc_main), '3631815101011440', 'LP', '32069151', 2, '1', null, '001', '860101', null, null, null, null, null, null, null, null, null, null, '1', 'LP2021010100000516', null, 26, null, null);
+insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, docremark, scanoperator, managecom, inputstate, operator, inputstartdate, inputstarttime, inputenddate, inputendtime, makedate, maketime, modifydate, modifytime, version, scanno, printcode, pkgcode, subtypesuncan, scanflag)
+values ((select max(docid)+1 from es_doc_main), '3631815101011440', 'LP', '32069151', 2, '1', null, '001', '860101', null, null, null, null, null, null, null, null, null, null, '1', 'LP2021010100000516', null, 26, null, null);
 
 */
 
-select a.* from LLCLAIMPOLICY a where clmno='3631815131000023';
+select a.* from llclaimpolicy a where clmno='3631815131000023';

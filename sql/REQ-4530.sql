@@ -1,4 +1,4 @@
--- ID: REQ-4530
+-- id: req-4530
 -- 标题: 期交万能交费方式变更优化需求
 
 --批处理逻辑
@@ -48,9 +48,9 @@ select a.*
 select a.* from lcmeglog a where otherno='2024102900000476'
 
 --查短信编码  serivceid
-select * from lisdata.lcmegrelation WHERE sendcode='XQ00024';
+select * from lisdata.lcmegrelation where sendcode='XQ00024';
 
-select a.* from ldtask a where taskdescribe like '%续期%短信%' 
+select a.* from ldtask a where taskdescribe like '%续期%短信%'
 
 select a.* from ldtask a where taskclass like '%MessagesSend%'
 

@@ -1,4 +1,4 @@
--- ID: REQ-4254
+-- id: req-4254
 -- 标题: 保单登记平台000190-保单责任专项整改-保全
 
 select distinct contno
@@ -40,12 +40,12 @@ select contno,
        --(select codename from ldcode where codetype = 'bqannuitygetmode' and code = (select annuitygetmode from lcduty where contno=a.contno)) 生存金领取方式,
        gettodate,
        getstartdate,
-       getenddate,LiveGetType
+       getenddate,livegettype
   from lcget a
  where contno = '2020040300012026'
 
-select a.* from TEMP_LCPolTransaction a where policyno='2024091800001486';
+select a.* from temp_lcpoltransaction a where policyno='2024091800001486';
 
-select Status,a.* from temp_LCLiability a where policyno='2024091800001486'
+select status,a.* from temp_lcliability a where policyno='2024091800001486'
 
 select a.* from lccontstate a where contno='2024091800001486';

@@ -1,20 +1,20 @@
 select a.* from ljaget a where otherno='2026062200000156';
 
-select a.* from ljagetdraw a where contno='2026062200000156' order by MAKEDATE,MAKETIME;
+select a.* from ljagetdraw a where contno='2026062200000156' order by makedate,maketime;
 
-select a.* from LCINSUREACC a where contno='2026062200000156';--baladate  INSUACCBALA
+select a.* from lcinsureacc a where contno='2026062200000156';--baladate  insuaccbala
 
-select a.* from LCINSUREACCCLASS a where contno='2026062200000156' order by MAKEDATE,MAKETIME;--baladate  INSUACCBALA
+select a.* from lcinsureaccclass a where contno='2026062200000156' order by makedate,maketime;--baladate  insuaccbala
 
-select a.* from LCINSUREACCTRACE a where contno='2026062200000156' order by /*OTHERNO,*/MAKEDATE,MAKETIME;
+select a.* from lcinsureacctrace a where contno='2026062200000156' order by /*otherno,*/makedate,maketime;
 
-select a.* from LCINSUREACCFEE a where contno='2026062200000156';
+select a.* from lcinsureaccfee a where contno='2026062200000156';
 
-select a.* from LCINSUREACCCLASSFEE a where contno='2026062200000156' order by MAKEDATE,MAKETIME;
+select a.* from lcinsureaccclassfee a where contno='2026062200000156' order by makedate,maketime;
 
-select a.* from LCINSUREACCFEETRACE a where contno='2026062200000156' order by OTHERNO,MAKEDATE,MAKETIME;
+select a.* from lcinsureaccfeetrace a where contno='2026062200000156' order by otherno,makedate,maketime;
 
-select a.* from LOPRTMANAGER a where otherno='2026062200000156' order by MAKEDATE,MAKETIME;
+select a.* from loprtmanager a where otherno='2026062200000156' order by makedate,maketime;
 
 select a.* from lcget a where contno='2026062200000156';
 
@@ -24,15 +24,15 @@ delete from ljaget where otherno='2026062200000156';
 
 delete from ljagetdraw where contno='2026062200000156';
 
-delete from LCINSUREACC where contno='2026062200000156' and INSUACCNO='000009';
+delete from lcinsureacc where contno='2026062200000156' and insuaccno='000009';
 
-update LCINSUREACC set baladate=date'2032-04-01',INSUACCBALA='108211.44' where contno='2026062200000156' and INSUACCNO='13030221';
+update lcinsureacc set baladate=date'2032-04-01',insuaccbala='108211.44' where contno='2026062200000156' and insuaccno='13030221';
 
-delete from LCINSUREACCCLASS where contno='2026062200000156' and INSUACCNO='000009';
+delete from lcinsureaccclass where contno='2026062200000156' and insuaccno='000009';
 
-update LCINSUREACCCLASS set baladate=date'2032-04-01',INSUACCBALA='108211.44' where contno='2026062200000156' and INSUACCNO='13030221';
+update lcinsureaccclass set baladate=date'2032-04-01',insuaccbala='108211.44' where contno='2026062200000156' and insuaccno='13030221';
 
-delete from LCINSUREACCTRACE where contno='2026062200000156' and PAYDATE>=date'2032-05-01';
+delete from lcinsureacctrace where contno='2026062200000156' and paydate>=date'2032-05-01';
 
-update lcget set SUMMONEY='0.00' where contno='2026062200000156' and GETDUTYCODE='IG2054';
+update lcget set summoney='0.00' where contno='2026062200000156' and getdutycode='IG2054';
 */

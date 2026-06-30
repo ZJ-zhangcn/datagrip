@@ -1,29 +1,29 @@
 --红利核对
 --红利因子表
-select BONUSFACTOR, JQBONUSFACTOR, a.*
+select bonusfactor, jqbonusfactor, a.*
 from lobonusfactor a,
      lcpol b
-where a.PAYENDYEAR = b.PAYENDYEAR
-  and a.INSUREDSEX = b.INSUREDSEX
-  and a.INSUREDAPPAGE = b.INSUREDAPPAGE
-  and a.RISKCODE = b.RISKCODE
-  and a.BONUSGRADE = 'H'
+where a.payendyear = b.payendyear
+  and a.insuredsex = b.insuredsex
+  and a.insuredappage = b.insuredappage
+  and a.riskcode = b.riskcode
+  and a.bonusgrade = 'H'
   and b.contno = '2026010700000166'
-order by POLYEAR;
+order by polyear;
 
 --红利 k 值
 select a.*
-from BonusRate a,
+from bonusrate a,
      lcpol b
-where a.riskcode = b.RISKCODE
+where a.riskcode = b.riskcode
   and b.contno = '2026010700000166';
 
 --购买交清红利
 select a.*
-from PUA_1116002 a,
+from pua_1116002 a,
      lcpol b
-where a.GENDER = b.INSUREDSEX
-  and a.AGE = b.INSUREDAPPAGE
+where a.gender = b.insuredsex
+  and a.age = b.insuredappage
   and b.contno = '2026010700000166'
 order by dt;
 

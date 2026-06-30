@@ -1,4 +1,4 @@
--- ID: REQ-4116
+-- id: req-4116
 -- 标题: 期交万能续期实收回退
 
 --lcpol
@@ -39,7 +39,7 @@ select a.* from lcinsureaccclass a where contno='2024112000000286';
 select a.* from lcinsureacctrace a where contno='2024112000000286' order by makedate ,maketime;
 
 --删除续期实收产生的轨迹
-select a.* from LCInsureAccTraceHT a where contno='2024112000000286' order by makedate ,maketime;
+select a.* from lcinsureacctraceht a where contno='2024112000000286' order by makedate ,maketime;
 
 /*
 update lcinsureacctrace set makedate=paydate,modifydate=paydate where contno='2024112000000286' and paydate>=date'2025-05-01'

@@ -1,13 +1,13 @@
--- ID: REQ-4006
+-- id: req-4006
 -- 标题: 稳赢添添长赢版二期需求
 
-select * from LMDutyGetClm where GetDutyCode='IG0797' and GetDutyKind='103';
+select * from lmdutygetclm where getdutycode='IG0797' and getdutykind='103';
 
 select a.* from ldcode a where codetype = 'getdutykind' and code like '%03';
 
 select a.* from loprtmanager a where otherno='2024032500000126';
 
-select * from LLCaseInfo where ClmNo='3631815101009908';
+select * from llcaseinfo where clmno='3631815101009908';
 
 select a.* from lcpol a where contno='2024022000001426';
 
@@ -27,13 +27,13 @@ select a.* from ljsgetdraw a where contno='2024032500000306' order by a.getdate 
 
 select a.* from ljaget a where otherno='2024032000000266';
 
-select getdutycode,FEEOPERATIONTYPE,FEEFINATYPE,getmoney,getdate,a.* from ljagetdraw a where contno='2024032500000126' order by a.getdate desc,a.modifydate desc,a.modifytime desc;
+select getdutycode,feeoperationtype,feefinatype,getmoney,getdate,a.* from ljagetdraw a where contno='2024032500000126' order by a.getdate desc,a.modifydate desc,a.modifytime desc;
 
 select getdutycode,moneytype,paydate,a.* from lcinsureacctrace a where contno='2024012300000696' /*and getdutycode='IG0797' and moneytype='YFLX'*/ order by a.paydate desc,a.modifydate desc,a.modifytime desc;
 
 select a.* from lcinsureacc a where contno='2024012300000696';
 
-select a.* from lcinsureaccclass a where contno='2024012300000696' order by ACCFOUNDDATE desc,modifytime desc;
+select a.* from lcinsureaccclass a where contno='2024012300000696' order by accfounddate desc,modifytime desc;
 
 --lcget
 select contno,
@@ -52,7 +52,7 @@ select a.* from lmrisksort a where riskcode='1033024';
 
 select a.* from cv_1033024 a;
 
-select a.ENDCV * b.prem / 1000 * power(1.04, (0-365)/ 365)+greatest(880-1*0.085*880,0)
+select a.endcv * b.prem / 1000 * power(1.04, (0-365)/ 365)+greatest(880-1*0.085*880,0)
   from cv_1033024 a, lcpol b
  where gender = insuredsex
    and pt = payendyear

@@ -1,7 +1,7 @@
--- ID: REQ-4145
+-- id: req-4145
 -- 标题: 兴业银行银保通接口改造需求（2024年4月）
 
-select appntname,idtype,idno,idexpdate from lcappnt a where contno='2015070100000218' 
+select appntname,idtype,idno,idexpdate from lcappnt a where contno='2015070100000218'
 
 --select idexpdate,birthday from lcinsured a where contno='2024072300004256' --1983;
 select a.* from lcpol a where contno='2024072300004256'
@@ -19,7 +19,7 @@ select contno,
        (select codename from ldcode where codetype = 'bqannuitygetmode' and code = (select annuitygetmode from lcduty where contno=a.contno)) 生存金领取方式,
        gettodate,
        getstartdate,
-       getenddate,LiveGetType
+       getenddate,livegettype
   from lcget a
  where contno = '2024072300004386';
 
@@ -28,4 +28,4 @@ select a.* from ljsgetdraw a where contno='2024072300004386'
 select a.* from ljagetdraw a where contno='2024072300004386'
 
 
-select a.* from LMDutyGetalive a where GETDUTYCODE='IG0814';
+select a.* from lmdutygetalive a where getdutycode='IG0814';

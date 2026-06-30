@@ -1,24 +1,24 @@
--- ID: REQ-4581
+-- id: req-4581
 -- 标题: 银保信医联平台字段删除
 
 --code='1'为开，开为校验
-select a.* from ldcode a WHERE CODETYPE = 'AssisadmissionDateflag'
+select a.* from ldcode a where codetype = 'AssisadmissionDateflag'
 
 --
-select a.* from lcRiskMapInfo a where AUTHORIZEDCERTNO='350824198001100013'
+select a.* from lcriskmapinfo a where authorizedcertno='350824198001100013'
 
-SELECT * FROM lcRiskMapInfo WHERE AdmissionDate is not null
+select * from lcriskmapinfo where admissiondate is not null
 
-select admissionDate,dischargeDate,departmentCode,departmentName,a.* from lcRiskMapInfo a where policyno='5000118341206476' or CLAIMNO='5000118341206476'
+select admissiondate,dischargedate,departmentcode,departmentname,a.* from lcriskmapinfo a where policyno='5000118341206476' or claimno='5000118341206476'
 
-select admissionDate,dischargeDate,departmentCode,departmentName,a.*
-from lcRiskMapInfo a
-where InvestigatedName = '李娜'
-  and InvestigatedCertType = '0'
-  and InvestigatedCertNo = '310101198808083314'
-  and RiskMapFlag = '2'
-  and investigationTimes is not null
-order by ApplyInvestigationDate desc
+select admissiondate,dischargedate,departmentcode,departmentname,a.*
+from lcriskmapinfo a
+where investigatedname = '李娜'
+  and investigatedcerttype = '0'
+  and investigatedcertno = '310101198808083314'
+  and riskmapflag = '2'
+  and investigationtimes is not null
+order by applyinvestigationdate desc
 
 select a.* from lcinsured a where idno='350824198001100013'
 

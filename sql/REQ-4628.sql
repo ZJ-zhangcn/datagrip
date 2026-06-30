@@ -1,5 +1,5 @@
--- ID: REQ-4628
--- 标题: EAST2.0核心系统改造需求-与总账系统对接部分
+-- id: req-4628
+-- 标题: east2.0核心系统改造需求-与总账系统对接部分
 
 /*
 契约收费：5000118268710777
@@ -14,15 +14,15 @@
 团单保全非定期结算付费:3229315100006326
 满期金自动转账：2025030300000586
 */
-select a.* from ljapay a where INCOMENO='2025030500001066' order by payno
+select a.* from ljapay a where incomeno='2025030500001066' order by payno
 
 select a.* from ljaget a where otherno='2025030300000586'
 
 select a.* from ljagetdraw a where contno='2025022400000416' order by getdate
 
-select a.* from LCINSUREACCTRACE a where contno='2025022400000416' order by paydate,makedate,maketime
+select a.* from lcinsureacctrace a where contno='2025022400000416' order by paydate,makedate,maketime
 
-select SOURCENOTECODE 应,paycode 实,GLVOUCHERNO 凭证号,a.* from LyAtsTranRela a where polno='7402121100347973' order by tranno
+select sourcenotecode 应,paycode 实,glvoucherno 凭证号,a.* from lyatstranrela a where polno='7402121100347973' order by tranno
 
 select doc_seq_num,status,a.* from cux_gl_interface a where source_batch_id='00000000000000003647';
 --doc_seq_num
@@ -39,17 +39,17 @@ select attribute2,
        f.accounting_date                                                                                    账务日期,
        f.source_desc                                                                                        业务类别,
        (case
-            when f.SEGMENT3 like '4031%' then (select FINITEMNAME
+            when f.segment3 like '4031%' then (select finitemname
                                                from fifinitemdef
-                                               where ITEMMAINCODE = '4031'
+                                               where itemmaincode = '4031'
                                                  and rownum = 1)
-            when f.SEGMENT3 like '261101%' then (select FINITEMNAME
+            when f.segment3 like '261101%' then (select finitemname
                                                  from fifinitemdef
-                                                 where ITEMMAINCODE = '261101'
+                                                 where itemmaincode = '261101'
                                                    and rownum = 1)
-            else (select FINITEMNAME from fifinitemdef where ITEMMAINCODE = f.SEGMENT3 and rownum = 1) end) 描述,
+            else (select finitemname from fifinitemdef where itemmaincode = f.segment3 and rownum = 1) end) 描述,
        f.segment3                                                                                           核算科目,
-       f.attribute15                                                                                        新旧,/*C:新&旧  D:旧  N:新*/
+       f.attribute15                                                                                        新旧,/*c:新&旧  d:旧  n:新*/
        f.entered_dr                                                                                         借方金额,
        f.entered_cr                                                                                         贷方金额,
        f.segment1                                                                                           公司,
@@ -64,7 +64,7 @@ select attribute2,
 from of_interface f
 where
     lis_contno = '2025091000001386'
-    --LIS_PRTNO = '3206915162880172'
-order by f.ACCOUNTING_DATE asc, attribute2, f.je_category_name asc, SOURCE_BATCH_ID asc, f.LIS_CONTNO asc,
-         f.SEGMENT1 asc,
-         f.SEGMENT3 asc, f.SEGMENT4 asc, f.SEGMENT5 asc, f.SEGMENT6 asc, f.ATTRIBUTE15 asc;
+    --lis_prtno = '3206915162880172'
+order by f.accounting_date asc, attribute2, f.je_category_name asc, source_batch_id asc, f.lis_contno asc,
+         f.segment1 asc,
+         f.segment3 asc, f.segment4 asc, f.segment5 asc, f.segment6 asc, f.attribute15 asc;
