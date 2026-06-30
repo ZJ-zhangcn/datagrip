@@ -1,4 +1,4 @@
---É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+--É¾³ıÀíÅâÈÎÎñ
 /*
 delete from llcase where caseno='3631815101011457';
 delete from LLAccident where accno in (select caserelano from LLCaseRela where caseno='3631815101011457');
