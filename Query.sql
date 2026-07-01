@@ -40,8 +40,8 @@ from dual;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '2026040700000476'
-order by makedate, maketime;
+where contno in ('2026040700000476', '2026040700000566')
+order by contno, makedate, maketime;
 
 select a.*
 from BonusRate a

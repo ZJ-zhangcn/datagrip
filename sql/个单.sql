@@ -17,7 +17,7 @@ select
        prem, payendyear, insuyear,
        insuyearflag, a.*
 from lcpol a
-where contno in ('2026062200000156', '', '', '', '', '') order by a.contno;--
+where contno in ('2026042800004376', '', '', '', '', '') order by a.contno;--
 
 select
        leavingmoney, appflag, bonusgetmode,
@@ -425,9 +425,9 @@ select moneytype,a.* from lcinsureacctrace a where contno='2024030500000586' and
 select sum(money) from lcinsureacctrace a where contno='2024011800000586';
 
 --电子保单打印
-select a.* from lccontdzytprint a where contno in ('2026061500000386','','','');
+select a.* from lccontdzytprint a where contno in ('2026042800004376','','','');
 
-select a.* from lccontprint a where contno in ('2026061500000386','','','');
+select a.* from lccontprint a where contno in ('2026042800004376','','','');
 
 select a.* from ldcode a where codetype like '%printstat%' and code='D';
 
