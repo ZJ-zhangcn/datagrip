@@ -232,7 +232,7 @@ insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, d
 values ((select max(docid)+1 from es_doc_main), '3631815101011509', 'BQ', '32293151', 1, '1', null, '001', '86', null, null, null, null, null, null, to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', '1', 'TB201586330014', '3229315100005698', 1, null, null);
 
 insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, docremark, scanoperator, managecom, inputstate, operator, inputstartdate, inputstarttime, inputenddate, inputendtime, makedate, maketime, modifydate, modifytime, version, scanno, printcode, pkgcode, subtypesuncan, scanflag)
-values ((select max(docid)+1 from es_doc_main), '5005190150822378', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
+values ((select max(docid)+1 from es_doc_main), '5005190150822385', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
 
 */
 

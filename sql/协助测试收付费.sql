@@ -60,7 +60,6 @@ update cux_gather_detail_interface a
    and a.trade_code = '30001151000000001394';
 */
 --代收 抽档成功 支付失败(系统原因)
-/*
 update cux_gather_detail_interface a
    set a.deal_status        = '2',
        a.gather_status      = '3',
@@ -69,11 +68,9 @@ update cux_gather_detail_interface a
     -- a.bank_feedback      = '失败原因'
  where a.segment11 = '20200515_18060'
    and a.trade_code = '30001151000000004746';
-*/
 --------------------------------------------------------------------------------------------------------------------------------------------
 select * from cux_payment_detail_interface a where a.segment11 = '20791230_14448';
 --代付 抽档成功 支付成功 未退票
-/*
 update cux_payment_detail_interface a
    set a.deal_status     = '2',
        a.payment_status  = '0',
@@ -81,10 +78,8 @@ update cux_payment_detail_interface a
        a.pay_result_code = '0000',
        a.segment12       = '9007'
  where a.segment11 = '20221005_19736'
-*/
 
 --代付 抽档成功 支付成功 已退票
-/*
 update cux_payment_detail_interface a
    set a.deal_status     = '2',
        a.payment_status  = '0',
@@ -92,38 +87,30 @@ update cux_payment_detail_interface a
        a.pay_result_code = '0000',
        a.segment12       = '9007'
  where a.segment11 = '20210610_14824';
-*/
 -- 代付 抽档失败
-/*
 update cux_payment_detail_interface a
    set a.deal_status = '3'
  where a.segment11 = '20200423_17948';
-*/
 --代付 抽档成功 支付失败(客户原因)
-/*
 update cux_payment_detail_interface a
    set a.deal_status     = '2',
        a.payment_status  = '3',
        a.pay_result_code = '2003',
        a.segment12       = '9007'
  where a.segment11 = '20211126_19577';
-*/
 --代付 抽档成功 支付失败(系统原因)
-/*
 update cux_payment_detail_interface a
    set a.deal_status     = '2',
        a.payment_status  = '3',
        a.pay_result_code = '2006',
        a.segment12       = '9007'
  where a.segment11 = '20210106_19562';
-*/
 --新资金
 --------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 
 --代扣代付 抽档成功 支付成功 已返盘
-/*
 update ats_transactions a
    set a.dtcode          = '1',--抽档成功
        a.ats_returnstate = '2',--已返盘
@@ -131,9 +118,7 @@ update ats_transactions a
        a.payinfocode     = 'S0000',
        a.payinfo         = '支付成功'
  where a.reqseqid = '20200429_41171';
-*/
 --代扣代付 抽档成功 支付失败 已返盘
-/*
 update ats_transactions a
    set a.dtcode          = '1',--抽档成功
        a.ats_returnstate = '2',--已返盘
@@ -141,19 +126,15 @@ update ats_transactions a
        a.payinfocode     = 'E1004',
        a.payinfo         = '余额不足'
  where a.reqseqid = '20250929_22679';
-*/
 --代扣代付 抽档成功 已返盘 退票
-/*
 update ats_transactions a
    set a.dtcode          = '1',--抽档成功
        a.ats_returnstate = '2',--已返盘
        a.transstate      = '6',--退票处理
        a.payinfocode     = 'E8001',
        a.payinfo         = '其它错误'
- where a.reqseqid = '20340512_23721';
-*/
+ where a.reqseqid = '20270715_33451';
 --代扣代付 抽档成功 未返盘
-/*
 update ats_transactions a
    set a.dtcode          = '1',--抽档成功
        a.ats_returnstate = '1',--未返盘
@@ -161,9 +142,7 @@ update ats_transactions a
        a.payinfocode     = '',
        a.payinfo         = ''
  where a.reqseqid = '20200107_00614';
-*/
 --代扣代付 抽档失败 已返盘
-/*
 update ats_transactions a
    set a.dtcode          = '2',--抽档失败
        a.ats_returnstate = '2',--已返盘
@@ -171,9 +150,7 @@ update ats_transactions a
        a.payinfocode     = '',
        a.payinfo         = ''
  where a.reqseqid = '20200107_00614';
-*/
 --代扣代付 抽档失败 未返盘
-/*
 update ats_transactions a
    set a.dtcode          = '2',--抽档失败
        a.ats_returnstate = '1',--未返盘
@@ -181,7 +158,6 @@ update ats_transactions a
        a.payinfocode     = '',
        a.payinfo         = ''
  where a.reqseqid = '20200107_00614';
-*/
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 --支付失败原因配置

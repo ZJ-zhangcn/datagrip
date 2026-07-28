@@ -10,7 +10,7 @@ order by batchno desc;
 
 select makedate, a.*
 from fiaboriginaldata a
-where batchno in ('00000000000000003673','','') order by batchno;
+where batchno in ('00000000000000004447','','') order by batchno;
 
 select makedate, a.*
 from fiaboriginaldata a
@@ -22,9 +22,20 @@ where batchno = '00000000000000004399'
   and acquisitionid in ('00000804', '');
 
 /*
-update fiaboriginaldata set stringinfo11='R0300' where batchno='00000000000000004402' and acquisitionid in ('req78213','REQ71805','REQ71811','00000804');
+00001-公司段
+00002-成本中心
+00003-渠道-14
+00004-险种
+00005-明细科目-11
 
-update fiaboriginaldata set stringinfo14='91302' where batchno='00000000000000004402' and acquisitionid in ('req78213','REQ71805','REQ71811','00000804');
+update fiaboriginaldata
+set stringinfo11='R0300'
+where batchno = '00000000000000004581';
+
+update fiaboriginaldata
+set stringinfo14='91302'
+where batchno = '00000000000000004581';
+
 */
 
 --enteraccdate:到账日期
@@ -44,7 +55,7 @@ where tax > 0;
 --
 select *
 from ficostdataacquisitiondef
-where acquisitionid like '%REQ34514%'
+where acquisitionid like '%MQJT016%'
 order by acquisitionid;
 
 --算法查询
@@ -102,6 +113,23 @@ select inbankcode, inbankaccno
 from splitcont a
 where contno = '2024040300000286';
 
+/*
+SELECT distinct source_batch_id FROM of_interface a WHERE LIS_CONTNO='2018041700080888';
+SELECT cvalidate,signdate FROM lcpol a WHERE grpcontno='2025010200000476';
+*/
+
+/*
+delete from FIDataDistilledInfo  where batchno IN ('00000000000000004490');
+delete from FIAboriginalData     where batchno IN ('00000000000000004490');
+delete from FIAboriginaldatatemp where batchno IN ('00000000000000004490');
+delete from FIDataTransResult    where batchno IN ('00000000000000004490');
+delete from FIDataTransGather    where batchno IN ('00000000000000004490');
+delete from of_interface         where source_batch_id IN ('00000000000000004490');
+delete from cux_gl_interface     where source_batch_id IN ('00000000000000004490');
+delete from FIOperationParameter     where parametervalue IN ('00000000000000004490');
+
+*/
+
 --科目明细
 select f.je_category_name                                                                                   凭证类型,
        --attribute2,
@@ -128,7 +156,7 @@ select f.je_category_name                                                       
        f.segment4                                                                                           明细,
        f.segment5                                                                                           渠道,
        f.segment6                                                                                           产品,
-       f.segment6                                                                                           缴别,
+       f.segment7                                                                                           缴别,
        f.source_batch_id                                                                                    提账批次号,
        (select acquisitionid
         from fiaboriginaldata
@@ -138,13 +166,12 @@ from of_interface f
 where --f.source_batch_id = '00000000000000004327'
 --lis_prtno = '3206915150822081'
 --       accounting_date = date'2021-08-16'/* and entered_dr='0' and entered_cr='0'*/
-lis_contno in ('2026051500001416','')
+lis_contno in ('2023040700000266','')
+-- lis_contno in (select contno from lcpol where grpcontno='2025010600000186')
 -- and f.segment3 = '54020604'
 --lis_caseno='3631815101095847'
 order by f.accounting_date asc, f.je_category_name asc, source_batch_id asc, f.lis_contno asc, f.segment1 asc,
          f.segment3 asc, f.segment4 asc, f.segment5 asc, f.segment6 asc, f.attribute15 asc;
 
 
-select contno from llclaimpolicy a where caseno='3631815101011284';
 
-select contno from lpedoritem a where edoracceptno='7402121100332298';

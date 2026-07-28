@@ -1,5 +1,5 @@
 /*
-update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno in ('5000118360513231','5000118360513248','5000118360513255','5000118360513262','','')
+update lccont set getpoldate=signdate,customgetpoldate=signdate where prtno in ('5000118260428393','','','','','','')
 
 update lccont set getpoldate=signdate,customgetpoldate=signdate where contno in ('','','','','')
 
@@ -28,12 +28,14 @@ select a.* from lmriskpay a where riskcode='1133005';
 --险种支持的保全项
 select a.* from lmriskedoritem a where riskcode='1113004';
 
-select a.* from lmriskedoritem a where edorcode='CX';
+select a.* from lmriskedoritem a where edorcode='CM';
+
+select distinct edorcode from lmriskedoritem a;
 
 --算法表
 select remark,calsql from lmcalmode a where riskcode='1111004' order by remark;--老产品 预生产
 
-select remark,calsql from lmcalmode a where riskcode='1116004' order by remark;--新产品 dat
+select remark,calsql from lmcalmode a where riskcode='1061001' order by remark;--新产品 dat
 
 select a.* from lmcalmode a where riskcode='1116004' order by remark;
 
@@ -45,14 +47,14 @@ select a.* from lmcalmode a where calcode='IG0985' order by remark;
 select a.* from ldriskrule a where riskcode in ('1061001','','','') order by a.riskcode,a.salechnl;
 
 /*
-insert into ldriskrule (riskcode,salechnl,comgroup,startpolapplydate,endpolapplydate,startscandate,startscantime,endscandate,endscantime,operator,makedate,maketime,modifydate,modifytime) values ('1133004','02','86',timestamp '2025-06-01 00:00:00.000000',null,timestamp '2025-06-01 00:00:00.000000','0       ',null,null,'1',timestamp '2025-06-07 00:00:00.000000','0       ',timestamp '2025-06-07 00:00:00.000000','0       ');
+insert into ldriskrule (riskcode,salechnl,comgroup,startpolapplydate,endpolapplydate,startscandate,startscantime,endscandate,endscantime,operator,makedate,maketime,modifydate,modifytime) values ('1056033','03','86',timestamp '2025-06-01 00:00:00.000000',null,timestamp '2025-06-01 00:00:00.000000','0       ',null,null,'1',timestamp '2025-06-07 00:00:00.000000','0       ',timestamp '2025-06-07 00:00:00.000000','0       ');
 */
 
 --支持不同保单生存金转入万能账户险种
 select * from ldcode1 where codetype='transferCont';
 
 --lcpol
-select prtno,contno from lcpol where prtno in ('5000118360513231','5000118360513248','5000118360513255','5000118360513262','','');
+select prtno,contno from lcpol where prtno in ('5000118360513286','','','','','');
 
 select
        appflag, contno, (select codename from ldcode where codetype='bonusgetmode' and code=a.bonusgetmode) 红利领取方式,
@@ -62,7 +64,7 @@ select
        payendyear, payendyearflag, insuyear,
        insuyearflag, prem, amnt
 from lcpol a
-where contno='2026010500000506';
+where contno='5000118360513361';
 
 --lccont
 select
@@ -74,7 +76,7 @@ select
        prem, amnt, sumprem,
        prtno
 from lccont a
-where contno='2024110400000686';
+where contno='2026010500000506';
 
 --lcprem
 select
@@ -106,7 +108,7 @@ select contno,/*(select riskcode from lcpol where contno=a.contno) riskcode,*/
        getstartdate,
        getenddate,livegettype,polno,summoney,getintv
   from lcget a
- where contno = '130011003757360';
+ where contno = '2026071400000956';
 
 select a.* from lisdata.lmdutygetrela a where dutycode='ID0485'
 
@@ -223,10 +225,10 @@ update lcissuepol set replyman='001',replyresult='1',state='2',replydate=date'20
 */
 
 --
-select payform,a.* from ljspay a where otherno='2026061500000616';--2026013000000156
+select payform,a.* from ljspay a where otherno='2024123100000566';--2026013000000156
 
 /*
-update ljspay set payform='Y' where otherno in ('2026061500000526','')
+update ljspay set payform='Y' where otherno in ('2024123100000566','')
 */
 select a.* from ljspayperson a where contno='2025102700000286';
 

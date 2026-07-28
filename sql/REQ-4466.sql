@@ -65,9 +65,9 @@ delete from ldtaxrate where taxtype='0101'
 */
 
 --算法
-select a.* from lmcalmodetax a order by to_number(calcode)
+select a.* from lmcalmodetax a order by to_number(calcode);
 
-select a.* from ljatax a where standbyflag1='10';
+select a.* from ljatax a where standbyflag1='5';
 
 select a.* from ljatax a where (buinessno like '74%' or buinessno like '36%');
 
@@ -108,16 +108,16 @@ is_helarisk(a.riskcode) = 'Y'
 
 
 -- 创建序列，从 639877 开始递减
-/*
+
 create sequence ldtaxrate_serialno_seq
     start with 639877  -- 起始值
     increment by -1    -- 每次递减 1
     maxvalue 639877    -- 设置最大值为起始值
     minvalue 0         -- 设置最小值为 0
     nocache;
-*/
+
 -- 创建触发器，在插入数据前自动生成 serialno
-/*
+
 create or replace trigger trg_generate_serialno
 before insert on lisdata.ldtaxrate  -- 触发器作用于 ldtaxrate 表
 for each row                        -- 行级触发器
@@ -127,10 +127,10 @@ begin
     :new.serialno := lpad(ldtaxrate_serialno_seq.nextval, 15, '0');
 end;
 /
-*/
+
 
 -- 插入数据
-/*
+
 insert into lisdata.ldtaxrate (serialno, taxtype, riskcode, taxrate, status, managecom, operator, makedate, maketime,
                                modifydate, modifytime, startdate, enddate, standbyflag1, standbyflag2, standbyflag3)
 
@@ -152,12 +152,12 @@ select null,  -- serialno 由触发器自动生成，这里设为 null
        null
 from lmriskapp
 where riskcode not in (select riskcode from ldtaxrate where taxtype = '0101');
-*/
+
 -- 删除触发器
-/*
+
 drop trigger trg_generate_serialno;
-*/
+
 -- 删除序列
-/*
+
 drop sequence ldtaxrate_serialno_seq;
-*/
+

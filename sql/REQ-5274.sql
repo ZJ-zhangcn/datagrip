@@ -14,19 +14,22 @@ select relationtopayee,
 from llbnf a
 where grpcontno = '2026060900001286';
 
-select relationtopayee,
-       payeename,
-       payeesex,
-       payeebirthday,
-       payeeidtype,
-       payeeidno,
-       payeeidstartdate,
-       payeeidexpdate,
-       payeemobile,
+select relationtopayee  领款人与受益人关系,
+       payeename        领款人姓名,
+       payeesex         领款人性别代码,
+       payeebirthday    领款人出生日期,
+       payeeidtype      领款人证件类型代码,
+       payeeidno        领款人证件号码,
+       payeeidstartdate 证件有效期起期,
+       payeeidexpdate   证件有效期止期,
        a.*
 from llbnf a
-where /*caseno in (select rgtno from llregister where rgtobjno = 'P86012026001144')
-   or */caseno in ('3631815101011538');
+where CASENO in (select rgtno from LLREGISTER where RGTOBJNO = 'P86012026001132')
+  /* or CASENO in ('P86312027000024')*/;
+
+SELECT a.*
+FROM LOPRTMANAGER a
+WHERE otherno = '3631815101007514'
 
 /*
 update llbnf set relationtopayee='01' where caseno in ('3631815101011515');
@@ -48,30 +51,46 @@ where otherno in (select rgtno from llregister where rgtobjno = '363181510101151
 
 select /*licname, licidno,*/ a.*
 from lpgrpnonaturecustomerinfo a
-where edoracceptno = '3631815101011422';
+where edoracceptno = 'P86312027000024';
 
+select LicName, LicIdNo, LicStartDate, LicEndDate, GrpCustomerNo
+from lpgrpnonaturecustomerinfo
+where edorno = '3631815101007514';
+
+SELECT GRPCUSTOMERNO
+FROM lcgrpcustomerinfo a
+WHERE GRPCUSTOMERNO in (select GRPCUSTOMERNO
+                        from lpgrpnonaturecustomerinfo
+                        where edoracceptno = '3631815101007514');
 
 select /*licname, licidno,*/ a.*
 from lcgrpcustomerinfo a
-where grpcustomerno = 'c';
+where grpcustomerno = '1004567895';
+
+select /*licname, licidno,*/ a.*
+from lcgrpcustomerinfo a
+where LicName = '上海塔苏国际商贸有限公司'
+  and LicIdNo = '91310120D586DSF42T';
 
 select a.*
 from lpgrpnonaturecustomerinfo a
-where edoracceptno in ('3631815101011538', '', '');
+where edoracceptno in ('3631815101007514', '', '');
 
 select a.*
 from lpnonatureprobnf a
-where edoracceptno in ('3631815101011538', '', '');
+where edoracceptno in ('P86312027000024', '', '');
 
 select a.*
 from lpnonatureprobnf a
-where customerno in ('1000012249', '', '');
+where customerno in ('1004567895', '', '');
 
 select a.*
 from lcprobnf a
-where customerno in ('1000012249', '', '');
+where customerno in ('1004567895', '', '');
 
-select a.* from ldgrp a where customerno='1000012249'
+select a.*
+from ldgrp a
+where customerno = '1000012249';
 
 select a.*
 from lcprobnf a
@@ -119,7 +138,7 @@ select name                                    名称,
        a.*
 from fxdj.cr_client a
 where clientno in
-      ('100181271701', '100181271702', '100181271703', '100181271704', '100181271705', '100181271706', '100181271707')
+      ('100181271701', '100181271702', '', '', '', '', '')
 order by clientno;
 
 select checkinfo, decode(state, '0', '未确认', '1', '已确认', '未确认')
@@ -130,11 +149,31 @@ where grpclmno = 'P86012026001132';
 delete from llautocheckinfo where grpclmno = 'P86012026001143' and state = '1';
 */
 
+SELECT a.*
+FROM fxdj.cr_client a
+WHERE clientno = '100181271702';
 /*
 update fxdj.cr_client set name='上海塔苏国际商贸有限公司',sex=null,birthday=null,cardtype=null,cardid='91310120D586DSF42T' where clientno='100181271701';
 
 update fxdj.cr_client set riskgrade='3',state='04' where clientno='100181271707';
 */
+INSERT INTO FXDJ.CR_CLIENT (CLIENTNO, SOURCE, NAME, BIRTHDAY, AGE, SEX, GRADE, CARDTYPE, CARDID, CARDEXPIREDATE,
+                            CLIENTTYPE, WORKPHONE, FAMILYPHONE, TELEPHONE, OCCUPATION, BUSINESSTYPE, INCOME, GRPNAME,
+                            ADDRESS, OTHERCLIENTINFO, ZIPCODE, NATIONALITY, PROVINCE, COMCODE, CONTTYPE,
+                            BUSINESSLICENSENO, ORGCOMCODE, TAXREGISTCERTNO, BUSINESSSOURCE, LEGALPERSON,
+                            LEGALPERSONCARDTYPE, LEGALPERSONCARDID, LINKMAN, COMREGISTAREA, COMREGISTTYPE,
+                            COMBUSINESSAREA, COMBUSINESSSCOPE, APPNTNUM, COMSTAFFSIZE, AMLISCOUNT, AMLIHCOUNT,
+                            AMLISREPORTCOUNT, AMLIHREPORTCOUNT, GRPNATURE, FOUNDDATE, HOLDERKEY, HOLDERNAME,
+                            HOLDERCARDTYPE, HOLDERCARDID, HOLDEROCCUPATION, HOLDERRADIO, HOLDEROTHERINFO, RELARISKTIP,
+                            ISEXCEPTION, ISCOMPLETED, EXCEPTIONCODE, FIRSTAUDITOR, SECONDAUDITOR, THIRDAUDITOR,
+                            GRADEWAY, RISKSCORE, RISKGRADE, STATE, REMARK, DEALTIME, NEXTAUDITDATE, OPER, MAKEDATE,
+                            MAKETIME)
+VALUES ('100181271702', '1', '上海人寿保险股份有限公司', null, 30, null, null, null, '9131000033278805X9',
+        DATE '2024-10-24', '01', null, null, '150****3695', '4070401', null, 0.00, null, null, null, null, 'CHN', null,
+        '86010101', '1', null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, null, null, 0,
+        null, null, null, null, null, null, null, null, null, null, 'R00', null, null, null, 'zhangwei', null, null,
+        '01', 46.00, '3', '05', '评级结束', TIMESTAMP '2021-04-19 02:48:21', DATE '2025-08-22', 'sys',
+        DATE '2019-09-16', '05:04:59');
 
 /*
 insert into fxdj.cr_client (clientno, source, name, birthday, age, sex, grade, cardtype, cardid, cardexpiredate,
@@ -194,10 +233,9 @@ values ('606', '受益五', '1', '1991/1/10', '0', '362229199101100341', null, n
 */
 
 
-
 select a.*
 from fxqbnfcheckinfo a
-where otherno = '3631815101011423';
+where otherno = '3631815101006070';
 
 select a.*
 from fxqbnfcheckinfo a
@@ -227,13 +265,14 @@ insert into fxqbnfcheckinfo (serialno, grpcontno, grpcustomerno, grpname, grpidn
                              operatetype, operatetypestr, datasource, ishst, idtpdisp, genderdisp, ntltydisp,
                              bnftypedisp, datasourcestr, managecom, operator, makedate, maketime, modifydate,
                              modifytime, standbyflag1, standbyflag2, standbyflag3, standbyflag4, standbyflag5)
-values ('980QB000000000412', null, 'test_company_1', '上海塔苏国际商贸有限公司', '91310120D586DSF42T', '8601', null,
-        '3229315100007253', '2', '1', '核验查询成功', '1', null, null, '150924197206043108', '郁伟', '1', '156',
+values ('980QB000000000415', null, 'test_company_1', '上海塔苏国际商贸有限公司', '91310120D586DSF42T', '8601', null,
+        '3229315100007272', '2', '1', '核验查询成功', '1', null, null, '150924197206043108', '郁伟', '1', '156',
         date '1972-06-04', '内蒙古自治区乌兰察布市兴和县12号', '10', '150924197206043108', date '2030-12-31',
         '13120901587', null, 'Y', '33', date '2026-05-01', null, null, null, null, null, null, null, null, null, 'N',
         null, null, null, null, null, null, null, 'N', null, null, 'N', null, null, null, null, null, null, null,
         '2026-06-16 14:41:00', '6ac0af432a16449d9eb84930973140a0', null, null, null, null, null, null, null, null, null,
         null, '86', '001', date '2026-06-16', '15:28:26', date '2026-06-16', '15:28:26', null, null, null, null, null);
+
 */
 
 select a.*
@@ -251,7 +290,7 @@ select a.*
 from lisdata.loprtmanager a
 where /*otherno in (select rgtno from llregister where rgtobjno = 'P86012026001132')
    or */otherno in ('3631815101011515')
-    and othernotype = '5';
+  and othernotype = '5';
 
 select *
 from lcidcardcheckinfo a
@@ -261,7 +300,8 @@ select a.*
 from lcidcardcheckinfo a
 where idno in
       ('362229199101100261', '362229199101100288', '362229199101100309', '362229199101100325', '362229199101100341',
-       '362229199101100384', '362229199101100368', '362229199101100405') and contno = '3631815101011422';
+       '362229199101100384', '362229199101100368', '362229199101100405')
+  and contno = '3631815101011422';
 
 /*
 delete from loprtmanager where otherno in (select rgtno from llregister where rgtobjno = 'P86012026001132') or otherno in ('3631815101011515');

@@ -1,3 +1,6 @@
+select a.*
+from lmriskapp a
+where riskcode = '1303019';
 --费率表
 select count(1) 费率表条数, sum(rate) 费率总和
 from rt_1136006 a;
@@ -50,10 +53,12 @@ FROM (SELECT CASE
              minem,
              sex,
              rate
-      FROM fx_1303022
+      FROM fx_1303019
       where age > 17)
 GROUP BY 风险等级, minem, sex
 ORDER BY minem, sex;
+
+select a.* from fx_1303019 a where
 
 select sex 性别, count(1) 数据条数, SUM(rate) 风险费率总和
 from fx_1311006 a
@@ -61,7 +66,4 @@ where age between 0 and 104
 group by sex
 order by sex;
 
-select *
-from fx_1311006 a
-where age > 103
-order by age, sex;
+select a.* from fx_1303022 a where age=18;
