@@ -1,16 +1,16 @@
 --本年度购买交清保额=实际给付红利*1000/趸交净保费率
-select round(a.amnt / 1000 * b.bonusfactor * nvl(c.bonusrate, '0'), 2)                                        当年度基本保额红利,
+select round(a.prem / 1000 * b.bonusfactor * nvl(c.bonusrate, '0'), 2)                                        当年度基本保额红利,
        round(e.amnt / 1000 * nvl(b.jqbonusfactor, 0) * nvl(c.bonusrate, '0'),
              2)                                                                                               已产生的减额交清红利,
-       round(a.amnt / 1000 * b.bonusfactor * nvl(c.bonusrate, '0'), 2) +
+       round(a.prem / 1000 * b.bonusfactor * nvl(c.bonusrate, '0'), 2) +
        round(e.amnt / 1000 * nvl(b.jqbonusfactor, 0) * nvl(c.bonusrate, '0'),
              2)                                                                                               当年度总和,
-       round((round(a.amnt / 1000 * b.bonusfactor * nvl(c.bonusrate, '0'), 2) +
-              round(e.amnt / 1000 * nvl(b.jqbonusfactor, 0) * nvl(c.bonusrate, '0'), 2)) * 1000 / puacost, 2) 当年度减额交清红利
+       round((round(a.prem / 1000 * b.bonusfactor * nvl(c.bonusrate, '0'), 2) +
+              round(e.amnt / 1000 * nvl(b.jqbonusfactor, 0) * nvl(c.bonusrate, '0'), 2)*/) * 1000 / puacost, 2) 当年度减额交清红利
 from lcpol a,
      lobonusfactor b,
      bonusrate c,
-     pua_1111002 d,
+     pua_1133009 d,
      lcduty e
 where a.riskcode = b.riskcode
   and a.riskcode = c.riskcode
@@ -23,19 +23,21 @@ where a.riskcode = b.riskcode
   and b.insuredappage = d.age
   and b.insuredsex = d.gender
   and b.polyear = d.dt
+  and a.payendyear = d.pt
   and a.contno = e.contno
   and to_date('2032-07-21', 'yyyy-mm-dd') between b.startdate and b.enddate
   and to_date('2032-07-21', 'yyyy-mm-dd') between c.cvalidate and c.enddate
   and b.bonusgrade = 'H'
   and b.annuitygetage = '0'
   and e.dutycode like '%1001'
-  and d.dt = '8'
-  and a.contno = '2025072000000106'
+  and d.dt = '1'
+  and a.contno = '2026073100000876'
 order by d.dt;
+
 
 select a.*
 from lobonusfactor a
-where riskcode = '1111002'
+where riskcode = '1133009'
   and insuredsex = 1
   and payendyear = 1000
   and insuredappage = 50
@@ -57,7 +59,7 @@ order by dt;
 
 select getmoney, jqamnt, a.*
 from ljabonusget a
-where contno = '2026040700000106'
+where contno = '2026073100000876'
 order by makedate, maketime;
 
 select 170.51 + 4.52
@@ -85,7 +87,7 @@ from dual;
 select round(a.amnt / 1000 * cv2 * (date'2028-10-10' - date'2028-09-29') / 365 +
              a.amnt / 1000 * cv1 * (1 - (date'2028-10-10' - date'2028-09-29') / 365), 2) cash
 from lcduty a,
-     pua_1111002 b,
+     pua_1133009 b,
      lcpol c
 where a.contno = c.contno
   and b.age = c.insuredappage
@@ -120,7 +122,7 @@ where a.contno = c.contno
 select round(13718.78 / 1000 * cv2 * (date'2028-10-10' - date'2028-09-29') / 365 +
              13718.78 / 1000 * cv1 * (1 - (date'2028-10-10' - date'2028-09-29') / 365), 2) cash
 from lcduty a,
-     pua_1111002 b,
+     pua_1133009 b,
      lcpol c
 where a.contno = c.contno
   and b.age = c.insuredappage
@@ -136,7 +138,7 @@ from dual;
 select round(prem / 1000 * endcv * (date'2028-10-10' - date'2028-09-29') / 365 +
              prem / 1000 * begcv *
              (1 - (date'2028-10-10' - date'2028-09-29') / 365), 2) cash
-from cv_1111002 a,
+from cv_1133009 a,
      lcpol b
 where pt = payendyear
   and age = insuredappage

@@ -25,11 +25,11 @@ select relationtopayee  领款人与受益人关系,
        a.*
 from llbnf a
 where CASENO in (select rgtno from LLREGISTER where RGTOBJNO = 'P86012026001132')
-  /* or CASENO in ('P86312027000024')*/;
+/* or CASENO in ('P86312027000024')*/;
 
 SELECT a.*
 FROM LOPRTMANAGER a
-WHERE otherno = '3631815101007514'
+WHERE otherno = '3631815101007514';
 
 /*
 update llbnf set relationtopayee='01' where caseno in ('3631815101011515');
@@ -51,11 +51,11 @@ where otherno in (select rgtno from llregister where rgtobjno = '363181510101151
 
 select /*licname, licidno,*/ a.*
 from lpgrpnonaturecustomerinfo a
-where edoracceptno = 'P86312027000024';
+where edoracceptno = '3229315100007272';
 
 select LicName, LicIdNo, LicStartDate, LicEndDate, GrpCustomerNo
 from lpgrpnonaturecustomerinfo
-where edorno = '3631815101007514';
+where edorno = '3229315100007272';
 
 SELECT GRPCUSTOMERNO
 FROM lcgrpcustomerinfo a
@@ -74,15 +74,26 @@ where LicName = '上海塔苏国际商贸有限公司'
 
 select a.*
 from lpgrpnonaturecustomerinfo a
-where edoracceptno in ('3631815101007514', '', '');
+where edoracceptno in ('P86312029000030', '', '');
 
 select a.*
 from lpnonatureprobnf a
-where edoracceptno in ('P86312027000024', '', '');
+where edoracceptno in ('P86312029000030', '', '');
+
+SELECT *
+FROM LCNoNatureProBnfTree
+where otherno = '3229315100007272';
+SELECT *
+FROM LCGrpNoNatureCustomerInfoTree
+where otherno = '3229315100007272';
+
+select grpname,comdocidno,customerno from ldgrp where '1785480333000'='1785480333000' and  customerno=(select appntno from lcgrpcont where grpcontno='2026060900001286')
+select * from lpgrp where '1785480333000'='1785480333000' and  edorno=(select edorno from lpgrpedoritem where EdorAcceptNo ='3229315100007272') order by makedate desc,maketime desc
 
 select a.*
 from lpnonatureprobnf a
 where customerno in ('1004567895', '', '');
+
 
 select a.*
 from lcprobnf a
@@ -138,7 +149,7 @@ select name                                    名称,
        a.*
 from fxdj.cr_client a
 where clientno in
-      ('100181271701', '100181271702', '', '', '', '', '')
+      ('100181271707', '100181271708', '100181271709', '', '', '', '')
 order by clientno;
 
 select checkinfo, decode(state, '0', '未确认', '1', '已确认', '未确认')
@@ -157,6 +168,7 @@ update fxdj.cr_client set name='上海塔苏国际商贸有限公司',sex=null,b
 
 update fxdj.cr_client set riskgrade='3',state='04' where clientno='100181271707';
 */
+/*
 INSERT INTO FXDJ.CR_CLIENT (CLIENTNO, SOURCE, NAME, BIRTHDAY, AGE, SEX, GRADE, CARDTYPE, CARDID, CARDEXPIREDATE,
                             CLIENTTYPE, WORKPHONE, FAMILYPHONE, TELEPHONE, OCCUPATION, BUSINESSTYPE, INCOME, GRPNAME,
                             ADDRESS, OTHERCLIENTINFO, ZIPCODE, NATIONALITY, PROVINCE, COMCODE, CONTTYPE,
@@ -168,12 +180,14 @@ INSERT INTO FXDJ.CR_CLIENT (CLIENTNO, SOURCE, NAME, BIRTHDAY, AGE, SEX, GRADE, C
                             ISEXCEPTION, ISCOMPLETED, EXCEPTIONCODE, FIRSTAUDITOR, SECONDAUDITOR, THIRDAUDITOR,
                             GRADEWAY, RISKSCORE, RISKGRADE, STATE, REMARK, DEALTIME, NEXTAUDITDATE, OPER, MAKEDATE,
                             MAKETIME)
-VALUES ('100181271702', '1', '上海人寿保险股份有限公司', null, 30, null, null, null, '9131000033278805X9',
+VALUES ('100181271711', '1', '广东利海集团有限公司', null, 30, null, null, null, '91440000190349237Q',
         DATE '2024-10-24', '01', null, null, '150****3695', '4070401', null, 0.00, null, null, null, null, 'CHN', null,
         '86010101', '1', null, null, null, null, null, null, null, null, null, null, null, null, 1, 1, null, null, 0,
         null, null, null, null, null, null, null, null, null, null, 'R00', null, null, null, 'zhangwei', null, null,
         '01', 46.00, '3', '05', '评级结束', TIMESTAMP '2021-04-19 02:48:21', DATE '2025-08-22', 'sys',
         DATE '2019-09-16', '05:04:59');
+
+*/
 
 /*
 insert into fxdj.cr_client (clientno, source, name, birthday, age, sex, grade, cardtype, cardid, cardexpiredate,
@@ -187,12 +201,13 @@ insert into fxdj.cr_client (clientno, source, name, birthday, age, sex, grade, c
                             isexception, iscompleted, exceptioncode, firstauditor, secondauditor, thirdauditor,
                             gradeway, riskscore, riskgrade, state, remark, dealtime, nextauditdate, oper, makedate,
                             maketime)
-values ('100181271707', '1', '受益五', date '1991-01-10', 30, '1', null, '0', '362229199101100341', date '2024-10-24',
+values ('100181271710', '1', '受益三', date '1991-01-10', 30, '1', null, '0', '362229199101100325', date '2024-10-24',
         '01', null,
         null, '150****3695', '4070401', null, 0.00, null, null, null, null, 'CHN', null, '86010101', '1', null, null,
         null, null, null, null, null, null, null, null, null, null, 1, 1, null, null, 0, null, null, null, null, null,
         null, null, null, null, null, 'R00', null, null, null, 'zhangwei', null, null, '01', 46.00, '3', '05',
         '评级结束', timestamp '2021-04-19 02:48:21', date '2025-08-22', 'sys', date '2019-09-16', '05:04:59');
+
 */
 
 --反洗钱黑名单
@@ -210,16 +225,16 @@ order by seq;
 insert into lisdata.lxblacklist (seq, name, conttype, birthday, standbyflag1, standbyflag2, standbyflag3, standbyflag4,
                                  standbyflag5, operator, makedate, maketime, modifydate, modifytime, blacklistsource,
                                  country, areagrade, sex, idtype, idno, blacklisttype)
-values ('725973906', '受益五', '08', date '1991-01-10', '0901', '1037700253470', null, '0', '0', null,
+values ('725973901', '受益五', '08', date '1991-01-10', '0901', '1037700253470', null, '0', '0', null,
         date '2020-07-01',
         '19:21:27', date '2020-01-28', null, null, null, null, '1', '0', '362229199101100341', '00');
 */
 
 
 --政治公众人物
-select name     名称,
+select /*name     名称,
        birthday 出生日期,
-       cardid   证件号码,
+       cardid   证件号码,*/
        a.*
 from amlpeplist a
 where seq in ('601', '602', '603', '604', '605', '606')
@@ -239,13 +254,14 @@ where otherno = '3631815101006070';
 
 select a.*
 from fxqbnfcheckinfo a
-where otherno = '3229315100007253';
+where otherno = '3229315100007339';
 
-select count(1)
+select ACTOTHERFORMS
 from fxqbnfcheckinfo
 where '1782266146000' = '1782266146000'
-  and otherno = '3631815101011485'
+  and otherno = '3229315100007272'
   and othernotype = '4';
+
 
 select *
 from lcidcardcheckinfo
@@ -265,8 +281,8 @@ insert into fxqbnfcheckinfo (serialno, grpcontno, grpcustomerno, grpname, grpidn
                              operatetype, operatetypestr, datasource, ishst, idtpdisp, genderdisp, ntltydisp,
                              bnftypedisp, datasourcestr, managecom, operator, makedate, maketime, modifydate,
                              modifytime, standbyflag1, standbyflag2, standbyflag3, standbyflag4, standbyflag5)
-values ('980QB000000000415', null, 'test_company_1', '上海塔苏国际商贸有限公司', '91310120D586DSF42T', '8601', null,
-        '3229315100007272', '2', '1', '核验查询成功', '1', null, null, '150924197206043108', '郁伟', '1', '156',
+values ('980QB000000000417', null, 'test_company_1', '上海塔苏国际商贸有限公司', '91310120D586DSF42T', '8601', null,
+        '3229315100007339', '2', '1', '核验查询成功', '1', null, null, '150924197206043108', '郁伟', '1', '156',
         date '1972-06-04', '内蒙古自治区乌兰察布市兴和县12号', '10', '150924197206043108', date '2030-12-31',
         '13120901587', null, 'Y', '33', date '2026-05-01', null, null, null, null, null, null, null, null, null, 'N',
         null, null, null, null, null, null, null, 'N', null, null, 'N', null, null, null, null, null, null, null,

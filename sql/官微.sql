@@ -4,7 +4,11 @@ select
        a.idno, b.mobile, idstdate,
        idexpdate, b.*
 from lcappnt a,lcaddress b
-where a.appntno=b.customerno and a.addressno=b.addressno and a.contno in ('2026013000000156','');--2024082800000386
+where a.appntno=b.customerno and a.addressno=b.addressno and a.contno in ('2025071100001386','');--2025071100001386、2025030400000586
+
+SELECT a.* FROM lcaddress a WHERE customerno='1060095889';
+
+update lcaddress set mobile='17709075002' where customerno='1060095889';
 
 select /*idstdate,idexpdate,*/a.* from lcappnt a where contno='2025042700000406';
 

@@ -24,6 +24,9 @@ select
 from lccont a
 where contno='2025052200000896';
 
+--核心产品配置
+select * from ldcode1 where codetype='checkRisk' and code='1003011';
+
 --
 select a.* from contblcdtl a where proposalprtno='2023122500001176';
 
@@ -39,7 +42,7 @@ where 1 = 1
   and managecom like '86%'
 order by agentcom;
 
-
+select * from tranlog where trandate=20260903 and trancom='11' and funcflag=3008 and rcode='0';
 
 --农商行当日重复对账
 --承保对账
@@ -56,7 +59,9 @@ select a.* from codemapping a where codealias like '%分红型%';
 
 select a.* from codemapping a where comcode='SPDB' and codetype='riskcode';
 
-select a.* from codemapping a where insu_code in ('1033043','1013014');
+select a.* from codemapping a where insu_code in ('1013004','');
+
+select a.* from codemapping a where insu_code like '1303%';
 
 select a.* from codemapping a where bank_code='6000D005';
 

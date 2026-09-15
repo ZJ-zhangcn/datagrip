@@ -3,7 +3,7 @@
 
 select a.*
 from ybtreservcont a
-where standbyflag1 = '2025111300000206';
+where standbyflag1 = '2026081900000706';
 
 --ssh
 select s.sysvarvalue

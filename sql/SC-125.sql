@@ -52,12 +52,19 @@ SELECT a.*
 FROM ldtask a
 WHERE TASKDESCRIBE like '%ห้ฦฌปฏ%';
 SELECT a.*
+FROM ldtask a
+WHERE TASKCODE = '000531';
+SELECT a.*
 FROM LMCalMode a
 WHERE riskcode = '1061001';
 SELECT KINDCODE, a.*
 FROM LMRISKAPP a
 WHERE RISKCODE = '1056033'
   and KINDCODE in ('L', 'S');
+SELECT a.*
+FROM LMCALMODE a
+WHERE RISKCODE = '1061001'
+  and CALCODE like 'XB%';
 
 SELECT SSFlag, a.*
 FROM LCDUTY a
@@ -95,5 +102,14 @@ WHERE p.riskcode IN (SELECT DISTINCT code
                      FROM ldcode1
                      WHERE codetype = 'renewalrisk'
                        AND codename <> '0000000')
-  and c.contno = '2026071400000776';
+  and c.contno = '2025102700000376';
 
+
+SELECT 1
+  FROM LXBLACKLISTMANAGEMENT A, lcinsured B
+ WHERE ((decode(A.NAME, NULL, 1, 0) = 1) or B.NAME = A.NAME)
+   AND ((decode(A.SEX, NULL, 1, 0) = 1) or B.SEX = A.SEX)
+   AND ((decode(A.BIRTHDAY, NULL, 1, 0) = 1) or B.BIRTHDAY = A.BIRTHDAY)
+   AND ((decode(A.IDTYPE, NULL, 1, 0) = 1) or B.IDTYPE = A.IDTYPE)
+   AND ((decode(A.IDNO, NULL, 1, 0) = 1) or B.IDNO = A.IDNO)
+   AND B.CONTNO = '2026072700000276'
