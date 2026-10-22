@@ -14,11 +14,11 @@ where batchno in ('00000000000000004447','','') order by batchno;
 
 select makedate, a.*
 from fiaboriginaldata a
-where businessno02 = '2026051400000266';
+where businessno02 = '2024012200000596';
 
 select stringinfo11, stringinfo14, stringinfo05, a.*
 from fiaboriginaldata a
-where batchno = '00000000000000004399'
+where batchno = '00000000000000003688'
   and acquisitionid in ('00000804', '');
 
 /*
@@ -30,11 +30,27 @@ where batchno = '00000000000000004399'
 
 update fiaboriginaldata
 set stringinfo11='R0300'
-where batchno = '00000000000000004581';
+where batchno = '00000000000000003688';
 
 update fiaboriginaldata
 set stringinfo14='91302'
-where batchno = '00000000000000004581';
+where batchno = '00000000000000003688';
+
+update fiaboriginaldata
+set BUSINESSNO01=BUSINESSNO02
+where batchno = '00000000000000003688';
+
+update fiaboriginaldata
+set BUSINESSNO05=BUSINESSNO07
+where batchno = '00000000000000003688';
+
+update fiaboriginaldata
+set TYPEFLAG04='0',TYPEFLAG05='1'
+where batchno = '00000000000000003688' and TYPEFLAG03='0';
+
+update fiaboriginaldata
+set STRINGINFO02='40201'
+where batchno = '00000000000000003688' and STRINGINFO02 is null;
 
 */
 
@@ -55,7 +71,7 @@ where tax > 0;
 --
 select *
 from ficostdataacquisitiondef
-where acquisitionid like '%MQJT016%'
+where acquisitionid like '%req4429025%'
 order by acquisitionid;
 
 --算法查询
@@ -114,19 +130,19 @@ from splitcont a
 where contno = '2024040300000286';
 
 /*
-SELECT distinct source_batch_id FROM of_interface a WHERE LIS_CONTNO='2018041700080888';
+SELECT distinct source_batch_id FROM of_interface a WHERE LIS_CONTNO='2026051400000176';
 SELECT cvalidate,signdate FROM lcpol a WHERE grpcontno='2025010200000476';
 */
 
 /*
-delete from FIDataDistilledInfo  where batchno IN ('00000000000000004490');
-delete from FIAboriginalData     where batchno IN ('00000000000000004490');
-delete from FIAboriginaldatatemp where batchno IN ('00000000000000004490');
-delete from FIDataTransResult    where batchno IN ('00000000000000004490');
-delete from FIDataTransGather    where batchno IN ('00000000000000004490');
-delete from of_interface         where source_batch_id IN ('00000000000000004490');
-delete from cux_gl_interface     where source_batch_id IN ('00000000000000004490');
-delete from FIOperationParameter     where parametervalue IN ('00000000000000004490');
+delete from FIDataDistilledInfo  where batchno IN ('00000000000000004664');
+delete from FIAboriginalData     where batchno IN ('00000000000000004664');
+delete from FIAboriginaldatatemp where batchno IN ('00000000000000004664');
+delete from FIDataTransResult    where batchno IN ('00000000000000004664');
+delete from FIDataTransGather    where batchno IN ('00000000000000004664');
+delete from of_interface         where source_batch_id IN ('00000000000000004664');
+delete from cux_gl_interface     where source_batch_id IN ('00000000000000004664');
+delete from FIOperationParameter     where parametervalue IN ('00000000000000004664');
 
 */
 
@@ -166,7 +182,7 @@ from of_interface f
 where --f.source_batch_id = '00000000000000004327'
 --lis_prtno = '3206915150822081'
 --       accounting_date = date'2021-08-16'/* and entered_dr='0' and entered_cr='0'*/
-lis_contno in ('2023040700000266','')
+lis_contno in ('2020051600000186','')
 -- lis_contno in (select contno from lcpol where grpcontno='2025010600000186')
 -- and f.segment3 = '54020604'
 --lis_caseno='3631815101095847'

@@ -2,6 +2,8 @@
 --lcpol
 select appflag,getform,a.* from lcpol a where prtno in ('','2026030600002226');
 
+select * from tranlog where trandate=20261015 and trancom='11' and funcflag=3008 and rcode='0';
+
 select
        uwflag, appflag, contno,
        riskcode, kindcode, insuredsex,
@@ -55,11 +57,11 @@ select * from tranlog where rcode='0' and trancom='12' and funcflag='7048' and t
 select a.* from tranlog a where trandate='20231225';
 
 --银保险种
-select a.* from codemapping a where codealias like '%分红型%';
+select a.* from codemapping a where codealias like '%鑫恒利%';
 
 select a.* from codemapping a where comcode='SPDB' and codetype='riskcode';
 
-select a.* from codemapping a where insu_code in ('1013004','');
+select a.* from codemapping a where insu_code in ('1303021','');
 
 select a.* from codemapping a where insu_code like '1303%';
 

@@ -30,7 +30,7 @@ where grpcontno = '2026060900001286'
 
 select grpcontno, name, sex, idtype, idno, birthday, insuredno
 from lcinsured a
-where a.grpcontno = '2026060900001286'
+where a.grpcontno = '2026092400000206'
 order by contno;
 
 select a.*

@@ -1,4 +1,4 @@
-delete from lminsuaccrate where riskcode='1303024';
+delete from lminsuaccrate where riskcode='1306003';
 
 declare
     v_start_date date := date '2015-10-01';
@@ -15,7 +15,7 @@ begin
         insert into lminsuaccrate
         (riskcode, insuaccno, baladate, sratedate, aratedate, rateintv, rate, operator, makedate, maketime, ratestate, enddate, fiscalyear, flag, bonustype, startdate, cvalidatefrom, cvalidateto)
         values
-        ('1303024', '13030241',
+        ('1306003', '13060031',
          -- baladate 和 sratedate 为每月第一天
          trunc(v_current_date, 'MM'),
          trunc(v_current_date, 'MM'),
@@ -31,4 +31,4 @@ begin
 end loop;
 end;
 
-select a.* from lminsuaccrate a where riskcode='1303024';;
+select a.* from lminsuaccrate a where riskcode='1306003';;

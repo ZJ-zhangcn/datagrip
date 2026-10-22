@@ -4,7 +4,7 @@ select sysvarvalue from ldsysvar where sysvar = 'SFTPServer-ShareImage';
 --前置机放置影像的服务器位置
 select s.sysvarvalue
 from ldsysvar s
-where s.sysvar = 'SFTPServer-OriginalImage';
+where s.sysvar = 'SFTPServer-OriginalImage';--/home/slsftp/ybtimage/JH
 
 --核心备份影像的位置，为本地
 select s.sysvarvalue

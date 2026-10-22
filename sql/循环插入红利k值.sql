@@ -1,6 +1,6 @@
 delete
 from bonusrate
-where riskcode = '1116006';
+where riskcode = '1103006';
 
 /*
  * oracle sql 脚本：使用 insert...select 批量插入数据
@@ -13,9 +13,9 @@ insert into bonusrate (riskcode,
                        bonusgrade,
                        bonusrate)
 
-select '1116006'                                       as riskcode,--需要修改
-       add_months(date '2025-07-01', (level - 1) * 12) as cvalidate,--第一条起始期间
-       add_months(date '2025-07-01', level * 12) - 1   as enddate,
+select '1103006'                                       as riskcode,--需要修改
+       add_months(date '2024-07-01', (level - 1) * 12) as cvalidate,--第一条起始期间
+       add_months(date '2024-07-01', level * 12) - 1   as enddate,
        'H'                                             as bonusgrade,
        1.2                                             as bonusrate
 from dual
@@ -27,4 +27,4 @@ connect by level <= 50;
 
 select a.*
 from bonusrate a
-where riskcode = '1116006';
+where riskcode = '1103006';

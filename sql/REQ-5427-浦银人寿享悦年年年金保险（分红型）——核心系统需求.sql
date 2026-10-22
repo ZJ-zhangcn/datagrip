@@ -54,7 +54,7 @@ WHERE contno = '2026073100000876'
 --   and MONEYTYPE = 'YFLX'
 order by paydate, makedate, maketime;--544.85
 
-select round((2991.22+544.85) * round(0.06 / 365, 8) * (date'2036-08-10' - date'2036-07-31'), 2) 当前时间点的利息
+select round((2991.22 + 544.85) * round(0.06 / 365, 8) * (date'2036-08-10' - date'2036-07-31'), 2) 当前时间点的利息
 from dual;
 --5.81
 
@@ -76,14 +76,16 @@ where a.insuredsex = b.gender
 order by dt;
 
 --t≤PPP，欠缴保费
-select round(a.prem / 1000 * b.endcv, 2) cash/*, round(a.prem * 3 * 1.2, 2) 比例*/
+select round(a.prem / 1000 * b.endcv, 2)-13840.00 cash/*, round(a.prem * 3 * 1.2, 2) 比例*/
 from lcpol a,
      cv_1133009 b
 where a.insuredsex = b.gender
   and a.insuredappage = b.age
   and a.payendyear = b.pt
-  and a.contno = '2026061500000526'
-  and b.dt = 2;
+  and a.contno = '2026091700000216'
+  and b.dt = 8;
+
+SELECT a.* FROM LISDATA.LJAGETDRAW a WHERE contno='2026091700000216';
 
 --t>PPP，欠缴保费
 select round(a.prem / 1000 * b.endcv, 2) cash
@@ -150,7 +152,7 @@ where a.riskcode = b.RISKCODE
   and a.contno = '2026081700000786'
 order by d.dt;
 
-select a.amnt,b.*
+select a.amnt, b.*
 from lcpol a,
      lobonusfactor b
 where a.riskcode = b.RISKCODE
@@ -164,15 +166,19 @@ where a.riskcode = b.RISKCODE
   and a.contno = '2026081700000786'
 order by to_number(POLYEAR);
 
-SELECT 1.2*(200000.00/1000)*35.6 FROM dual;
+SELECT 1.2 * (200000.00 / 1000) * 35.6
+FROM dual;
 
 SELECT CalMode, VPU
-FROM LMDuty a, LMRiskDuty b
+FROM LMDuty a,
+     LMRiskDuty b
 WHERE a.DutyCode = b.DutyCode
   AND b.RiskCode = '1133009'
   AND a.CalMode IS NOT NULL;
 
-SELECT prem,a.* FROM lcpol a WHERE contno='2026081700000786';
+SELECT prem, a.*
+FROM lcpol a
+WHERE contno = '2026081700000786';
 
 select a.*
 from lobonusfactor a
@@ -185,12 +191,15 @@ order by CVALIDATE;
 
 select GETMONEY, JQAMNT, a.*
 from LJABonusGet a
-where contno = '2026073100001786'
-order by makedate, maketime;
+where contno = '2026091700000496'
+order by makedate, maketime;--3036.47
+
+SELECT 1346.4/27486.6237*1000 FROM dual;
+SELECT 48.98*25432.84/1000 FROM dual;
 
 SELECT a.*
 FROM LJaGETDRAW a
-WHERE contno = '2026073000002606'
+WHERE contno = '2026091700000216'
 order by getdate, makedate, maketime;
 
 SELECT a.*
@@ -205,21 +214,12 @@ where contno = '2026073000002606';
 
 --退保
 --红利宣告交清基本保险金额应退金额
-select round((185.94 + a.amnt) / 1000 * cv2 * (date'2029-06-20' - date'2029-06-16') / 365 +
-             (185.94 + a.amnt) / 1000 * cv1 * (1 - (date'2029-06-20' - date'2029-06-16') / 365), 2) cash
-from lcduty a,
-     PUA_1133009 b,
-     lcpol c
-where a.contno = c.contno
-  and b.age = c.INSUREDAPPAGE
-  and b.GENDER = c.INSUREDSEX
-  and a.DUTYCODE like '%1001'
-  and a.contno = '2026061500000486'
-  and b.dt = 4;
-
---累积交清基本保险金额减保限额
-select round(a.AMNT / 1000 * cv2 * (date'2031-09-10' - date'2031-09-05') / 366 +
-             a.AMNT / 1000 * cv1 * (1 - (date'2031-09-10' - date'2031-09-05') / 366), 2) cash
+select /*round((a.amnt) / 1000 * cv2 * (date'2036-09-18' - date'2035-10-20') / 366 +
+             (a.amnt) / 1000 * cv1 * (1 - (date'2036-09-18' - date'2035-10-20') / 366), 2)  cash,
+       a.AMNT,
+       round((2290.03) / 1000 * cv2 * (date'2036-09-18' - date'2035-10-20') / 366 +
+             (2290.03) / 1000 * cv1 * (1 - (date'2036-09-18' - date'2035-10-20') / 366), 2) cash,*/
+       round((a.amnt) / 1000 * cv1, 2)  cash
 from lcduty a,
      PUA_1133009 b,
      lcpol c
@@ -228,8 +228,22 @@ where a.contno = c.contno
   and b.GENDER = c.INSUREDSEX
   and b.pt = c.payendyear
   and a.DUTYCODE like '%1001'
-  and a.contno = '2026090400000486'
-  and b.dt = 6
+  and a.contno = '2026091800000596'
+  and b.dt = 2;
+
+--累积交清基本保险金额减保限额
+select round(3036.47 / 1000 * cv2 * (date'2035-09-18' - date'2034-12-30') / 365 +
+             3036.47 / 1000 * cv1 * (1 - (date'2035-09-18' - date'2034-12-30')  / 365), 2) cash,round(3036.47 / 1000 * cv1, 2),(date'2035-09-18' - date'2034-12-30')
+from lcduty a,
+     PUA_1133009 b,
+     lcpol c
+where a.contno = c.contno
+  and b.age = c.INSUREDAPPAGE
+  and b.GENDER = c.INSUREDSEX
+  and b.pt = c.payendyear
+  and a.DUTYCODE like '%1001'
+  and a.contno = '2026091700000496'
+  and b.dt = 9
 order by dt;
 --累积交清基本保险金额减保后保额  select (1-第t次减保的金额/第t次减保前的现金价值)*第t次减保前的保额 from dual;
 select round((1 - 100 / 10661.53) * 566.55, 2) 减保后保额

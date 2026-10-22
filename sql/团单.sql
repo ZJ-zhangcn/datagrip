@@ -27,7 +27,7 @@ select
 from lcpol a where grpcontno='2023100100000626';
 
 --团单总保费
-select sum(prem) from lcpol a where prtno='3206915150822210';
+select sum(prem) from lcpol a where prtno='5000101450314022';
 
 select sum(sumprem),sum(amnt) from lcpol a where grpcontno='2023110900001556' and appflag='1';
 
@@ -101,7 +101,10 @@ select a.* from es_doc_main a where subtype='32076151' and managecom='86010101';
 
 /*
 insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, docremark, scanoperator, managecom, inputstate, operator, inputstartdate, inputstarttime, inputenddate, inputendtime, makedate, maketime, modifydate, modifytime, version, scanno, printcode, pkgcode, subtypesuncan, scanflag)
-values ((select max(docid)+1 from es_doc_main), '3206915160615043', 'TB', '36083151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', '1', 'TB2023860100001X', '3206915131026011', 1350, 'TXTB', null);
+values ((select max(docid)+1 from es_doc_main), '5000101450314046', 'TB', '36083151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', '1', 'TB2023860100001X', '3206915131026011', 1350, 'TXTB', null);
+
+insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, docremark, scanoperator, managecom, inputstate, operator, inputstartdate, inputstarttime, inputenddate, inputendtime, makedate, maketime, modifydate, modifytime, version, scanno, printcode, pkgcode, subtypesuncan, scanflag)
+values ((select max(docid)+1 from es_doc_main), '3206915160615166', 'TB', '32069151', 1, '1', null, '001', '86010101', null, null, null, null, null, null, to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', to_date('28-09-2023', 'dd-mm-yyyy'), '15:20:26', '1', 'TB2023860100001X', '3206915131026011', 1350, 'TXTB', null);
 
 */
 
@@ -212,17 +215,17 @@ select a.* from ljagetendorse a where grpcontno='2025111700006986' order by make
 select a.* from ljagetendorse a where otherno='3229315100003132';
 
 --保单未打印修改printcount为1
-select printcount,a.* from lcgrpcont a where grpcontno = '2025032600004096';
+select printcount,a.* from lcgrpcont a where grpcontno = '2026091000000286';
 
 /*
-update lcgrpcont set printcount='1' where grpcontno = '2026061600001316'
+update lcgrpcont set printcount='1' where grpcontno = '2026091000000286'
 */
 
 --回执回销
-select * from lcgrpcont where grpcontno = '2025012000000586'and customgetpoldate is null;
+select * from lcgrpcont where grpcontno = '2026091000000286'and customgetpoldate is null;
 
 /*
-update lcgrpcont set customgetpoldate=signdate where grpcontno = '2026061600001316'
+update lcgrpcont set customgetpoldate=signdate where grpcontno = '2026092400000206'
 */
 
 --团单保全单证插表
@@ -234,7 +237,7 @@ insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, d
 values ((select max(docid)+1 from es_doc_main), '3631815101011509', 'BQ', '32293151', 1, '1', null, '001', '86', null, null, null, null, null, null, to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', to_date('15-02-2015', 'dd-mm-yyyy'), '16:12:19', '1', 'TB201586330014', '3229315100005698', 1, null, null);
 
 insert into es_doc_main (docid, doccode, busstype, subtype, numpages, docflag, docremark, scanoperator, managecom, inputstate, operator, inputstartdate, inputstarttime, inputenddate, inputendtime, makedate, maketime, modifydate, modifytime, version, scanno, printcode, pkgcode, subtypesuncan, scanflag)
-values ((select max(docid)+1 from es_doc_main), '5005190150822415', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
+values ((select max(docid)+1 from es_doc_main), '5005190150822439', 'BQ', '50051901', 1, '1', null, '002', '86010101', null, null, null, null, null, null, to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', to_date('01-02-2024', 'dd-mm-yyyy'), '11:57:53', '1', 'BQ2024860100001X', '5005190140201018', 74, 'TXBQ', null);
 
 */
 

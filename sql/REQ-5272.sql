@@ -7,7 +7,7 @@ select prtno          投保单号,
        prodsuitable   产品适当性是否匹配,
        risksign       风险警示确认书是否签署
 from lccustevaluation a
-where prtno = '5000118251009733'
+where prtno in ('2026101400000156','2026101400000976','2026101400000516')
 order by serialno;
 
 select prtno          投保单号,
